@@ -1,0 +1,9 @@
+{
+  "amendment": "A1",
+  "frozen_before_formal_execution": true,
+  "formal_outcomes_visible": false,
+  "files": {
+    "configs/stage1_2_development_amendment1.yaml": "11777b7bc6c46aa35c75fc7a55797135bb2a35acec959f438e826778ce58bc19",
+    "reports/STAGE1_2_AMENDMENTS.md": "6f6686f755e35929357d76d8cd1853d50b33d6ff752c0cc7b0cef18a3b752437"
+  }
+}

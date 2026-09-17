@@ -1,0 +1,101 @@
+protocol:
+  name: etrcm-stage1.2
+  version: 1.0.0
+  split_salt: etrcm-stage1.2-v1-frozen
+  source_revision: cccd59f0371939d864287b94d62dfa2efa88358f
+  run_id: stage1_2-formal-v1
+  stage2_training_authorized_before_run: false
+
+model:
+  hidden_dim: 128
+  latent_slots: 4
+  symbol_count: 64
+  key_dim: 32
+  value_dim: 32
+  event_type_dim: 16
+  gamma: 0.12
+  rho_fast: 0.97
+  rho_slow: 0.9995
+  eta_external: 0.6
+
+training:
+  optimizer: adamw
+  candidate_learning_rates: [0.001, 0.0003, 0.0001]
+  development_seeds: [1301, 1302]
+  formal_seeds: [3201, 3202, 3203, 3204, 3205, 3206, 3207, 3208]
+  development_steps: 180
+  formal_steps_memory: 600
+  formal_steps_autonomous: 700
+  formal_steps_sequential: 900
+  formal_steps_no_evidence: 600
+  batch_size: 48
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  access_regularization: 0.002
+  bptt: full
+  detach_interval: null
+
+evaluation:
+  episodes_query: 128
+  episodes_phase: 64
+  episodes_scaling: 64
+  episodes_autonomous: 256
+  episodes_sequential: 512
+  episodes_no_evidence: 4096
+  exposure_counts: [1, 2, 4, 8, 16, 32]
+  reuse_counts: [0, 1, 2, 4, 8, 16, 32]
+  phase_interference: 256
+  useful_fact_count: 16
+  distractor_counts: [0, 32, 128, 512, 2048]
+  scaling_max_frozen_reason: "32768 learned event transitions x 5 architectures x 8 formal seeds exceeded the fixed two-GPU validation budget; 2048 was frozen before formal outcomes."
+  internal_ticks: [0, 1, 2, 4, 8, 16]
+  no_evidence_ticks: [0, 1, 2, 4, 8, 16, 32, 64]
+  path_lengths: [1, 2, 3, 4, 5, 6, 7, 8]
+  sequential_train_max_length: 5
+  endogenous_interference_candidates: [128, 512, 2048]
+  endogenous_target_accuracy_band: [0.40, 0.80]
+  long_stream_lengths: [1000, 10000, 100000]
+
+functional_addressing:
+  conditions: [original, parallel, perpendicular, signflip, random, target_zero, strongest_nontarget_zero]
+  accuracy_drop_min: 0.08
+  loss_increase_min: 0.10
+  specificity_margin_min: 0.05
+  replicate_seed_count_min: 6
+  per_seed_accuracy_drop_min: 0.05
+
+selective_scaling:
+  high_pressure_distractors: 2048
+  accuracy_margin_min: 0.05
+  degradation_slope_margin_min: 0.015
+  efficiency_margin_min: 0.0
+  efficiency_definition: "mean useful-fact final behavioral accuracy divided by persistent_state_bytes"
+
+sequential_computation:
+  ood_lengths: [6, 7, 8]
+  low_tick_budget: 1
+  high_tick_budget: 8
+  accuracy_gain_min: 0.15
+  replicate_seed_count_min: 6
+  per_seed_gain_min: 0.10
+
+no_self_evidence:
+  chance_tolerance: 0.05
+  confidence_inflation_max: 0.03
+  ece_degradation_max: 0.05
+  knowable_accuracy_gain_min: 0.05
+
+endogenous_time:
+  accuracy_margin_min: 0.05
+  replicate_seed_count_min: 6
+  per_seed_margin_min: 0.03
+
+authorization:
+  long_stream_requires: [G14, G15, G17, no_bypass]
+  memory_lm_requires: [G14, G15, G17, healthy_revision, no_bypass]
+  continuous_cognition_additionally_requires: [G16, ET_STATUS_SUPPORTED]
+
+execution:
+  device: cuda
+  dtype: float32
+  large_tensors_separate: true

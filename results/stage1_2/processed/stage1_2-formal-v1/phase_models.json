@@ -1,0 +1,130 @@
+{
+  "3201": {
+    "linear_intercept_exposure_reuse_interaction": [
+      0.8653630507669008,
+      0.003542308740287741,
+      0.004491382509127786,
+      -0.00012013227353556291
+    ],
+    "log_intercept_exposure_reuse_interaction": [
+      0.6985497374852673,
+      0.07798616678190992,
+      0.09434052392529815,
+      -0.024417944112193585
+    ],
+    "reuse_to_exposure_coefficient_ratio": 1.2097084369991356
+  },
+  "3202": {
+    "linear_intercept_exposure_reuse_interaction": [
+      0.9248839785945774,
+      0.002177657081833348,
+      0.0024422606404375146,
+      -7.480257091877244e-05
+    ],
+    "log_intercept_exposure_reuse_interaction": [
+      0.8181554176881296,
+      0.051680286478715226,
+      0.05779924951744053,
+      -0.016745401681080394
+    ],
+    "reuse_to_exposure_coefficient_ratio": 1.1184003312606525
+  },
+  "3203": {
+    "linear_intercept_exposure_reuse_interaction": [
+      0.902692771397529,
+      0.0027483297289978594,
+      0.0029122528013486625,
+      -8.809908829111911e-05
+    ],
+    "log_intercept_exposure_reuse_interaction": [
+      0.7822171621508078,
+      0.060492764167624,
+      0.06378509940238765,
+      -0.018223397065373
+    ],
+    "reuse_to_exposure_coefficient_ratio": 1.0544252735028055
+  },
+  "3204": {
+    "linear_intercept_exposure_reuse_interaction": [
+      0.9408150270630329,
+      0.0017230901987964403,
+      0.0021034418278488357,
+      -6.6245509751046e-05
+    ],
+    "log_intercept_exposure_reuse_interaction": [
+      0.850258641448189,
+      0.0430652233985602,
+      0.05085974347196463,
+      -0.01504328234929047
+    ],
+    "reuse_to_exposure_coefficient_ratio": 1.1809933737314602
+  },
+  "3205": {
+    "linear_intercept_exposure_reuse_interaction": [
+      0.8896734516426523,
+      0.003275569942389831,
+      0.0033639339337789642,
+      -0.0001074216111570732
+    ],
+    "log_intercept_exposure_reuse_interaction": [
+      0.7419364066639323,
+      0.07450927738397645,
+      0.07793589465616374,
+      -0.0232244687415131
+    ],
+    "reuse_to_exposure_coefficient_ratio": 1.0459891357492108
+  },
+  "3206": {
+    "linear_intercept_exposure_reuse_interaction": [
+      0.8768505652753663,
+      0.0033615979579390974,
+      0.0034300959214186733,
+      -0.00010290671363902748
+    ],
+    "log_intercept_exposure_reuse_interaction": [
+      0.7339296187304228,
+      0.07243914910541725,
+      0.07419230572820468,
+      -0.020979855069194114
+    ],
+    "reuse_to_exposure_coefficient_ratio": 1.024201783765242
+  },
+  "3207": {
+    "linear_intercept_exposure_reuse_interaction": [
+      0.7885794815795371,
+      0.004183998785425471,
+      0.007093187931056604,
+      -0.0001364297035751456
+    ],
+    "log_intercept_exposure_reuse_interaction": [
+      0.5677837555587127,
+      0.08878460365375812,
+      0.13467047371014004,
+      -0.026659717927048396
+    ],
+    "reuse_to_exposure_coefficient_ratio": 1.5168223787462911
+  },
+  "3208": {
+    "linear_intercept_exposure_reuse_interaction": [
+      0.9084034111859473,
+      0.002660806787114688,
+      0.002883908208957335,
+      -8.979067453670185e-05
+    ],
+    "log_intercept_exposure_reuse_interaction": [
+      0.7854730866052078,
+      0.06092953936999779,
+      0.06602830729133993,
+      -0.019277237064913855
+    ],
+    "reuse_to_exposure_coefficient_ratio": 1.0836830209790298
+  },
+  "aggregate": {
+    "mean_reuse_to_exposure_coefficient_ratio": 1.1542779668417285,
+    "bootstrap_95_ci": [
+      1.0713016803763247,
+      1.2700686885371788
+    ],
+    "interpretation": "descriptive log-model coefficient ratio; not a universal exchange rate"
+  }
+}

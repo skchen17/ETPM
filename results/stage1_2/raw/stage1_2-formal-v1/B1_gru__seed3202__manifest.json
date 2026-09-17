@@ -1,0 +1,13 @@
+{
+  "run_id": "stage1_2-formal-v1",
+  "job": "B1_gru__seed3202",
+  "model": "B1_gru",
+  "seed": 3202,
+  "selected_learning_rate": 0.001,
+  "selected_endogenous_interference": 512,
+  "git_revision": "3cadc3c72e7fbe22d5cbed4b5e9b9a0e7b2010d8",
+  "created_utc": "2026-09-17T17:11:29.219504+00:00",
+  "record_count": 5120,
+  "long_stream_run": false,
+  "stage2_training_run": false
+}

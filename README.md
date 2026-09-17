@@ -133,6 +133,53 @@ bash experiments/run_stage1_1_all.sh stage1_1-formal-v1a1 0.001
 python experiments/analyze_stage1_1.py --run-id stage1_1-formal-v1a1
 ```
 
+## Stage 1.2 functional validation (2026-09-18)
+
+Stage 1.2 used eight fresh formal seeds (`3201`–`3208`), a frozen protocol,
+equal per-architecture development search budgets, explicit query
+interventions, and hard information-path audits. The complete run is
+`stage1_2-formal-v1`.
+
+Frozen outcomes:
+
+- **G14 Functional addressing: FAIL.** Removing the target-key projection
+  reduced accuracy by only `0.0176` and replicated in `1/8` seeds. Sign flip
+  was destructive, so the query matters globally, but target-direction-specific
+  functional addressing was not established. Historical G7 remains unchanged.
+- **G15 Selective persistence scaling: FAIL.** ET-RCM degraded more slowly than
+  the matched single-persistent baseline, but its 2048-distractor accuracy
+  margin was only `0.0050`, below the frozen `0.05` threshold.
+- **G16 Sequential internal computation: FAIL.** The hard one-query-per-tick
+  bottleneck audit passed, but OOD `K8-K1` accuracy gain was only `0.0078` and
+  was not systematic.
+- **G17 No self-evidence: FAIL as a compound gate.** The cue-free unknowable
+  stratum stayed at chance (`0.5005` at K=64) and confidence did not inflate;
+  however, the knowable control was already near ceiling and did not achieve
+  the preregistered tick benefit.
+- **Endogenous-time status: SUPPORTED for consolidation timing.** Moving the
+  same NULL compute before rather than after interference improved accuracy by
+  `0.2275` in `8/8` seeds. This does not establish sequential cognition.
+
+The exposure×reuse phase diagram showed both genuine exposure and value-free
+reuse improving slow retention; the descriptive log-coefficient ratio was
+`1.1543` (seed-bootstrap 95% CI `[1.0713, 1.2701]`) and is specific to this toy
+distribution. Goal-only autonomous retrieval produced task-dependent A/B/C
+query trajectories, while F/M lesions showed that slow memory was behaviorally
+used and fast state could become interfering under long streams.
+
+Neither Stage-2 path is authorized. Experiment I was `NOT_RUN_BY_PROTOCOL`, and
+no decoder LM training was started. See `reports/STAGE1_2_FINAL_REPORT.md` for
+the full A–I methods/results tables and all 17 required answers, and
+`reports/NEGATIVE_RESULTS_STAGE1_2.md` for preserved null/negative outcomes.
+
+Reproduction:
+
+```bash
+bash experiments/run_stage1_2_development_all.sh
+bash experiments/run_stage1_2_all.sh
+python experiments/analyze_stage1_2.py --run-id stage1_2-formal-v1
+```
+
 ## Layout
 
 - `src/etrcm/`: state, memory math, latent dynamics, baselines, and toy suite
@@ -140,5 +187,5 @@ python experiments/analyze_stage1_1.py --run-id stage1_1-formal-v1a1
 - `experiments/`: reproducible run and analysis entry points
 - `docs/`: architecture, hypotheses, provenance, and Stage-2 gate plan
 - `results/`: machine-readable outputs
-- `reports/`: Stage-1 and Stage-1.1 protocol, topic reports, negative results,
+- `reports/`: Stage-1, Stage-1.1 and Stage-1.2 protocols, topic reports, negative results,
   integrity-aware final report, and Stage-2 go/no-go decision

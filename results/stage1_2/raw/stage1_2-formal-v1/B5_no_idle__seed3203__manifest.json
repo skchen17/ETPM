@@ -1,0 +1,13 @@
+{
+  "run_id": "stage1_2-formal-v1",
+  "job": "B5_no_idle__seed3203",
+  "model": "B5_no_idle",
+  "seed": 3203,
+  "selected_learning_rate": 0.001,
+  "selected_endogenous_interference": 512,
+  "git_revision": "250a7b77e5f10df157cc7e6a117e1156257edb13",
+  "created_utc": "2026-09-17T17:22:30.494673+00:00",
+  "record_count": 6144,
+  "long_stream_run": false,
+  "stage2_training_run": false
+}

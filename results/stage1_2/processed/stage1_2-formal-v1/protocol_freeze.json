@@ -1,0 +1,15 @@
+{
+  "protocol": "stage1.2-v1",
+  "frozen_before_formal_execution": true,
+  "stage2_training_authorized": false,
+  "source_revision": "cccd59f0371939d864287b94d62dfa2efa88358f",
+  "files": {
+    "reports/STAGE1_2_PROTOCOL.md": "86a04495984006c51e773b6e7b44b0cfa9762308ab7117faa6630659be56d85b",
+    "configs/stage1_2.yaml": "5918cf59d1945646380ecf45d07f669d359094b7c360e08d143573b6f6549fd5",
+    "configs/stage1_2_splits.json": "9679e237afb3aeee0756361665aa39f8be1d9c6d80b44e9e8f2082b42ae56a03",
+    "artifacts/stage1_2_prior_assets.sha256": "83ba8ca2fe30fa46eeefa79b0ba029dbc6895efd14254ca2782c0b98e3155f24"
+  },
+  "formal_run_id": "stage1_2-formal-v1",
+  "formal_seeds": [3201, 3202, 3203, 3204, 3205, 3206, 3207, 3208],
+  "amendment_policy": "additive versioned amendments only; preserve prior and failed outputs"
+}

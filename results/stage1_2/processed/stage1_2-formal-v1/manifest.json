@@ -1,0 +1,19 @@
+{
+  "run_id": "stage1_2-formal-v1",
+  "created_utc": "2026-09-17T18:21:47.742819+00:00",
+  "formal_jobs": 40,
+  "record_rows": 998400,
+  "training_rows": 896,
+  "combined_records": {
+    "path": "records.parquet",
+    "sha256": "f07f78b7647b22a825be5207614a7da76e931d9244d8640f378cbb11454b82a8",
+    "bytes": 236921110,
+    "git_tracked": false,
+    "reason": "exceeds GitHub 100 MiB per-file limit; reconstructible from committed raw shards"
+  },
+  "long_stream_authorized": false,
+  "long_stream_run": false,
+  "stage2_memory_lm_authorized": false,
+  "stage2_continuous_cognition_lm_authorized": false,
+  "stage2_training_run": false
+}

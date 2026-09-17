@@ -1,0 +1,13 @@
+{
+  "protocol": "stage1.2-v1+A1",
+  "frozen_before_formal_execution": true,
+  "formal_outcomes_visible": false,
+  "selected_config": {
+    "configs/stage1_2_selected.json": "078a581f68a32cd56e083364fd321bf486e271767b12542255e4d730bed5fa12"
+  },
+  "development_artifacts": {
+    "results/stage1_2/raw/stage1_2-development-v1a1/learning_rate_selection.parquet": "48b387a0fa91abeeaf43aa90f012ad495559fe8fbba59cbec950550cb03a7948",
+    "results/stage1_2/raw/stage1_2-development-v1a1/endogenous_difficulty_selection.parquet": "d45ea76a0aecd84352089f5a9b19a547e5ea2959dbf30a28c276540b595b615b",
+    "results/stage1_2/raw/stage1_2-development-v1a1/selected_hyperparameters.json": "6a65a2c88c1642f9c8d542d48260999cf7b3dd5afed64f4bc5e40ad660c22c92"
+  }
+}

@@ -70,3 +70,30 @@ used to adjudicate the matched-capacity gate.
 The frozen Stage-1.1 outcome does not justify adding a Transformer or decoder:
 learned idle reasoning and interleaved-time behavioral gates failed. Stage 2
 remains a plan, not an implemented architecture.
+
+## Stage-1.2 functional intervention layer
+
+`src/etrcm/stage1_2/` preserves the Stage-1.1 memory laws while adding a
+one-step forced-query interface. It can replay an identical state under the
+learned query, target-parallel/perpendicular components, sign flip,
+norm-matched random query, or selective target/non-target projection removal.
+External writes remain impossible on NULL steps, and the intervention itself
+does not mutate the source state.
+
+The Stage-1.2 TASK_CUE encodes the operation only. After facts are written and
+H is scrubbed, autonomous experiments expose neither key IDs nor values. The
+sequential graph task likewise scrubs graph history and permits exactly one
+query/read per internal tick; audit fields record query count, H scrub, and
+absence of labels in events.
+
+Pre/post lesion quantities are explicit:
+`pre_lesion_slow_retention`, `post_lesion_slow_retention`,
+`pre_lesion_accuracy`, and `post_lesion_accuracy`. This naming is new to Stage
+1.2 and does not alter Stage-1.1 records.
+
+The frozen Stage-1.2 result does not authorize a decoder architecture. Slow M
+is demonstrably used, and pre-interference consolidation timing helps in one
+matched-compute toy, but target-direction functional addressing, selective
+behavioral scaling, and length-generalized sequential recurrence did not pass
+their gates. Internal time should therefore remain an optional consolidation
+scheduling mechanism, not a continuous-cognition core claim.

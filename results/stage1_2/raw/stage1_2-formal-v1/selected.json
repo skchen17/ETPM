@@ -1,0 +1,20 @@
+{
+  "protocol": "stage1.2-v1+A1",
+  "development_run_id": "stage1_2-development-v1a1",
+  "development_steps": 600,
+  "selected_learning_rates": {
+    "B1_gru": 0.001,
+    "B2_single_persistent": 0.001,
+    "B3_uniform": 0.001,
+    "B5_no_idle": 0.001,
+    "B6_full": 0.001
+  },
+  "selected_endogenous_interference": 512,
+  "selection_rule": "maximum mean validation accuracy; exact ties by lower mean validation loss, then lower learning rate; endogenous difficulty closest to frozen 0.60 center",
+  "development_artifacts": {
+    "results/stage1_2/raw/stage1_2-development-v1a1/learning_rate_selection.parquet": "48b387a0fa91abeeaf43aa90f012ad495559fe8fbba59cbec950550cb03a7948",
+    "results/stage1_2/raw/stage1_2-development-v1a1/endogenous_difficulty_selection.parquet": "d45ea76a0aecd84352089f5a9b19a547e5ea2959dbf30a28c276540b595b615b",
+    "results/stage1_2/raw/stage1_2-development-v1a1/selected_hyperparameters.json": "6a65a2c88c1642f9c8d542d48260999cf7b3dd5afed64f4bc5e40ad660c22c92"
+  },
+  "frozen_before_formal_execution": true
+}

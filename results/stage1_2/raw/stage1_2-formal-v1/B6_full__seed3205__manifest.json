@@ -1,0 +1,13 @@
+{
+  "run_id": "stage1_2-formal-v1",
+  "job": "B6_full__seed3205",
+  "model": "B6_full",
+  "seed": 3205,
+  "selected_learning_rate": 0.001,
+  "selected_endogenous_interference": 512,
+  "git_revision": "250a7b77e5f10df157cc7e6a117e1156257edb13",
+  "created_utc": "2026-09-17T17:37:59.659905+00:00",
+  "record_count": 102272,
+  "long_stream_run": false,
+  "stage2_training_run": false
+}

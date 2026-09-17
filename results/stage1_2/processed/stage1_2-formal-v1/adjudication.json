@@ -1,0 +1,66 @@
+{
+  "gates": {
+    "G14_functional_addressing": {
+      "pass": false,
+      "accuracy_drop_target_removed": 0.017578125,
+      "loss_increase_target_removed": -0.04634603403246729,
+      "specificity_margin_vs_nontarget": 0.01953125,
+      "replicate_seed_count": 1,
+      "signed_cosine_descriptive": 0.2188403476611711,
+      "absolute_cosine_descriptive": 0.8411630313494243
+    },
+    "G15_selective_persistence_scaling": {
+      "pass": false,
+      "high_pressure_accuracy_margin_vs_B2": 0.0050048828125,
+      "degradation_slope_margin_vs_B2": 0.026649331546977933,
+      "efficiency_margin_vs_B2": 4.887580871582031e-07,
+      "B6_slopes": [
+        -0.08773008521061307,
+        -0.10349702258489869,
+        -0.1064335901141216,
+        -0.11049243762204325,
+        -0.11258163777408241,
+        -0.10304045098893407,
+        -0.08447186939187297,
+        -0.09922773870667145
+      ],
+      "B2_slopes": [
+        -0.12982363928556107,
+        -0.131020229914187,
+        -0.12751987287950248,
+        -0.12903672782790024,
+        -0.13090165547365026,
+        -0.11857581700904749,
+        -0.12658933298244734,
+        -0.127202209396765
+      ]
+    },
+    "G16_sequential_internal_computation": {
+      "pass": false,
+      "ood_K8_minus_K1_accuracy": 0.007812500000000007,
+      "replicate_seed_count": 0,
+      "systematic_K1_K2_K4_K8": false,
+      "hard_bottleneck_audit": true
+    },
+    "G17_no_self_evidence": {
+      "pass": false,
+      "knowable_K16_minus_K0_accuracy": 0.000701904296875,
+      "unknowable_K64_accuracy": 0.50048828125,
+      "unknowable_confidence_inflation": -0.02634781864071556,
+      "unknowable_ece_degradation": -0.0271107479929924,
+      "same_format_no_condition_cue": true
+    }
+  },
+  "endogenous_time": {
+    "status": "ET_STATUS_SUPPORTED",
+    "before_minus_after_accuracy": 0.2275390625,
+    "replicate_seed_count": 8
+  },
+  "audits": {
+    "no_bypass": true,
+    "healthy_revision_inherited": true
+  },
+  "LONG_STREAM_AUTHORIZED": false,
+  "STAGE2_MEMORY_LM_AUTHORIZED": false,
+  "STAGE2_CONTINUOUS_COGNITION_LM_AUTHORIZED": false
+}
