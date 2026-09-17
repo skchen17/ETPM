@@ -1,0 +1,63 @@
+{
+  "gates": {
+    "G7_learned_query": {
+      "pass": false,
+      "alignment_margin": -0.7875448781305749,
+      "accuracy_margin": 0.3125,
+      "retention_endpoint_change": 0.16113682198596913
+    },
+    "G8_selective_persistence": {
+      "pass": true,
+      "accuracy_margin_vs_B2": 0.05902777777777778,
+      "retention_margin_vs_B2": 0.7652320715933456
+    },
+    "G9_usage_over_frequency": {
+      "pass": false,
+      "useful_over_unused": -0.18443436144540704,
+      "useful_over_uniform": 0.31344190952465095
+    },
+    "G10_idle_reasoning": {
+      "pass": false,
+      "accuracy_K16_minus_K0": 0.0026041666666667407
+    },
+    "G11_interleaved_time": {
+      "pass": false,
+      "best_schedule_accuracy_margin": 0.0
+    },
+    "G12_no_self_evidence": {
+      "pass": true,
+      "accuracy_K32": 0.503173828125,
+      "confidence_inflation": -0.012118804195779376,
+      "ece_degradation": -0.008909006913503013
+    },
+    "G13_revision": {
+      "pass": true,
+      "best_balanced_cell_new_probability": 0.9792934889378755,
+      "reference_unrelated_retention": 0.3009235329479149
+    }
+  },
+  "negative_criteria": {
+    "N6_query_collapse": {
+      "triggered": true,
+      "query_variance": 0.02869087254541132
+    },
+    "N7_B2_not_worse_all_regimes": {
+      "triggered": false
+    },
+    "N8_no_interleaved_advantage": {
+      "triggered": true
+    },
+    "N9_confidence_inflation": {
+      "triggered": false
+    },
+    "N10_revision_failure": {
+      "triggered": false
+    },
+    "N11_lesion_or_bypass": {
+      "triggered": false,
+      "memory_lesion_accuracy_drop": 0.06597222222222222,
+      "history_bypass_tests_passed": true
+    }
+  },
+  "STAGE2_LANGUAGE_MODEL_AUTHORIZED": false
+}

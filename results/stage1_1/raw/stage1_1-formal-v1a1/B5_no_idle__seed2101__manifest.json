@@ -1,0 +1,14 @@
+{
+  "run_id": "stage1_1-formal-v1a1",
+  "job": "B5_no_idle__seed2101",
+  "model": "B5_no_idle",
+  "seed": 2101,
+  "learning_rate": 0.001,
+  "device": "cuda",
+  "created_utc": "2026-09-17T14:17:49.592046+00:00",
+  "git_revision": "cf3d2e1204a135e5084b16a6ab2462a84f17b0a2",
+  "record_count": 9824,
+  "checkpoint_dir": "artifacts/stage1_1/stage1_1-formal-v1a1",
+  "long_stream_run": false,
+  "stage2_run": false
+}

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+<rect width="100%" height="100%" fill="white"/>
+<text x="80" y="28" font-family="sans-serif" font-size="20" font-weight="bold">D_idle_reasoning</text>
+<line x1="80" y1="445" x2="670" y2="445" stroke="#111"/>
+<line x1="80" y1="55" x2="80" y2="445" stroke="#111"/>
+<text x="375.0" y="505" text-anchor="middle" font-family="sans-serif" font-size="14">internal tick</text>
+<text x="18" y="250.0" transform="rotate(-90 18 250.0)" text-anchor="middle" font-family="sans-serif" font-size="14">accuracy</text>
+<line x1="80" y1="445.0" x2="670" y2="445.0" stroke="#e5e7eb"/>
+<text x="72" y="449.0" text-anchor="end" font-family="sans-serif" font-size="11">0.482</text>
+<line x1="80" y1="367.0" x2="670" y2="367.0" stroke="#e5e7eb"/>
+<text x="72" y="371.0" text-anchor="end" font-family="sans-serif" font-size="11">0.497</text>
+<line x1="80" y1="289.0" x2="670" y2="289.0" stroke="#e5e7eb"/>
+<text x="72" y="293.0" text-anchor="end" font-family="sans-serif" font-size="11">0.512</text>
+<line x1="80" y1="211.0" x2="670" y2="211.0" stroke="#e5e7eb"/>
+<text x="72" y="215.0" text-anchor="end" font-family="sans-serif" font-size="11">0.527</text>
+<line x1="80" y1="133.0" x2="670" y2="133.0" stroke="#e5e7eb"/>
+<text x="72" y="137.0" text-anchor="end" font-family="sans-serif" font-size="11">0.541</text>
+<line x1="80" y1="55.0" x2="670" y2="55.0" stroke="#e5e7eb"/>
+<text x="72" y="59.0" text-anchor="end" font-family="sans-serif" font-size="11">0.556</text>
+<polyline points="80.0,389.4 116.9,423.8 153.8,399.7 227.5,403.2 375.0,403.2 670.0,403.2" fill="none" stroke="#2563eb" stroke-width="2"/>
+<circle cx="80.0" cy="389.4" r="3" fill="#2563eb"/>
+<circle cx="116.9" cy="423.8" r="3" fill="#2563eb"/>
+<circle cx="153.8" cy="399.7" r="3" fill="#2563eb"/>
+<circle cx="227.5" cy="403.2" r="3" fill="#2563eb"/>
+<circle cx="375.0" cy="403.2" r="3" fill="#2563eb"/>
+<circle cx="670.0" cy="403.2" r="3" fill="#2563eb"/>
+<line x1="700" y1="55" x2="720" y2="55" stroke="#2563eb" stroke-width="3"/>
+<text x="728" y="59" font-family="sans-serif" font-size="11">B1_gru</text>
+<polyline points="80.0,427.3 116.9,427.3 153.8,427.3 227.5,427.3 375.0,427.3 670.0,427.3" fill="none" stroke="#dc2626" stroke-width="2"/>
+<circle cx="80.0" cy="427.3" r="3" fill="#dc2626"/>
+<circle cx="116.9" cy="427.3" r="3" fill="#dc2626"/>
+<circle cx="153.8" cy="427.3" r="3" fill="#dc2626"/>
+<circle cx="227.5" cy="427.3" r="3" fill="#dc2626"/>
+<circle cx="375.0" cy="427.3" r="3" fill="#dc2626"/>
+<circle cx="670.0" cy="427.3" r="3" fill="#dc2626"/>
+<line x1="700" y1="73" x2="720" y2="73" stroke="#dc2626" stroke-width="3"/>
+<text x="728" y="77" font-family="sans-serif" font-size="11">B5_no_idle</text>
+<polyline points="80.0,110.6 116.9,131.2 153.8,72.7 227.5,89.9 375.0,76.2 670.0,96.8" fill="none" stroke="#16a34a" stroke-width="2"/>
+<circle cx="80.0" cy="110.6" r="3" fill="#16a34a"/>
+<circle cx="116.9" cy="131.2" r="3" fill="#16a34a"/>
+<circle cx="153.8" cy="72.7" r="3" fill="#16a34a"/>
+<circle cx="227.5" cy="89.9" r="3" fill="#16a34a"/>
+<circle cx="375.0" cy="76.2" r="3" fill="#16a34a"/>
+<circle cx="670.0" cy="96.8" r="3" fill="#16a34a"/>
+<line x1="700" y1="91" x2="720" y2="91" stroke="#16a34a" stroke-width="3"/>
+<text x="728" y="95" font-family="sans-serif" font-size="11">B6_full</text>
+</svg>

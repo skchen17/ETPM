@@ -6,10 +6,10 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import yaml
@@ -177,12 +177,11 @@ def adjudicate(records: pd.DataFrame, config: dict) -> dict:
 
 def make_figures(records: pd.DataFrame, output: Path) -> None:
     output.mkdir(parents=True, exist_ok=True)
-    plt.style.use("seaborn-v0_8-whitegrid")
     specs = [
-        ("A_learned_reuse", "reuse_count", "slow_retention", "learned_reuse_retention.png"),
-        ("B_selective_persistence", "distractor_count", "accuracy", "capacity_accuracy.png"),
-        ("D_idle_reasoning", "internal_tick", "accuracy", "idle_reasoning.png"),
-        ("H_unknowable_bit", "internal_tick", "confidence", "unknowable_confidence.png"),
+        ("A_learned_reuse", "reuse_count", "slow_retention", "learned_reuse_retention.svg"),
+        ("B_selective_persistence", "distractor_count", "accuracy", "capacity_accuracy.svg"),
+        ("D_idle_reasoning", "internal_tick", "accuracy", "idle_reasoning.svg"),
+        ("H_unknowable_bit", "internal_tick", "confidence", "unknowable_confidence.svg"),
     ]
     for experiment, x, y, filename in specs:
         frame = records[records.experiment == experiment]
@@ -191,14 +190,49 @@ def make_figures(records: pd.DataFrame, output: Path) -> None:
         if frame.empty:
             continue
         grouped = frame.groupby(["model", x])[y].mean().reset_index()
-        fig, axis = plt.subplots(figsize=(7.2, 4.4))
-        for model, arm in grouped.groupby("model"):
-            axis.plot(arm[x], arm[y], marker="o", label=model)
-        axis.set(xlabel=x.replace("_", " "), ylabel=y.replace("_", " "), title=experiment)
-        axis.legend(fontsize=7, ncol=2)
-        fig.tight_layout()
-        fig.savefig(output / filename, dpi=160)
-        plt.close(fig)
+        width, height = 900, 520
+        left, top, plot_w, plot_h = 80, 55, 590, 390
+        xmin, xmax = float(grouped[x].min()), float(grouped[x].max())
+        ymin, ymax = float(grouped[y].min()), float(grouped[y].max())
+        if xmax == xmin:
+            xmax += 1.0
+        if ymax == ymin:
+            ymax += 1.0
+        pad = 0.05 * (ymax - ymin)
+        ymin, ymax = ymin - pad, ymax + pad
+        sx = lambda value: left + (float(value) - xmin) / (xmax - xmin) * plot_w
+        sy = lambda value: top + plot_h - (float(value) - ymin) / (ymax - ymin) * plot_h
+        colors = ["#2563eb", "#dc2626", "#16a34a", "#9333ea", "#ea580c", "#0891b2", "#4b5563", "#db2777"]
+        svg = [
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+            '<rect width="100%" height="100%" fill="white"/>',
+            f'<text x="{left}" y="28" font-family="sans-serif" font-size="20" font-weight="bold">{experiment}</text>',
+            f'<line x1="{left}" y1="{top+plot_h}" x2="{left+plot_w}" y2="{top+plot_h}" stroke="#111"/>',
+            f'<line x1="{left}" y1="{top}" x2="{left}" y2="{top+plot_h}" stroke="#111"/>',
+            f'<text x="{left+plot_w/2}" y="505" text-anchor="middle" font-family="sans-serif" font-size="14">{x.replace("_", " ")}</text>',
+            f'<text x="18" y="{top+plot_h/2}" transform="rotate(-90 18 {top+plot_h/2})" text-anchor="middle" font-family="sans-serif" font-size="14">{y.replace("_", " ")}</text>',
+        ]
+        for tick in range(6):
+            value = ymin + tick * (ymax - ymin) / 5
+            position = sy(value)
+            svg += [
+                f'<line x1="{left}" y1="{position:.1f}" x2="{left+plot_w}" y2="{position:.1f}" stroke="#e5e7eb"/>',
+                f'<text x="{left-8}" y="{position+4:.1f}" text-anchor="end" font-family="sans-serif" font-size="11">{value:.3f}</text>',
+            ]
+        for index, (model, arm) in enumerate(grouped.groupby("model")):
+            arm = arm.sort_values(x)
+            color = colors[index % len(colors)]
+            points = " ".join(f"{sx(row[x]):.1f},{sy(row[y]):.1f}" for _, row in arm.iterrows())
+            svg.append(f'<polyline points="{points}" fill="none" stroke="{color}" stroke-width="2"/>')
+            for _, row in arm.iterrows():
+                svg.append(f'<circle cx="{sx(row[x]):.1f}" cy="{sy(row[y]):.1f}" r="3" fill="{color}"/>')
+            legend_y = top + 18 * index
+            svg += [
+                f'<line x1="700" y1="{legend_y}" x2="720" y2="{legend_y}" stroke="{color}" stroke-width="3"/>',
+                f'<text x="728" y="{legend_y+4}" font-family="sans-serif" font-size="11">{model}</text>',
+            ]
+        svg.append("</svg>")
+        (output / filename).write_text("\n".join(svg))
 
 
 def make_report(records: pd.DataFrame, training: pd.DataFrame, adjudication: dict, run_id: str) -> str:
@@ -262,6 +296,180 @@ def make_report(records: pd.DataFrame, training: pd.DataFrame, adjudication: dic
     return "\n".join(lines)
 
 
+def metric_table(frame: pd.DataFrame, groups: list[str], metrics: list[str]) -> str:
+    groups = [column for column in groups if column in frame and frame[column].notna().any()]
+    metrics = [column for column in metrics if column in frame and frame[column].notna().any()]
+    if frame.empty or not groups or not metrics:
+        return "No applicable rows."
+    table = frame.groupby(groups, dropna=False)[metrics].mean().reset_index()
+    lines = ["| " + " | ".join(groups + metrics) + " |", "|" + "---|" * (len(groups) + len(metrics))]
+    for _, row in table.iterrows():
+        values = []
+        for column in groups:
+            value = row[column]
+            values.append(str(int(value)) if isinstance(value, (float, np.floating)) and float(value).is_integer() else str(value))
+        values += [fmt(float(row[column])) for column in metrics]
+        lines.append("| " + " | ".join(values) + " |")
+    return "\n".join(lines)
+
+
+def make_special_reports(records: pd.DataFrame, adjudication: dict) -> dict[str, str]:
+    a = records[records.experiment == "A_learned_reuse"]
+    query = """# Learned Query Dynamics
+
+## Protocol
+
+Each target fact appeared once. Reuse consisted of a current query cue plus shared learned recurrent transitions; the answer value was never restated. After 64 distractors, H was reset and the answer had to be reconstructed through state. The table averages episodes and three formal seeds.
+
+## Results
+
+""" + metric_table(
+        a[a.model.isin(["B6_full", "A5_random_query", "A1_gamma_zero", "A2_uniform_transfer", "A3_equal_timescales", "A4_no_null_dynamics", "A6_frozen_H", "A7_nonconserving"])],
+        ["model", "reuse_count"],
+        ["query_target_alignment", "cumulative_access", "cumulative_transfer", "slow_retention", "accuracy"],
+    ) + f"""
+
+## Finding
+
+G7 is **{'PASS' if adjudication['gates']['G7_learned_query']['pass'] else 'FAIL'}**. Query vectors varied with state, but their frozen cosine alignment to the target key was worse than the random-direction control by {adjudication['gates']['G7_learned_query']['alignment_margin']:.4f}. Accuracy and reuse-dependent retention improved, so the failure is specifically semantic target alignment, not a fixed-query collapse. The non-conserving arm's high accuracy is not valid evidence for ET-RCM because it violates the defining no-amplification law.
+"""
+
+    b = records[records.experiment == "B_selective_persistence"]
+    c = records[records.experiment == "C_frequency_vs_utility"]
+    selective = """# Selective Persistence
+
+## Capacity-pressure protocol
+
+Eight identically encoded useful facts received downstream use, followed by 32/128/512 distractor events. B2 has two persistent matrices and therefore the same matrix-state float count as F+M. B0/B1 capacity mismatches are reported but do not adjudicate G8.
+
+""" + metric_table(
+        b[~b.model.eq("B6_full_memory_lesion")], ["model", "distractor_count"], ["state_bytes", "parameter_count", "slow_retention", "accuracy", "selective_persistence_efficiency"]
+    ) + """
+
+## Memory-dependence lesion
+
+""" + metric_table(
+        b[b.model.isin(["B6_full", "B6_full_memory_lesion"])], ["model", "distractor_count"], ["slow_retention", "accuracy", "confidence"]
+    ) + """
+
+## Frequency-versus-utility protocol and results
+
+Useful facts received 1/2 external exposures and eight real retrieval uses; unused competitors received 8/16/32 exposures without a utility marker.
+
+""" + metric_table(
+        c[c.model.isin(["B2_single_persistent", "B3_uniform", "B6_full"])], ["model", "useful_frequency", "useless_frequency"], ["useful_retention", "useless_retention", "cumulative_access", "accuracy"]
+    ) + f"""
+
+## Finding
+
+G8 is **{'PASS' if adjudication['gates']['G8_selective_persistence']['pass'] else 'FAIL'}**, but G9 is **{'PASS' if adjudication['gates']['G9_usage_over_frequency']['pass'] else 'FAIL'}**. Thus ET-RCM beat the state-byte-matched B2 at the frozen high-pressure endpoint, yet did not prefer low-frequency useful content over the high-frequency unused competitor in the preregistered competition.
+"""
+
+    e = records[records.experiment == "E_interleaved_time"]
+    f = records[records.experiment == "F_consolidate_before_interference"]
+    gg = records[records.experiment == "G_reason_before_interruption"]
+    interleaved = """# Interleaved Endogenous Time
+
+All schedule pairs use identical external events, transition counts and compute budgets. Only ordering changes.
+
+## E — Think before versus after B
+
+""" + metric_table(e, ["model", "schedule"], ["matched_schedule_state_distance", "slow_retention", "accuracy", "confidence"]) + """
+
+## F — Consolidate before versus after interference
+
+""" + metric_table(f, ["model", "schedule"], ["slow_retention", "accuracy", "confidence"]) + """
+
+## G — Reason before versus after interruption
+
+""" + metric_table(gg, ["model", "schedule"], ["accuracy", "confidence", "entropy"]) + f"""
+
+## Finding
+
+G11 is **{'PASS' if adjudication['gates']['G11_interleaved_time']['pass'] else 'FAIL'}**; the B6 behavioral schedule margin was {adjudication['gates']['G11_interleaved_time']['best_schedule_accuracy_margin']:.4f}. Nonzero state distance is recorded but is not treated as usefulness. N8 is therefore triggered.
+"""
+
+    d = records[records.experiment == "D_idle_reasoning"]
+    idle = """# Learned Idle Reasoning
+
+The learned shared recurrent operator was trained on graph distances 1–6. Formal distances 4–6 are in distribution; 7–8 are explicitly marked unseen-longer. No hand-written reachability transition is used.
+
+## In-distribution
+
+""" + metric_table(d[d.unseen_longer_path.eq(0)], ["model", "internal_tick"], ["accuracy", "confidence", "entropy"]) + """
+
+## Unseen longer paths
+
+""" + metric_table(d[d.unseen_longer_path.eq(1)], ["model", "internal_tick"], ["accuracy", "confidence", "entropy"]) + f"""
+
+## Finding
+
+G10 is **{'PASS' if adjudication['gates']['G10_idle_reasoning']['pass'] else 'FAIL'}**. B6 K=16 minus K=0 accuracy was {adjudication['gates']['G10_idle_reasoning']['accuracy_K16_minus_K0']:.4f}, far below the frozen 0.10 margin.
+"""
+
+    h = records[records.experiment == "H_unknowable_bit"]
+    no_evidence = """# Learned No-Self-Evidence Control
+
+The prediction head, recurrent core, memory query and access strength are learned. For unknowable episodes, the Bernoulli target is sampled independently and is absent from every event; the knowable parity arm is a positive training/control task.
+
+""" + metric_table(h, ["control", "internal_tick"], ["accuracy", "confidence", "entropy", "ece", "brier"]) + f"""
+
+## Finding
+
+G12 is **{'PASS' if adjudication['gates']['G12_no_self_evidence']['pass'] else 'FAIL'}**. At K=32 unknowable accuracy was {adjudication['gates']['G12_no_self_evidence']['accuracy_K32']:.4f}; confidence changed by {adjudication['gates']['G12_no_self_evidence']['confidence_inflation']:.4f} and ECE by {adjudication['gates']['G12_no_self_evidence']['ece_degradation']:.4f} relative to K=0. N9 was not triggered.
+"""
+
+    i = records[records.experiment == "I_memory_revision"]
+    revision = """# Stability / Plasticity Pareto
+
+Every model was evaluated over the complete 5x5x5 grid of old exposures, new exposures and new reuse. The full episode-level grid is in `results/stage1_1/processed/stage1_1-formal-v1a1/records.parquet`; no cell is discarded. The tables below summarize every reuse level for every model, then the complete B6 old/new grid averaged across the five reuse settings.
+
+## All models by new-reuse count
+
+""" + metric_table(i, ["model", "new_reuses"], ["old_probability", "new_probability", "unrelated_retention", "accuracy"]) + """
+
+## Full ET-RCM old/new exposure grid (all reuse settings retained in the average)
+
+""" + metric_table(i[i.model.eq("B6_full")], ["old_exposures", "new_exposures"], ["old_probability", "new_probability", "unrelated_retention", "accuracy"]) + f"""
+
+## Finding
+
+G13 is **{'PASS' if adjudication['gates']['G13_revision']['pass'] else 'FAIL'}**. The best preregistered balanced cell satisfying the unrelated-retention constraint reached mean P(new)={adjudication['gates']['G13_revision']['best_balanced_cell_new_probability']:.4f}. This is a toy stability/plasticity result, not evidence of general continual learning.
+"""
+    return {
+        "LEARNED_QUERY_DYNAMICS.md": query,
+        "SELECTIVE_PERSISTENCE.md": selective,
+        "INTERLEAVED_ENDOGENOUS_TIME.md": interleaved,
+        "LEARNED_IDLE_REASONING.md": idle,
+        "LEARNED_NO_SELF_EVIDENCE.md": no_evidence,
+        "STABILITY_PLASTICITY_PARETO.md": revision,
+    }
+
+
+def final_answers(records: pd.DataFrame, adjudication: dict) -> str:
+    g = adjudication["gates"]
+    n = adjudication["negative_criteria"]
+    return f"""
+## Direct answers to the 15 required questions
+
+1. **Task-meaningful autonomous query? No under the frozen definition.** B6 improved task accuracy, but target-key alignment was {g['G7_learned_query']['alignment_margin']:.4f} below the random-query arm; G7 failed.
+2. **Does query change with active state? Yes, but that is insufficient.** Mean per-dimension query variance was {n['N6_query_collapse']['query_variance']:.4f}, so it was not a fixed direction. Its changes did not satisfy semantic target alignment.
+3. **Did future use strengthen slow retention through the learned path? Partly.** B6 reuse-8 minus reuse-0 slow retention was {g['G7_learned_query']['retention_endpoint_change']:.4f}, but the failed alignment component prevents the stronger learned-query claim.
+4. **Did fast/slow beat matched single persistent memory under pressure? Yes at the frozen 512-distractor endpoint.** Accuracy and retention margins were {g['G8_selective_persistence']['accuracy_margin_vs_B2']:.4f} and {g['G8_selective_persistence']['retention_margin_vs_B2']:.4f}; G8 passed.
+5. **Was that only extra state or compute? Not in the adjudicating comparison.** B2 uses two persistent matrices matching F+M floats and the same runner transition budget/training examples. Exact parameter/state-byte counts remain in every row; unmatched B0/B1 are not used to decide G8.
+6. **Which won, frequent-useless or rare-useful? The frequent useless trace.** Useful-minus-useless retention was {g['G9_usage_over_frequency']['useful_over_unused']:.4f}; G9 failed even though B6 beat uniform on useful retention.
+7. **Did the learned core reason usefully on NULL events? No.** K16 minus K0 accuracy was {g['G10_idle_reasoning']['accuracy_K16_minus_K0']:.4f}, below the frozen 0.10 margin, including a separately reported unseen-longer stratum.
+8. **Did idle-before-event differ behaviorally from event-before-idle? No.** The best B6 schedule accuracy margin was {g['G11_interleaved_time']['best_schedule_accuracy_margin']:.4f}. State distance alone was not counted.
+9. **Does endogenous time remain compute/latency scheduling here? Yes.** N8 triggered; this protocol found no independent matched-compute behavioral advantage.
+10. **Did learned autonomous dynamics amplify self-evidence? No detected amplification.** Unknowable K32 accuracy was {g['G12_no_self_evidence']['accuracy_K32']:.4f}, confidence changed {g['G12_no_self_evidence']['confidence_inflation']:.4f}, and ECE changed {g['G12_no_self_evidence']['ece_degradation']:.4f}; G12 passed and N9 did not trigger.
+11. **Can real new evidence revise memory? Yes in preregistered balanced cells.** Best eligible mean P(new) was {g['G13_revision']['best_balanced_cell_new_probability']:.4f}; the complete grid is retained, and G13 passed.
+12. **Fair-baseline result?** GRU/no-memory arms were near chance on delayed associative recall; matched B2 was weaker than B6 at the frozen high-pressure endpoint; uniform transfer was weaker on learned-reuse accuracy. However B2/uniform remained extremely strong on immediate/simple revision settings, and the frequency-utility test favored raw frequency. No broad dominance claim is warranted.
+13. **Which mechanism was necessary?** Consolidation, query dependence and evolving H affected learned-reuse behavior in the registered ablations, while non-conserving replay performed strongly only by violating the core law. No component was shown universally necessary because the main learned-query and endogenous-time gates failed.
+14. **What can be removed without behavioral loss?** For the failed idle/interleaving tasks, NULL dynamics added no registered benefit; globally removing it is not justified because the no-idle arm was weaker on learned reuse. No globally redundant module was established.
+15. **Proceed to decoder LM Stage 2? No.** `STAGE2_LANGUAGE_MODEL_AUTHORIZED = FALSE`; G7, G10 and G11 (and secondary G9) failed, with N6 and N8 triggered. No Stage-2 training was run.
+"""
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-id", default="stage1_1-formal-v1a1")
@@ -270,6 +478,15 @@ def main() -> None:
     processed = ROOT / "results/stage1_1/processed" / args.run_id
     processed.mkdir(parents=True, exist_ok=True)
     config = yaml.safe_load((ROOT / "configs/stage1_1.yaml").read_text())
+    frozen_copies = {
+        "config.yaml": ROOT / "configs/stage1_1.yaml",
+        "splits.json": ROOT / "configs/stage1_1_splits.json",
+        "protocol.md": ROOT / "reports/STAGE1_1_PROTOCOL.md",
+        "protocol_freeze.json": ROOT / "artifacts/stage1_1_protocol.freeze.json",
+    }
+    for name, source in frozen_copies.items():
+        shutil.copy2(source, raw / name)
+        shutil.copy2(source, processed / name)
     records, training, manifests = load_complete(raw)
     records.to_parquet(processed / "records.parquet", index=False)
     training.to_parquet(processed / "training_log.parquet", index=False)
@@ -289,8 +506,12 @@ def main() -> None:
     (processed / "adjudication.json").write_text(json.dumps(adjudication, indent=2))
     make_figures(records, processed / "figures")
     report = make_report(records, training, adjudication, args.run_id)
+    report = report + final_answers(records, adjudication)
     (processed / "STAGE1_1_VALIDATION_REPORT.md").write_text(report)
     (ROOT / "reports/STAGE1_1_VALIDATION_REPORT.md").write_text(report)
+    (ROOT / "reports/STAGE1_1_FINAL_REPORT.md").write_text(report)
+    for filename, content in make_special_reports(records, adjudication).items():
+        (ROOT / "reports" / filename).write_text(content)
     negatives = ["# Stage 1.1 Negative and Null Results", ""]
     for name, values in adjudication["negative_criteria"].items():
         negatives.append(f"- **{name}: {'TRIGGERED' if values['triggered'] else 'not triggered'}** — " + ", ".join(f"{k}={v}" for k, v in values.items() if k != "triggered"))
@@ -318,6 +539,21 @@ def main() -> None:
     (processed / "manifest.json").write_text(json.dumps(manifest, indent=2))
     paths = sorted(path for path in processed.rglob("*") if path.is_file() and path.name != "SHA256SUMS")
     (processed / "SHA256SUMS").write_text("\n".join(f"{sha256(path)}  {path.relative_to(processed)}" for path in paths) + "\n")
+    raw_paths = sorted(path for path in raw.rglob("*") if path.is_file() and path.name != "SHA256SUMS")
+    (raw / "SHA256SUMS").write_text(
+        "\n".join(f"{sha256(path)}  {path.relative_to(raw)}" for path in raw_paths) + "\n"
+    )
+    checkpoint_dir = ROOT / "artifacts/stage1_1" / args.run_id
+    checkpoint_paths = sorted(
+        path for path in checkpoint_dir.rglob("*")
+        if path.is_file() and path.name != "SHA256SUMS"
+    )
+    (checkpoint_dir / "SHA256SUMS").write_text(
+        "\n".join(
+            f"{sha256(path)}  {path.relative_to(checkpoint_dir)}"
+            for path in checkpoint_paths
+        ) + "\n"
+    )
     print(json.dumps(adjudication, indent=2))
 
 

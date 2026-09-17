@@ -1,4 +1,4 @@
-# Stage-1 architecture
+# ET-RCM Stage-1 and Stage-1.1 architecture
 
 ## State and clocks
 
@@ -44,3 +44,29 @@ single-persistent-memory comparison.
 No halting policy, hierarchy, attention stack, language tokenizer, RAG store,
 importance label, or textual memory subsystem is present. The module boundary
 allows the gated MLP to be replaced by a shared Transformer core after Stage 1.
+
+## Stage-1.1 learned implementation
+
+`src/etrcm/stage1_1/` adds a batched state and current-event-only contract. The
+formal learned model uses four 128-wide H slots and 32x32 F/M matrices. A shared
+symbol embedding feeds a learned event encoder. The current H produces a unit
+query through RMS normalization, mean pooling and a learned projection. The
+same gated MLP transition is reused at every event and NULL tick; no tick owns
+separate parameters. Symbol and binary heads read only pooled H.
+
+The fixed memory laws are unchanged: only an external event with
+`write_mask=true` executes the delta write; query-dependent transfer conserves
+F+M before decay. The event dataclass contains only kind/key/value/aux/current
+scalars and has no history or future-utility field. Delayed associative tests
+reset H before the final query, and formal capacity evaluation includes a zero
+F/M lesion.
+
+Trained baselines are B0 recurrent MLP without matrix memory, B1 GRU, B2 two
+persistent heads matching the F+M matrix float count, B3 uniform transfer, B5
+no-NULL dynamics and B6 full ET-RCM. Exact parameter counts, persistent-state
+bytes and compute budgets are stored per record; B0/B1 size mismatches are not
+used to adjudicate the matched-capacity gate.
+
+The frozen Stage-1.1 outcome does not justify adding a Transformer or decoder:
+learned idle reasoning and interleaved-time behavioral gates failed. Stage 2
+remains a plan, not an implemented architecture.

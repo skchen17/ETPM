@@ -1,0 +1,14 @@
+{
+  "run_id": "stage1_1-formal-v1a1",
+  "job": "B1_gru__seed2103",
+  "model": "B1_gru",
+  "seed": 2103,
+  "learning_rate": 0.001,
+  "device": "cuda",
+  "created_utc": "2026-09-17T14:06:03.644080+00:00",
+  "git_revision": "cf3d2e1204a135e5084b16a6ab2462a84f17b0a2",
+  "record_count": 9824,
+  "checkpoint_dir": "artifacts/stage1_1/stage1_1-formal-v1a1",
+  "long_stream_run": false,
+  "stage2_run": false
+}

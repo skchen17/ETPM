@@ -1,0 +1,79 @@
+protocol:
+  name: etrcm-stage1.1
+  version: 1.0.0
+  split_salt: etrcm-stage1.1-v1-frozen
+  stage2_authorized_before_run: false
+
+model:
+  hidden_dim: 128
+  latent_slots: 4
+  symbol_count: 64
+  key_dim: 32
+  value_dim: 32
+  memory_heads: 1
+  event_type_dim: 16
+  gamma: 0.12
+  rho_fast: 0.97
+  rho_slow: 0.9995
+  eta_external: 0.6
+  learned_access: true
+
+training:
+  optimizer: adamw
+  development_learning_rates: [0.001, 0.0003]
+  development_steps: 240
+  formal_steps_memory: 700
+  formal_steps_graph: 900
+  formal_steps_unknowable: 700
+  batch_size: 64
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  bptt: full
+  detach_interval: null
+  activation_checkpointing: false
+  access_regularization: 0.002
+  development_seeds: [1101, 1102]
+  formal_seeds: [2101, 2102, 2103]
+
+evaluation:
+  reuse_counts: [0, 1, 2, 4, 8]
+  distractor_counts: [32, 128, 512]
+  useful_fact_counts: [8]
+  useless_frequencies: [8, 16, 32]
+  useful_frequencies: [1, 2]
+  idle_ticks: [0, 1, 2, 4, 8, 16]
+  unknowable_ticks: [0, 1, 2, 4, 8, 16, 32]
+  old_exposures: [1, 2, 4, 8, 16]
+  new_exposures: [1, 2, 4, 8, 16]
+  new_reuses: [0, 1, 2, 4, 8]
+  learned_reuse_interference: 64
+  capacity_eval_episodes: 96
+  graph_eval_episodes: 512
+  unknowable_eval_episodes: 4096
+  long_stream_lengths: [1000, 10000, 100000]
+
+gates:
+  g7_alignment_margin: 0.10
+  g7_accuracy_margin: 0.05
+  g7_retention_slope_min: 0.02
+  g8_accuracy_margin: 0.05
+  g8_retention_margin: 0.05
+  g9_useful_over_frequency_margin: 0.05
+  g10_accuracy_margin: 0.10
+  g11_behavior_margin: 0.05
+  g12_chance_tolerance: 0.05
+  g12_confidence_inflation_max: 0.03
+  g12_ece_degradation_max: 0.05
+  g13_revision_probability_min: 0.70
+  n6_alignment_floor: 0.10
+  n8_behavior_margin: 0.05
+  n9_confidence_inflation: 0.03
+  n10_revision_probability_floor: 0.70
+  n11_memory_lesion_accuracy_drop_min: 0.05
+
+execution:
+  device: cuda
+  dtype: float32
+  formal_run_id: stage1_1-formal-v1
+  long_stream_requires_intermediate_authorization: true
+

@@ -1,0 +1,14 @@
+{
+  "run_id": "stage1_1-formal-v1a1",
+  "job": "B3_uniform__seed2102",
+  "model": "B3_uniform",
+  "seed": 2102,
+  "learning_rate": 0.001,
+  "device": "cuda",
+  "created_utc": "2026-09-17T14:14:04.637609+00:00",
+  "git_revision": "cf3d2e1204a135e5084b16a6ab2462a84f17b0a2",
+  "record_count": 5728,
+  "checkpoint_dir": "artifacts/stage1_1/stage1_1-formal-v1a1",
+  "long_stream_run": false,
+  "stage2_run": false
+}

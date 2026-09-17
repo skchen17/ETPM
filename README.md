@@ -103,6 +103,36 @@ current evidence supports an implementation proof and several mechanism checks,
 but does not establish that fast/slow state or endogenous idle time is necessary.
 See `reports/TOY_VALIDATION_REPORT.md` for exact curves and limitations.
 
+## Stage 1.1 learned-dynamics result (2026-09-17)
+
+Stage 1.1 replaced experimenter-controlled queries/dynamics with a learned
+event encoder, learned `q=normalize(W_q RMSNorm(pool(H)))`, one shared gated
+recurrent core, learned access strength, and learned prediction heads. B0, B1,
+B2, B3, B5 and B6 were trained for three frozen formal seeds. The corrected,
+fully disclosed formal run is `stage1_1-formal-v1a1`; the aborted partial v1 run
+is preserved and explained in `reports/STAGE1_1_AMENDMENTS.md`.
+
+Frozen outcomes: G8 selective persistence, G12 no-self-evidence and G13
+revision passed. G7 learned-query semantics, G9 utility-over-frequency, G10
+idle reasoning and G11 matched-compute interleaving failed. In particular,
+B6 beat the state-byte-matched B2 at 512 distractors, and unknowable-bit
+confidence did not inflate, but NULL ticks added only 0.0026 graph accuracy and
+the interleaved schedule margin was 0.0000. The learned query varied with H but
+failed the preregistered target-key alignment margin.
+
+Therefore `STAGE2_LANGUAGE_MODEL_AUTHORIZED = FALSE`; no decoder LM or long
+stream experiment was run. See `reports/STAGE1_1_FINAL_REPORT.md` and the
+topic-specific reports for complete methods, condition tables, negative
+results, and all 15 required answers.
+
+Reproduction:
+
+```bash
+python experiments/run_stage1_1.py --mode development --device cuda
+bash experiments/run_stage1_1_all.sh stage1_1-formal-v1a1 0.001
+python experiments/analyze_stage1_1.py --run-id stage1_1-formal-v1a1
+```
+
 ## Layout
 
 - `src/etrcm/`: state, memory math, latent dynamics, baselines, and toy suite
@@ -110,4 +140,5 @@ See `reports/TOY_VALIDATION_REPORT.md` for exact curves and limitations.
 - `experiments/`: reproducible run and analysis entry points
 - `docs/`: architecture, hypotheses, provenance, and Stage-2 gate plan
 - `results/`: machine-readable outputs
-- `reports/`: human-readable evidence report
+- `reports/`: Stage-1 and Stage-1.1 protocol, topic reports, negative results,
+  integrity-aware final report, and Stage-2 go/no-go decision
