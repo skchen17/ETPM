@@ -1,0 +1,11 @@
+amendment: A1
+reason: "The frozen 180-step equal-budget development sweep left B2/B3/B6 exactly tied at chance and every endogenous difficulty candidate outside the frozen 0.40-0.80 band. No formal seed or outcome had been run."
+extended_development_steps: 600
+candidate_learning_rates: [0.001, 0.0003, 0.0001]
+development_seeds: [1301, 1302]
+architectures: [B1_gru, B2_single_persistent, B3_uniform, B5_no_idle, B6_full]
+selection_rule: "maximum mean validation accuracy; exact ties resolved by lower mean validation loss, then lower learning rate"
+formal_gates_changed: false
+formal_seeds_changed: false
+formal_training_budget_changed: false
+

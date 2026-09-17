@@ -179,6 +179,89 @@ def development(config: dict, device: torch.device, output_dir: Path) -> None:
     (output_dir / "selected_hyperparameters.json").write_text(json.dumps(selection, indent=2))
 
 
+def development_job(
+    config: dict,
+    device: torch.device,
+    output_dir: Path,
+    model_name: str,
+    learning_rate: float,
+    seed: int,
+    steps: int,
+) -> None:
+    model_config = LearnedModelConfig.from_mapping(config)
+    set_seed(seed)
+    model = build_stage12_baseline(model_name, model_config).to(device)
+    logs = train_memory_model(
+        model, spec(config, steps, learning_rate), seed=seed, device=device
+    )
+    score = evaluate_memory_validation(
+        model, seed=seed + 600_000, batch_size=384,
+        symbol_count=model_config.symbol_count, device=device,
+    )
+    row = {
+        "model": model_name, "learning_rate": learning_rate, "seed": seed,
+        "development_steps": steps, "validation_accuracy": score,
+        "last_train_loss": logs[-1]["loss"],
+        "parameter_count": model.trainable_parameters(),
+        "persistent_state_bytes": model.persistent_state_bytes(),
+    }
+    tag = str(learning_rate).replace(".", "p")
+    write_frame([row], output_dir / f"dev__{model_name}__lr{tag}__seed{seed}.parquet")
+
+
+def collect_development(config: dict, device: torch.device, output_dir: Path, steps: int) -> None:
+    files = sorted(output_dir.glob("dev__*.parquet"))
+    expected = len(FORMAL_MODELS) * len(config["training"]["candidate_learning_rates"]) * len(config["training"]["development_seeds"])
+    if len(files) != expected:
+        raise RuntimeError(f"expected {expected} development jobs, found {len(files)}")
+    frame = pd.concat([pd.read_parquet(path) for path in files], ignore_index=True)
+    frame.to_parquet(output_dir / "learning_rate_selection.parquet", index=False)
+    means = frame.groupby(["model", "learning_rate"], as_index=False).agg(
+        validation_accuracy=("validation_accuracy", "mean"),
+        last_train_loss=("last_train_loss", "mean"),
+    )
+    selected = {}
+    for model_name in FORMAL_MODELS:
+        arm = means[means.model.eq(model_name)].sort_values(
+            ["validation_accuracy", "last_train_loss", "learning_rate"],
+            ascending=[False, True, True],
+        )
+        selected[model_name] = float(arm.iloc[0].learning_rate)
+    model_config = LearnedModelConfig.from_mapping(config)
+    difficulty_rows = []
+    for seed in config["training"]["development_seeds"]:
+        set_seed(seed + 50_000)
+        model = build_stage12_baseline("B6_full", model_config).to(device)
+        train_memory_model(
+            model, spec(config, steps, selected["B6_full"]),
+            seed=seed + 50_000, device=device,
+        )
+        for interference in config["evaluation"]["endogenous_interference_candidates"]:
+            result = endogenous_time_necessity(
+                model, seed=seed, ticks=8, interference=int(interference), episodes=64,
+                symbol_count=model_config.symbol_count, device=device,
+            )
+            result_frame = pd.DataFrame(result)
+            difficulty_rows.append({
+                "seed": seed, "interference": interference,
+                "accuracy": result_frame.accuracy.mean(),
+                "before_accuracy": result_frame[result_frame.condition.eq("before_interference")].accuracy.mean(),
+                "after_accuracy": result_frame[result_frame.condition.eq("after_interference")].accuracy.mean(),
+            })
+    write_frame(difficulty_rows, output_dir / "endogenous_difficulty_selection.parquet")
+    difficulty = pd.DataFrame(difficulty_rows).groupby("interference").accuracy.mean()
+    center = sum(config["evaluation"]["endogenous_target_accuracy_band"]) / 2
+    selected_interference = int((difficulty - center).abs().sort_values().index[0])
+    selection = {
+        "protocol": "stage1.2-v1+A1", "development_only": True,
+        "development_steps": steps,
+        "selected_learning_rates": selected,
+        "selected_endogenous_interference": selected_interference,
+        "selection_rule": "maximum mean accuracy; exact ties by lower mean loss then lower LR; difficulty closest to frozen 0.60 center",
+    }
+    (output_dir / "selected_hyperparameters.json").write_text(json.dumps(selection, indent=2))
+
+
 def formal(config: dict, model_name: str, seed: int, device: torch.device, run_dir: Path) -> None:
     selected_path = ROOT / "configs/stage1_2_selected.json"
     if not selected_path.exists():
@@ -311,11 +394,13 @@ def formal(config: dict, model_name: str, seed: int, device: torch.device, run_d
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=("development", "formal"), required=True)
+    parser.add_argument("--mode", choices=("development", "development-job", "development-collect", "formal"), required=True)
     parser.add_argument("--model", choices=FORMAL_MODELS)
     parser.add_argument("--seed", type=int)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--run-id")
+    parser.add_argument("--learning-rate", type=float)
+    parser.add_argument("--development-steps", type=int, default=600)
     args = parser.parse_args()
     freeze = verify_freeze()
     config = load_config()
@@ -326,6 +411,15 @@ def main() -> None:
     device = torch.device(args.device)
     if args.mode == "development":
         development(config, device, output)
+    elif args.mode == "development-job":
+        if args.model is None or args.seed is None or args.learning_rate is None:
+            parser.error("development-job requires model, seed and learning-rate")
+        development_job(
+            config, device, output, args.model, args.learning_rate,
+            args.seed, args.development_steps,
+        )
+    elif args.mode == "development-collect":
+        collect_development(config, device, output, args.development_steps)
     else:
         if args.model is None or args.seed is None:
             parser.error("formal mode requires --model and --seed")
@@ -334,4 +428,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
