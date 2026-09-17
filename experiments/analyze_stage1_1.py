@@ -487,6 +487,16 @@ def main() -> None:
     for name, source in frozen_copies.items():
         shutil.copy2(source, raw / name)
         shutil.copy2(source, processed / name)
+    development_source = (
+        ROOT
+        / "results/stage1_1/raw/stage1_1-formal-v1/development_selection.parquet"
+    )
+    if development_source.exists():
+        shutil.copy2(development_source, raw / "development_selection.parquet")
+        shutil.copy2(development_source, processed / "development_selection.parquet")
+        (raw / "development_source_run.txt").write_text(
+            "stage1_1-formal-v1 (pre-amendment development-only LR selection; outcomes unchanged)\n"
+        )
     records, training, manifests = load_complete(raw)
     records.to_parquet(processed / "records.parquet", index=False)
     training.to_parquet(processed / "training_log.parquet", index=False)
