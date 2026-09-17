@@ -63,6 +63,19 @@ def verify_freeze() -> dict[str, str]:
         actual = sha256(ROOT / relative.strip())
         if actual != expected:
             raise RuntimeError(f"prior frozen artifact changed: {relative}")
+    for freeze_name in (
+        "stage1_2_amendment1.freeze.json",
+        "stage1_2_formal_selection.freeze.json",
+    ):
+        extra_path = ROOT / "artifacts" / freeze_name
+        if not extra_path.exists():
+            continue
+        extra = json.loads(extra_path.read_text())
+        for section in ("files", "selected_config", "development_artifacts"):
+            for relative, expected in extra.get(section, {}).items():
+                actual = sha256(ROOT / relative)
+                if actual != expected:
+                    raise RuntimeError(f"{freeze_name} mismatch: {relative}")
     return dict(freeze["files"])
 
 

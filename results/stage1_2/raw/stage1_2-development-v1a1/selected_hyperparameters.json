@@ -1,0 +1,14 @@
+{
+  "protocol": "stage1.2-v1+A1",
+  "development_only": true,
+  "development_steps": 600,
+  "selected_learning_rates": {
+    "B1_gru": 0.001,
+    "B2_single_persistent": 0.001,
+    "B3_uniform": 0.001,
+    "B5_no_idle": 0.001,
+    "B6_full": 0.001
+  },
+  "selected_endogenous_interference": 512,
+  "selection_rule": "maximum mean accuracy; exact ties by lower mean loss then lower LR; difficulty closest to frozen 0.60 center"
+}

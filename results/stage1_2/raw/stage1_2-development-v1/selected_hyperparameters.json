@@ -1,0 +1,13 @@
+{
+  "protocol": "stage1.2-v1",
+  "development_only": true,
+  "selected_learning_rates": {
+    "B1_gru": 0.0003,
+    "B2_single_persistent": 0.0001,
+    "B3_uniform": 0.0001,
+    "B5_no_idle": 0.001,
+    "B6_full": 0.0001
+  },
+  "selected_endogenous_interference": 128,
+  "selection_rule": "maximum mean validation accuracy per architecture; difficulty closest to frozen 0.60 center"
+}
