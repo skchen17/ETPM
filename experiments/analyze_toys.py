@@ -131,6 +131,9 @@ def main() -> None:
     args = parser.parse_args()
 
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
+    protocol_details = (ROOT / "docs/EXPERIMENT_PROTOCOL.md").read_text(
+        encoding="utf-8"
+    )
     records = pd.read_parquet(ROOT / manifest["records"])
     final = records[records.phase == "final"].copy()
     run_id = manifest["run_id"]
@@ -269,6 +272,8 @@ def main() -> None:
 - This is a small synthetic validation. It is not evidence of human-like memory,
   consciousness, infinite information capacity, or an intervention-validated
   causal memory in a language model.
+
+{protocol_details}
 
 ## Gates
 
