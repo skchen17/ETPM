@@ -1,0 +1,15 @@
+{
+  "version": "stage1.1-v1",
+  "split_method": "sha256(split_salt:experiment:episode_id) modulo 100",
+  "split_salt": "etrcm-stage1.1-v1-frozen",
+  "ranges": {
+    "train": [0, 69],
+    "development": [70, 84],
+    "validation": [85, 92],
+    "formal_test": [93, 99]
+  },
+  "development_seeds": [1101, 1102],
+  "formal_seeds": [2101, 2102, 2103],
+  "formal_test_used_for_model_selection": false
+}
+
