@@ -1,7 +1,7 @@
 import torch
 
 from etrcm.stage1_1.baselines import TRAINED_BASELINES, build_baseline
-from etrcm.stage1_1.data import fact_event, query_event
+from etrcm.stage1_1.data import fact_event, make_generator, query_event, sample_facts
 from etrcm.stage1_1.model import LearnedModelConfig
 from etrcm.stage1_1.training import TrainSpec, train_memory_model
 
@@ -40,3 +40,9 @@ def test_two_step_training_smoke():
     )
     assert len(logs) == 2
     assert all(torch.isfinite(torch.tensor(row["loss"])) for row in logs)
+
+
+def test_interference_stream_can_exceed_symbol_vocabulary():
+    facts = sample_facts(3, 40, 16, make_generator(2), torch.device("cpu"))
+    assert facts.keys.shape == (3, 40)
+    assert facts.values.shape == (3, 40)

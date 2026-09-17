@@ -46,7 +46,19 @@ def sample_facts(
     generator: torch.Generator,
     device: torch.device | str,
 ) -> FactBatch:
-    keys = _unique_rows(batch_size, count, symbol_count, generator)
+    if count <= symbol_count:
+        keys = _unique_rows(batch_size, count, symbol_count, generator)
+    else:
+        # Capacity/interference streams may exceed the finite key vocabulary.
+        # Draw independent shuffled vocabulary blocks, preserving broad coverage
+        # without leaking a position or utility marker into the event.
+        blocks = []
+        remaining = count
+        while remaining:
+            take = min(remaining, symbol_count)
+            blocks.append(_unique_rows(batch_size, take, symbol_count, generator))
+            remaining -= take
+        keys = torch.cat(blocks, dim=1)
     values = torch.randint(
         0, symbol_count, (batch_size, count), generator=generator
     )
@@ -141,4 +153,3 @@ def split_for_episode(split_salt: str, experiment: str, episode_id: str) -> str:
     if bucket <= 92:
         return "validation"
     return "formal_test"
-
