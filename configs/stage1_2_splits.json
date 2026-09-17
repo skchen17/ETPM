@@ -1,0 +1,15 @@
+{
+  "version": "stage1.2-v1",
+  "salt": "etrcm-stage1.2-v1-frozen",
+  "assignment": "sha256(salt:experiment:episode_id) modulo 100",
+  "ranges": {
+    "train": [0, 69],
+    "development": [70, 84],
+    "validation": [85, 92],
+    "formal_test": [93, 99]
+  },
+  "development_seeds": [1301, 1302],
+  "formal_seeds": [3201, 3202, 3203, 3204, 3205, 3206, 3207, 3208],
+  "note": "Formal episodes and seeds are never used for architecture-specific learning-rate or endogenous-interference selection."
+}
+
