@@ -450,9 +450,10 @@ def evaluate_idle_reasoning(
     """D: learned graph inference with a learned head and autonomous NULL ticks."""
     model.eval()
     rng = make_generator(seed + 40_000)
-    graph = sample_graphs(episodes, 4, 6, symbol_count, rng, device)
+    # Distances 4-6 are in the training support; 7-8 are frozen OOD lengths.
+    graph = sample_graphs(episodes, 4, 8, symbol_count, rng, device)
     base = model.initial_state(episodes, device=device)
-    for edge in range(6):
+    for edge in range(8):
         base, _ = model.step(base, graph_edge_event(graph, edge))
     base = model.reset_active(base)
     base, _ = model.step(base, query_event(graph.start, target=graph.target))
@@ -482,12 +483,16 @@ def evaluate_idle_reasoning(
                     output=output,
                     target=graph.label,
                     ticks=ticks,
-                    event_index=7,
+                    event_index=9,
                     state_bytes=model.persistent_state_bytes(),
                     parameter_count=model.trainable_parameters(),
-                    compute_budget=7 + ticks,
+                    compute_budget=9 + ticks,
                     notes="all graph edges precede query; NULL ticks contain no label or history",
-                    extra={"graph_distance": graph.distance, "schedule": "idle"},
+                    extra={
+                        "graph_distance": graph.distance,
+                        "unseen_longer_path": graph.distance.gt(6),
+                        "schedule": "idle",
+                    },
                 )
             )
     return records
@@ -732,7 +737,7 @@ def evaluate_revision(
     facts = sample_facts(episodes, 3, symbol_count, rng, device)
     key = facts.keys[:, 0]
     old_value = facts.values[:, 0]
-    new_value = (old_value + 1 + facts.values[:, 1]).remainder(symbol_count)
+    new_value = (old_value + 1 + facts.values[:, 1].remainder(symbol_count - 1)).remainder(symbol_count)
     unrelated_key, unrelated_value = facts.keys[:, 2], facts.values[:, 2]
     records: list[dict[str, Any]] = []
     condition = 0
@@ -751,6 +756,10 @@ def evaluate_revision(
                 for _ in range(reuse):
                     state = model.reset_active(state)
                     state, _, _ = _query_with_ticks(model, state, key, 1)
+                unrelated_vector = _normalize(model.symbol_embedding(unrelated_value), dim=-1)
+                unrelated_retention = _safe_cosine(
+                    _slow_read(model, state, unrelated_key), unrelated_vector
+                )
                 state = model.reset_active(state)
                 state, output, _ = _query_with_ticks(model, state, key, 2)
                 probabilities = torch.softmax(output["symbol_logits"], dim=-1)
@@ -778,6 +787,7 @@ def evaluate_revision(
                             "new_reuses": reuse,
                             "old_probability": old_probability,
                             "new_probability": new_probability,
+                            "unrelated_retention": unrelated_retention,
                         },
                     )
                 )
