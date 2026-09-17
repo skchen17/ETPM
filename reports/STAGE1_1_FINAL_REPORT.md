@@ -4,7 +4,7 @@
 
 > **一个可学习的持续状态模型，能否自主决定接下来重新访问什么，从而把有限的长期记忆寿命优先分配给未来仍有用途的信息；同时，外部事件之间发生的内部计算，是否能够真正改变模型随后吸收新事件的方式，而不只是把相同计算提前执行？**
 
-Formal run: `stage1_1-formal-v1a1`. Generated: 2026-09-17T15:19:55.489853+00:00. Stage 2 authorization: **False**.
+Formal run: `stage1_1-formal-v1a1`. Generated: 2026-09-17T15:21:03.920593+00:00. Stage 2 authorization: **False**.
 
 ## Protocol and implementation details
 
