@@ -1,0 +1,26 @@
+model:
+  hidden_dim: 64
+  latent_slots: 1
+  event_dim: 64
+
+memory:
+  key_dim: 32
+  value_dim: 32
+  heads: 1
+  gamma: 0.1
+  rho_fast: 0.95
+  rho_slow: 0.9995
+  eta_external: 0.5
+
+dynamics:
+  max_idle_ticks: 16
+
+training:
+  seed: 42
+  toy3_steps: 300
+  toy3_lr: 0.08
+
+experiments:
+  seeds: 8
+  interference_steps: 32
+
