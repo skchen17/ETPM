@@ -82,10 +82,26 @@ python experiments/run_toy.py --toy all --config configs/toy_default.yaml
 python experiments/analyze_toys.py
 ```
 
-Raw episode/tick records are written to `results/raw/toy_records.parquet`;
-processed summaries are written as Parquet and JSON. The evidence-level verdict
+Raw episode/tick records are written under `results/raw/<run-id>/`;
+processed summaries are written under `results/processed/<run-id>/` as Parquet
+and JSON. The evidence-level verdict
 is in `reports/TOY_VALIDATION_REPORT.md`. A small toy result is never described
 as human-like memory, consciousness, infinite capacity, or causal memory.
+
+## Current Stage-1 result (2026-09-17)
+
+The frozen 8-seed run `stage1-20260917` produced 2,104 machine-readable records
+and passed all mathematical tests. Repeated exposure, repeated internal use,
+idle consolidation, revision, and the unknowable-bit negative control behaved
+as intended in these small synthetic protocols. Query-dependent consolidation
+outperformed the matched uniform-transfer baseline.
+
+Stage 2 is **not authorized**. The single persistent matrix remained competitive
+on the narrow delayed-retention endpoint (N1), and idle graph computation was
+exactly equivalent to placing the same transitions at query time (N3). Thus the
+current evidence supports an implementation proof and several mechanism checks,
+but does not establish that fast/slow state or endogenous idle time is necessary.
+See `reports/TOY_VALIDATION_REPORT.md` for exact curves and limitations.
 
 ## Layout
 
@@ -95,4 +111,3 @@ as human-like memory, consciousness, infinite capacity, or causal memory.
 - `docs/`: architecture, hypotheses, provenance, and Stage-2 gate plan
 - `results/`: machine-readable outputs
 - `reports/`: human-readable evidence report
-

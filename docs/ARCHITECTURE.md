@@ -28,9 +28,19 @@ The order is explicit: external write (if any), latent read/update, conserving
 transfer, then decay. Measurements that claim conservation are taken before
 decay.
 
+## Baseline matching
+
+B0–B6 are implemented. The Toy-2 quantitative panel evaluates B2–B6 because it
+has an associative delayed-retention endpoint; B0/B1 are construction-tested
+but require a separately trained sequence-task comparison before behavioral
+claims. B3 transfers `gamma/key_dim` of every fast direction per internal tick.
+This is the isotropic per-direction budget corresponding to one rank-one query
+access; using full `gamma` on every direction would spend `key_dim` times the
+transfer budget of one ET-RCM query. B2 uses `rho_slow`, an intentionally strong
+single-persistent-memory comparison.
+
 ## Deliberate omissions
 
 No halting policy, hierarchy, attention stack, language tokenizer, RAG store,
 importance label, or textual memory subsystem is present. The module boundary
 allows the gated MLP to be replaced by a shared Transformer core after Stage 1.
-

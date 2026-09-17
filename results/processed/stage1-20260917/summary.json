@@ -1,0 +1,107 @@
+{
+  "run_id": "stage1-20260917",
+  "record_count": 2104,
+  "final_record_count": 720,
+  "gates": {
+    "G1_math": true,
+    "G2_repeated_exposure": true,
+    "G3_repeated_use": true,
+    "G4_idle_cognition": true,
+    "G5_no_self_evidence": true,
+    "G6_memory_revision": true
+  },
+  "negative_criteria": {
+    "N1_single_memory_equivalent": true,
+    "N2_uniform_equivalent": false,
+    "N3_matched_compute_equivalent": true,
+    "N4_unknowable_confidence_rises": false,
+    "N5_revision_failure": false
+  },
+  "stage2_ready": false,
+  "curves": {
+    "repeated_exposure": {
+      "1.0": 0.05017535768734132,
+      "2.0": 0.11724324299192955,
+      "4.0": 0.25186455613989106,
+      "8.0": 0.4679304016207541
+    },
+    "repeated_use_full": {
+      "0.0": 0.011032275170972196,
+      "1.0": 0.05602993603423128,
+      "2.0": 0.09448048140109977,
+      "4.0": 0.1553997941611558,
+      "8.0": 0.2322600026875881
+    },
+    "repeated_use_uniform": {
+      "0.0": 0.019876288165897947,
+      "1.0": 0.020349853745461745,
+      "2.0": 0.020797577514977583,
+      "4.0": 0.02162090384831227,
+      "8.0": 0.023013049414680506
+    },
+    "repeated_use_single": {
+      "0.0": 0.3158664300363252,
+      "1.0": 0.3157133035237878,
+      "2.0": 0.31556025357450673,
+      "4.0": 0.31525438321260596,
+      "8.0": 0.3146435595647701
+    },
+    "repeated_use_nonconserving": {
+      "0.0": 0.011032275170972196,
+      "1.0": 0.05701178290670241,
+      "2.0": 0.10066907127528099,
+      "4.0": 0.181475674137046,
+      "8.0": 0.3199584868825086
+    },
+    "idle_reasoning": {
+      "0.0": 0.5,
+      "1.0": 0.625,
+      "2.0": 0.625,
+      "4.0": 0.75,
+      "8.0": 1.0,
+      "16.0": 1.0
+    },
+    "idle_consolidation": {
+      "0.0": 0.0,
+      "2.0": 0.09267863750000002,
+      "4.0": 0.16033638301059688,
+      "8.0": 0.24569932102592693,
+      "16.0": 0.3148852363537397
+    },
+    "unknowable_accuracy": {
+      "0.0": 0.5013427734375,
+      "1.0": 0.5013427734375,
+      "2.0": 0.5013427734375,
+      "4.0": 0.5013427734375,
+      "8.0": 0.5013427734375,
+      "16.0": 0.5013427734375,
+      "32.0": 0.5013427734375
+    },
+    "unknowable_confidence": {
+      "0.0": 0.5,
+      "1.0": 0.5,
+      "2.0": 0.5,
+      "4.0": 0.5,
+      "8.0": 0.5,
+      "16.0": 0.5,
+      "32.0": 0.5
+    },
+    "revision_by_new_exposures": {
+      "1.0": 0.17189613938435794,
+      "2.0": 0.26777255194070637,
+      "4.0": 0.33881810354670133
+    }
+  },
+  "diagnostics": {
+    "toy3_useful_retention": 0.17163208866505447,
+    "toy3_unused_retention": 0.0013119312128893443,
+    "toy9_local_retention": 0.0498003496502187,
+    "toy9_stable_retention": 0.2456993210259269,
+    "matched_final_state_difference": 0.0,
+    "conserving_readout_drift_max": 6.859163752553285e-16,
+    "nonconserving_readout_drift_max": 0.33657956871093764,
+    "best_revision_probability": 0.8417155162049492
+  },
+  "records": "results/raw/stage1-20260917/toy_records.parquet",
+  "summary": "results/processed/stage1-20260917/toy_summary.parquet"
+}

@@ -288,6 +288,13 @@ is exactly equivalent to moving the same transitions to query time. Idle
 execution reduces future latency but does not improve matched-compute accuracy
 or final state in Toy 5. These outcomes are retained rather than protocol-tuned.
 
+The Toy-2 uniform baseline uses `gamma/key_dim` on every direction per tick,
+matching the isotropic per-direction budget of one rank-one ET-RCM access. B2
+uses the slow decay coefficient and is therefore an intentionally strong single
+persistent-memory baseline. B0/B1 are implemented and smoke-tested but are not
+assigned associative-retention scores without a separately trained sequence
+protocol.
+
 ## Required questions
 
 1. **Readout conservation?** Yes within the unit-test tolerance when G1 passes;
@@ -357,4 +364,3 @@ modified in response to these results.
 
 if __name__ == "__main__":
     main()
-

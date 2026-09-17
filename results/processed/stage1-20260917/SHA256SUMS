@@ -1,0 +1,3 @@
+a97b000fd6defdf8c300726ef8486c9f6a37791c868da5fb8137b969f6e156b5  results/raw/stage1-20260917/toy_records.parquet
+ab1ddfe11979020bb6276bcfec114b3bb2886ec75ae89408c23a0f67845edadc  results/processed/stage1-20260917/toy_summary.parquet
+253ceae00ac0ab0f69b9553026af73d044623e6b0dd3c64c0cad591d23c8ad0c  results/processed/stage1-20260917/summary.json

@@ -1,0 +1,30 @@
+{
+  "run_id": "stage1-20260917",
+  "created_at_utc": "2026-09-17T10:20:40.767449+00:00",
+  "toy": "all",
+  "seed_values": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "record_count": 2104,
+  "final_record_count": 720,
+  "config_path": "/data/CSK/ETPM/et-rcm/configs/toy_default.yaml",
+  "config_sha256": "45db1ea51ce43b48803b7a463259c048bf6795bad10beba895e8e138d9de504b",
+  "records": "results/raw/stage1-20260917/toy_records.parquet",
+  "git_revision": "b0d64f3188121289867edef88bc7608b6f26f4f2",
+  "environment": {
+    "python": "3.13.12",
+    "platform": "Linux-6.2.0-26-generic-x86_64-with-glibc2.35",
+    "torch": "2.6.0+cu124",
+    "pandas": "3.0.3",
+    "pyarrow": "25.0.1",
+    "cuda_available": true,
+    "cuda_visible_devices": null
+  }
+}
