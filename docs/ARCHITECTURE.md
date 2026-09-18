@@ -97,3 +97,30 @@ matched-compute toy, but target-direction functional addressing, selective
 behavioral scaling, and length-generalized sequential recurrence did not pass
 their gates. Internal time should therefore remain an optional consolidation
 scheduling mechanism, not a continuous-cognition core claim.
+
+## Stage-1.3 continuous-state and expression layer
+
+`src/etrcm/stage1_3/` keeps the persistent state exactly `(H,F,M)` and permits
+external events at any internal tick. `EVIDENCE`, `CONTEXT`, `NOISE`, and
+`SELF_OUTPUT` are typed current events; the schema contains no history, answer,
+target, solved, or halt field. Only an external event whose write mask is true
+can execute the delta write. Automatic expression feedback embeds the emitted
+symbol into H and leaves F/M and both clocks untouched.
+
+The historical read `r=(F+M)q`, exact M-only and F-only reads, and learned
+shared-query arbitration are separate registered architectures. Arbitration
+uses one scalar `g=sigmoid(G(H,e))` and returns `g Fq + (1-g) Mq`. The same q
+drives conserving fast-to-slow transfer, so arbitration changes what reaches H
+without changing the conservation law. The optional separate-query R4 was not
+implemented before evidence that R3 helps.
+
+Expression uses a scalar sigmoid head and a structured 32-symbol content head.
+A development-selected threshold maps a state to `NO_EMIT` or a symbol action.
+Emission never resets state or terminates recurrence. The scalar is expression
+value, not a calibrated truth probability or a learned halting policy.
+
+The Stage-1.3 formal comparison includes B0/B1 recurrent controls, B2 single
+persistent memory, B3 historical joint read, B4 M-only, B5 F-only, B6 scalar
+arbitration, and B7 deliberately non-conserving self-replay. Evaluation-only
+cross-time interventions remove M, disable consolidation, or replace q with a
+target-independent random direction while replaying identical external events.
