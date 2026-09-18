@@ -494,6 +494,21 @@ The only persistent cognitive state is `(H,F,M)`. External evidence alone uses t
 
 Formal seeds: `{config['training']['formal_seeds']}`. Each model trained for 1,000 equal-budget steps with batch 64. Development used two disjoint seeds, three learning rates, and 16 thresholds. Full experiment sizes and aggregation definitions are in `STAGE1_3_ANALYSIS_PLAN.md` and the specialized reports.
 
+## Experiment-by-experiment design
+
+| Experiment | Formal construction per model/seed | Primary recorded outcomes |
+|---|---|---|
+| A — evidence accumulation | 512 query-free 12-event streams; half contain 4 supporting events and half only 2, with support positions randomized among unrelated writes | first/correct/false emission, latency, expression trajectory, H/F/M/read/transfer diagnostics |
+| B — pattern discovery | 256 episodes for each of stable, random-frequency, accidental, disappearing, reversing, and shifted 24-event streams | correct/false structured pattern emission and content accuracy |
+| C — cross-time association | A→B, 512 unrelated distractors, then B→C and 8 NULL ticks; intact R0/M-only/B6 plus no-memory, M-lesion, gamma-zero, and random-query controls | A→C content accuracy and spontaneous correct emission |
+| D — silence under noise | 16 parallel pure-noise streams for 1,000 ticks for all models; B6/B7 additionally 10,000 ticks | false spontaneous emission and score drift |
+| E — self-output audit | 512 borderline-supported propositions followed by 0/1/2/4/8/16/32/64 ticks without new evidence | external-write count, memory-strength change, expression change, repeated emission; B7 is the non-conserving control |
+| F — revision | 128 episodes with four old-value evidence events followed by 1…8 genuine contradictory new-value events | old/new accuracy, revision emission, memory norm, confidence and latency |
+| G — interleaved input | 128 matched episodes; six external events with gaps 0/1/2/4/8/16 either blocked or fully interleaved, with equal transition counts | accuracy, emission, score and final H/F/M norms |
+| H — read arbitration | 32 target memories evaluated at 0/32/128/512/2048/8192 accumulated distractors in target and absent contexts | recovery accuracy, useful/false emission, F/M gate, F/M read norms and slow retention |
+| I — thought-driven persistence | 256 episodes × 8 once-exposed facts, 32 NULL ticks, 512 distractors, then F cleared | fact-level usage attribution, slow retention and per-episode Spearman association |
+| J — long stream | 1e3/1e4/1e5 mixed streams only if every authorization condition passes | otherwise explicitly `NOT_RUN_BY_PROTOCOL` |
+
 ## Training summary
 
 {md_table(train) if len(train) else 'Training loss column unavailable; shard logs are preserved.'}
