@@ -34,3 +34,16 @@ are zero for unrelated events and 0.25 for genuinely weak supporting evidence.
 This is evidence strength, not a remember/utility label. LR candidates, seeds,
 threshold candidates, selection criteria, model equations and G18–G22 remain
 unchanged. The failed initial development artifacts are not overwritten.
+
+## A3 — 2026-09-18, first-sufficient-state threshold semantics
+
+One B6 pilot from the additive development run showed that A2 successfully
+eliminated long-noise score drift, but the threshold selector still included
+every later no-feedback row whose cumulative count remained four. That
+contradicted A2's declared first-sufficient-state semantics and penalized the
+model for states that would have received SELF_OUTPUT feedback in deployment.
+The evaluator now serializes `newly_sufficient`, and threshold precision/recall
+uses that field as its positive stratum while retaining every pre-sufficient
+state and all noise rows as negatives. No training run is discarded or
+changed. No formal result exists; frozen threshold candidates, gates and
+selection constraints are unchanged.

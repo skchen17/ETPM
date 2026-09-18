@@ -58,9 +58,22 @@ def verify_freeze() -> None:
     amendment_path = ROOT / "artifacts/stage1_3_amendment2.freeze.json"
     if amendment_path.exists():
         amendment = json.loads(amendment_path.read_text())
+        superseded = {
+            "src/etrcm/stage1_3/evaluation.py",
+            "experiments/run_stage1_3.py",
+            "reports/STAGE1_3_AMENDMENTS.md",
+        }
         for relative, expected in amendment["files"].items():
+            if relative in superseded and (ROOT / "artifacts/stage1_3_amendment3.freeze.json").exists():
+                continue
             if sha256(ROOT / relative) != expected:
                 raise RuntimeError(f"Stage-1.3 A2 file changed: {relative}")
+    amendment3_path = ROOT / "artifacts/stage1_3_amendment3.freeze.json"
+    if amendment3_path.exists():
+        amendment3 = json.loads(amendment3_path.read_text())
+        for relative, expected in amendment3["files"].items():
+            if sha256(ROOT / relative) != expected:
+                raise RuntimeError(f"Stage-1.3 A3 file changed: {relative}")
 
 
 def config() -> dict:
@@ -169,9 +182,7 @@ def freeze_selection(cfg: dict) -> None:
         noise = pd.concat([pd.read_parquet(raw / f"{model_name}__seed{seed}__threshold_noise.parquet") for seed in cfg["training"]["development_seeds"]], ignore_index=True)
         for threshold in thresholds:
             predicted = expression.expression_score.ge(threshold)
-            positive = expression.is_sufficient_arm.eq(1) & expression.support_count.eq(
-                cfg["evaluation"]["sufficient_evidence_count"]
-            )
+            positive = expression.newly_sufficient.eq(1)
             eligible = expression.enough_evidence.eq(0) | positive
             content_correct = expression.accuracy.eq(1)
             tp = int((predicted & positive & content_correct & eligible).sum())

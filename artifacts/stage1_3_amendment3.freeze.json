@@ -1,0 +1,12 @@
+{
+  "amendment": "A3_first_sufficient_threshold_semantics",
+  "date": "2026-09-18",
+  "formal_outcomes_visible": false,
+  "visible_development_scope": "one B6 pilot from stage1_3-development-v1a1",
+  "files": {
+    "src/etrcm/stage1_3/evaluation.py": "2d432bab53a18755c493fad2702edb7a723f2a769c47aadfd9165bc081fccd07",
+    "experiments/run_stage1_3.py": "d142332679a73a4437da068101af9b1994f9f9e4de11100ab861743b681c7e64",
+    "reports/STAGE1_3_AMENDMENTS.md": "f998ef7bd26ce3afef193ee585d365bd465f1749fbbe655b81c9a5ca43509727"
+  },
+  "unchanged": ["training_artifacts", "threshold_candidates", "selection_constraints", "formal_seeds", "G18", "G19", "G20", "G21", "G22"]
+}

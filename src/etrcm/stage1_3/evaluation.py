@@ -158,6 +158,7 @@ def evidence_accumulation(
         state, output = model.step(state, event, threshold=threshold)
         cumulative += support[:, tick].long()
         enough = sufficient & cumulative.ge(sufficient_count)
+        newly_sufficient = enough & support[:, tick]
         emitted_correct = output["emitted"] & output["emitted_content_id"].eq(values)
         rows += _diagnostic_rows(
             experiment="A_evidence_accumulation",
@@ -174,6 +175,7 @@ def evidence_accumulation(
                 "is_sufficient_arm": sufficient.float(),
                 "support_count": cumulative.float(),
                 "enough_evidence": enough.float(),
+                "newly_sufficient": newly_sufficient.float(),
                 "correct_emission": emitted_correct.float(),
                 "false_emission": (output["emitted"] & (~enough | ~output["emitted_content_id"].eq(values))).float(),
             },
