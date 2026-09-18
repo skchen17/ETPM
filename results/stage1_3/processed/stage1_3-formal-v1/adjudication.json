@@ -1,0 +1,49 @@
+{
+  "gates": {
+    "G18": {
+      "pass": false,
+      "correct_emission_rate": 0.50439453125,
+      "margin_vs_B0": -0.0751953125,
+      "sufficient_minus_insufficient": 0.4541015625,
+      "replicate_seed_count": 0
+    },
+    "G19": {
+      "pass": false,
+      "development_threshold_primary_feasible": false,
+      "precision": 0.5772701424349489,
+      "recall": 0.5,
+      "noise_false_emission_rate_10000": 0.0,
+      "replicate_seed_count": 0
+    },
+    "G20": {
+      "pass": false,
+      "accuracy_margin_vs_R0": -0.0078125,
+      "useful_emission_margin_vs_R0": -0.0078125,
+      "false_emission_increase_vs_R0": 0.0,
+      "replicate_seed_count": 0
+    },
+    "G21": {
+      "pass": false,
+      "mean_usage_retention_spearman": 0.14448473882021062,
+      "replicate_seed_count": 1
+    },
+    "G22": {
+      "pass": false,
+      "b6_self_output_safety_subcriteria_pass": true,
+      "maximum_external_write_count": 0.0,
+      "maximum_mean_memory_relative_increase": 0.0,
+      "maximum_mean_expression_score_increase": 0.0,
+      "nonconserving_control_memory_increase": 0.0
+    }
+  },
+  "audits": {
+    "no_history_bypass": true,
+    "revision_healthy": false,
+    "revision_accuracy_after_1": 0.6220703125,
+    "revision_accuracy_after_8": 0.634765625,
+    "revision_correct_emission_after_8": 0.6337890625,
+    "no_self_output_amplification": true
+  },
+  "LONG_STREAM_AUTHORIZED": false,
+  "STAGE2_LANGUAGE_MODEL_PROTOTYPE_RECOMMENDED": false
+}

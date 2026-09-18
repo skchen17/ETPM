@@ -14,3 +14,14 @@
    reports/hashes, update README/architecture, and decide recommendation only.
 
 Stage 2 remains unauthorized during this roadmap.
+
+## Completion status — 2026-09-18
+
+All roadmap steps through formal adjudication are complete. The development
+matrix contained 48/48 unique finite-loss cells; the formal matrix contained
+64/64 unique architecture/seed shards and 1,645,312 records. G18–G22 all
+failed. B6 passed the narrower no-self-amplification safety subcriteria, but the
+B7 pathological-control requirement did not validate, so G22 remains failed.
+Revision was not healthy. Experiment J is `NOT_RUN_BY_PROTOCOL`, and Stage 2
+remains unauthorized. See `reports/STAGE1_3_FINAL_REPORT.md` and machine-readable
+`results/stage1_3/processed/stage1_3-formal-v1/adjudication.json`.

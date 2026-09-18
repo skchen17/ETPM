@@ -180,6 +180,57 @@ bash experiments/run_stage1_2_all.sh
 python experiments/analyze_stage1_2.py --run-id stage1_2-formal-v1
 ```
 
+## Stage 1.3 continuous dynamics and spontaneous expression (2026-09-18)
+
+Stage 1.3 treated output as a non-halting action in a continuously evolving
+`(H,F,M)` state, separated external/NULL/SELF_OUTPUT events, and compared joint,
+M-only, F-only, and learned scalar-arbitrated memory reads. The formal run
+`stage1_3-formal-v1` contains 64 shards (8 architectures × 8 fresh seeds) and
+1,645,312 machine-readable records. All shards use source revision `030bb6a`
+and the same frozen selection hash.
+
+Development found no threshold satisfying the registered precision/noise rule
+for any architecture. B6 therefore used the disclosed diagnostic fallback
+threshold `0.45`; this makes G19 ineligible to pass regardless of formal luck.
+The formal outcomes were:
+
+- **G18 Spontaneous evidence integration: FAIL.** B6 correct-emission rate was
+  `0.5044`, its margin versus B0 was `-0.0752`, and sufficient-minus-
+  insufficient emission was `0.4541` (`0/8` registered seed replications).
+- **G19 Silence under noise: FAIL.** The 10,000-tick noise false-emission rate
+  was `0.0000`, but formal precision/recall were only `0.5773/0.5000`, and the
+  development threshold was not primary-feasible.
+- **G20 Memory arbitration: FAIL.** At 2,048 distractors, B6 minus historical
+  joint-read accuracy and useful-emission margins were both `-0.0078` (`0/8`).
+- **G21 Thought-driven persistence: FAIL.** Mean usage–slow-retention Spearman
+  correlation was `0.1445`; only `1/8` seeds reached the registered floor.
+- **G22 Self-output is not evidence: FAIL as a compound control gate.** B6 had
+  zero external writes and no positive net memory or expression-score increase,
+  so the narrower no-amplification safety audit passed. B7 performed nonzero
+  self-memory updates but did not reach the registered `+0.10` net-strength
+  increase, so the pathological negative control itself was not validated.
+
+Revision was also not healthy under the pre-formal audit: new-value accuracy
+rose only from `0.6221` after one new event to `0.6348` after eight. Experiment
+J is `NOT_RUN_BY_PROTOCOL`; `STAGE2_LANGUAGE_MODEL_PROTOTYPE_RECOMMENDED =
+FALSE`, and no decoder or Stage-2 training was started. A post-formal A7 report
+correction separates B6 safety from the compound B7 validation without changing
+any gate or authorization result.
+
+See `reports/STAGE1_3_FINAL_REPORT.md` for the complete A–J experimental design,
+all 20 required answers, gate measurements and scientific limitations. Topic
+reports, Parquet summaries, checkpoints, figures, manifests and verified SHA256
+hashes are stored under `reports/`, `results/stage1_3/`, and
+`artifacts/stage1_3/`.
+
+Reproduction:
+
+```bash
+bash experiments/run_stage1_3_development_all.sh
+bash experiments/run_stage1_3_all.sh
+python experiments/analyze_stage1_3.py --run-id stage1_3-formal-v1
+```
+
 ## Layout
 
 - `src/etrcm/`: state, memory math, latent dynamics, baselines, and toy suite
@@ -187,5 +238,5 @@ python experiments/analyze_stage1_2.py --run-id stage1_2-formal-v1
 - `experiments/`: reproducible run and analysis entry points
 - `docs/`: architecture, hypotheses, provenance, and Stage-2 gate plan
 - `results/`: machine-readable outputs
-- `reports/`: Stage-1, Stage-1.1 and Stage-1.2 protocols, topic reports, negative results,
-  integrity-aware final report, and Stage-2 go/no-go decision
+- `reports/`: Stage-1 through Stage-1.3 protocols, amendments, topic reports,
+  negative results, integrity-aware final reports, and Stage-2 go/no-go decisions
