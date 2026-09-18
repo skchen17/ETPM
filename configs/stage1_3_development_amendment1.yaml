@@ -1,0 +1,16 @@
+amendment: A2
+reason: development threshold infeasibility and missing required noise-silence training
+protocol:
+  development_run_id: stage1_3-development-v1a1
+training:
+  development_steps: 800
+  formal_steps: 1000
+  noise_silence_horizon: 32
+  task_cycle: [evidence_accumulation, memory_recovery, revision, noise_silence]
+preserved:
+  candidate_learning_rates: [0.001, 0.0003, 0.0001]
+  development_seeds: [4301, 4302]
+  formal_seeds: [5301, 5302, 5303, 5304, 5305, 5306, 5307, 5308]
+  thresholds_and_gates_unchanged: true
+  all_architectures_receive_equal_budget: true
+  formal_outcomes_visible: false

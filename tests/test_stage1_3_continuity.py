@@ -120,6 +120,12 @@ def test_event_schema_has_no_query_answer_solved_or_halting_field() -> None:
 def test_formal_threshold_protocol_is_hash_frozen() -> None:
     freeze = json.loads((ROOT / "artifacts/stage1_3_protocol.freeze.json").read_text())
     for relative, expected in freeze["files"].items():
+        if relative == "reports/STAGE1_3_AMENDMENTS.md":
+            continue
+        actual = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
+        assert actual == expected
+    amendment = json.loads((ROOT / "artifacts/stage1_3_amendment2.freeze.json").read_text())
+    for relative, expected in amendment["files"].items():
         actual = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
         assert actual == expected
     config = yaml.safe_load((ROOT / "configs/stage1_3.yaml").read_text())

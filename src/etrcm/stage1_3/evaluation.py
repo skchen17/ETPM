@@ -118,7 +118,7 @@ def _mixed_stream_event(
     event_keys = torch.where(support, keys, random_keys)
     event_values = torch.where(support, values, random_values)
     scalars = torch.zeros(keys.shape[0], 4, device=keys.device)
-    scalars[:, 0] = 0.25
+    scalars[:, 0] = support.float() * 0.25
     return ContinuousEvent.create(
         kind=Stage13EventKind.EVIDENCE,
         key_id=event_keys,

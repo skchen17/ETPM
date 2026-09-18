@@ -44,7 +44,7 @@ def _mixed_evidence(
     keys = torch.where(support_mask, target_key, keys)
     values = torch.where(support_mask, target_value, values)
     scalars = torch.zeros(batch, 4, device=device)
-    scalars[:, 0] = 0.25
+    scalars[:, 0] = support_mask.float() * 0.25
     return ContinuousEvent.create(
         kind=Stage13EventKind.EVIDENCE,
         key_id=keys,
@@ -157,6 +157,30 @@ def revision_loss(
     return loss / 4.0 + 0.002 * output["access"].mean()
 
 
+def noise_silence_loss(
+    model: ContinuousETRCM,
+    *, batch: int, length: int, generator: torch.Generator, device: torch.device,
+) -> torch.Tensor:
+    """Teach silence on a continuing same-format random external stream."""
+    state = model.initial_state(batch, device=device)
+    loss = torch.zeros((), device=device)
+    zeros = torch.zeros(batch, device=device)
+    for _ in range(length):
+        keys = _ids(batch, model.config.symbol_count, generator, device)
+        values = _ids(batch, model.config.symbol_count, generator, device)
+        scalars = torch.zeros(batch, 4, device=device)
+        event = ContinuousEvent.create(
+            kind=Stage13EventKind.EVIDENCE,
+            key_id=keys,
+            value_id=values,
+            write=True,
+            scalars=scalars,
+        )
+        state, output = model.step(state, event)
+        loss = loss + Fnn.binary_cross_entropy_with_logits(output["expression_logit"], zeros)
+    return loss / length + 0.002 * output["access"].mean()
+
+
 def train_model(
     model: ContinuousETRCM,
     *,
@@ -182,7 +206,7 @@ def train_model(
     logs: list[dict[str, float]] = []
     for step in range(steps):
         optimizer.zero_grad(set_to_none=True)
-        task = step % 3
+        task = step % 4
         if task == 0:
             loss, aux = accumulation_loss(
                 model,
@@ -198,8 +222,13 @@ def train_model(
         elif task == 1:
             loss = memory_recovery_loss(model, batch=batch_size, generator=generator, device=device)
             aux = {}
-        else:
+        elif task == 2:
             loss = revision_loss(model, batch=batch_size, generator=generator, device=device)
+            aux = {}
+        else:
+            loss = noise_silence_loss(
+                model, batch=batch_size, length=32, generator=generator, device=device
+            )
             aux = {}
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), gradient_clip)

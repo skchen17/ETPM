@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import sys
@@ -44,6 +45,8 @@ def sha256(path: Path) -> str:
 def verify_freeze() -> None:
     freeze = json.loads((ROOT / "artifacts/stage1_3_protocol.freeze.json").read_text())
     for relative, expected in freeze["files"].items():
+        if relative == "reports/STAGE1_3_AMENDMENTS.md":
+            continue  # Append-only amendments have their own subsequent freeze payload.
         actual = sha256(ROOT / relative)
         if actual != expected:
             raise RuntimeError(f"frozen file changed: {relative}: {actual} != {expected}")
@@ -52,10 +55,23 @@ def verify_freeze() -> None:
         actual = sha256(ROOT / relative)
         if actual != expected:
             raise RuntimeError(f"prior immutable asset changed: {relative}")
+    amendment_path = ROOT / "artifacts/stage1_3_amendment2.freeze.json"
+    if amendment_path.exists():
+        amendment = json.loads(amendment_path.read_text())
+        for relative, expected in amendment["files"].items():
+            if sha256(ROOT / relative) != expected:
+                raise RuntimeError(f"Stage-1.3 A2 file changed: {relative}")
 
 
 def config() -> dict:
-    return yaml.safe_load((ROOT / "configs/stage1_3.yaml").read_text())
+    base = yaml.safe_load((ROOT / "configs/stage1_3.yaml").read_text())
+    amendment_path = ROOT / "configs/stage1_3_development_amendment1.yaml"
+    if amendment_path.exists():
+        amendment = yaml.safe_load(amendment_path.read_text())
+        base = copy.deepcopy(base)
+        for section in ("protocol", "training"):
+            base[section].update(amendment.get(section, {}))
+    return base
 
 
 def train_one(model_name: str, seed: int, lr: float, steps: int, device: torch.device):
@@ -153,11 +169,14 @@ def freeze_selection(cfg: dict) -> None:
         noise = pd.concat([pd.read_parquet(raw / f"{model_name}__seed{seed}__threshold_noise.parquet") for seed in cfg["training"]["development_seeds"]], ignore_index=True)
         for threshold in thresholds:
             predicted = expression.expression_score.ge(threshold)
-            positive = expression.enough_evidence.eq(1)
+            positive = expression.is_sufficient_arm.eq(1) & expression.support_count.eq(
+                cfg["evaluation"]["sufficient_evidence_count"]
+            )
+            eligible = expression.enough_evidence.eq(0) | positive
             content_correct = expression.accuracy.eq(1)
-            tp = int((predicted & positive & content_correct).sum())
-            fp = int((predicted & ~(positive & content_correct)).sum())
-            fn = int((~predicted & positive).sum())
+            tp = int((predicted & positive & content_correct & eligible).sum())
+            fp = int((predicted & ~(positive & content_correct) & eligible).sum())
+            fn = int((~predicted & positive & eligible).sum())
             precision = tp / max(tp + fp, 1)
             recall = tp / max(tp + fn, 1)
             f1 = 2 * precision * recall / max(precision + recall, 1e-12)

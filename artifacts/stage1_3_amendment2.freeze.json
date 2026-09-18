@@ -1,0 +1,15 @@
+{
+  "amendment": "A2_equal_budget_development_completeness",
+  "date": "2026-09-18",
+  "formal_outcomes_visible": false,
+  "failed_development_run_preserved": "stage1_3-development-v1",
+  "additive_development_run": "stage1_3-development-v1a1",
+  "files": {
+    "configs/stage1_3_development_amendment1.yaml": "3d5f360a95368a36167e5fe4ab1138002f3a381d99a308887314ebbc6b786872",
+    "reports/STAGE1_3_AMENDMENTS.md": "1a9cac03122d53c3f87b6da68197127c87e24eaf61d1f646d1ad01435cd5fb67",
+    "src/etrcm/stage1_3/training.py": "d8c84f644a13a6bb5302135ec0e1c53ca536467ad7f3ec2333b8d2f2febd7291",
+    "src/etrcm/stage1_3/evaluation.py": "1ff979572d5c94744e32a347fa2532460bc44529a7cf04d0e3ccea5a7524ef24",
+    "experiments/run_stage1_3.py": "f5c65aa1bc14eb6bc57ce088b8da3432f515b9492e311407f2c9fecffd566e1f"
+  },
+  "unchanged": ["formal_seeds", "candidate_learning_rates", "threshold_candidates", "G18", "G19", "G20", "G21", "G22"]
+}
