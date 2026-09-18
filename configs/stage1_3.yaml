@@ -1,0 +1,100 @@
+protocol:
+  name: etrcm-stage1.3
+  version: 1.0.0
+  split_salt: etrcm-stage1.3-v1-frozen
+  source_revision: 1aa65ab13bc8e80e9e57dc614ed3ca1319d22285
+  development_run_id: stage1_3-development-v1
+  formal_run_id: stage1_3-formal-v1
+  stage2_training_authorized_before_run: false
+
+model:
+  hidden_dim: 64
+  latent_slots: 2
+  symbol_count: 32
+  key_dim: 16
+  value_dim: 16
+  event_type_dim: 8
+  gamma: 0.12
+  rho_fast: 0.97
+  rho_slow: 0.9995
+  eta_external: 0.6
+  expression_content_count: 32
+
+training:
+  optimizer: adamw
+  candidate_learning_rates: [0.001, 0.0003, 0.0001]
+  development_seeds: [4301, 4302]
+  formal_seeds: [5301, 5302, 5303, 5304, 5305, 5306, 5307, 5308]
+  development_steps: 250
+  formal_steps: 500
+  batch_size: 64
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  emit_loss_weight: 1.0
+  content_loss_weight: 1.0
+  access_regularization: 0.002
+  bptt: full
+
+threshold_selection:
+  candidates: [0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+  minimum_precision: 0.90
+  maximum_noise_false_emission_rate: 0.01
+  rule: highest_f1_among_feasible_then_highest_precision_then_lowest_threshold
+
+evaluation:
+  evidence_stream_length: 12
+  sufficient_evidence_count: 4
+  insufficient_evidence_count: 2
+  episodes_expression: 512
+  episodes_pattern: 256
+  episodes_association: 128
+  episodes_revision: 128
+  episodes_arbitration: 32
+  episodes_persistence: 256
+  noise_stream_lengths: [1000, 10000]
+  noise_parallel_streams: 16
+  self_output_ticks: [0, 1, 2, 4, 8, 16, 32, 64]
+  distractor_counts: [0, 32, 128, 512, 2048, 8192]
+  arbitration_high_pressure_distractors: 2048
+  thought_fact_count: 8
+  thought_internal_ticks: 32
+  thought_interference: 512
+  cross_time_distractors: 512
+  interleaved_intervals: [0, 1, 2, 4, 8, 16]
+  long_stream_lengths: [1000, 10000, 100000]
+
+gates:
+  G18:
+    correct_emission_rate_min: 0.70
+    correct_emission_margin_vs_B0_min: 0.10
+    sufficient_minus_insufficient_emission_min: 0.50
+    replicate_seed_count_min: 6
+  G19:
+    false_spontaneous_emission_rate_max: 0.01
+    expression_precision_min: 0.90
+    expression_recall_min: 0.70
+    replicate_seed_count_min: 6
+  G20:
+    recovery_accuracy_margin_vs_R0_min: 0.10
+    useful_emission_margin_vs_R0_min: 0.10
+    false_emission_increase_max: 0.01
+    replicate_seed_count_min: 6
+  G21:
+    usage_retention_spearman_min: 0.40
+    per_seed_spearman_min: 0.30
+    replicate_seed_count_min: 6
+  G22:
+    external_write_count_max: 0
+    memory_magnitude_relative_increase_max: 0.01
+    expression_score_increase_max: 0.05
+    nonconserving_control_increase_min: 0.10
+
+authorization:
+  long_stream_requires: [G18, G19, G20, G21, G22, no_history_bypass, revision_healthy]
+  language_prototype_requires: [G18, G19, G20, G21, G22, no_history_bypass, no_self_output_amplification, revision_healthy]
+
+execution:
+  device: cuda
+  dtype: float32
+  large_tensors_separate: true
+  maximum_parallel_gpus: 2

@@ -1,0 +1,13 @@
+{
+  "version": "stage1.3-v1",
+  "salt": "etrcm-stage1.3-v1-frozen",
+  "development_seeds": [4301, 4302],
+  "formal_seeds": [5301, 5302, 5303, 5304, 5305, 5306, 5307, 5308],
+  "symbol_partition": {
+    "development": [0, 1, 2, 3, 4, 5, 6, 7],
+    "formal": [8, 9, 10, 11, 12, 13, 14, 15],
+    "noise_and_distractors": [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+  },
+  "formal_data_generated_only_from_formal_seed": true,
+  "threshold_selected_only_on_development": true
+}
