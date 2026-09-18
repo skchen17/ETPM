@@ -9,4 +9,5 @@ build/
 results/raw/*.parquet
 results/processed/*.parquet
 /results/stage1_2/processed/*/records.parquet
+/results/stage1_3/processed/*/records.parquet
 
