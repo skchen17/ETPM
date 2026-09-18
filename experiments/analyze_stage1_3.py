@@ -389,6 +389,20 @@ def report_texts(records: pd.DataFrame, training: pd.DataFrame, s: dict[str, pd.
     c_table = means(s["cross_time"], ["model", "condition"], ["accuracy", "correct_emission", "expression_score"])
     f_table = means(s["revision"], ["model", "condition", "new_evidence_count"], ["accuracy", "revision_correct", "expression_score", "confidence"])
     g_table = means(s["interleaved"], ["model", "condition"], ["accuracy", "emitted", "expression_score", "h_norm", "f_norm", "m_norm"])
+    selection_table = pd.DataFrame(
+        [
+            {
+                "model": model,
+                "learning_rate": selected["selected_learning_rates"][model],
+                "threshold": selected["selected_thresholds"][model],
+                "primary_threshold_feasible": selected["development_threshold_feasible"][model],
+                "selection_status": selected["threshold_selection_status"][model],
+            }
+            for model in MODEL_NAMES
+        ]
+    )
+    sweep_path = ROOT / "results/stage1_3/raw" / selected["development_run_id"] / "threshold_sweep.parquet"
+    sweep_b6 = pd.read_parquet(sweep_path).query("model == 'B6_arbitration'")
     details = f"""## Experimental details
 
 - Formal run: `{run_id}`; 8 unseen seeds `{config['training']['formal_seeds']}`.
@@ -400,8 +414,8 @@ def report_texts(records: pd.DataFrame, training: pd.DataFrame, s: dict[str, pd.
 """
     reports: dict[str, str] = {}
     reports["CONTINUOUS_DYNAMICS_STAGE1_3.md"] = "# Continuous Dynamics — Stage 1.3\n\n" + details + "\n## Interleaved versus block input\n\n" + md_table(g_table) + "\n\nOutput never resets H/F/M; unit tests also verify arbitrary later NULL and external transitions. Differences here are toy streaming behavior, not autonomous human-like thought.\n"
-    reports["SPONTANEOUS_EXPRESSION_STAGE1_3.md"] = "# Spontaneous Expression — Stage 1.3\n\n" + details + "\n## Evidence accumulation\n\n" + md_table(a_table) + "\n\n## Formal expression PR\n\n" + md_table(pr_table) + f"\n\nG18: **{'PASS' if gate['G18']['pass'] else 'FAIL'}**. Expression score is an action/value score, not calibrated truth probability.\n\n## Pattern discovery controls\n\n" + md_table(b_table) + "\n"
-    reports["SILENCE_CONTROL_STAGE1_3.md"] = "# Silence Control — Stage 1.3\n\n" + details + "\n## Noise streams\n\n" + md_table(d_table) + f"\n\nG19: **{'PASS' if gate['G19']['pass'] else 'FAIL'}**. Development feasibility is part of the frozen decision; a diagnostic fallback cannot convert this gate to PASS.\n"
+    reports["SPONTANEOUS_EXPRESSION_STAGE1_3.md"] = "# Spontaneous Expression — Stage 1.3\n\n" + details + "\n## Frozen development choices\n\n" + md_table(selection_table) + "\n\n## Evidence accumulation\n\n" + md_table(a_table) + "\n\n## Formal expression PR\n\n" + md_table(pr_table) + f"\n\nG18: **{'PASS' if gate['G18']['pass'] else 'FAIL'}**. Expression score is an action/value score, not calibrated truth probability.\n\n## Pattern discovery controls\n\n" + md_table(b_table) + "\n"
+    reports["SILENCE_CONTROL_STAGE1_3.md"] = "# Silence Control — Stage 1.3\n\n" + details + "\n## Complete B6 development threshold sweep\n\n" + md_table(sweep_b6[["threshold", "precision", "recall", "f1", "noise_false_emission_rate"]]) + "\n\nThe complete all-model sweep is preserved as machine-readable `threshold_sweep.parquet`.\n\n## Formal noise streams\n\n" + md_table(d_table) + f"\n\nG19: **{'PASS' if gate['G19']['pass'] else 'FAIL'}**. Development feasibility is part of the frozen decision; a diagnostic fallback cannot convert this gate to PASS.\n"
     reports["MEMORY_ARBITRATION_STAGE1_3.md"] = "# Memory Arbitration — Stage 1.3\n\n" + details + "\n## Distractor sweep\n\n" + md_table(h_table) + f"\n\nG20: **{'PASS' if gate['G20']['pass'] else 'FAIL'}**; accuracy margin versus R0={gate['G20']['accuracy_margin_vs_R0']:.4f}, useful-expression margin={gate['G20']['useful_emission_margin_vs_R0']:.4f}.\n"
     reports["CROSS_TIME_ASSOCIATION_STAGE1_3.md"] = "# Cross-Time Association — Stage 1.3\n\n" + details + "\n## Results\n\n" + md_table(c_table) + "\n\nThis is a secondary toy outcome. M-lesion differences are interventions on the learned state, not proof of a general causal-memory representation.\n"
     reports["THOUGHT_DRIVEN_CONSOLIDATION_STAGE1_3.md"] = "# Thought-Driven Consolidation — Stage 1.3\n\n" + details + "\n## Matched-exposure usage/retention association\n\n" + md_table(i_table) + f"\n\nG21: **{'PASS' if gate['G21']['pass'] else 'FAIL'}**; mean per-seed Spearman={gate['G21']['mean_usage_retention_spearman']:.4f}. Attribution is query-alignment weighted fast read, not an importance label.\n"
