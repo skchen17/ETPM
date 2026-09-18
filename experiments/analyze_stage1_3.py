@@ -131,13 +131,17 @@ def experiment_summaries(records: pd.DataFrame) -> dict[str, pd.DataFrame]:
         .agg(usage_retention_spearman=("usage_retention_spearman", "mean"))
     )
     e = records[records.experiment.eq("E_self_output_audit")]
+    e = e.copy()
+    e["duplicate_target_emission"] = e.emitted.eq(1) & e.accuracy.eq(1)
     e_tick = (
         e.groupby(["model", "seed", "internal_tick"], as_index=False)
         .agg(external_write_count=("post_output_external_write_count", "max"),
              memory_relative_change=("memory_magnitude_relative_change", "mean"),
              expression_score_change=("expression_score_change", "mean"),
              self_memory_update=("self_output_memory_update_norm", "mean"),
-             expression_score=("expression_score", "mean"))
+             expression_score=("expression_score", "mean"),
+             emitted_rate=("emitted", "mean"),
+             duplicate_target_emission_rate=("duplicate_target_emission", "mean"))
     )
     b = records[records.experiment.eq("B_pattern_discovery")]
     b_summary = (
@@ -384,7 +388,7 @@ def report_texts(records: pd.DataFrame, training: pd.DataFrame, s: dict[str, pd.
     d_table = means(s["noise"], ["model", "condition"], ["false_emission_rate", "mean_expression_score", "max_expression_score"])
     h_table = means(s["arbitration"], ["model", "condition", "distractor_count"], ["accuracy", "useful_emission", "false_emission", "retention", "fast_gate"])
     i_table = means(s["thought_persistence"], ["model"], ["usage_retention_spearman"])
-    e_table = means(s["self_output"], ["model", "internal_tick"], ["external_write_count", "memory_relative_change", "expression_score_change", "self_memory_update"])
+    e_table = means(s["self_output"], ["model", "internal_tick"], ["external_write_count", "memory_relative_change", "expression_score_change", "self_memory_update", "emitted_rate", "duplicate_target_emission_rate"])
     b_table = means(s["pattern"], ["model", "condition"], ["correct_emission", "false_emission", "accuracy", "expression_score"])
     c_table = means(s["cross_time"], ["model", "condition"], ["accuracy", "correct_emission", "expression_score"])
     f_table = means(s["revision"], ["model", "condition", "new_evidence_count"], ["accuracy", "revision_correct", "expression_score", "confidence"])
@@ -444,6 +448,7 @@ def final_report(records: pd.DataFrame, training: pd.DataFrame, s: dict[str, pd.
     c6 = means(c[c.model.eq("B6_arbitration")], ["condition"], ["accuracy", "correct_emission"])
     f6 = means(f[f.model.eq("B6_arbitration")], ["condition", "new_evidence_count"], ["accuracy", "revision_correct"])
     g6 = means(g[g.model.eq("B6_arbitration")], ["condition"], ["accuracy", "emitted", "expression_score"])
+    duplicate6 = e[(e.model.eq("B6_arbitration")) & e.internal_tick.gt(0)].duplicate_target_emission_rate.mean()
     answers = f"""## Answers to the 20 required questions
 
 1. **New relations without a query?** Evidence accumulation correct-emission rate was {gate['G18']['correct_emission_rate']:.4f}; pattern and cross-time controls remain secondary. This is {'positive toy evidence' if gate['G18']['pass'] else 'not established by the registered gate'}.
@@ -460,7 +465,7 @@ def final_report(records: pd.DataFrame, training: pd.DataFrame, s: dict[str, pd.
 12. **Does internal reuse predict slow retention?** Mean Spearman={gate['G21']['mean_usage_retention_spearman']:.4f}; G21={'PASS' if gate['G21']['pass'] else 'FAIL'}.
 13. **Cross-time association?** B6 condition means: {c6.to_dict(orient='records')}.
 14. **Can genuine new evidence revise prior output?** Revision audit={adjudication['audits']['revision_healthy']}; count-8 accuracy={adjudication['audits']['revision_accuracy_after_8']:.4f}, correct revision emission={adjudication['audits']['revision_correct_emission_after_8']:.4f}.
-15. **Excess duplicate output?** Repeated emissions are reflected in tick-level emitted rates and self-output trajectories; no permanent already-said database was used. Failure of G19/G22 would block a positive conclusion.
+15. **Excess duplicate output?** Across sampled post-output ticks with no new evidence, B6 repeated the target at rate {duplicate6:.4f}. No permanent already-said database was used; revision after genuine evidence is reported separately.
 16. **Is interleaving harder than block input?** B6 matched results: {g6.to_dict(orient='records')}.
 17. **Stable at 1e3/1e4/1e5?** {'Experiment J was authorized but remains pending.' if adjudication['LONG_STREAM_AUTHORIZED'] else 'Not established; Experiment J is NOT_RUN_BY_PROTOCOL.'}
 18. **Main bottleneck?** {'The development expression precision/recall separation is a demonstrated bottleneck.' if not gate['G19']['development_threshold_primary_feasible'] else ('Memory read arbitration is a bottleneck.' if not gate['G20']['pass'] else ('Endogenous usage-to-retention coupling is a bottleneck.' if not gate['G21']['pass'] else 'See the remaining failed gate(s); no unsupported single-cause claim is made.'))}
