@@ -1,0 +1,6 @@
+{
+  "model": "B3_joint",
+  "seed": 4301,
+  "lr": 0.001,
+  "validation_loss": 0.11871513724327087
+}

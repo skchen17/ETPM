@@ -1,0 +1,6 @@
+{
+  "model": "B6_arbitration",
+  "seed": 4301,
+  "lr": 0.001,
+  "validation_loss": 0.1078009232878685
+}

@@ -1,0 +1,6 @@
+{
+  "model": "B7_nonconserving_self_replay",
+  "seed": 4301,
+  "lr": 0.0001,
+  "validation_loss": 1.4008365869522095
+}

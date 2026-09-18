@@ -1,0 +1,16 @@
+{
+  "protocol": "stage1.3-v1",
+  "development_run_id": "stage1_3-development-v1a1",
+  "selected_learning_rates": {
+    "B0_no_persistent": 0.001,
+    "B1_gru": 0.001,
+    "B2_single_persistent": 0.001,
+    "B3_joint": 0.001,
+    "B4_m_only": 0.001,
+    "B5_f_only": 0.001,
+    "B6_arbitration": 0.001,
+    "B7_nonconserving_self_replay": 0.001
+  },
+  "selection_rule": "minimum mean development validation loss; exact tie chooses lower LR",
+  "formal_outcomes_visible": false
+}

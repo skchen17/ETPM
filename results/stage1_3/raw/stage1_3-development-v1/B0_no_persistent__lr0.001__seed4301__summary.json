@@ -1,0 +1,6 @@
+{
+  "model": "B0_no_persistent",
+  "seed": 4301,
+  "lr": 0.001,
+  "validation_loss": 0.7544063925743103
+}

@@ -1,0 +1,6 @@
+{
+  "model": "B5_f_only",
+  "seed": 4301,
+  "lr": 0.001,
+  "validation_loss": 0.7538132071495056
+}

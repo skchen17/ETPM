@@ -1,0 +1,56 @@
+{
+  "protocol": "stage1.3-v1",
+  "development_run_id": "stage1_3-development-v1a1",
+  "selected_learning_rates": {
+    "B0_no_persistent": 0.001,
+    "B1_gru": 0.001,
+    "B2_single_persistent": 0.001,
+    "B3_joint": 0.001,
+    "B4_m_only": 0.001,
+    "B5_f_only": 0.001,
+    "B6_arbitration": 0.001,
+    "B7_nonconserving_self_replay": 0.001
+  },
+  "selected_thresholds": {
+    "B0_no_persistent": 0.3,
+    "B1_gru": 0.3,
+    "B2_single_persistent": 0.55,
+    "B3_joint": 0.4,
+    "B4_m_only": 0.4,
+    "B5_f_only": 0.65,
+    "B6_arbitration": 0.45,
+    "B7_nonconserving_self_replay": 0.45
+  },
+  "development_threshold_feasible": {
+    "B0_no_persistent": false,
+    "B1_gru": false,
+    "B2_single_persistent": false,
+    "B3_joint": false,
+    "B4_m_only": false,
+    "B5_f_only": false,
+    "B6_arbitration": false,
+    "B7_nonconserving_self_replay": false
+  },
+  "threshold_selection_status": {
+    "B0_no_persistent": "diagnostic_fallback_no_primary_feasible_threshold",
+    "B1_gru": "diagnostic_fallback_no_primary_feasible_threshold",
+    "B2_single_persistent": "diagnostic_fallback_no_primary_feasible_threshold",
+    "B3_joint": "diagnostic_fallback_no_primary_feasible_threshold",
+    "B4_m_only": "diagnostic_fallback_no_primary_feasible_threshold",
+    "B5_f_only": "diagnostic_fallback_no_primary_feasible_threshold",
+    "B6_arbitration": "diagnostic_fallback_no_primary_feasible_threshold",
+    "B7_nonconserving_self_replay": "diagnostic_fallback_no_primary_feasible_threshold"
+  },
+  "threshold_rule": "highest_f1_among_feasible_then_highest_precision_then_lowest_threshold",
+  "diagnostic_fallback_rule": "highest_f1_among_noise_safe_then_highest_precision_then_lowest_threshold",
+  "g19_policy": "development threshold infeasibility forces G19 failure; fallback is diagnostic only",
+  "development_seeds": [
+    4301,
+    4302
+  ],
+  "formal_outcomes_visible": false,
+  "source_hashes": {
+    "learning_rate_selection.parquet": "a11fd0a0ce9069f356f5540cb9bb75d5ad53699244900091264c59f9f8777be8",
+    "threshold_sweep.parquet": "dac6b40c2628018aa3c071b88fe83bb254051b989453a659d3bc2d96180b4610"
+  }
+}

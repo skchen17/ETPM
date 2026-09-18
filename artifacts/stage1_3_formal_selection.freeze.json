@@ -1,0 +1,24 @@
+{
+  "protocol": "stage1.3-v1",
+  "development_run_id": "stage1_3-development-v1a1",
+  "formal_run_id": "stage1_3-formal-v1",
+  "frozen_date": "2026-09-18",
+  "source_revision_before_selection_commit": "4e723f72026721e2bbd1adee6e88ff2fb132816f",
+  "formal_outcomes_visible": false,
+  "development_cells": 48,
+  "development_cells_unique": 48,
+  "development_losses_finite": 48,
+  "selected_learning_rate_all_models": 0.001,
+  "b6_selected_threshold": 0.45,
+  "b6_primary_threshold_feasible": false,
+  "files": {
+    "configs/stage1_3_lr_selected.json": "cdb3ce19fe4ee2369e28f347765541fc370ff3a1e65f4547eaad304dfe7156f5",
+    "configs/stage1_3_selected.json": "5863b11ae3a1ca1797ed5a8ad186663814c11534a0f5685f666a3c5e39b71040",
+    "results/stage1_3/raw/stage1_3-development-v1a1/learning_rate_selection.parquet": "a11fd0a0ce9069f356f5540cb9bb75d5ad53699244900091264c59f9f8777be8",
+    "results/stage1_3/raw/stage1_3-development-v1a1/threshold_sweep.parquet": "dac6b40c2628018aa3c071b88fe83bb254051b989453a659d3bc2d96180b4610",
+    "reports/STAGE1_3_ANALYSIS_PLAN.md": "198fd209d705d773861da8c29d5604db0ee71f0aa84bda40caefc013035847d0"
+  },
+  "formal_seeds": [5301, 5302, 5303, 5304, 5305, 5306, 5307, 5308],
+  "formal_training_steps_per_model_seed": 1000,
+  "stage2_started": false
+}

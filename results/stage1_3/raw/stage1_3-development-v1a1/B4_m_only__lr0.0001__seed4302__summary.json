@@ -1,0 +1,6 @@
+{
+  "model": "B4_m_only",
+  "seed": 4302,
+  "lr": 0.0001,
+  "validation_loss": 0.8698570728302002
+}

@@ -1,0 +1,6 @@
+{
+  "model": "B2_single_persistent",
+  "seed": 4301,
+  "lr": 0.0001,
+  "validation_loss": 1.223344326019287
+}

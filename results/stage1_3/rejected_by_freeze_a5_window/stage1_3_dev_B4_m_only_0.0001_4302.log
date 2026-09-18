@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/data/CSK/ETPM/et-rcm/experiments/run_stage1_3.py", line 332, in <module>
+    main()
+    ~~~~^^
+  File "/data/CSK/ETPM/et-rcm/experiments/run_stage1_3.py", line 314, in main
+    verify_freeze(); cfg = config()
+    ~~~~~~~~~~~~~^^
+  File "/data/CSK/ETPM/et-rcm/experiments/run_stage1_3.py", line 82, in verify_freeze
+    raise RuntimeError(f"Stage-1.3 A3 file changed: {relative}")
+RuntimeError: Stage-1.3 A3 file changed: src/etrcm/stage1_3/evaluation.py
