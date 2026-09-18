@@ -8,9 +8,10 @@
     "configs/stage1_3.yaml": "a20ce9b0de2133a21973a4c396708d8c3d5ce28eaaf255e63552d1404a6d8d67",
     "configs/stage1_3_splits.json": "13a051b1e07e58c979c7fb579ddca81edda5709438b019a7390a70629317eb17",
     "reports/STAGE1_3_PROTOCOL.md": "13e6a0a96fa2a31bb3c7edc2ddde2fce9dd0052f2f196ac780917e3ffcd60621",
-    "reports/STAGE1_3_AMENDMENTS.md": "62e62320037e45ac57bf6dfc7b7eae8b7c4569f84eb986140f267ea8cb6ba6ef",
-    "artifacts/stage1_3_prior_assets.sha256": "380481f977bd03d467c6fa8ded9b5d26ccd6dc3c594f04c774fec18bf8c7bb05"
+    "reports/STAGE1_3_AMENDMENTS.md": "f93fbf1cef99ac9e1a835cfef3206f484058ede2bb265ccf3eca36affcb3223e",
+    "artifacts/stage1_3_prior_assets.sha256": "4bf4d73df29dea081e31d1614a78732461a753494f63479837bb4c4ef90de51c"
   },
+  "amendments": ["A1_prior_asset_byte_hash_normalization_before_training"],
   "formal_gates": ["G18", "G19", "G20", "G21", "G22"],
   "stage2_training_authorized": false
 }
