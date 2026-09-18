@@ -47,3 +47,24 @@ uses that field as its positive stratum while retaining every pre-sufficient
 state and all noise rows as negatives. No training run is discarded or
 changed. No formal result exists; frozen threshold candidates, gates and
 selection constraints are unchanged.
+
+## A4 — 2026-09-18, diagnostic fallback after threshold infeasibility
+
+After A3, B6 development diagnostics were evaluated before any formal run. At
+800 training steps, no candidate met the frozen development requirement of
+precision at least 0.90 with noise false-emission rate at most 0.01. A single
+pre-declared stopping diagnostic extended B6 seed 4301 at learning rate 0.001
+to 1600 steps. Noise false emission remained zero, but the best high-recall
+point was threshold 0.20 (precision 0.817, recall 0.906), while threshold 0.40
+gave precision 0.846 and recall 0.688. No candidate reached precision 0.90.
+The exploratory checkpoint is retained and is not eligible for model or
+hyperparameter selection.
+
+No additional budget extension is allowed. To execute the requested formal
+negative-control study without silently relaxing the scientific criterion, a
+diagnostic-only fallback is frozen: among thresholds satisfying the original
+noise false-emission ceiling, choose maximum F1, then maximum precision, then
+the lower threshold. Each architecture records whether the primary rule was
+feasible. If a fallback is used, G19 is forced to FAIL regardless of a chance
+formal result. Threshold candidates, primary rule, training budgets, gates and
+all formal seeds remain unchanged. No formal outcome was visible.

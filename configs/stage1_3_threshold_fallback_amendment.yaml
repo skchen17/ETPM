@@ -1,0 +1,12 @@
+amendment: A4
+reason: no threshold satisfied the frozen development precision/noise constraints
+fallback:
+  maximum_noise_false_emission_rate: 0.01
+  rule: highest_f1_among_noise_safe_then_highest_precision_then_lowest_threshold
+gate_policy: development threshold infeasibility forces G19 failure; fallback is diagnostic only
+preserved:
+  threshold_candidates_unchanged: true
+  primary_selection_rule_unchanged: true
+  gates_unchanged: true
+  training_budgets_unchanged: true
+  formal_outcomes_visible: false

@@ -71,9 +71,21 @@ def verify_freeze() -> None:
     amendment3_path = ROOT / "artifacts/stage1_3_amendment3.freeze.json"
     if amendment3_path.exists():
         amendment3 = json.loads(amendment3_path.read_text())
+        superseded = {
+            "experiments/run_stage1_3.py",
+            "reports/STAGE1_3_AMENDMENTS.md",
+        }
         for relative, expected in amendment3["files"].items():
+            if relative in superseded and (ROOT / "artifacts/stage1_3_amendment4.freeze.json").exists():
+                continue
             if sha256(ROOT / relative) != expected:
                 raise RuntimeError(f"Stage-1.3 A3 file changed: {relative}")
+    amendment4_path = ROOT / "artifacts/stage1_3_amendment4.freeze.json"
+    if amendment4_path.exists():
+        amendment4 = json.loads(amendment4_path.read_text())
+        for relative, expected in amendment4["files"].items():
+            if sha256(ROOT / relative) != expected:
+                raise RuntimeError(f"Stage-1.3 A4 file changed: {relative}")
 
 
 def config() -> dict:
@@ -176,7 +188,8 @@ def freeze_selection(cfg: dict) -> None:
     run_id = cfg["protocol"]["development_run_id"]
     raw = ROOT / "results/stage1_3/raw" / run_id
     thresholds = cfg["threshold_selection"]["candidates"]
-    selected_thresholds, sweep_rows = {}, []
+    fallback = yaml.safe_load((ROOT / "configs/stage1_3_threshold_fallback_amendment.yaml").read_text())
+    selected_thresholds, threshold_feasible, threshold_selection_status, sweep_rows = {}, {}, {}, []
     for model_name in MODEL_NAMES:
         expression = pd.concat([pd.read_parquet(raw / f"{model_name}__seed{seed}__threshold_expression.parquet") for seed in cfg["training"]["development_seeds"]], ignore_index=True)
         noise = pd.concat([pd.read_parquet(raw / f"{model_name}__seed{seed}__threshold_noise.parquet") for seed in cfg["training"]["development_seeds"]], ignore_index=True)
@@ -196,7 +209,22 @@ def freeze_selection(cfg: dict) -> None:
         arm = pd.DataFrame(sweep_rows)
         arm = arm[arm.model.eq(model_name)]
         feasible = arm[(arm.precision >= cfg["threshold_selection"]["minimum_precision"]) & (arm.noise_false_emission_rate <= cfg["threshold_selection"]["maximum_noise_false_emission_rate"])]
-        candidates = feasible if len(feasible) else arm
+        is_feasible = bool(len(feasible))
+        threshold_feasible[model_name] = is_feasible
+        if is_feasible:
+            candidates = feasible
+            threshold_selection_status[model_name] = "primary_feasible"
+        else:
+            candidates = arm[
+                arm.noise_false_emission_rate
+                <= float(fallback["fallback"]["maximum_noise_false_emission_rate"])
+            ]
+            if not len(candidates):
+                raise RuntimeError(
+                    f"no noise-safe diagnostic fallback threshold for {model_name}; "
+                    "formal evaluation is not authorized"
+                )
+            threshold_selection_status[model_name] = "diagnostic_fallback_no_primary_feasible_threshold"
         best = candidates.sort_values(["f1", "precision", "threshold"], ascending=[False, False, True]).iloc[0]
         selected_thresholds[model_name] = float(best.threshold)
     sweep = pd.DataFrame(sweep_rows)
@@ -206,7 +234,11 @@ def freeze_selection(cfg: dict) -> None:
         "development_run_id": run_id,
         "selected_learning_rates": lr_selection["selected_learning_rates"],
         "selected_thresholds": selected_thresholds,
+        "development_threshold_feasible": threshold_feasible,
+        "threshold_selection_status": threshold_selection_status,
         "threshold_rule": cfg["threshold_selection"]["rule"],
+        "diagnostic_fallback_rule": fallback["fallback"]["rule"],
+        "g19_policy": fallback["gate_policy"],
         "development_seeds": cfg["training"]["development_seeds"],
         "formal_outcomes_visible": False,
         "source_hashes": {

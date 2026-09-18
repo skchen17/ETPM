@@ -1,0 +1,11 @@
+{
+  "amendment": "A4",
+  "timestamp": "2026-09-18T16:10:00+08:00",
+  "formal_outcomes_visible": false,
+  "development_outcome": "No B6 threshold was primary-feasible at 800 or the single 1600-step stopping diagnostic.",
+  "files": {
+    "experiments/run_stage1_3.py": "dc9957541ed108ba9e1ac4321a028d7625b4282ea32ce51797f784beddf4a851",
+    "configs/stage1_3_threshold_fallback_amendment.yaml": "c86820cb7e57eb8021ad08c35770a5eff7fd3afa3e21af6327cd72d65f37047f",
+    "reports/STAGE1_3_AMENDMENTS.md": "e44e1f690571911293033a3235387d65bbdad71cb8dd1630821cebb80b48bd42"
+  }
+}
