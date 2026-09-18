@@ -1,0 +1,23 @@
+{
+  "amendment": "A6_amendment_chain_verifier_correction",
+  "date": "2026-09-18",
+  "formal_outcomes_visible": false,
+  "rejected_jobs_have_results": false,
+  "files": {
+    "experiments/run_stage1_3.py": "52286c235dea2a0ce2619293d8994e8d2b11f8e857aba9c08215f4d69ed770ba",
+    "reports/STAGE1_3_AMENDMENTS.md": "0a1ef58451deefbac13c94e11134b498fae5415a01c741b0662464bcbafb3ec1"
+  },
+  "unchanged": [
+    "training implementation",
+    "model equations",
+    "development budget",
+    "formal budget",
+    "seeds",
+    "threshold selection",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22"
+  ]
+}

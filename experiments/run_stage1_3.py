@@ -72,11 +72,12 @@ def verify_freeze() -> None:
     if amendment3_path.exists():
         amendment3 = json.loads(amendment3_path.read_text())
         superseded = {
+            "src/etrcm/stage1_3/evaluation.py",
             "experiments/run_stage1_3.py",
             "reports/STAGE1_3_AMENDMENTS.md",
         }
         for relative, expected in amendment3["files"].items():
-            if relative in superseded and (ROOT / "artifacts/stage1_3_amendment4.freeze.json").exists():
+            if relative in superseded and (ROOT / "artifacts/stage1_3_amendment5.freeze.json").exists():
                 continue
             if sha256(ROOT / relative) != expected:
                 raise RuntimeError(f"Stage-1.3 A3 file changed: {relative}")
@@ -95,9 +96,21 @@ def verify_freeze() -> None:
     amendment5_path = ROOT / "artifacts/stage1_3_amendment5.freeze.json"
     if amendment5_path.exists():
         amendment5 = json.loads(amendment5_path.read_text())
+        superseded = {
+            "experiments/run_stage1_3.py",
+            "reports/STAGE1_3_AMENDMENTS.md",
+        }
         for relative, expected in amendment5["files"].items():
+            if relative in superseded and (ROOT / "artifacts/stage1_3_amendment6.freeze.json").exists():
+                continue
             if sha256(ROOT / relative) != expected:
                 raise RuntimeError(f"Stage-1.3 A5 file changed: {relative}")
+    amendment6_path = ROOT / "artifacts/stage1_3_amendment6.freeze.json"
+    if amendment6_path.exists():
+        amendment6 = json.loads(amendment6_path.read_text())
+        for relative, expected in amendment6["files"].items():
+            if sha256(ROOT / relative) != expected:
+                raise RuntimeError(f"Stage-1.3 A6 file changed: {relative}")
 
 
 def config() -> dict:

@@ -81,3 +81,15 @@ events as the intact B6 condition; they are not retrained capacity controls.
 They affect no core gate and are reported only as secondary causal diagnostics.
 Training, development selection, thresholds, formal seeds, G18–G22 and long-
 stream authorization rules are unchanged.
+
+## A6 — 2026-09-18, amendment-chain verifier correction
+
+While the equal-budget development shell was still running, the A5 evaluator
+was installed before its freeze payload. Jobs launched in that short interval
+were correctly rejected by the integrity verifier and produced no summary or
+checkpoint. The verifier then continued comparing A5's evaluator with the A3
+hash, because the supersession list omitted that file. This entry corrects the
+amendment chain; all rejected `(model, LR, seed)` cells are rerun under the
+same A2 budget. Existing completed cells are retained because A5 changes only
+unused secondary evaluation code, not training. No formal outcome was visible,
+and no metric, seed, threshold, model equation, budget, or gate changed.
