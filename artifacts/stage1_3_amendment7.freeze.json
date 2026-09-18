@@ -1,0 +1,22 @@
+{
+  "amendment": "A7_postformal_derived_audit_separation",
+  "date": "2026-09-18",
+  "formal_outcomes_visible": true,
+  "formal_artifacts_changed": false,
+  "gate_values_changed": false,
+  "authorization_changed": false,
+  "files": {
+    "experiments/analyze_stage1_3.py": "ff063b223e0392241765a635218eb1b5b5eac6de74fe0344299e5ed456241109",
+    "experiments/run_stage1_3.py": "e162e27146a207b55aa75db643e748525ed6b348fbd1231f20a6606999a466d0",
+    "reports/STAGE1_3_AMENDMENTS.md": "c891241c709ac30c84f9c7eb0120ad208186b91e9c91f184d1394ae9b84a527a"
+  },
+  "unchanged": [
+    "G18 FAIL",
+    "G19 FAIL",
+    "G20 FAIL",
+    "G21 FAIL",
+    "G22 FAIL",
+    "LONG_STREAM_AUTHORIZED false",
+    "STAGE2_LANGUAGE_MODEL_PROTOTYPE_RECOMMENDED false"
+  ]
+}

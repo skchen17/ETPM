@@ -108,9 +108,21 @@ def verify_freeze() -> None:
     amendment6_path = ROOT / "artifacts/stage1_3_amendment6.freeze.json"
     if amendment6_path.exists():
         amendment6 = json.loads(amendment6_path.read_text())
+        superseded = {
+            "experiments/run_stage1_3.py",
+            "reports/STAGE1_3_AMENDMENTS.md",
+        }
         for relative, expected in amendment6["files"].items():
+            if relative in superseded and (ROOT / "artifacts/stage1_3_amendment7.freeze.json").exists():
+                continue
             if sha256(ROOT / relative) != expected:
                 raise RuntimeError(f"Stage-1.3 A6 file changed: {relative}")
+    amendment7_path = ROOT / "artifacts/stage1_3_amendment7.freeze.json"
+    if amendment7_path.exists():
+        amendment7 = json.loads(amendment7_path.read_text())
+        for relative, expected in amendment7["files"].items():
+            if sha256(ROOT / relative) != expected:
+                raise RuntimeError(f"Stage-1.3 A7 file changed: {relative}")
 
 
 def config() -> dict:

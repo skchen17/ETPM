@@ -93,3 +93,16 @@ amendment chain; all rejected `(model, LR, seed)` cells are rerun under the
 same A2 budget. Existing completed cells are retained because A5 changes only
 unused secondary evaluation code, not training. No formal outcome was visible,
 and no metric, seed, threshold, model equation, budget, or gate changed.
+
+## A7 — 2026-09-18, post-formal derived-audit separation
+
+Formal outcomes were visible. Report inspection found that the derived
+`no_self_output_amplification` authorization audit was mapped to the whole G22
+boolean. G22 is compound: it includes both B6 safety subcriteria and a required
+pathological response from B7. B6 had zero external writes and no positive net
+memory/expression increase, while B7 made nonzero self-memory updates but its
+net target-memory strength did not cross the registered +0.10 control floor.
+Thus G22 correctly remains FAIL because the negative control was not validated,
+but the narrower B6 no-amplification audit is TRUE. The analyzer now records
+these separately. No gate value, threshold, seed statistic, long-stream status,
+Stage-2 recommendation, model, training run, or formal artifact is changed.

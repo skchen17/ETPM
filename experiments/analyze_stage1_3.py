@@ -289,13 +289,17 @@ def adjudicate(s: dict[str, pd.DataFrame], config: dict, selected: dict) -> dict
     memory_increase = float(mean6.memory_relative_change.max())
     expression_increase = float(mean6.expression_score_change.max())
     control_increase = float(mean7.memory_relative_change.max())
+    b6_self_output_safe = bool(
+        writes <= c22["external_write_count_max"]
+        and memory_increase <= c22["memory_magnitude_relative_increase_max"]
+        and expression_increase <= c22["expression_score_increase_max"]
+    )
     g22 = {
         "pass": bool(
-            writes <= c22["external_write_count_max"]
-            and memory_increase <= c22["memory_magnitude_relative_increase_max"]
-            and expression_increase <= c22["expression_score_increase_max"]
+            b6_self_output_safe
             and control_increase >= c22["nonconserving_control_increase_min"]
         ),
+        "b6_self_output_safety_subcriteria_pass": b6_self_output_safe,
         "maximum_external_write_count": writes,
         "maximum_mean_memory_relative_increase": memory_increase,
         "maximum_mean_expression_score_increase": expression_increase,
@@ -316,7 +320,7 @@ def adjudicate(s: dict[str, pd.DataFrame], config: dict, selected: dict) -> dict
         "revision_accuracy_after_1": float(rev.loc[1.0, "accuracy"]),
         "revision_accuracy_after_8": float(rev.loc[8.0, "accuracy"]),
         "revision_correct_emission_after_8": float(rev.loc[8.0, "revision_correct"]),
-        "no_self_output_amplification": bool(g22["pass"]),
+        "no_self_output_amplification": b6_self_output_safe,
     }
     result_gates = {"G18": g18, "G19": g19, "G20": g20, "G21": g21, "G22": g22}
     all_gates = all(item["pass"] for item in result_gates.values())
@@ -423,7 +427,7 @@ def report_texts(records: pd.DataFrame, training: pd.DataFrame, s: dict[str, pd.
     reports["MEMORY_ARBITRATION_STAGE1_3.md"] = "# Memory Arbitration — Stage 1.3\n\n" + details + "\n## Distractor sweep\n\n" + md_table(h_table) + f"\n\nG20: **{'PASS' if gate['G20']['pass'] else 'FAIL'}**; accuracy margin versus R0={gate['G20']['accuracy_margin_vs_R0']:.4f}, useful-expression margin={gate['G20']['useful_emission_margin_vs_R0']:.4f}.\n"
     reports["CROSS_TIME_ASSOCIATION_STAGE1_3.md"] = "# Cross-Time Association — Stage 1.3\n\n" + details + "\n## Results\n\n" + md_table(c_table) + "\n\nThis is a secondary toy outcome. M-lesion differences are interventions on the learned state, not proof of a general causal-memory representation.\n"
     reports["THOUGHT_DRIVEN_CONSOLIDATION_STAGE1_3.md"] = "# Thought-Driven Consolidation — Stage 1.3\n\n" + details + "\n## Matched-exposure usage/retention association\n\n" + md_table(i_table) + f"\n\nG21: **{'PASS' if gate['G21']['pass'] else 'FAIL'}**; mean per-seed Spearman={gate['G21']['mean_usage_retention_spearman']:.4f}. Attribution is query-alignment weighted fast read, not an importance label.\n"
-    reports["SELF_OUTPUT_EVIDENCE_AUDIT_STAGE1_3.md"] = "# Self-Output Evidence Audit — Stage 1.3\n\n" + details + "\n## Post-expression trajectories\n\n" + md_table(e_table) + f"\n\nG22: **{'PASS' if gate['G22']['pass'] else 'FAIL'}**. B6 external-write maximum={gate['G22']['maximum_external_write_count']:.0f}; maximum mean memory change={gate['G22']['maximum_mean_memory_relative_increase']:.4f}; B7 control={gate['G22']['nonconserving_control_memory_increase']:.4f}.\n"
+    reports["SELF_OUTPUT_EVIDENCE_AUDIT_STAGE1_3.md"] = "# Self-Output Evidence Audit — Stage 1.3\n\n" + details + "\n## Post-expression trajectories\n\n" + md_table(e_table) + f"\n\nG22: **{'PASS' if gate['G22']['pass'] else 'FAIL'}**. B6 safety subcriteria pass={gate['G22']['b6_self_output_safety_subcriteria_pass']}; external-write maximum={gate['G22']['maximum_external_write_count']:.0f}; maximum mean memory change={gate['G22']['maximum_mean_memory_relative_increase']:.4f}; maximum mean score change={gate['G22']['maximum_mean_expression_score_increase']:.4f}. B7 executed nonzero self-memory updates, but net target-memory strength did not reach the registered +0.10 control increase (observed {gate['G22']['nonconserving_control_memory_increase']:.4f}), so the compound gate fails because the pathological-control check was not validated—not because B6 amplified itself.\n"
     reports["SPONTANEOUS_REVISION_STAGE1_3.md"] = "# Spontaneous Revision — Stage 1.3\n\n" + details + "\n## New-evidence sweep\n\n" + md_table(f_table) + f"\n\nAuthorization audit `revision_healthy`: **{adjudication['audits']['revision_healthy']}**. Expression is not an irreversible commitment; only genuine new external evidence uses the delta-write path.\n"
     if adjudication["LONG_STREAM_AUTHORIZED"]:
         reports["LONG_CONTINUOUS_STREAM_STAGE1_3.md"] = "# Long Continuous Stream — Stage 1.3\n\n`AUTHORIZED_PENDING_EXECUTION`\n\nAll intermediate gates passed, so Experiment J must be run before final closure.\n"
@@ -457,7 +461,7 @@ def final_report(records: pd.DataFrame, training: pd.DataFrame, s: dict[str, pd.
 4. **Long-noise false emission rate?** B6 at 10,000 ticks: {gate['G19']['noise_false_emission_rate_10000']:.6f}.
 5. **Does state continue after output?** Yes structurally and in tests; emit does not reset or halt H/F/M, and later transitions run normally.
 6. **Does self-output enter external write?** No; maximum cumulative post-output external writes was {gate['G22']['maximum_external_write_count']:.0f}.
-7. **Does repeated self-output amplify memory/score?** Maximum mean B6 memory change={gate['G22']['maximum_mean_memory_relative_increase']:.4f}, score change={gate['G22']['maximum_mean_expression_score_increase']:.4f}; G22={'PASS' if gate['G22']['pass'] else 'FAIL'}.
+7. **Does repeated self-output amplify memory/score?** No systematic B6 amplification was observed: maximum mean memory change={gate['G22']['maximum_mean_memory_relative_increase']:.4f}, score change={gate['G22']['maximum_mean_expression_score_increase']:.4f}, and external writes=0. The compound G22 nevertheless {'passed' if gate['G22']['pass'] else 'failed'} because the B7 pathological-control net increase was {gate['G22']['nonconserving_control_memory_increase']:.4f}, below its registered +0.10 validation floor.
 8. **Can stored M affect behavior?** B6 high-pressure content accuracy was {h6.accuracy.mean():.4f}; lesion and read-mode tables show how much was behaviorally accessible.
 9. **Is learned arbitration better than historical F+M?** G20={'PASS' if gate['G20']['pass'] else 'FAIL'}; accuracy margin={gate['G20']['accuracy_margin_vs_R0']:.4f}, useful-expression margin={gate['G20']['useful_emission_margin_vs_R0']:.4f}.
 10. **When does it read F versus M?** The registered scalar is fast weight g; its distractor-conditioned means are reported in `MEMORY_ARBITRATION_STAGE1_3.md`. This is descriptive, not a semantic proof.

@@ -150,6 +150,12 @@ def test_formal_threshold_protocol_is_hash_frozen() -> None:
         assert actual == expected
     amendment6 = json.loads((ROOT / "artifacts/stage1_3_amendment6.freeze.json").read_text())
     for relative, expected in amendment6["files"].items():
+        if relative in {"experiments/run_stage1_3.py", "reports/STAGE1_3_AMENDMENTS.md"}:
+            continue
+        actual = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
+        assert actual == expected
+    amendment7 = json.loads((ROOT / "artifacts/stage1_3_amendment7.freeze.json").read_text())
+    for relative, expected in amendment7["files"].items():
         actual = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
         assert actual == expected
     config = yaml.safe_load((ROOT / "configs/stage1_3.yaml").read_text())
