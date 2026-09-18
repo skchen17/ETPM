@@ -86,7 +86,9 @@ def evidence_summary(records: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]
     pr_rows = []
     for (model, seed), arm in a.groupby(["model", "seed"]):
         positive = arm.newly_sufficient.eq(1)
-        eligible = positive | arm.is_sufficient_arm.eq(0)
+        # Exactly match development selection: every not-yet-sufficient state
+        # (including sufficient-arm prefixes) plus the first sufficient state.
+        eligible = arm.enough_evidence.eq(0) | positive
         predicted = arm.emitted.eq(1)
         correct = arm.accuracy.eq(1)
         tp = int((eligible & predicted & positive & correct).sum())

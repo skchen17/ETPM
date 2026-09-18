@@ -13,8 +13,9 @@ in `STAGE1_3_AMENDMENTS.md`.
   insufficient-arm episode. A seed passes only if B6 reaches the registered
   absolute rate, B6–B0 margin, and sufficient–insufficient margin.
 - G19 precision uses eligible rows consisting of the first sufficient state
-  and every insufficient-arm state. A true positive is a correct emission at
-  the first sufficient state; any other eligible emission is a false positive.
+  and every not-yet-sufficient state, including the pre-sufficient prefixes of
+  episodes that later become sufficient. A true positive is a correct emission
+  at the first sufficient state; any other eligible emission is a false positive.
   Recall is true positives divided by first-sufficient states. Noise rate is
   the mean across all streams and ticks of the 10,000-tick B6 run. If B6 had
   no primary-feasible development threshold, G19 fails regardless of formal
