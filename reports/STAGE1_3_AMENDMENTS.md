@@ -68,3 +68,16 @@ the lower threshold. Each architecture records whether the primary rule was
 feasible. If a fallback is used, G19 is forced to FAIL regardless of a chance
 formal result. Threshold candidates, primary rule, training budgets, gates and
 all formal seeds remain unchanged. No formal outcome was visible.
+
+## A5 — 2026-09-18, complete secondary cross-time ablations
+
+A pre-formal coverage audit found that Experiment C implemented the standard,
+M-only and slow-memory-lesion conditions but had not yet executed three
+explicitly requested secondary controls: no persistent memory, gamma=0, and a
+random memory query. No formal seed had started. The no-memory B0 model is now
+included in Experiment C. The B6 gamma-zero and random-query conditions are
+same-weight evaluation interventions, replaying exactly the same external
+events as the intact B6 condition; they are not retrained capacity controls.
+They affect no core gate and are reported only as secondary causal diagnostics.
+Training, development selection, thresholds, formal seeds, G18–G22 and long-
+stream authorization rules are unchanged.

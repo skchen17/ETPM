@@ -1,0 +1,24 @@
+{
+  "amendment": "A5_complete_secondary_cross_time_ablations",
+  "date": "2026-09-18",
+  "formal_outcomes_visible": false,
+  "scope": "Secondary Experiment C only; no core gate or selection change.",
+  "files": {
+    "src/etrcm/stage1_3/evaluation.py": "1cb1d9d6e2fcbb85053adab62219402d1c438ee1f3e69cff5a781e7a1b498ae1",
+    "experiments/run_stage1_3.py": "b4bd5569fcf6e98d632ba6a489ae1b6542ce716ed80680c9089df19285d540ab",
+    "reports/STAGE1_3_AMENDMENTS.md": "cd15824a9dd5ab1c4a9af2f2a0a1f2c4275a001d3b019539df78679d78b95e94"
+  },
+  "unchanged": [
+    "training",
+    "development artifacts",
+    "selected learning rates",
+    "threshold candidates",
+    "threshold rules",
+    "formal seeds",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22"
+  ]
+}

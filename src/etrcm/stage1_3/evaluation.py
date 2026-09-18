@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import copy
+from types import MethodType
 from typing import Any
 
 import numpy as np
@@ -446,20 +448,27 @@ def cross_time_association(
     a = _ids(episodes, model.config.symbol_count, rng, device)
     b = (a + 1).remainder(model.config.symbol_count)
     c = (b + 1).remainder(model.config.symbol_count)
-    state = model.initial_state(episodes, device=device)
-    state, _ = model.step(state, evidence_event(a, b))
-    for _ in range(distractors):
-        state, _ = model.step(state, evidence_event(_ids(episodes, model.config.symbol_count, rng, device), _ids(episodes, model.config.symbol_count, rng, device), support=0.0))
-    state, output = model.step(state, evidence_event(b, c), threshold=threshold)
-    for tick in range(8):
-        state, output = model.step(state, None, threshold=threshold)
-    rows = _diagnostic_rows(
-        experiment="C_cross_time_association", condition="A_to_B_gap_B_to_C", model_name=model_name,
-        seed=seed, state=state, output=output, event=None, threshold=threshold, tick=8,
-        target=c,
-        extra={"cross_time_correct_emission": (output["emitted"] & output["emitted_content_id"].eq(c)).float(),
-               "distractor_count": torch.full((episodes,), distractors, device=device)},
-    )
+    noise_keys = [_ids(episodes, model.config.symbol_count, rng, device) for _ in range(distractors)]
+    noise_values = [_ids(episodes, model.config.symbol_count, rng, device) for _ in range(distractors)]
+
+    def run_variant(current: ContinuousETRCM, condition: str):
+        state = current.initial_state(episodes, device=device)
+        state, _ = current.step(state, evidence_event(a, b))
+        for keys, values in zip(noise_keys, noise_values):
+            state, _ = current.step(state, evidence_event(keys, values, support=0.0))
+        state, output = current.step(state, evidence_event(b, c), threshold=threshold)
+        for _ in range(8):
+            state, output = current.step(state, None, threshold=threshold)
+        rows = _diagnostic_rows(
+            experiment="C_cross_time_association", condition=condition, model_name=model_name,
+            seed=seed, state=state, output=output, event=None, threshold=threshold, tick=8,
+            target=c,
+            extra={"cross_time_correct_emission": (output["emitted"] & output["emitted_content_id"].eq(c)).float(),
+                   "distractor_count": torch.full((episodes,), distractors, device=device)},
+        )
+        return state, output, rows
+
+    state, output, rows = run_variant(model, "A_to_B_gap_B_to_C")
     lesion = model.lesion(state, "slow")
     lesion, lesion_output = model.step(lesion, None, threshold=threshold)
     rows += _diagnostic_rows(
@@ -469,6 +478,29 @@ def cross_time_association(
         extra={"cross_time_correct_emission": (lesion_output["emitted"] & lesion_output["emitted_content_id"].eq(c)).float(),
                "distractor_count": torch.full((episodes,), distractors, device=device)},
     )
+    if model_name == "B6_arbitration":
+        gamma_zero = copy.deepcopy(model)
+
+        def no_consolidation(self, fast, slow, query, access):
+            return fast, slow, torch.zeros_like(fast)
+
+        gamma_zero._consolidate = MethodType(no_consolidation, gamma_zero)
+        _, _, variant_rows = run_variant(gamma_zero, "gamma_zero_intervention")
+        rows += variant_rows
+
+        random_query = copy.deepcopy(model)
+        query_rng = torch.Generator(device=device).manual_seed(seed + 371_000)
+
+        def random_query_fn(self, hidden):
+            query = torch.randn(
+                hidden.shape[0], self.config.key_dim,
+                generator=query_rng, device=hidden.device, dtype=hidden.dtype,
+            )
+            return _normalize(query, dim=-1)
+
+        random_query.query = MethodType(random_query_fn, random_query)
+        _, _, variant_rows = run_variant(random_query, "random_query_intervention")
+        rows += variant_rows
     return rows, {"C/query": output["query"][0].detach().cpu()}
 
 

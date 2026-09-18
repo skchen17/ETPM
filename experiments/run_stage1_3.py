@@ -83,9 +83,21 @@ def verify_freeze() -> None:
     amendment4_path = ROOT / "artifacts/stage1_3_amendment4.freeze.json"
     if amendment4_path.exists():
         amendment4 = json.loads(amendment4_path.read_text())
+        superseded = {
+            "experiments/run_stage1_3.py",
+            "reports/STAGE1_3_AMENDMENTS.md",
+        }
         for relative, expected in amendment4["files"].items():
+            if relative in superseded and (ROOT / "artifacts/stage1_3_amendment5.freeze.json").exists():
+                continue
             if sha256(ROOT / relative) != expected:
                 raise RuntimeError(f"Stage-1.3 A4 file changed: {relative}")
+    amendment5_path = ROOT / "artifacts/stage1_3_amendment5.freeze.json"
+    if amendment5_path.exists():
+        amendment5 = json.loads(amendment5_path.read_text())
+        for relative, expected in amendment5["files"].items():
+            if sha256(ROOT / relative) != expected:
+                raise RuntimeError(f"Stage-1.3 A5 file changed: {relative}")
 
 
 def config() -> dict:
@@ -279,7 +291,7 @@ def formal_job(args, cfg: dict, device: torch.device) -> None:
         _merge(records, samples, revision_after_expression(model, model_name=args.model, seed=args.seed, threshold=threshold, episodes=int(e["episodes_revision"]), device=device))
     if args.model in {"B0_no_persistent", "B3_joint", "B6_arbitration"}:
         _merge(records, samples, pattern_discovery(model, model_name=args.model, seed=args.seed, threshold=threshold, episodes=int(e["episodes_pattern"]), device=device))
-    if args.model in {"B3_joint", "B4_m_only", "B6_arbitration"}:
+    if args.model in {"B0_no_persistent", "B3_joint", "B4_m_only", "B6_arbitration"}:
         _merge(records, samples, cross_time_association(model, model_name=args.model, seed=args.seed, threshold=threshold, episodes=int(e["episodes_association"]), distractors=int(e["cross_time_distractors"]), device=device))
     tag = f"{args.model}__seed{args.seed}"
     pd.DataFrame(records).to_parquet(raw / f"{tag}__records.parquet", index=False)
