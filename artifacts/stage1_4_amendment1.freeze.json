@@ -1,0 +1,8 @@
+{
+  "amendment": "stage1.4-a1-predevelopment-hash-correction",
+  "reason": "The initial manifest recorded Windows checkout CRLF SHA256 values. The read-only Linux project has LF bytes. No historical file changed.",
+  "supersedes_only_hash_fields_in": "artifacts/stage1_4_prior_assets.freeze.json",
+  "server_source_revision": "360693ab0ce635831bd714cf901a5702ffdbb0ae",
+  "server_stage1_3_final_report_sha256": "124daefd99747141c9c80099b16fd5b3e6c7b9b595776a589aa79e060b93a35e",
+  "server_stage1_3_protocol_freeze_sha256": "e934533c1f6a96d5255d7d3f65979340b6e3d53dee83e51c9e8c475ec3c10bfb"
+}
