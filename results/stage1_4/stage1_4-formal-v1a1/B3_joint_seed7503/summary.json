@@ -1,0 +1,16 @@
+{
+  "phase": "formal",
+  "model": "B3_joint",
+  "seed": 7503,
+  "run_id": "stage1_4-formal-v1a1",
+  "record_count": 6552,
+  "experiments": {
+    "A": 5760,
+    "A_matched_compute": 768,
+    "B": 24
+  },
+  "checkpoint_sha256": "49c340f1ab9f7183f48b1d9c29739c712a3b7e6a73387527511c254b039ee19b",
+  "records_sha256": "44a8c0e0a4f1af73a8f3d9c2bdaecc1824cae5076071491df4fdc8bf94a6f063",
+  "config_sha256": "5dd2df015d8ab3da2a0f30b85b4630ff8b43ee5a3b2c7e8937eeb7ddb6955b91",
+  "selection_sha256": "75012ea7528a3ac2244ecd8388c5c3ad499f08d3236c7a003377c3aacf13a1aa"
+}

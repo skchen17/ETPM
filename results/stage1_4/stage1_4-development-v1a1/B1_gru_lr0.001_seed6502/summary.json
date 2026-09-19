@@ -1,0 +1,21 @@
+{
+  "mode": "development",
+  "run_id": "stage1_4-development-v1a1",
+  "model": "B1_gru",
+  "seed": 6502,
+  "learning_rate": 0.001,
+  "validation_loss": 2.6940866112709045,
+  "validation_by_family": {
+    "latent_transition": 3.1204986572265625,
+    "long_gap_relation": 2.560558319091797,
+    "latent_regime": 2.106264591217041,
+    "distractor_heavy": 2.9890248775482178
+  },
+  "parameter_count": 151877,
+  "persistent_state_bytes": 512,
+  "training_steps": 100,
+  "batch_size": 32,
+  "config_sha256": "5dd2df015d8ab3da2a0f30b85b4630ff8b43ee5a3b2c7e8937eeb7ddb6955b91",
+  "checkpoint_sha256": "b7ee4e99152ca72846b1793a179986044caf937caa30c31ea5b3157c4208b071",
+  "created_utc": "2026-09-19T14:31:03.046064+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "mode": "formal",
+  "run_id": "stage1_4-formal-v1a1",
+  "model": "B3_joint",
+  "seed": 7502,
+  "learning_rate": 0.001,
+  "validation_loss": 1.3673456460237503,
+  "validation_by_family": {
+    "latent_transition": 2.4059088230133057,
+    "long_gap_relation": 1.0460138320922852,
+    "latent_regime": 1.4007501602172852,
+    "distractor_heavy": 0.6167097687721252
+  },
+  "parameter_count": 151877,
+  "persistent_state_bytes": 2560,
+  "training_steps": 160,
+  "batch_size": 32,
+  "config_sha256": "5dd2df015d8ab3da2a0f30b85b4630ff8b43ee5a3b2c7e8937eeb7ddb6955b91",
+  "checkpoint_sha256": "1c9bef60190f7c1c76f597e3ec270c96180ce9f7185eba51dd74464faea3cc10",
+  "created_utc": "2026-09-19T14:39:15.907057+00:00"
+}

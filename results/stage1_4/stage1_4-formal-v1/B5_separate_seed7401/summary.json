@@ -1,0 +1,29 @@
+{
+  "phase": "formal",
+  "model": "B5_separate",
+  "seed": 7401,
+  "run_id": "stage1_4-formal-v1",
+  "record_count": 7448,
+  "experiments": {
+    "A": 5760,
+    "A_matched_compute": 768,
+    "safety": 512,
+    "C": 128,
+    "D": 128,
+    "B": 120,
+    "E_F": 32
+  },
+  "checkpoint_sha256": "06f7f7970494261b848066d570bc321827da87814f6fbef472377bff9f628846",
+  "records_sha256": "cda7c9ba74ccf867fe8981869c36abeecc50420474d67f223012afa4e3ef7596",
+  "config_sha256": "b659065c1271ffdcd2fc20d6963229e979d95618ad652dce5fdcda15d3c75918",
+  "selection_sha256": "dd6fe2bd69b2c8dc51df362af4ddd2748e91dca66512a015e13dd9d4dc13abee",
+  "causal_regression": {
+    "exposure_retention_spearman": 0.3755383587832566,
+    "read_retention_spearman": -0.10520527859237536,
+    "causal_retention_spearman": 0.3885630498533724,
+    "heldout_base_r2": -0.0814742733931717,
+    "heldout_plus_causal_r2": 0.02672790255165769,
+    "incremental_heldout_r2": 0.10820217594482945,
+    "item_count": 32
+  }
+}

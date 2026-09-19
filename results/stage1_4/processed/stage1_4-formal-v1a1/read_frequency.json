@@ -1,0 +1,67 @@
+{
+  "status": "EXPLORATORY_NOT_GATE",
+  "hard_threshold": 0.5,
+  "seed_count": 8,
+  "item_count": 256,
+  "seed_results": [
+    {
+      "seed": 7501,
+      "hard_count_retention_spearman": -0.03190112235201434,
+      "soft_count_retention_spearman": 0.17118768328445746,
+      "causal_retention_spearman": -0.3273460410557184,
+      "CU_incremental_R2_beyond_exposure_magnitude_count": 0.11783598288269925
+    },
+    {
+      "seed": 7502,
+      "hard_count_retention_spearman": 0.09131048526303447,
+      "soft_count_retention_spearman": 0.344574780058651,
+      "causal_retention_spearman": 0.05571847507331378,
+      "CU_incremental_R2_beyond_exposure_magnitude_count": -0.07556916446574222
+    },
+    {
+      "seed": 7503,
+      "hard_count_retention_spearman": -0.1519778755271863,
+      "soft_count_retention_spearman": -0.1004398826979472,
+      "causal_retention_spearman": -0.1440615835777126,
+      "CU_incremental_R2_beyond_exposure_magnitude_count": -0.07764982555517658
+    },
+    {
+      "seed": 7504,
+      "hard_count_retention_spearman": 0.09212812118532004,
+      "soft_count_retention_spearman": 0.059017595307917885,
+      "causal_retention_spearman": 0.11290322580645161,
+      "CU_incremental_R2_beyond_exposure_magnitude_count": -0.08278633485319735
+    },
+    {
+      "seed": 7505,
+      "hard_count_retention_spearman": -0.06701961145369824,
+      "soft_count_retention_spearman": -0.10813782991202345,
+      "causal_retention_spearman": -0.07954545454545453,
+      "CU_incremental_R2_beyond_exposure_magnitude_count": -0.24046101325971816
+    },
+    {
+      "seed": 7506,
+      "hard_count_retention_spearman": 0.12184433124162351,
+      "soft_count_retention_spearman": -0.15139296187683285,
+      "causal_retention_spearman": 0.07331378299120234,
+      "CU_incremental_R2_beyond_exposure_magnitude_count": -0.07544078134532896
+    },
+    {
+      "seed": 7507,
+      "hard_count_retention_spearman": 0.1581005635433345,
+      "soft_count_retention_spearman": 0.03005865102639296,
+      "causal_retention_spearman": -0.01282991202346041,
+      "CU_incremental_R2_beyond_exposure_magnitude_count": -0.09273701242997102
+    },
+    {
+      "seed": 7508,
+      "hard_count_retention_spearman": 0.3445264950555762,
+      "soft_count_retention_spearman": 0.24193548387096772,
+      "causal_retention_spearman": 0.3566715542521994,
+      "CU_incremental_R2_beyond_exposure_magnitude_count": -0.024489141503586505
+    }
+  ],
+  "mean_CU_incremental_R2": -0.0689121613162527,
+  "parquet_sha256": "c89838a5e606b236d875545cd39ba6798766f5653f7d59794bfc53652457ff12",
+  "does_not_change_G26": true
+}

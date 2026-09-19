@@ -1,0 +1,1607 @@
+{
+  "formal_record_count": 426496,
+  "formal_training_cells": 64,
+  "formal_evaluation_cells": 64,
+  "A_curve": [
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 0.11826106895750854
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 0.11826106895750854
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 0.11826106895750854
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 0.11826106895750854
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 0.11826106895750854
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 0.11826106895750854
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 0.11826106895750854
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 0.11731746795703657
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 0.11686140582605731
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 0.11701785874174675
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 0.12007917598384665
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 0.13214224398689112
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 0.11826106895750854
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 0.11917180709860986
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 0.12136817727878224
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 0.12975449654186377
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 0.16393036997760646
+    },
+    {
+      "world_family": "distractor_heavy",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 0.3116205804835772
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 0.9653095711255446
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 0.9653095711255446
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 0.9653095711255446
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 0.9653095711255446
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 0.9653095711255446
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 0.9653095711255446
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 0.9653095711255446
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 0.9588951012119651
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 0.9546510173240677
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 0.9505615590605885
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 0.9513479027664289
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 0.9669996122829616
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 0.9653095711255446
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 0.9657315596705303
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 0.9714944788720459
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 0.9987663236679509
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 1.1121221700450405
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 1.4796398186590523
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 1.085033859591931
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 1.085033859591931
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 1.085033859591931
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 1.085033859591931
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 1.085033859591931
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 1.085033859591931
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 1.085033859591931
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 1.0794484962243587
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 1.0764731669332832
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 1.0751544828526676
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 1.081370048923418
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 1.1036107984837145
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 1.085033859591931
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 1.088884285185486
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 1.1001966455951333
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 1.1434994088485837
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 1.2922390474705026
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 1.6669128134381026
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 1.2359883247409016
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 1.2359883247409016
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 1.2359883247409016
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 1.2359883247409016
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 1.2359883247409016
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 1.2359883247409016
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 1.2359883247409016
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 1.2324413624592125
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 1.2315158075653017
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 1.2337199572939426
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 1.2448326440062374
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 1.2722912272438407
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 1.2359883247409016
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 1.2396295443177223
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 1.251437570899725
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 1.2975017132703215
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 1.4542344145011157
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 1.8343845726922154
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 1.4370946208946407
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 1.4370946208946407
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 1.4370946208946407
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 1.4370946208946407
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 1.4370946208946407
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 1.4370946208946407
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 1.4370946208946407
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 1.4326880723237991
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 1.430717829382047
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 1.4306144888978451
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 1.4373915656469762
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 1.4579119952395558
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 1.4370946208946407
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 1.44099953584373
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 1.4531120024621487
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 1.499538144795224
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 1.651529109571129
+    },
+    {
+      "world_family": "latent_regime",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 1.9932182244956493
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.243204476777464
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.243204476777464
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.243204476777464
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.243204476777464
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.243204476777464
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.243204476777464
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.243204476777464
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.2374136159196496
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.2339670746587217
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.230861601419747
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.2310057235881686
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.2385477889329195
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.243204476777464
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.24398831743747
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.2472531679086387
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.2607718096114695
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.311564624775201
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.4701444320380688
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.2832226515747607
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.2832226515747607
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.2832226515747607
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.2832226515747607
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.2832226515747607
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.2832226515747607
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.2832226515747607
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.2809471455402672
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.2795896981842816
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.2783079966902733
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.2779591674916446
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.279177133925259
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.2832226515747607
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.287225305568427
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.29425922781229
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.3169404291547835
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.3891546614468098
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 2,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.569119912572205
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.3226833594962955
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.3226833594962955
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.3226833594962955
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.3226833594962955
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.3226833594962955
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.3226833594962955
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.3226833594962955
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.3197055272758007
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.31786408694461
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.3160349605605006
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.315437036100775
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.316798477899283
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.3226833594962955
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.3220766400918365
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.323820812162012
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.334003889467567
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.37575019383803
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 4,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.4956966950558126
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.4132070019841194
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.4132070019841194
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.4132070019841194
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.4132070019841194
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.4132070019841194
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.4132070019841194
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.4132070019841194
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.4126961836591363
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.4126610564999282
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.41321390774101
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.4148832568898797
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.417279069311917
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 2.4132070019841194
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 2.4171529631130397
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 2.423859686590731
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 2.4445873866789043
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 2.5070793172344565
+    },
+    {
+      "world_family": "latent_transition",
+      "horizon": 8,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 2.663316207472235
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 0.5018224072700832
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 0.5018224072700832
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 0.5018224072700832
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 0.5018224072700832
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 0.5018224072700832
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "frozen_H_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 0.5018224072700832
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 0.5018224072700832
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 0.5034176798944827
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 0.5060995722888038
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 0.5135841455776244
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 0.5326866740069818
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "learned_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 0.5747244816739112
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 0,
+      "prediction_loss": 0.5018224072700832
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 1,
+      "prediction_loss": 0.5040940610924736
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 2,
+      "prediction_loss": 0.5095880934095476
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 4,
+      "prediction_loss": 0.5299984526936896
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 8,
+      "prediction_loss": 0.6058325044577941
+    },
+    {
+      "world_family": "long_gap_relation",
+      "horizon": 1,
+      "intervention_condition": "random_NULL",
+      "internal_tick": 16,
+      "prediction_loss": 0.8607122672838159
+    }
+  ],
+  "A_matched_compute_mean_loss": {
+    "idle_pre_event_then_event": 1.6065779526058275,
+    "post_event_ticks": 1.6044805343941941
+  },
+  "B_mean_loss": [
+    {
+      "model": "B0_no_memory",
+      "intervention_condition": "full",
+      "distractor_count": 128.0,
+      "prediction_loss": 1.2419284023344517
+    },
+    {
+      "model": "B0_no_memory",
+      "intervention_condition": "full",
+      "distractor_count": 512.0,
+      "prediction_loss": 1.6125040310434997
+    },
+    {
+      "model": "B0_no_memory",
+      "intervention_condition": "full",
+      "distractor_count": 2048.0,
+      "prediction_loss": 1.8912412952631712
+    },
+    {
+      "model": "B1_gru",
+      "intervention_condition": "full",
+      "distractor_count": 128.0,
+      "prediction_loss": 2.727817304432392
+    },
+    {
+      "model": "B1_gru",
+      "intervention_condition": "full",
+      "distractor_count": 512.0,
+      "prediction_loss": 2.82099087908864
+    },
+    {
+      "model": "B1_gru",
+      "intervention_condition": "full",
+      "distractor_count": 2048.0,
+      "prediction_loss": 2.617981556802988
+    },
+    {
+      "model": "B2_single_memory",
+      "intervention_condition": "full",
+      "distractor_count": 128.0,
+      "prediction_loss": 1.2099064756184816
+    },
+    {
+      "model": "B2_single_memory",
+      "intervention_condition": "full",
+      "distractor_count": 512.0,
+      "prediction_loss": 1.539018522016704
+    },
+    {
+      "model": "B2_single_memory",
+      "intervention_condition": "full",
+      "distractor_count": 2048.0,
+      "prediction_loss": 2.001476915553212
+    },
+    {
+      "model": "B3_joint",
+      "intervention_condition": "full",
+      "distractor_count": 128.0,
+      "prediction_loss": 1.2040450535714626
+    },
+    {
+      "model": "B3_joint",
+      "intervention_condition": "full",
+      "distractor_count": 512.0,
+      "prediction_loss": 1.5603114236146212
+    },
+    {
+      "model": "B3_joint",
+      "intervention_condition": "full",
+      "distractor_count": 2048.0,
+      "prediction_loss": 1.9943810841068625
+    },
+    {
+      "model": "B4_shared",
+      "intervention_condition": "full",
+      "distractor_count": 128.0,
+      "prediction_loss": 1.2069177655503154
+    },
+    {
+      "model": "B4_shared",
+      "intervention_condition": "full",
+      "distractor_count": 512.0,
+      "prediction_loss": 1.6045297840610147
+    },
+    {
+      "model": "B4_shared",
+      "intervention_condition": "full",
+      "distractor_count": 2048.0,
+      "prediction_loss": 1.9876545509323478
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "F_lesion",
+      "distractor_count": 128.0,
+      "prediction_loss": 0.9480494665913284
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "F_lesion",
+      "distractor_count": 512.0,
+      "prediction_loss": 1.5409232210367918
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "F_lesion",
+      "distractor_count": 2048.0,
+      "prediction_loss": 2.0567713698837906
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "M_lesion",
+      "distractor_count": 128.0,
+      "prediction_loss": 0.9460351248271763
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "M_lesion",
+      "distractor_count": 512.0,
+      "prediction_loss": 1.5407210083212703
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "M_lesion",
+      "distractor_count": 2048.0,
+      "prediction_loss": 2.056689631892368
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "full",
+      "distractor_count": 128.0,
+      "prediction_loss": 0.9492315475363284
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "full",
+      "distractor_count": 512.0,
+      "prediction_loss": 1.5407453761436045
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "full",
+      "distractor_count": 2048.0,
+      "prediction_loss": 2.0567132567521185
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "random_q_M",
+      "distractor_count": 128.0,
+      "prediction_loss": 0.9458758377004415
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "random_q_M",
+      "distractor_count": 512.0,
+      "prediction_loss": 1.5409727182704955
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "random_q_M",
+      "distractor_count": 2048.0,
+      "prediction_loss": 2.0565723218023777
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "shuffled_M",
+      "distractor_count": 128.0,
+      "prediction_loss": 0.9496515288483351
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "shuffled_M",
+      "distractor_count": 512.0,
+      "prediction_loss": 1.541371509199962
+    },
+    {
+      "model": "B5_separate",
+      "intervention_condition": "shuffled_M",
+      "distractor_count": 2048.0,
+      "prediction_loss": 2.0565714188851416
+    },
+    {
+      "model": "B6_gamma_zero",
+      "intervention_condition": "full",
+      "distractor_count": 128.0,
+      "prediction_loss": 0.9847240089438856
+    },
+    {
+      "model": "B6_gamma_zero",
+      "intervention_condition": "full",
+      "distractor_count": 512.0,
+      "prediction_loss": 1.256147270090878
+    },
+    {
+      "model": "B6_gamma_zero",
+      "intervention_condition": "full",
+      "distractor_count": 2048.0,
+      "prediction_loss": 1.8590404789429158
+    },
+    {
+      "model": "B7_random_query",
+      "intervention_condition": "full",
+      "distractor_count": 128.0,
+      "prediction_loss": 0.8436777428723872
+    },
+    {
+      "model": "B7_random_query",
+      "intervention_condition": "full",
+      "distractor_count": 512.0,
+      "prediction_loss": 1.2401514031225815
+    },
+    {
+      "model": "B7_random_query",
+      "intervention_condition": "full",
+      "distractor_count": 2048.0,
+      "prediction_loss": 1.6701096738688648
+    }
+  ],
+  "B_diagnostics": [
+    {
+      "distractor_count": 128,
+      "q_M_coordinate_variance_mean": 0.05938104087681188,
+      "g_M_mean": 0.5486582703888416,
+      "raw_M_read_norm_mean": 0.09945291394251399,
+      "effective_M_contribution_norm_mean": 2.247986938804388,
+      "M_lesion_H_difference_mean": 2.297019412042573
+    },
+    {
+      "distractor_count": 512,
+      "q_M_coordinate_variance_mean": 0.05837791170295199,
+      "g_M_mean": 0.49991672951728106,
+      "raw_M_read_norm_mean": 0.11635468633903656,
+      "effective_M_contribution_norm_mean": 2.0507350363768637,
+      "M_lesion_H_difference_mean": 1.9923515904229134
+    },
+    {
+      "distractor_count": 2048,
+      "q_M_coordinate_variance_mean": 0.059034882396545175,
+      "g_M_mean": 0.525195715483278,
+      "raw_M_read_norm_mean": 0.0714086384687107,
+      "effective_M_contribution_norm_mean": 2.14165083412081,
+      "M_lesion_H_difference_mean": 2.1375798513181508
+    }
+  ],
+  "C_D_tick8": {
+    "unrestored_js": 0.0036159347659179275,
+    "restored_js": 0.0026596939778187334,
+    "restored_to_unrestored_ratio": 0.7355481085797613,
+    "classification": "MIXED"
+  },
+  "EF": {
+    "mean_causal_usage": 5.0973205361515284e-05,
+    "mean_retention": 0.29912166703434195,
+    "mean_read_usage": 61.70633892295882,
+    "regression_by_seed": {
+      "7501": {
+        "exposure_retention_spearman": 0.2065910133033414,
+        "read_retention_spearman": 0.282624633431085,
+        "causal_retention_spearman": -0.3273460410557184,
+        "heldout_base_r2": -0.14860142708117285,
+        "heldout_plus_causal_r2": -0.010482424688286862,
+        "incremental_heldout_r2": 0.138119002392886,
+        "item_count": 32
+      },
+      "7502": {
+        "exposure_retention_spearman": 0.07783951650576611,
+        "read_retention_spearman": 0.3280791788856305,
+        "causal_retention_spearman": 0.05571847507331378,
+        "heldout_base_r2": -0.004293745389666093,
+        "heldout_plus_causal_r2": -0.06933344078206893,
+        "incremental_heldout_r2": -0.0650396953924028,
+        "item_count": 32
+      },
+      "7503": {
+        "exposure_retention_spearman": 0.3148249448053459,
+        "read_retention_spearman": 0.1979472140762463,
+        "causal_retention_spearman": -0.1440615835777126,
+        "heldout_base_r2": -0.17820327881222742,
+        "heldout_plus_causal_r2": -0.29830761186904664,
+        "incremental_heldout_r2": -0.12010433305681911,
+        "item_count": 32
+      },
+      "7504": {
+        "exposure_retention_spearman": 0.28375584800386855,
+        "read_retention_spearman": 0.19208211143695011,
+        "causal_retention_spearman": 0.11290322580645161,
+        "heldout_base_r2": -0.3886515615451416,
+        "heldout_plus_causal_r2": -0.4923560111671672,
+        "incremental_heldout_r2": -0.10370444962202555,
+        "item_count": 32
+      },
+      "7505": {
+        "exposure_retention_spearman": -0.011724476240263544,
+        "read_retention_spearman": 0.063049853372434,
+        "causal_retention_spearman": -0.07954545454545453,
+        "heldout_base_r2": -0.29140853899452,
+        "heldout_plus_causal_r2": -0.40650739718501305,
+        "incremental_heldout_r2": -0.11509885819049309,
+        "item_count": 32
+      },
+      "7506": {
+        "exposure_retention_spearman": 0.4027986414674799,
+        "read_retention_spearman": -0.125,
+        "causal_retention_spearman": 0.07331378299120234,
+        "heldout_base_r2": -0.20079666038941713,
+        "heldout_plus_causal_r2": -0.371253184805052,
+        "incremental_heldout_r2": -0.17045652441563505,
+        "item_count": 32
+      },
+      "7507": {
+        "exposure_retention_spearman": 0.05184909542502368,
+        "read_retention_spearman": -0.05168621700879765,
+        "causal_retention_spearman": -0.01282991202346041,
+        "heldout_base_r2": -0.13494350300322822,
+        "heldout_plus_causal_r2": -0.1715591222344699,
+        "incremental_heldout_r2": -0.036615619231241764,
+        "item_count": 32
+      },
+      "7508": {
+        "exposure_retention_spearman": 0.31680683217846806,
+        "read_retention_spearman": 0.2287390029325513,
+        "causal_retention_spearman": 0.3566715542521994,
+        "heldout_base_r2": -0.1669785559834258,
+        "heldout_plus_causal_r2": -0.13341552860599593,
+        "incremental_heldout_r2": 0.03356302737742992,
+        "item_count": 32
+      }
+    }
+  },
+  "safety": {
+    "safe_external_write_count": 0,
+    "bad_readout_gain_tick8_minus_tick1": 0.37005938100628555,
+    "bad_propensity_proxy_gain_tick8_minus_tick1": 0.27779853879474103,
+    "positive_control_valid": true,
+    "safe_no_self_write": true
+  }
+}

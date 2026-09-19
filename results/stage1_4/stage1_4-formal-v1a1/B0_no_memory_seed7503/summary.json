@@ -1,0 +1,16 @@
+{
+  "phase": "formal",
+  "model": "B0_no_memory",
+  "seed": 7503,
+  "run_id": "stage1_4-formal-v1a1",
+  "record_count": 6552,
+  "experiments": {
+    "A": 5760,
+    "A_matched_compute": 768,
+    "B": 24
+  },
+  "checkpoint_sha256": "fb64b466bbf41691f035b04939f1d67485941843f5ec7125c19f2d4338292b7c",
+  "records_sha256": "3770a62b086152d76a9f4483c4ffffed0cd4e5068e2c030c6a5f40da58f1a1f5",
+  "config_sha256": "5dd2df015d8ab3da2a0f30b85b4630ff8b43ee5a3b2c7e8937eeb7ddb6955b91",
+  "selection_sha256": "75012ea7528a3ac2244ecd8388c5c3ad499f08d3236c7a003377c3aacf13a1aa"
+}

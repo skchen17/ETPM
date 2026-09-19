@@ -1,0 +1,11 @@
+{
+  "run_id": "stage1_4-formal-v1a1",
+  "source_revision_preformal": "53f3188000d694ae73a60adc6c9273d3aba95f23",
+  "training_cells": 64,
+  "evaluation_cells": 64,
+  "record_count": 426496,
+  "files_sha256": {
+    "metrics.json": "740842f690a90d6e9f230439aa5dc832a47fe11423aa6c3ff44648e66b9cc8bb",
+    "adjudication.json": "c9d11c33f022ac6aa6ca592f055340f47cf4f57a6aead63e189588ce4b739100"
+  }
+}

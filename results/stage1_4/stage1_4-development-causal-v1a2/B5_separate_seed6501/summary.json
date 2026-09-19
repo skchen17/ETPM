@@ -1,0 +1,23 @@
+{
+  "phase": "dev-causal",
+  "model": "B5_separate",
+  "seed": 6501,
+  "run_id": "stage1_4-development-causal-v1a2",
+  "record_count": 32,
+  "experiments": {
+    "E_F": 32
+  },
+  "checkpoint_sha256": "53ffd54dfd3856d1331815dae8e7ff2b63f34ff0e1f257706daeaf63a8715c32",
+  "records_sha256": "dc1796a10979d94fd796dbd0d61036f545e76c67ecd7d6528707a99426e9a57e",
+  "config_sha256": "5dd2df015d8ab3da2a0f30b85b4630ff8b43ee5a3b2c7e8937eeb7ddb6955b91",
+  "selection_sha256": "75012ea7528a3ac2244ecd8388c5c3ad499f08d3236c7a003377c3aacf13a1aa",
+  "causal_regression": {
+    "exposure_retention_spearman": -0.02174084914691992,
+    "read_retention_spearman": -0.02126099706744868,
+    "causal_retention_spearman": 0.21700879765395892,
+    "heldout_base_r2": -0.30483473536738437,
+    "heldout_plus_causal_r2": -0.39736530446674334,
+    "incremental_heldout_r2": -0.09253056909935894,
+    "item_count": 32
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "phase": "formal",
+  "model": "B6_gamma_zero",
+  "seed": 7506,
+  "run_id": "stage1_4-formal-v1a1",
+  "record_count": 6552,
+  "experiments": {
+    "A": 5760,
+    "A_matched_compute": 768,
+    "B": 24
+  },
+  "checkpoint_sha256": "1a2e950b78e752250b3cc3c54e422b094d5700fd3c265e651d1845d13e301b91",
+  "records_sha256": "e4f77cd2d901234cc35adac2fbc79e258c78a84e921f07d9764e9ae173ca5f3b",
+  "config_sha256": "5dd2df015d8ab3da2a0f30b85b4630ff8b43ee5a3b2c7e8937eeb7ddb6955b91",
+  "selection_sha256": "75012ea7528a3ac2244ecd8388c5c3ad499f08d3236c7a003377c3aacf13a1aa"
+}
