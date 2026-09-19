@@ -29,6 +29,10 @@ else
 fi
 
 for model in "${models[@]}"; do
+  if [[ "$phase" == "formal" ]]; then
+    selected_lr="$(.venv/bin/python -c 'import json,sys; print(json.load(open("configs/stage1_4_selected_v1a1.json"))["learning_rates"][sys.argv[1]])' "$model")"
+    lrs=("$selected_lr")
+  fi
   for seed in "${seeds[@]}"; do
     for lr in "${lrs[@]}"; do
       if [[ "$phase" == "evaluate" ]]; then

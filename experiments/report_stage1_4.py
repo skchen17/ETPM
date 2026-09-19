@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RUN = "stage1_4-formal-v1"
+RUN = "stage1_4-formal-v1a1"
 QUESTION = (
     "> **Can a continuously running predictive state autonomously reactivate old persistent "
     "information when that information causally improves future prediction, and does such "
@@ -45,6 +45,7 @@ def main() -> None:
     processed = ROOT / "results/stage1_4/processed" / RUN
     metrics = json.loads((processed / "metrics.json").read_text())
     judgement = json.loads((processed / "adjudication.json").read_text())
+    causal_selection = json.loads((ROOT / "configs/stage1_4_causal_selection_v1a1.json").read_text())
     gates = judgement["gates"]
     g23, g24, g25, g26 = (gates[key] for key in ("G23", "G24", "G25", "G26"))
     safety = metrics["safety"]
@@ -205,18 +206,20 @@ required consolidation intervention.
 """
     write_new("CAUSAL_USAGE_RETENTION_STAGE1_4.md", retention)
 
+    development_cu = causal_selection["incremental_heldout_r2_by_seed"]
     consolidation = f"""# Consolidation Intervention — Stage 1.4
 
 {QUESTION}
 
-Development B5 causal-use incremental held-out R² was negative in both seeds:
-`6401: -0.07146`, `6402: -0.01187`, mean `-0.04166`. The pre-formal
-selection file froze `experiment_G_authorized=false`. Therefore high-/low-CU
-matched direction-specific F→M block is **NOT_RUN_BY_PROTOCOL**. The tested
-implementation and conservation unit test remain in the repository, but no
-formal behavioral harm estimate is invented. G26 cannot pass without this
-confirmatory intervention. A future amended study would need new independent
-development/formal splits and a new protocol, not retroactive authorization.
+Development B5 causal-use incremental held-out R² by seed was
+`{json.dumps(development_cu, sort_keys=True)}`; mean
+`{fmt(causal_selection['mean_incremental_heldout_r2'])}`. The pre-formal
+selection froze `experiment_G_authorized={fmt(causal_selection['experiment_G_authorized'])}`.
+The matched direction-specific F→M block status is
+**{g26['experiment_G_status']}**. Its implementation and conservation unit
+test remain in the repository, but no behavioral harm estimate is invented
+when G is unauthorized. G26 cannot pass without the confirmatory
+intervention. Any later study needs new splits and protocol.
 """
     write_new("CONSOLIDATION_INTERVENTION_STAGE1_4.md", consolidation)
 
@@ -333,9 +336,10 @@ are separate quantities. Fourfold held-out rank regression tests whether CU
 adds value beyond exposure/read. Learned keys are nonorthogonal, so lesion
 overlap is a limitation. All seed correlations and R² values are preserved.
 
-**G and safety.** Development incremental CU R² was negative in both seeds,
-so high-/low-CU consolidation blocking is `NOT_RUN_BY_PROTOCOL`; this
-pre-formal decision cannot be reversed by formal results. Normal SELF_OUTPUT
+**G and safety.** The pre-formal development CU decision was
+`{fmt(causal_selection['experiment_G_authorized'])}`; high-/low-CU
+consolidation blocking is `{g26['experiment_G_status']}` when unauthorized.
+This decision cannot be reversed by formal results. Normal SELF_OUTPUT
 never calls external write; the separate B_bad positive control deliberately
 does and is judged by memory readout plus a clearly labeled fixed propensity
 proxy, not a learned expression policy.
@@ -352,6 +356,12 @@ thought, self-awareness, general intelligence, infinite context/capacity, or
 causal memory merely because a prediction score improves. Failures and null
 effects remain in the raw Parquet shards and gate JSON; no threshold was
 changed after formal outcomes.
+
+The first Stage 1.4 development/formal attempt is preserved but invalidated
+by Amendment A4: its latent-transition event leaked hidden z in the key field.
+The corrected v1a1 run uses new development/formal seeds and enforces a
+partially observed latent key plus distinct B/C relation symbols. No metric
+from the invalid attempt contributes to this adjudication.
 """
     write_new("STAGE1_4_FINAL_REPORT.md", final)
     print(json.dumps({"reports_created": 9, "run_id": RUN}))

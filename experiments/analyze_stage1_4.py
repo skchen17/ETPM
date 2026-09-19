@@ -12,7 +12,7 @@ import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RUN_ID = "stage1_4-formal-v1"
+RUN_ID = "stage1_4-formal-v1a1"
 REQUIRED_FIELDS = {
     "run_id", "experiment", "model", "seed", "episode", "world_family",
     "external_step", "internal_tick", "horizon", "event_type", "future_target",
@@ -38,13 +38,13 @@ def finite_or_none(value: object) -> float | None:
 
 
 def load_and_verify() -> tuple[pd.DataFrame, dict, dict, list[dict], list[dict]]:
-    config = yaml.safe_load((ROOT / "configs/stage1_4.yaml").read_text())
-    freeze = json.loads((ROOT / "artifacts/stage1_4_formal_selection.freeze.json").read_text())
+    config = yaml.safe_load((ROOT / "configs/stage1_4_v1a1.yaml").read_text())
+    freeze = json.loads((ROOT / "artifacts/stage1_4_formal_selection_v1a1.freeze.json").read_text())
     for relative, expected in freeze["files_sha256"].items():
         actual = digest(ROOT / relative)
         if actual != expected:
             raise ValueError(f"frozen file changed: {relative}: {actual}")
-    selected = json.loads((ROOT / "configs/stage1_4_selected.json").read_text())
+    selected = json.loads((ROOT / "configs/stage1_4_selected_v1a1.json").read_text())
     seeds = config["training"]["formal_seeds"]
     models = config["training"]["trainable_models"]
     training_summaries: list[dict] = []
@@ -63,9 +63,9 @@ def load_and_verify() -> tuple[pd.DataFrame, dict, dict, list[dict], list[dict]]
                 raise ValueError(f"evaluation used wrong checkpoint: {model}/{seed}")
             if evaluation["records_sha256"] != digest(eval_dir / "records.parquet"):
                 raise ValueError(f"record hash mismatch: {model}/{seed}")
-            if train["config_sha256"] != freeze["files_sha256"]["configs/stage1_4.yaml"]:
+            if train["config_sha256"] != freeze["files_sha256"]["configs/stage1_4_v1a1.yaml"]:
                 raise ValueError("training config mismatch")
-            if evaluation["selection_sha256"] != freeze["files_sha256"]["configs/stage1_4_selected.json"]:
+            if evaluation["selection_sha256"] != freeze["files_sha256"]["configs/stage1_4_selected_v1a1.json"]:
                 raise ValueError("evaluation selection mismatch")
             frame = pd.read_parquet(eval_dir / "records.parquet")
             if not REQUIRED_FIELDS <= set(frame.columns):
@@ -161,7 +161,7 @@ def analysis(records: pd.DataFrame, config: dict, evaluations: list[dict]) -> tu
         if item["model"] == "B5_separate"
     }
     incremental = {seed: value["incremental_heldout_r2"] for seed, value in regression.items()}
-    causal_selection = json.loads((ROOT / "configs/stage1_4_causal_selection.json").read_text())
+    causal_selection = json.loads((ROOT / "configs/stage1_4_causal_selection_v1a1.json").read_text())
     g = b5.loc[b5.experiment.eq("G")]
     g_harm_margin = None
     if not g.empty:
