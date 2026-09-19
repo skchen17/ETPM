@@ -121,6 +121,7 @@ class PredictiveETRCM(ContinuousETRCM):
         self, state: LearnedState, event: ContinuousEvent | None,
         *, freeze_null_H: bool = False, random_null_H: bool = False,
         random_M_query: bool = False,
+        block_transfer_key: torch.Tensor | None = None,
     ) -> tuple[LearnedState, dict[str, torch.Tensor]]:
         state.validate()
         batch = state.H.shape[0]
@@ -133,7 +134,8 @@ class PredictiveETRCM(ContinuousETRCM):
             event.validate(batch)
             encoded = self.event_encoder(event).to(state.H.dtype)
             # The validated event schema makes SELF_OUTPUT/NULL writes impossible.
-            F, M, external_update = self._external_write(F, M, event)
+            if bool(event.write_mask.any()):
+                F, M, external_update = self._external_write(F, M, event)
             external_write_flag = event.write_mask
             external_event = int((~event.self_output_mask).any())
         event_slots = (
@@ -164,7 +166,16 @@ class PredictiveETRCM(ContinuousETRCM):
         if self.mode == "B6_gamma_zero":
             transfer = torch.zeros_like(F)
         else:
+            F_raw, M_raw = F, M
             F, M, transfer = self._consolidate(F, M, q_F, access)
+            if block_transfer_key is not None:
+                if block_transfer_key.shape != q_F.shape:
+                    raise ValueError("block_transfer_key must be [batch,key_dim]")
+                block_key = _normalize(block_transfer_key)
+                blocked_value = torch.einsum("bvk,bk->bv", transfer, block_key)
+                blocked = torch.einsum("bv,bk->bvk", blocked_value, block_key)
+                transfer = transfer - blocked
+                F, M = F_raw - transfer, M_raw + transfer
         conservation_error = (F + M - total_before).norm(dim=(-2, -1))
         F = self.config.rho_fast * F
         M = self.config.rho_slow * M

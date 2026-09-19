@@ -97,6 +97,18 @@ def test_external_only_write_and_conservation() -> None:
     assert null["conservation_error"].max().item() < 1e-6
 
 
+def test_direction_specific_consolidation_block_preserves_readout() -> None:
+    model = make_model()
+    state = model.initial_state(2)
+    state.H.normal_(); state.F.normal_(); state.M.normal_()
+    key = torch.eye(model.config.key_dim)[:2]
+    standard, normal_output = model.step(state.clone(), None)
+    blocked, block_output = model.step(state.clone(), None, block_transfer_key=key)
+    assert block_output["conservation_error"].max().item() < 1e-6
+    assert torch.linalg.vector_norm(block_output["transfer"]) <= torch.linalg.vector_norm(normal_output["transfer"])
+    assert torch.allclose(standard.H, blocked.H)
+
+
 def test_pathological_control_definitely_writes() -> None:
     model = make_model()
     state = model.initial_state(2)
