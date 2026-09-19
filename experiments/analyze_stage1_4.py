@@ -100,6 +100,17 @@ def seed_mean(frame: pd.DataFrame, field: str = "prediction_loss") -> pd.Series:
     return frame.groupby("seed")[field].mean().sort_index()
 
 
+def seed_bootstrap_ci(values: pd.Series | list[float], *, seed: int = 1414,
+                      resamples: int = 2000) -> list[float]:
+    observed = np.asarray(values, dtype=float)
+    if len(observed) != 8 or not np.isfinite(observed).all():
+        raise ValueError("seed bootstrap requires eight finite independent seeds")
+    rng = np.random.default_rng(seed)
+    draw = rng.integers(0, len(observed), size=(resamples, len(observed)))
+    means = observed[draw].mean(axis=1)
+    return [float(x) for x in np.quantile(means, [0.025, 0.975])]
+
+
 def analysis(records: pd.DataFrame, config: dict, evaluations: list[dict]) -> tuple[dict, dict]:
     b5 = records.loc[records.model.eq("B5_separate")]
     a = b5.loc[b5.experiment.eq("A")]
@@ -196,20 +207,28 @@ def analysis(records: pd.DataFrame, config: dict, evaluations: list[dict]) -> tu
     no_bypass = bool(records.loc[records.experiment.eq("B"), "target_key_available_to_model"].dropna().eq(False).all())
     gates = {
         "G23": {"pass": g23, "mean_K0_minus_K4": float(g23_seed.delta.mean()),
+                "ci95_K0_minus_K4": seed_bootstrap_ci(g23_seed.delta),
                 "positive_seeds": int((g23_seed.delta > 0).sum()),
                 "frozen_margin": float(g23_seed.margin_frozen.mean()),
+                "ci95_frozen_margin": seed_bootstrap_ci(g23_seed.margin_frozen),
                 "random_margin": float(g23_seed.margin_random.mean()),
+                "ci95_random_margin": seed_bootstrap_ci(g23_seed.margin_random),
                 "seed_table": g23_seed.reset_index().to_dict("records")},
         "G24": {"pass": g24,
                 "mean_margins": {control: float(g24_seed[f"margin_{control}"].mean())
                                  for control in ("M_lesion", "random_q_M", "no_persistent")},
+                "ci95_margins": {control: seed_bootstrap_ci(g24_seed[f"margin_{control}"])
+                                 for control in ("M_lesion", "random_q_M", "no_persistent")},
                 "seed_table": g24_seed.reset_index().to_dict("records")},
         "G25": {"pass": g25, "mean_H_difference": float(g25_seed.future_H_difference.mean()),
+                "ci95_H_difference": seed_bootstrap_ci(g25_seed.future_H_difference),
                 "mean_prediction_js": float(g25_seed.future_prediction_difference.mean()),
+                "ci95_prediction_js": seed_bootstrap_ci(g25_seed.future_prediction_difference),
                 "positive_seeds": int(((g25_seed.future_H_difference >= 1e-5)
                                        & (g25_seed.future_prediction_difference >= 1e-5)).sum()),
                 "seed_table": g25_seed.reset_index().to_dict("records")},
         "G26": {"pass": g26, "mean_incremental_heldout_r2": float(np.mean(list(incremental.values()))),
+                "ci95_incremental_heldout_r2": seed_bootstrap_ci([incremental[seed] for seed in sorted(incremental)]),
                 "positive_seeds_at_threshold": int(sum(value >= 0.02 for value in incremental.values())),
                 "experiment_G_status": "RUN" if causal_selection["experiment_G_authorized"] else "NOT_RUN_BY_PROTOCOL",
                 "high_low_block_harm_margin": g_harm_margin,

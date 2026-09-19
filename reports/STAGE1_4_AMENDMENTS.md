@@ -79,3 +79,14 @@ is available. The G23 analyzer now does this before equal-family and
 equal-seed averaging. This implements the registered multi-horizon world
 loss; it does not change any model, record, gate threshold, formal seed or
 selection. No corrected formal adjudication had been run before the fix.
+
+## A7 — report preregistered seed-bootstrap intervals
+
+The original analysis plan specified 2,000 seed-bootstrap resamples and
+confidence intervals for every gate. The draft analyzer had seed means/tables
+but omitted interval output. Before corrected formal adjudication, it was
+extended to report 95% percentile intervals for G23's three paired margins,
+G24's three control margins, G25's H/JS effects, and G26's incremental R²,
+resampling the eight independent training seeds with the frozen seed 1414.
+This adds uncertainty reporting only; no gate value, threshold, sample,
+selection or verdict formula changes.

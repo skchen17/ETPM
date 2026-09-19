@@ -101,6 +101,7 @@ Full family/horizon curve (mean CE over eight trained seeds):
 {seed_table}
 
 G23 **{'PASS' if g23['pass'] else 'FAIL'}**: mean L0−L4={fmt(g23['mean_K0_minus_K4'])},
+seed-bootstrap 95% CI `{[fmt(x) for x in g23['ci95_K0_minus_K4']]}`,
 positive seeds={g23['positive_seeds']}/8, frozen margin={fmt(g23['frozen_margin'])},
 random margin={fmt(g23['random_margin'])}. The registered criterion is not
 changed for non-monotone curves. Matched timing mean losses:
@@ -150,7 +151,8 @@ All registered B5 gap/condition means:
 {b_gap_table}
 
 G24 **{'PASS' if g24['pass'] else 'FAIL'}**. Registered control-minus-full
-margins: `{json.dumps(g24['mean_margins'], sort_keys=True)}`. Nonzero q_M,
+margins: `{json.dumps(g24['mean_margins'], sort_keys=True)}`. Seed-bootstrap
+95% CIs: `{json.dumps(g24['ci95_margins'], sort_keys=True)}`. Nonzero q_M,
 gate weight or read norm is descriptive access, not causal proof. Only paired
 lesion and prediction effects count. The M lesion is applied just before the
 bridge with H held identical; it tests *reactivation at that point*, not every
@@ -171,8 +173,9 @@ The future-event head uses H only, so predictive JS must be mediated by at
 least one changed H transition; persistent F/M can still re-enter H later.
 
 G25 **{'PASS' if g25['pass'] else 'FAIL'}**: mean future-H distance
-{fmt(g25['mean_H_difference'])}, mean future-prediction JS
-{fmt(g25['mean_prediction_js'])}, joint-positive seeds
+{fmt(g25['mean_H_difference'])} (95% CI `{[fmt(x) for x in g25['ci95_H_difference']]}`),
+mean future-prediction JS {fmt(g25['mean_prediction_js'])}
+(95% CI `{[fmt(x) for x in g25['ci95_prediction_js']]}`), joint-positive seeds
 {g25['positive_seeds']}/8. The predictive endpoint, not H distance alone,
 determines whether a peripheral causal effect was identified. This remains
 a toy-scale same-H intervention, not a claim of general causal memory.
@@ -231,7 +234,8 @@ are replication units. Spearman coefficients are descriptive.
 {regression_table}
 
 G26 **{'PASS' if g26['pass'] else 'FAIL'}**: mean incremental held-out R²
-{fmt(g26['mean_incremental_heldout_r2'])}, seeds at registered +0.02 floor
+{fmt(g26['mean_incremental_heldout_r2'])} (95% CI
+`{[fmt(x) for x in g26['ci95_incremental_heldout_r2']]}`), seeds at registered +0.02 floor
 {g26['positive_seeds_at_threshold']}/8. Correlation cannot substitute for the
 required consolidation intervention.
 """
