@@ -45,6 +45,7 @@ def main() -> None:
     processed = ROOT / "results/stage1_4/processed" / RUN
     metrics = json.loads((processed / "metrics.json").read_text())
     judgement = json.loads((processed / "adjudication.json").read_text())
+    frequency = json.loads((processed / "read_frequency.json").read_text())
     causal_selection = json.loads((ROOT / "configs/stage1_4_causal_selection_v1a1.json").read_text())
     gates = judgement["gates"]
     g23, g24, g25, g26 = (gates[key] for key in ("G23", "G24", "G25", "G26"))
@@ -231,6 +232,12 @@ Access alone is never labeled causal influence.
         f"{fmt(value['causal_retention_spearman'])} | {fmt(value['incremental_heldout_r2'])} |"
         for seed, value in sorted(ef["regression_by_seed"].items(), key=lambda x: int(x[0]))
     )
+    frequency_table = "\n".join(
+        f"| {row['seed']} | {fmt(row['hard_count_retention_spearman'])} | "
+        f"{fmt(row['soft_count_retention_spearman'])} | "
+        f"{fmt(row['CU_incremental_R2_beyond_exposure_magnitude_count'])} |"
+        for row in frequency["seed_results"]
+    )
     retention = f"""# Causal Usage Versus Retention — Stage 1.4
 
 {QUESTION}
@@ -250,6 +257,17 @@ G26 **{'PASS' if g26['pass'] else 'FAIL'}**: mean incremental held-out R²
 `{[fmt(x) for x in g26['ci95_incremental_heldout_r2']]}`), seeds at registered +0.02 floor
 {g26['positive_seeds_at_threshold']}/8. Correlation cannot substitute for the
 required consolidation intervention.
+
+Exploratory access-frequency sensitivity (not a G26 redefinition): replay
+uses a hard query-key cosine ≥0.5 count and a soft cosine sum. It compares
+CU incremental R² after exposure, read magnitude and hard count controls.
+
+| Seed | Hard-count–retention ρ | Soft-count–retention ρ | CU incremental R² after count |
+|---:|---:|---:|---:|
+{frequency_table}
+
+Mean count-adjusted incremental R²={fmt(frequency['mean_CU_incremental_R2'])}.
+This secondary threshold was not tuned or used to authorize G.
 """
     write_new("CAUSAL_USAGE_RETENTION_STAGE1_4.md", retention)
 
@@ -306,8 +324,8 @@ zero writes cannot by itself validate a full amplification audit.
         f"Same-H peripheral swap changes future H by {fmt(g25['mean_H_difference'])} and prediction JS by {fmt(g25['mean_prediction_js'])}; G25 {'passes' if g25['pass'] else 'fails'}.",
         f"H restoration leaves tick-8 JS ratio {fmt(mediation['restored_to_unrestored_ratio'])}; classification {mediation['classification']}.",
         f"F/M are persistent computational state only to the extent established by G25; otherwise this remains a structural hypothesis. Classification: {mediation['classification']}.",
-        "Exposure/read/CU associations with retention are listed seed-by-seed in the causal-usage retention report; no single read norm proves causal use.",
-        f"CU incremental held-out R²={fmt(g26['mean_incremental_heldout_r2'])}; G26 {'passes' if g26['pass'] else 'fails'}.",
+        f"Exposure/read-magnitude/CU associations are listed seed-by-seed; the exploratory hard-count audit gives mean CU incremental R² {fmt(frequency['mean_CU_incremental_R2'])} after count control. No read norm alone proves causal use.",
+        f"Registered CU incremental held-out R²={fmt(g26['mean_incremental_heldout_r2'])}; G26 {'passes' if g26['pass'] else 'fails'}. Count adjustment is secondary and cannot change G26.",
         f"High-CU consolidation block is {g26['experiment_G_status']}; no harm contrast can be claimed.",
         f"Selective predictive reuse is {'supported' if g24['pass'] and g26['pass'] else 'not established'} by the combined reactivation and causal-use tests.",
         "The world-prediction objective replaces Stage 1.3 expression training, but solving its objective mismatch requires predictive and retrieval gates, not low training loss alone.",
@@ -382,6 +400,8 @@ Read usage, true exposures and M-only cosine retention after 128 distractors
 are separate quantities. Fourfold held-out rank regression tests whether CU
 adds value beyond exposure/read. Learned keys are nonorthogonal, so lesion
 overlap is a limitation. All seed correlations and R² values are preserved.
+An additional clearly marked exploratory replay measures hard/soft read
+frequency and does not alter G26.
 
 **G and safety.** The pre-formal development CU decision was
 `{fmt(causal_selection['experiment_G_authorized'])}`; high-/low-CU

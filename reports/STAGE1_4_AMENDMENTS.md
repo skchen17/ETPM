@@ -99,3 +99,15 @@ include their per-gap means and query-coordinate variance in the topic report,
 so the required reactivation diagnostics are visible without opening every
 Parquet shard. These quantities are explicitly descriptive and do not enter
 G24 or any other gate. No raw data or intervention changes.
+
+## A9 — exploratory access-count sensitivity audit
+
+The registered `read_usage` is cumulative query alignment times effective
+M contribution, not a pure frequency count. To avoid calling a magnitude
+surrogate a count, a separate post-formal **exploratory** replay measures
+per-item soft count (sum of absolute query–key cosine) and hard count (cosine
+≥0.5) on the already frozen B5 checkpoints and deterministic E/F worlds.
+It compares retention associations and incremental held-out R² after
+exposure, read magnitude and count controls. The 0.5 cutoff is diagnostic,
+not a tuned model input or formal gate criterion. All eight seeds and rows
+are saved separately. This audit cannot change G26 or authorize Experiment G.
