@@ -105,9 +105,13 @@ def analysis(records: pd.DataFrame, config: dict, evaluations: list[dict]) -> tu
     a = b5.loc[b5.experiment.eq("A")]
     def a_loss(condition: str, k: int) -> pd.Series:
         selected = a.loc[a.intervention_condition.eq(condition) & a.internal_tick.eq(k)]
-        # Frozen plan: episode -> valid horizons -> equal family -> equal seed.
-        horizon_means = selected.groupby(["seed", "world_family", "horizon"]).prediction_loss.mean()
-        family_means = horizon_means.groupby(level=["seed", "world_family"]).mean()
+        # Frozen config horizon weights; then equal family and equal seed.
+        parts = selected.groupby(["seed", "world_family", "horizon"]).prediction_loss.mean().reset_index()
+        weights = dict(zip(config["world"]["horizon_steps"], config["world"]["horizon_weights"]))
+        parts["weight"] = parts.horizon.map(weights)
+        parts["weighted_loss"] = parts.prediction_loss * parts.weight
+        totals = parts.groupby(["seed", "world_family"])[["weighted_loss", "weight"]].sum()
+        family_means = totals.weighted_loss / totals.weight
         return family_means.groupby(level="seed").mean().sort_index()
     a0 = a_loss("learned_NULL", 0)
     a4 = a_loss("learned_NULL", 4)

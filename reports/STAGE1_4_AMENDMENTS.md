@@ -69,3 +69,13 @@ training/evaluation data, source checkpoints and pre-formal world/selection
 hashes were not changed. The earlier draft analyzer was never run on the
 corrected complete formal set; no corrected G23 verdict existed before this
 change. The first invalid run remains excluded.
+
+## A6 — apply frozen horizon weights inside each family
+
+The same pre-adjudication aggregation review identified that the explicit
+`horizon_weights=[0.4,0.3,0.2,0.1]` in the frozen configuration should be
+applied to valid horizon CE within a family, then renormalized when only h=1
+is available. The G23 analyzer now does this before equal-family and
+equal-seed averaging. This implements the registered multi-horizon world
+loss; it does not change any model, record, gate threshold, formal seed or
+selection. No corrected formal adjudication had been run before the fix.
