@@ -123,8 +123,10 @@ development and formal budgets. CE below averages the 512/2048 gaps.
 G24 **{'PASS' if g24['pass'] else 'FAIL'}**. Registered control-minus-full
 margins: `{json.dumps(g24['mean_margins'], sort_keys=True)}`. Nonzero q_M,
 gate weight or read norm is descriptive access, not causal proof. Only paired
-lesion and prediction effects count. Learned keys are not orthogonal, and
-2048 distractors are an OOD gap relative to the 16-step training worlds.
+lesion and prediction effects count. The M lesion is applied just before the
+bridge with H held identical; it tests *reactivation at that point*, not every
+possible earlier M→H influence. Learned keys are not orthogonal, and 2048
+distractors are an OOD gap relative to the 16-step training worlds.
 """
     write_new("AUTONOMOUS_MEMORY_REACTIVATION_STAGE1_4.md", reactivation)
 
@@ -266,7 +268,7 @@ zero writes cannot by itself validate a full amplification audit.
         "The world-prediction objective replaces Stage 1.3 expression training, but solving its objective mismatch requires predictive and retrieval gates, not low training loss alone.",
         "Expression should remain secondary until predictive/retrieval controls validate content; it was not a Stage 1.4 gate.",
         f"Small LM prototype recommendation is {'TRUE' if not no_lm else 'FALSE'}; no LM was trained.",
-        "The bottleneck is identified from failed gates: predictive dynamics (G23), autonomous retrieval/read interface (G24), peripheral causal effect (G25), and causal-utility persistence/consolidation (G26) are evaluated separately; model capacity is not isolated by this protocol.",
+        f"Gate-specific bottlenecks: predictive dynamics G23={'PASS' if g23['pass'] else 'FAIL'}, autonomous retrieval/read interface G24={'PASS' if g24['pass'] else 'FAIL'}, peripheral causal effect G25={'PASS' if g25['pass'] else 'FAIL'}, and causal-utility persistence/consolidation G26={'PASS' if g26['pass'] else 'FAIL'}; model capacity is not isolated by this protocol.",
         "All effects remain toy-scale: 24-symbol worlds, 64-d hidden state, short training histories, controlled interventions, and synthetic long gaps. No consciousness, general intelligence or infinite capacity is inferred.",
     ]
     answer_md = "\n".join(f"{index}. {answer}" for index, answer in enumerate(answers, 1))
