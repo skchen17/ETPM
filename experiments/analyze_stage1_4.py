@@ -239,6 +239,25 @@ def analysis(records: pd.DataFrame, config: dict, evaluations: list[dict]) -> tu
     b_means = records.loc[records.experiment.eq("B")].groupby(
         ["model", "intervention_condition", "distractor_count"]
     ).prediction_loss.mean().reset_index().to_dict("records")
+    b_diagnostics = []
+    for gap in (128, 512, 2048):
+        full_rows = records.loc[
+            records.experiment.eq("B") & records.model.eq("B5_separate")
+            & records.intervention_condition.eq("full") & records.distractor_count.eq(gap)
+        ]
+        lesion_rows = records.loc[
+            records.experiment.eq("B") & records.model.eq("B5_separate")
+            & records.intervention_condition.eq("M_lesion") & records.distractor_count.eq(gap)
+        ]
+        queries = np.asarray(full_rows.q_M.tolist(), dtype=float)
+        b_diagnostics.append({
+            "distractor_count": gap,
+            "q_M_coordinate_variance_mean": float(queries.var(axis=0).mean()),
+            "g_M_mean": float(full_rows.g_M.mean()),
+            "raw_M_read_norm_mean": float(full_rows.r_M_norm.mean()),
+            "effective_M_contribution_norm_mean": float(full_rows.effective_M_norm.mean()),
+            "M_lesion_H_difference_mean": float(lesion_rows.future_H_difference.mean()),
+        })
     a_curve = a.groupby(["world_family", "horizon", "intervention_condition", "internal_tick"]
                   ).prediction_loss.mean().reset_index().to_dict("records")
     e = b5.loc[b5.experiment.eq("E_F")]
@@ -246,7 +265,7 @@ def analysis(records: pd.DataFrame, config: dict, evaluations: list[dict]) -> tu
         "formal_record_count": len(records), "formal_training_cells": 64,
         "formal_evaluation_cells": 64,
         "A_curve": a_curve, "A_matched_compute_mean_loss": matched_means,
-        "B_mean_loss": b_means,
+        "B_mean_loss": b_means, "B_diagnostics": b_diagnostics,
         "C_D_tick8": {"unrestored_js": c8_js, "restored_js": d8_js,
                       "restored_to_unrestored_ratio": finite_or_none(ratio),
                       "classification": mediation},

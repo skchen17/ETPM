@@ -124,6 +124,12 @@ These are toy-world predictive losses, not evidence of human-like thought.
         for gap in (128, 512, 2048)
         for condition in ("full", "M_lesion", "F_lesion", "random_q_M", "shuffled_M")
     )
+    b_diag_table = "\n".join(
+        f"| {row['distractor_count']} | {fmt(row['q_M_coordinate_variance_mean'], 6)} | "
+        f"{fmt(row['g_M_mean'])} | {fmt(row['raw_M_read_norm_mean'])} | "
+        f"{fmt(row['effective_M_contribution_norm_mean'])} | {fmt(row['M_lesion_H_difference_mean'])} |"
+        for row in metrics["B_diagnostics"]
+    )
     reactivation = f"""# Autonomous Memory Reactivation — Stage 1.4
 
 {QUESTION}
@@ -149,6 +155,12 @@ All registered B5 gap/condition means:
 | Distractors | B5 condition | Future-event CE |
 |---:|---|---:|
 {b_gap_table}
+
+Descriptive B5 read/state diagnostics (not substitutes for lesion effects):
+
+| Distractors | q_M coordinate variance | Mean g_M | Raw M-read norm | Effective M contribution norm | M-lesion future-H distance |
+|---:|---:|---:|---:|---:|---:|
+{b_diag_table}
 
 G24 **{'PASS' if g24['pass'] else 'FAIL'}**. Registered control-minus-full
 margins: `{json.dumps(g24['mean_margins'], sort_keys=True)}`. Seed-bootstrap

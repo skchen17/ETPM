@@ -90,3 +90,12 @@ G24's three control margins, G25's H/JS effects, and G26's incremental R²,
 resampling the eight independent training seeds with the frozen seed 1414.
 This adds uncertainty reporting only; no gate value, threshold, sample,
 selection or verdict formula changes.
+
+## A8 — descriptive reactivation diagnostics in processed output
+
+The formal Experiment B records already contain q_M vectors, gate values,
+raw/effective M reads and paired H effects. The summarizer was extended to
+include their per-gap means and query-coordinate variance in the topic report,
+so the required reactivation diagnostics are visible without opening every
+Parquet shard. These quantities are explicitly descriptive and do not enter
+G24 or any other gate. No raw data or intervention changes.
