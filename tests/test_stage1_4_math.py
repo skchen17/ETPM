@@ -13,7 +13,7 @@ from etrcm.stage1_4.interventions import (
     peripheral_swap, prediction_js, restore_workspace,
 )
 from etrcm.stage1_4.model import PredictiveETRCM, Stage14Config
-from etrcm.stage1_4.evaluation import evaluate_B, evaluate_CD, evaluate_EF, evaluate_safety
+from etrcm.stage1_4.evaluation import evaluate_A, evaluate_B, evaluate_CD, evaluate_EF, evaluate_safety
 from etrcm.stage1_4.training import run_prefix
 from etrcm.stage1_4.world import FAMILIES, generate_world
 
@@ -160,13 +160,23 @@ def test_historical_frozen_assets_remain_immutable() -> None:
 def test_stage14_intervention_evaluation_smoke() -> None:
     model = make_model().eval()
     with torch.no_grad():
+        a = evaluate_A(model, seed=91, run_id="smoke", device=torch.device("cpu"), batch=2)
         b = evaluate_B(model, seed=91, run_id="smoke", device=torch.device("cpu"),
                        gap_counts=(4,), batch=2)
         cd = evaluate_CD(model, seed=91, run_id="smoke", device=torch.device("cpu"), batch=2)
         ef = evaluate_EF(model, seed=91, run_id="smoke", device=torch.device("cpu"), batch=2, gap=4)
         safety = evaluate_safety(model, seed=91, run_id="smoke", device=torch.device("cpu"), batch=2)
+    assert {"learned_NULL", "frozen_H_NULL", "random_NULL"} <= {row["intervention_condition"] for row in a}
     assert {"full", "M_lesion", "random_q_M", "shuffled_M"} <= {row["intervention_condition"] for row in b}
     assert {row["experiment"] for row in cd} == {"C", "D"}
     assert all(row["H_restoration_flag"] for row in cd if row["experiment"] == "D")
     assert len(ef) == 2 and all(row["causal_usage"] is not None for row in ef)
     assert any(row["self_write_norm"] > 0 for row in safety if row["intervention_condition"] == "B_bad_external_write")
+
+
+def test_formal_selection_hashes_are_frozen() -> None:
+    manifest = json.loads((ROOT / "artifacts/stage1_4_formal_selection.freeze.json").read_text())
+    for relative, expected in manifest["files_sha256"].items():
+        assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected
+    assert len(manifest["formal_seeds"]) == 8
+    assert not manifest["experiment_G_authorized"]
