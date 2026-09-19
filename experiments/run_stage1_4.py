@@ -30,17 +30,21 @@ def main() -> None:
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--lr", type=float, required=True)
     parser.add_argument("--run-id", required=True)
+    parser.add_argument("--config", default="configs/stage1_4.yaml")
     parser.add_argument("--device", default="cuda")
     args = parser.parse_args()
-    config_path = ROOT / "configs/stage1_4.yaml"
+    config_path = ROOT / args.config
     config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    if args.run_id != config["protocol"][f"{args.mode}_run_id"]:
+        raise ValueError("run ID does not match selected protocol")
     expected_seeds = config["training"][f"{args.mode}_seeds"]
     if args.seed not in expected_seeds:
         raise ValueError("seed is outside frozen split")
     if args.lr not in config["training"]["candidate_learning_rates"]:
         raise ValueError("LR outside frozen development grid")
     if args.mode == "formal":
-        selection = json.loads((ROOT / "configs/stage1_4_selected.json").read_text(encoding="utf-8"))
+        selection_path = ROOT / config["protocol"].get("selection_file", "configs/stage1_4_selected.json")
+        selection = json.loads(selection_path.read_text(encoding="utf-8"))
         if args.lr != selection["learning_rates"][args.model]:
             raise ValueError("formal LR does not match frozen development selection")
     torch.manual_seed(args.seed)

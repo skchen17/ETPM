@@ -142,6 +142,17 @@ def test_world_targets_are_future_shifted_and_not_in_event_schema() -> None:
     assert torch.equal(state.M, other.M)
 
 
+def test_latent_world_does_not_expose_hidden_state_and_bridge_is_distinct() -> None:
+    world = generate_world("latent_transition", batch=64, length=16, seed=909)
+    hidden = world.metadata["hidden_latent_trace"]
+    visible = torch.stack([event.key_id for event in world.events], dim=1)
+    observed = torch.stack([event.value_id for event in world.events], dim=1)
+    assert torch.equal(visible, observed)
+    assert (visible != hidden).any()  # noisy observation sometimes differs
+    relation = generate_world("long_gap_relation", batch=64, length=16, seed=910)
+    assert torch.all(relation.metadata["B"] != relation.metadata["C"])
+
+
 def test_historical_frozen_assets_remain_immutable() -> None:
     freeze = json.loads((ROOT / "artifacts/stage1_4_prior_assets.freeze.json").read_text())
     amendment = json.loads((ROOT / "artifacts/stage1_4_amendment1.freeze.json").read_text())
@@ -177,6 +188,9 @@ def test_stage14_intervention_evaluation_smoke() -> None:
 def test_formal_selection_hashes_are_frozen() -> None:
     manifest = json.loads((ROOT / "artifacts/stage1_4_formal_selection.freeze.json").read_text())
     for relative, expected in manifest["files_sha256"].items():
-        assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected
+        frozen_bytes = subprocess.check_output(
+            ["git", "show", f"{manifest['preformal_source_revision']}:{relative}"], cwd=ROOT
+        )
+        assert hashlib.sha256(frozen_bytes).hexdigest() == expected
     assert len(manifest["formal_seeds"]) == 8
     assert not manifest["experiment_G_authorized"]

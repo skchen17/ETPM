@@ -34,3 +34,25 @@ outputs remain in `stage1_4-development-causal-v1`. Before any causal-usage
 selection or formal outcome, the field was added and the same two seeds were
 rerun under `stage1_4-development-causal-v1a1`. No model checkpoint, outcome
 definition, gate or threshold changed.
+
+## A4 — invalid hidden-state exposure, new independent run
+
+During a pre-adjudication audit, after development and while the first formal
+training run was in progress, we found that Family A's event `key_id` exposed
+the true hidden latent `z_t` even when the `value_id` observation was noisy.
+That violates the frozen partially observed world definition. We also found
+that Family B sampled C=B in some episodes, so its bridge write could overwrite
+the B→A association. These are world-generator defects, not desired negative
+results. The original 32/32 development shards, 2/2 completed causal
+development shards, 57/64 formal training shards, and one formal evaluation
+shard remain under their original IDs but are **INVALID FOR STAGE 1.4 GATES**.
+The formal drivers were stopped; no old output is overwritten or adjudicated.
+
+The corrected generator exposes only the noisy observation in Family A's
+visible key/value fields, retains hidden z solely as inaccessible audit
+metadata, and enforces C≠B in Family B. The frozen gate thresholds, horizon
+weights, architecture laws, equal training budget and analysis definitions
+remain unchanged. A new `stage1_4_v1a1.yaml` uses fresh development seeds
+6501/6502 and fresh formal seeds 7501–7508, with distinct run IDs. New
+selection and formal manifests will be frozen before corrected formal
+training. The first run's visible losses cannot influence this selection.

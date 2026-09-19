@@ -59,9 +59,12 @@ def rank_regression_incremental(rows: list[dict[str, object]]) -> dict[str, floa
 
 def load_model(
     *, mode: str, seed: int, source_run: str, device: torch.device,
+    config_path: Path,
 ) -> tuple[PredictiveETRCM, Path, dict]:
-    config = yaml.safe_load((ROOT / "configs/stage1_4.yaml").read_text(encoding="utf-8"))
-    selection = json.loads((ROOT / "configs/stage1_4_selected.json").read_text(encoding="utf-8"))
+    config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    selection = json.loads((ROOT / config["protocol"].get(
+        "selection_file", "configs/stage1_4_selected.json"
+    )).read_text(encoding="utf-8"))
     lr = selection["learning_rates"][mode]
     shard = f"{mode}_lr{lr:g}_seed{seed}"
     checkpoint = ROOT / "results/stage1_4" / source_run / shard / "checkpoint.pt"
@@ -79,14 +82,20 @@ def main() -> None:
     parser.add_argument("--model", choices=tuple(PredictiveETRCM.MODES), default="B5_separate")
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--device", default="cuda:0")
+    parser.add_argument("--config", default="configs/stage1_4.yaml")
     args = parser.parse_args()
     device = torch.device(args.device)
+    config_path = ROOT / args.config
+    initial_config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
     model, checkpoint, config = load_model(
         mode=args.model, seed=args.seed,
-        source_run=config_run(args.phase), device=device,
+        source_run=initial_config["protocol"][
+            "development_run_id" if args.phase == "dev-causal" else "formal_run_id"
+        ], device=device, config_path=config_path,
     )
     run_id = (
-        "stage1_4-development-causal-v1a1" if args.phase == "dev-causal"
+        config["protocol"].get("development_causal_run_id", "stage1_4-development-causal-v1a1")
+        if args.phase == "dev-causal"
         else config["protocol"]["formal_run_id"]
     )
     if args.phase == "dev-causal":
@@ -103,7 +112,9 @@ def main() -> None:
             causal_rows = evaluate_EF(model, seed=args.seed, run_id=run_id, device=device)
             rows += causal_rows
             causal_selection = json.loads(
-                (ROOT / "configs/stage1_4_causal_selection.json").read_text(encoding="utf-8")
+                (ROOT / config["protocol"].get(
+                    "causal_selection_file", "configs/stage1_4_causal_selection.json"
+                )).read_text(encoding="utf-8")
             )
             if causal_selection["experiment_G_authorized"]:
                 rows += evaluate_G(
@@ -129,17 +140,15 @@ def main() -> None:
         "experiments": frame.experiment.value_counts().to_dict(),
         "checkpoint_sha256": hash_file(checkpoint),
         "records_sha256": hash_file(record_path),
-        "config_sha256": hash_file(ROOT / "configs/stage1_4.yaml"),
-        "selection_sha256": hash_file(ROOT / "configs/stage1_4_selected.json"),
+        "config_sha256": hash_file(config_path),
+        "selection_sha256": hash_file(ROOT / config["protocol"].get(
+            "selection_file", "configs/stage1_4_selected.json"
+        )),
     }
     if args.phase == "dev-causal" or args.model == "B5_separate":
         summary["causal_regression"] = rank_regression_incremental(rows)
     (out / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(json.dumps(summary, sort_keys=True))
-
-
-def config_run(phase: str) -> str:
-    return "stage1_4-development-v1" if phase == "dev-causal" else "stage1_4-formal-v1"
 
 
 if __name__ == "__main__":

@@ -64,6 +64,7 @@ def generate_world(
 
     if family == "latent_transition":
         latent = _sample(generator, 8, batch, device)
+        latent_trace: list[torch.Tensor] = []
         for t in range(length):
             if t:
                 step = (torch.rand(batch, generator=generator).to(device) < 0.82).long()
@@ -71,14 +72,17 @@ def generate_world(
             observation = latent.clone()
             noisy = torch.rand(batch, generator=generator).to(device) < 0.20
             observation = torch.where(noisy, _sample(generator, 8, batch, device), observation)
-            keys[:, t], values[:, t], tokens[:, t] = latent, observation, observation
+            # Both visible fields carry the noisy observation, never hidden z.
+            keys[:, t], values[:, t], tokens[:, t] = observation, observation, observation
+            latent_trace.append(latent.clone())
         target_key = latent
         exposures[:] = 1
         bridge = max(0, length - 9)
+        metadata = {"hidden_latent_trace": torch.stack(latent_trace, dim=1)}
     elif family == "long_gap_relation":
         a = _sample(generator, 8, batch, device) + 8
         b = _sample(generator, 8, batch, device)
-        c = _sample(generator, 8, batch, device)
+        c = (b + 1 + _sample(generator, 7, batch, device)).remainder(8)
         target_key = b
         exposure_choices = torch.tensor([1, 2, 4], device=device)
         exposures = exposure_choices[_sample(generator, 3, batch, device)]
