@@ -42,7 +42,8 @@ frequent future-irrelevant writes. Training length is 16 external events.
 Targets are future-shifted by horizons 1/2/4/8 and never supplied as current
 events or query labels. The formal 2048 gap is out of training distribution.
 
-**A, predictive internal time.** B5 predicts after 0/1/2/4/8/16 NULL ticks
+**A, predictive internal time.** Each seed has 32 paired episodes per world
+family. B5 predicts after 0/1/2/4/8/16 NULL ticks
 from the same state/history. Frozen-H and fixed random recurrent controls use
 the same tick count. An additional matched timing arm places K compute before
 versus after the next event while forecasting the subsequent event; latency
@@ -50,7 +51,8 @@ differs and it is not substituted for pre-event prediction. See the full
 family×horizon×K curve and all eight seed margins in
 `PREDICTIVE_CONTINUOUS_DYNAMICS_STAGE1_4.md`.
 
-**B, autonomous reactivation.** Paired same-checkpoint M/F lesions, random
+**B, autonomous reactivation.** Each seed has 8 paired episodes at each of
+128/512/2048 distractors. Paired same-checkpoint M/F lesions, random
 q_M and shuffled M are applied before the bridge. B0/no-memory, B1/GRU,
 B2/single memory, B3/joint, B4/shared, B6/gamma-zero and B7/random query are
 separately trained with the same hyperparameter search budget. CE is measured

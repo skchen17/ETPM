@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pandas as pd
+
 
 ROOT = Path(__file__).resolve().parents[1]
 RUN = "stage1_4-formal-v1a1"
@@ -46,6 +48,22 @@ def main() -> None:
     metrics = json.loads((processed / "metrics.json").read_text())
     judgement = json.loads((processed / "adjudication.json").read_text())
     frequency = json.loads((processed / "read_frequency.json").read_text())
+    matched_frames = [
+        pd.read_parquet(
+            ROOT / "results/stage1_4" / RUN / f"B5_separate_seed{seed}/records.parquet",
+            columns=["experiment", "intervention_condition", "internal_tick", "prediction_loss"],
+        ) for seed in range(7501, 7509)
+    ]
+    matched_records = pd.concat(matched_frames, ignore_index=True)
+    matched_records = matched_records.loc[matched_records.experiment.eq("A_matched_compute")]
+    matched_by_k = matched_records.groupby(
+        ["internal_tick", "intervention_condition"]
+    ).prediction_loss.mean().unstack()
+    matched_table = "\n".join(
+        f"| {k} | {fmt(row['idle_pre_event_then_event'])} | {fmt(row['post_event_ticks'])} | "
+        f"{fmt(row['post_event_ticks'] - row['idle_pre_event_then_event'])} |"
+        for k, row in matched_by_k.iterrows()
+    )
     causal_selection = json.loads((ROOT / "configs/stage1_4_causal_selection_v1a1.json").read_text())
     gates = judgement["gates"]
     g23, g24, g25, g26 = (gates[key] for key in ("G23", "G24", "G25", "G26"))
@@ -107,6 +125,14 @@ positive seeds={g23['positive_seeds']}/8, frozen margin={fmt(g23['frozen_margin'
 random margin={fmt(g23['random_margin'])}. The registered criterion is not
 changed for non-monotone curves. Matched timing mean losses:
 `{json.dumps(metrics['A_matched_compute_mean_loss'], sort_keys=True)}`.
+The full equal-compute timing table is:
+
+| K | Pre-event K, CE | Post-event K, CE | Post−pre CE |
+|---:|---:|---:|---:|
+{matched_table}
+
+Post-event compute requires K future-latency ticks; a lower post-event CE
+does not prove pre-event autonomous predictive benefit.
 These are toy-world predictive losses, not evidence of human-like thought.
 """
     write_new("PREDICTIVE_CONTINUOUS_DYNAMICS_STAGE1_4.md", predictive)
@@ -374,7 +400,8 @@ frequent future-irrelevant writes. Training length is 16 external events.
 Targets are future-shifted by horizons 1/2/4/8 and never supplied as current
 events or query labels. The formal 2048 gap is out of training distribution.
 
-**A, predictive internal time.** B5 predicts after 0/1/2/4/8/16 NULL ticks
+**A, predictive internal time.** Each seed has 32 paired episodes per world
+family. B5 predicts after 0/1/2/4/8/16 NULL ticks
 from the same state/history. Frozen-H and fixed random recurrent controls use
 the same tick count. An additional matched timing arm places K compute before
 versus after the next event while forecasting the subsequent event; latency
@@ -382,7 +409,8 @@ differs and it is not substituted for pre-event prediction. See the full
 family×horizon×K curve and all eight seed margins in
 `PREDICTIVE_CONTINUOUS_DYNAMICS_STAGE1_4.md`.
 
-**B, autonomous reactivation.** Paired same-checkpoint M/F lesions, random
+**B, autonomous reactivation.** Each seed has 8 paired episodes at each of
+128/512/2048 distractors. Paired same-checkpoint M/F lesions, random
 q_M and shuffled M are applied before the bridge. B0/no-memory, B1/GRU,
 B2/single memory, B3/joint, B4/shared, B6/gamma-zero and B7/random query are
 separately trained with the same hyperparameter search budget. CE is measured

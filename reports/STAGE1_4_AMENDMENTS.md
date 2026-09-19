@@ -120,3 +120,11 @@ The report and its generator now state the exact metric and point to the
 separate exploratory frequency audit. Final-report answer 9 was also made
 direct: G25 supports a toy-scale causal peripheral-state effect, not a broad
 causal-memory claim. No data, numeric result, gate or recommendation changed.
+
+## A11 — matched-compute detail in the report
+
+The predictive-dynamics topic report now prints the already recorded
+pre-event versus post-event matched-compute CE at every K, rather than only
+their aggregate means; the final report also states A/B episode sample sizes.
+This is descriptive reporting from unchanged Parquet rows. It does not enter
+G23 or alter any gate.
