@@ -219,8 +219,9 @@ For each of 32 memory-item directions per formal seed, a rank-one key-direction
 component is deleted from M before the bridge; the full and lesioned arms see
 the same bridge, two NULL ticks and future target. `CU=L_lesion−L_full` uses
 future-event CE, and the future-H distance is separately recorded. Exposure,
-query alignment/access count and effective M-read magnitude are separately
-logged. The mean measured CU is {fmt(ef['mean_causal_usage'])}; mean read
+registered read usage (query alignment × effective M contribution), and CU
+are separately logged. A pure access count appears only in the exploratory
+`read_frequency.parquet` audit. The mean measured CU is {fmt(ef['mean_causal_usage'])}; mean read
 usage is {fmt(ef['mean_read_usage'])}. A direction lesion can overlap other
 nonorthogonal learned keys, so it is not a perfect isolated factual item.
 Access alone is never labeled causal influence.
@@ -323,7 +324,7 @@ zero writes cannot by itself validate a full amplification audit.
         f"Separate B5 versus shared B4 CE at 512/2048 gaps: {fmt(mean_b(metrics,'B5_separate','full'))} versus {fmt(mean_b(metrics,'B4_shared','full'))}; this is a separately trained architecture comparison.",
         f"Same-H peripheral swap changes future H by {fmt(g25['mean_H_difference'])} and prediction JS by {fmt(g25['mean_prediction_js'])}; G25 {'passes' if g25['pass'] else 'fails'}.",
         f"H restoration leaves tick-8 JS ratio {fmt(mediation['restored_to_unrestored_ratio'])}; classification {mediation['classification']}.",
-        f"F/M are persistent computational state only to the extent established by G25; otherwise this remains a structural hypothesis. Classification: {mediation['classification']}.",
+        f"Yes at this toy intervention's scope: G25 establishes that swapping F/M at identical H changes later H and prediction. This supports F/M as causal peripheral computational state here, not a general causal-memory claim. Classification: {mediation['classification']}.",
         f"Exposure/read-magnitude/CU associations are listed seed-by-seed; the exploratory hard-count audit gives mean CU incremental R² {fmt(frequency['mean_CU_incremental_R2'])} after count control. No read norm alone proves causal use.",
         f"Registered CU incremental held-out R²={fmt(g26['mean_incremental_heldout_r2'])}; G26 {'passes' if g26['pass'] else 'fails'}. Count adjustment is secondary and cannot change G26.",
         f"High-CU consolidation block is {g26['experiment_G_status']}; no harm contrast can be claimed.",

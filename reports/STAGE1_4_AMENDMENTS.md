@@ -111,3 +111,12 @@ It compares retention associations and incremental held-out R² after
 exposure, read magnitude and count controls. The 0.5 cutoff is diagnostic,
 not a tuned model input or formal gate criterion. All eight seeds and rows
 are saved separately. This audit cannot change G26 or authorize Experiment G.
+
+## A10 — post-adjudication report wording only
+
+The generated causal-usage topic report initially described the registered
+composite `read_usage` as if an access count were separately logged there.
+The report and its generator now state the exact metric and point to the
+separate exploratory frequency audit. Final-report answer 9 was also made
+direct: G25 supports a toy-scale causal peripheral-state effect, not a broad
+causal-memory claim. No data, numeric result, gate or recommendation changed.
