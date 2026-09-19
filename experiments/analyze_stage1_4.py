@@ -248,12 +248,14 @@ def analysis(records: pd.DataFrame, config: dict, evaluations: list[dict]) -> tu
 def main() -> None:
     records, config, freeze, training, evaluation = load_and_verify()
     metrics, adjudication = analysis(records, config, evaluation)
+    metrics_text = json.dumps(metrics, indent=2, allow_nan=False)
+    adjudication_text = json.dumps(adjudication, indent=2, allow_nan=False)
     out = ROOT / "results/stage1_4/processed" / RUN_ID
     if out.exists():
         raise FileExistsError(f"processed results already exist: {out}")
     out.mkdir(parents=True)
-    (out / "metrics.json").write_text(json.dumps(metrics, indent=2, allow_nan=False))
-    (out / "adjudication.json").write_text(json.dumps(adjudication, indent=2, allow_nan=False))
+    (out / "metrics.json").write_text(metrics_text)
+    (out / "adjudication.json").write_text(adjudication_text)
     integrity = {
         "run_id": RUN_ID,
         "source_revision_preformal": freeze["preformal_source_revision"],
