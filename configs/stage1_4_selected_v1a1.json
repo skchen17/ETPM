@@ -1,0 +1,29 @@
+{
+  "selection_protocol": "minimum_mean_development_world_loss_then_lower_lr",
+  "development_run_id": "stage1_4-development-v1a1",
+  "development_source_revision": "d77f5c0cd2fae6df0088a3c79bc89b601bd1b7a5",
+  "development_seeds": [6501, 6502],
+  "development_cell_count": 32,
+  "development_summaries_aggregate_sha256": "a524f7ec729f47904f32f5dcbc5b82c128a7da978e479d57de9445b60608908c",
+  "learning_rates": {
+    "B0_no_memory": 0.001,
+    "B1_gru": 0.001,
+    "B2_single_memory": 0.001,
+    "B3_joint": 0.001,
+    "B4_shared": 0.001,
+    "B5_separate": 0.001,
+    "B6_gamma_zero": 0.001,
+    "B7_random_query": 0.001
+  },
+  "mean_validation_loss_by_model_and_lr": {
+    "B0_no_memory": {"0.001": 2.004659, "0.0003": 2.729415},
+    "B1_gru": {"0.001": 2.761620, "0.0003": 2.939535},
+    "B2_single_memory": {"0.001": 1.962251, "0.0003": 2.690606},
+    "B3_joint": {"0.001": 1.965118, "0.0003": 2.692991},
+    "B4_shared": {"0.001": 1.975160, "0.0003": 2.707069},
+    "B5_separate": {"0.001": 1.492717, "0.0003": 2.535393},
+    "B6_gamma_zero": {"0.001": 1.532275, "0.0003": 2.514968},
+    "B7_random_query": {"0.001": 1.561266, "0.0003": 2.390664}
+  },
+  "invalid_first_run_excluded": true
+}
