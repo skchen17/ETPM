@@ -1,0 +1,8 @@
+{
+  "stage": "1.4",
+  "prior_commit": "360693ab0ce635831bd714cf901a5702ffdbb0ae",
+  "prior_tree": "b2db082877f0fd7ffddcad99050107da3880b48c",
+  "stage1_3_final_report_sha256": "bd807ab4b8cff91c8e670c3e4c9473a2496ce91b3f4e056672bed916bff5a0fb",
+  "stage1_3_protocol_freeze_sha256": "6106b6ee10bb5a736855d7bd92b2869566ef80321a1d1a137a530608a677b915",
+  "rule": "No tracked path existing at prior_commit may be changed by Stage 1.4; new stage-specific files only."
+}

@@ -1,0 +1,82 @@
+protocol:
+  name: etrcm-stage1.4
+  version: 1.0.0
+  prior_revision: 360693ab0ce635831bd714cf901a5702ffdbb0ae
+  development_run_id: stage1_4-development-v1
+  formal_run_id: stage1_4-formal-v1
+  split_salt: stage1.4-world-v1-independent
+  no_stage2_training: true
+
+model:
+  hidden_dim: 64
+  latent_slots: 2
+  symbol_count: 24
+  key_dim: 16
+  value_dim: 16
+  event_type_dim: 8
+  gamma: 0.12
+  rho_fast: 0.97
+  rho_slow: 0.9995
+  eta_external: 0.6
+  read_epsilon: 0.000001
+
+world:
+  families: [latent_transition, long_gap_relation, latent_regime, distractor_heavy]
+  development_episode_length: 16
+  training_episode_length: 16
+  horizon_steps: [1, 2, 4, 8]
+  horizon_weights: [0.4, 0.3, 0.2, 0.1]
+  null_ticks_train: [0, 1, 2, 4]
+  null_ticks_evaluate: [0, 1, 2, 4, 8, 16]
+  long_gap_distractors: [128, 512, 2048]
+  event_vocabulary: 24
+  no_explicit_query: true
+
+training:
+  optimizer: adamw
+  candidate_learning_rates: [0.001, 0.0003]
+  development_seeds: [6401, 6402]
+  formal_seeds: [7401, 7402, 7403, 7404, 7405, 7406, 7407, 7408]
+  development_steps: 100
+  formal_steps: 160
+  batch_size: 32
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  trainable_models: [B0_no_memory, B1_gru, B2_single_memory, B3_joint, B4_shared, B5_separate, B6_gamma_zero, B7_random_query]
+  selected_lr_rule: minimum_mean_development_world_loss_then_lower_lr
+
+evaluation:
+  episodes_per_family_per_seed: 32
+  causal_pairs_per_seed: 32
+  causal_items_per_seed: 32
+  high_low_matched_pairs_per_seed: 16
+  null_random_control_seed_offset: 900000
+  bootstrap_resamples: 2000
+  bootstrap_seed: 1414
+  paired_seed_positive_min: 6
+  nonzero_tolerance: 0.00001
+  primary_aggregation: episode_then_seed_then_equal_seed_mean
+
+gates:
+  G23:
+    mean_loss_improvement_min: 0.01
+    positive_seeds_min: 6
+    requires_better_than_frozen_and_random: true
+  G24:
+    mean_loss_margin_min: 0.01
+    positive_seeds_min: 6
+    controls: [M_lesion, random_q_M, no_persistent]
+  G25:
+    H_difference_min: 0.00001
+    prediction_js_difference_min: 0.00001
+    positive_seeds_min: 6
+  G26:
+    incremental_heldout_r2_min: 0.02
+    positive_seeds_min: 6
+    high_CU_consolidation_harm_margin_min: 0.01
+
+authorization:
+  recommendation_requires: [G23, G24, G25, G26, no_bypass, no_self_evidence_amplification]
+  experiment_G_requires: [positive_incremental_CU_development]
+  exploratory_proxy_requires: [G23, G24, G25, G26]
+  language_model_training_allowed: false
