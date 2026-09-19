@@ -56,3 +56,16 @@ remain unchanged. A new `stage1_4_v1a1.yaml` uses fresh development seeds
 6501/6502 and fresh formal seeds 7501–7508, with distinct run IDs. New
 selection and formal manifests will be frozen before corrected formal
 training. The first run's visible losses cannot influence this selection.
+
+## A5 — formal analysis implementation follows equal-family aggregation
+
+Before corrected formal adjudication, code review found that the draft G23
+summarizer averaged all available horizon rows directly. Because two world
+families have four valid horizons while two have only one at the registered
+prefix, that would give unequal family weight. The already frozen analysis
+plan says episode → valid horizons → **equal family** → equal seed. The
+summarizer was corrected to implement precisely that rule. The gate threshold,
+training/evaluation data, source checkpoints and pre-formal world/selection
+hashes were not changed. The earlier draft analyzer was never run on the
+corrected complete formal set; no corrected G23 verdict existed before this
+change. The first invalid run remains excluded.
