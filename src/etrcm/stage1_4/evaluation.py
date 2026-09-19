@@ -50,7 +50,7 @@ def _row(
 
     gates = source.get("gates")
     row: dict[str, object] = {
-        "run_id": run_id, "model": model.mode, "seed": seed, "episode": episode,
+        "run_id": run_id, "experiment": experiment, "model": model.mode, "seed": seed, "episode": episode,
         "world_family": family, "external_step": external_step,
         "internal_tick": internal_tick, "horizon": horizon, "event_type": event_type,
         "future_target": target, "prediction_loss": prediction_loss,

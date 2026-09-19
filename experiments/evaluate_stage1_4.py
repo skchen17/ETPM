@@ -86,7 +86,7 @@ def main() -> None:
         source_run=config_run(args.phase), device=device,
     )
     run_id = (
-        "stage1_4-development-causal-v1" if args.phase == "dev-causal"
+        "stage1_4-development-causal-v1a1" if args.phase == "dev-causal"
         else config["protocol"]["formal_run_id"]
     )
     if args.phase == "dev-causal":

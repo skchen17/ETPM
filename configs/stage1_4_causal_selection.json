@@ -1,0 +1,13 @@
+{
+  "selection": "positive_incremental_CU_development",
+  "development_causal_run_id": "stage1_4-development-causal-v1a1",
+  "development_seeds": [6401, 6402],
+  "incremental_heldout_r2_by_seed": {
+    "6401": -0.07145654974835754,
+    "6402": -0.011869385633440388
+  },
+  "mean_incremental_heldout_r2": -0.04166296769089897,
+  "experiment_G_authorized": false,
+  "exploratory_causal_utility_proxy_authorized": false,
+  "rule": "A positive mean development incremental held-out R2 is required before Experiment G. The observed mean is negative. Formal outcomes cannot change this authorization."
+}

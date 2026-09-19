@@ -24,3 +24,13 @@ their original source revision are retained. A unit test checks the blocked
 direction and conservation. The formal source revision and all input hashes
 will be frozen before formal training; this amendment changes no world,
 training budget, selected LR, endpoint or gate.
+
+## A3 — development causal-evaluation schema repair
+
+The first two development causal-evaluation attempts (`6401`, `6402`) wrote
+Parquet rows but stopped before summaries because the record constructor
+omitted the `experiment` label required by the summarizer. These incomplete
+outputs remain in `stage1_4-development-causal-v1`. Before any causal-usage
+selection or formal outcome, the field was added and the same two seeds were
+rerun under `stage1_4-development-causal-v1a1`. No model checkpoint, outcome
+definition, gate or threshold changed.

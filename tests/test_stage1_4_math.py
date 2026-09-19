@@ -13,6 +13,7 @@ from etrcm.stage1_4.interventions import (
     peripheral_swap, prediction_js, restore_workspace,
 )
 from etrcm.stage1_4.model import PredictiveETRCM, Stage14Config
+from etrcm.stage1_4.evaluation import evaluate_B, evaluate_CD, evaluate_EF, evaluate_safety
 from etrcm.stage1_4.training import run_prefix
 from etrcm.stage1_4.world import FAMILIES, generate_world
 
@@ -154,3 +155,18 @@ def test_historical_frozen_assets_remain_immutable() -> None:
         ["git", "rev-parse", f"{freeze['prior_commit']}^{{tree}}"], cwd=ROOT, text=True
     ).strip()
     assert prior_tree == freeze["prior_tree"]
+
+
+def test_stage14_intervention_evaluation_smoke() -> None:
+    model = make_model().eval()
+    with torch.no_grad():
+        b = evaluate_B(model, seed=91, run_id="smoke", device=torch.device("cpu"),
+                       gap_counts=(4,), batch=2)
+        cd = evaluate_CD(model, seed=91, run_id="smoke", device=torch.device("cpu"), batch=2)
+        ef = evaluate_EF(model, seed=91, run_id="smoke", device=torch.device("cpu"), batch=2, gap=4)
+        safety = evaluate_safety(model, seed=91, run_id="smoke", device=torch.device("cpu"), batch=2)
+    assert {"full", "M_lesion", "random_q_M", "shuffled_M"} <= {row["intervention_condition"] for row in b}
+    assert {row["experiment"] for row in cd} == {"C", "D"}
+    assert all(row["H_restoration_flag"] for row in cd if row["experiment"] == "D")
+    assert len(ef) == 2 and all(row["causal_usage"] is not None for row in ef)
+    assert any(row["self_write_norm"] > 0 for row in safety if row["intervention_condition"] == "B_bad_external_write")
