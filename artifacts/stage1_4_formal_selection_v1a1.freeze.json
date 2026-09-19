@@ -1,0 +1,32 @@
+{
+  "stage": "1.4",
+  "formal_run_id": "stage1_4-formal-v1a1",
+  "preformal_source_revision": "53f3188000d694ae73a60adc6c9273d3aba95f23",
+  "development_run_id": "stage1_4-development-v1a1",
+  "development_causal_run_id": "stage1_4-development-causal-v1a2",
+  "invalid_first_formal_run_id": "stage1_4-formal-v1",
+  "invalid_first_run_excluded": true,
+  "formal_seeds": [7501, 7502, 7503, 7504, 7505, 7506, 7507, 7508],
+  "learning_rates": {
+    "B0_no_memory": 0.001,
+    "B1_gru": 0.001,
+    "B2_single_memory": 0.001,
+    "B3_joint": 0.001,
+    "B4_shared": 0.001,
+    "B5_separate": 0.001,
+    "B6_gamma_zero": 0.001,
+    "B7_random_query": 0.001
+  },
+  "experiment_G_authorized": false,
+  "files_sha256": {
+    "configs/stage1_4_v1a1.yaml": "5dd2df015d8ab3da2a0f30b85b4630ff8b43ee5a3b2c7e8937eeb7ddb6955b91",
+    "configs/stage1_4_selected_v1a1.json": "75012ea7528a3ac2244ecd8388c5c3ad499f08d3236c7a003377c3aacf13a1aa",
+    "configs/stage1_4_causal_selection_v1a1.json": "e6174f5b303d420e901049c862068a077136aace123c0c1d3dd9e9ac80ddc5f1",
+    "src/etrcm/stage1_4/model.py": "32fa69c4f99ee886920a4030dd7cf968e5f50d0540333a4675e4ce48d8c177ee",
+    "src/etrcm/stage1_4/world.py": "b9567daad476d9a849b9c9df37bd5f605adfababb086bd3316787b11ed9d7c80",
+    "src/etrcm/stage1_4/training.py": "ece32be20b1a5dacd5c12f3bd94d3151b2b13cd55d3f6713d02402f713ff5a5c",
+    "src/etrcm/stage1_4/evaluation.py": "a9d28278ca6e6df7b4e5d02722783ab36cde8d9736dab38baa9fbdf233668454",
+    "experiments/run_stage1_4.py": "143d636de08b2d95124734a590ca1b8097bd5e3ba8775757b8887b03a0d99aac",
+    "experiments/evaluate_stage1_4.py": "a598232045293d481b4880838c9af7d76fd27ee3fb507622fe2ff52a5012c0e9"
+  }
+}

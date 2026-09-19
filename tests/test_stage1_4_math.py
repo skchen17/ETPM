@@ -194,3 +194,11 @@ def test_formal_selection_hashes_are_frozen() -> None:
         assert hashlib.sha256(frozen_bytes).hexdigest() == expected
     assert len(manifest["formal_seeds"]) == 8
     assert not manifest["experiment_G_authorized"]
+
+
+def test_corrected_formal_selection_hashes_are_frozen() -> None:
+    manifest = json.loads((ROOT / "artifacts/stage1_4_formal_selection_v1a1.freeze.json").read_text())
+    for relative, expected in manifest["files_sha256"].items():
+        assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected
+    assert manifest["formal_seeds"] == list(range(7501, 7509))
+    assert manifest["invalid_first_run_excluded"]
