@@ -58,6 +58,18 @@ def main() -> None:
         values = [row["prediction_loss"] for row in a_rows if row["internal_tick"] == k]
         k_curve[k] = sum(values) / len(values) if values else float("nan")
     curve_table = "\n".join(f"| {k} | {fmt(loss)} |" for k, loss in k_curve.items())
+    full_curve_rows = []
+    for family in ("latent_transition", "long_gap_relation", "latent_regime", "distractor_heavy"):
+        for horizon in (1, 2, 4, 8):
+            values = {row["internal_tick"]: row["prediction_loss"] for row in metrics["A_curve"]
+                      if row["intervention_condition"] == "learned_NULL"
+                      and row["world_family"] == family and row["horizon"] == horizon}
+            if values:
+                full_curve_rows.append(
+                    f"| {family} | {horizon} | "
+                    + " | ".join(fmt(values.get(k)) for k in (0, 1, 2, 4, 8, 16)) + " |"
+                )
+    full_curve_table = "\n".join(full_curve_rows)
     seed_table = "\n".join(
         f"| {row['seed']} | {fmt(row['delta'])} | {fmt(row['margin_frozen'])} | {fmt(row['margin_random'])} |"
         for row in g23["seed_table"]
@@ -77,6 +89,12 @@ future latency and cannot count as pre-event forecasting.
 | K | Mean h=1 CE |
 |---:|---:|
 {curve_table}
+
+Full family/horizon curve (mean CE over eight trained seeds):
+
+| World family | Horizon | K0 | K1 | K2 | K4 | K8 | K16 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+{full_curve_table}
 
 | Seed | L0−L4 | Frozen−learned at K4 | Random−learned at K4 |
 |---:|---:|---:|---:|
@@ -100,6 +118,11 @@ These are toy-world predictive losses, not evidence of human-like thought.
         for model in ("B0_no_memory", "B1_gru", "B2_single_memory", "B3_joint",
                       "B4_shared", "B5_separate", "B6_gamma_zero", "B7_random_query")
     )
+    b_gap_table = "\n".join(
+        f"| {gap} | {condition} | {fmt(mean_b(metrics, 'B5_separate', condition, (gap,)))} |"
+        for gap in (128, 512, 2048)
+        for condition in ("full", "M_lesion", "F_lesion", "random_q_M", "shuffled_M")
+    )
     reactivation = f"""# Autonomous Memory Reactivation — Stage 1.4
 
 {QUESTION}
@@ -119,6 +142,12 @@ development and formal budgets. CE below averages the 512/2048 gaps.
 | Trained architecture | Full-condition CE |
 |---|---:|
 {baseline_table}
+
+All registered B5 gap/condition means:
+
+| Distractors | B5 condition | Future-event CE |
+|---:|---|---:|
+{b_gap_table}
 
 G24 **{'PASS' if g24['pass'] else 'FAIL'}**. Registered control-minus-full
 margins: `{json.dumps(g24['mean_margins'], sort_keys=True)}`. Nonzero q_M,
