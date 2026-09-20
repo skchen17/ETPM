@@ -19,6 +19,7 @@ from etrcm.stage1_5.evaluation import (
     evaluate_anatomy, evaluate_oracle, evaluate_perturbations,
     evaluate_read_mediation, evaluate_stability,
 )
+import etrcm.stage1_5.evaluation as stage15_evaluation
 from etrcm.stage1_5.model import AnatomicalETRCM
 from etrcm.stage1_5.precision import evaluate_precision
 from etrcm.stage1_5.probes import evaluate_observability, evaluate_timescales
@@ -104,6 +105,22 @@ def test_closed_loop_oracle_recomputes_from_current_h(model: AnatomicalETRCM) ->
     second, _ = closed_loop_oracle_read(model, state.H + 10, bank, bridge)
     assert first.shape == second.shape
     assert not torch.equal(first, second) or bool((bank.valid & bank.key_ids.eq(bridge.value_id[None])).sum(0).eq(1).all())
+
+
+def test_closed_loop_rollout_calls_router_after_each_update(
+    model: AnatomicalETRCM, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    called_h = []
+    original = stage15_evaluation.closed_loop_oracle_read
+
+    def counted(model_arg, H, bank, bridge):
+        called_h.append(H.clone())
+        return original(model_arg, H, bank, bridge)
+
+    monkeypatch.setattr(stage15_evaluation, "closed_loop_oracle_read", counted)
+    evaluate_oracle(model, seed=2, run_id="smoke", device=torch.device("cpu"), gaps=(8,), batch=4)
+    assert len(called_h) == 8
+    assert any(not torch.equal(called_h[0], later) for later in called_h[1:])
 
 
 def test_retrieval_advantage_is_finite_loss_difference() -> None:
