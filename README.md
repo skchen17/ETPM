@@ -231,58 +231,6 @@ bash experiments/run_stage1_3_all.sh
 python experiments/analyze_stage1_3.py --run-id stage1_3-formal-v1
 ```
 
-## Stage 1.4–1.5 causal-state and routing audits
-
-Stage 1.4's predictive-state study and Stage 1.5's anatomy/routing study are
-frozen historical results. Stage 1.5 found finite F/M causal effects and
-explicit-read mediation (G29/G30 PASS), but long-NULL stability, tested
-timescale advantage, and useful historical-oracle read did not meet their gates
-(G27/G28/G31 FAIL). G32/G33 were not run by protocol. These results do not
-establish useful autonomous retrieval. See
-`reports/STAGE1_4_FINAL_REPORT.md` and `reports/STAGE1_5_FINAL_REPORT.md`;
-Stage 1.5 assets are protected by `artifacts/stage1_5_all_assets.sha256`.
-
-## Stage 1.6 training versus integration architecture
-
-> **Is ET-RCM failing to use persistent memory because its current integration architecture is incapable of doing so, or because the training process never forces the recurrent core to learn memory-dependent computation?**
-
-> **ET-RCM 当前无法有效利用持久记忆，究竟是因为现有 memory-to-H integration 架构本身做不到，还是因为训练过程从未真正迫使 recurrent core 学会依赖 memory 进行计算？**
-
-Stage 1.6 preserves the Stage 1.5 gated-residual integration operator and
-memory law. It compares training length, learned versus historical-only oracle
-read delivery, an oracle-to-learned curriculum, H-scrub memory necessity, and
-no-memory/GRU/single-memory baselines. A separate exploratory extension scales
-the *original* Stage 1.5 four-family objective; it is not one of the four new
-gates. Formal thresholds were frozen in `reports/STAGE1_6_PROTOCOL.md` before
-the eight fresh training seeds. Formal results: G34 FAIL (2/8 replicated
-training-length memory-benefit gains), G35 PASS (8/8 oracle-read advantages
-over zero/random/shuffled), G36 FAIL (ordinary H-scrub full-vs-no-memory and
-M-lesion effects each replicated in only 2/8), G37 FAIL (only 3/8 valid
-within-curriculum oracle-benefit denominators). A triggered, separately
-labeled three-phase curriculum recovered learned-read benefit in 6/8 seeds but
-did not establish slow-M necessity. The original-objective extension lowered
-held-out CE substantially without a replicated historical-oracle advantage.
-Thus the current integration operator is capable of using supplied history on
-this toy; training/routing and persistent-M use remain unresolved. Full methods,
-seed-level effects, null results and limitations are in
-`reports/STAGE1_6_FINAL_REPORT.md`. Sequence/LM training remains unauthorized.
-
-Reproduction from the server project root after `pip install -e .`:
-
-```bash
-PYTHONPATH=src python experiments/run_stage1_6_grid.py --phase development
-PYTHONPATH=src python experiments/select_stage1_6.py
-PYTHONPATH=src python experiments/run_stage1_6_grid.py --phase formal --learning-rate 0.001
-PYTHONPATH=src python experiments/run_stage1_6_legacy_grid.py --cpu-workers 8
-PYTHONPATH=src python experiments/analyze_stage1_6_legacy.py
-PYTHONPATH=src python experiments/diagnose_stage1_6.py
-PYTHONPATH=src python experiments/analyze_stage1_6.py
-PYTHONPATH=src python experiments/verify_stage1_6.py
-```
-
-Completed cells are skipped by the grid launchers; an independent rerun needs
-an isolated checkout and a new run identifier, without overwriting frozen data.
-
 ## Layout
 
 - `src/etrcm/`: state, memory math, latent dynamics, baselines, and toy suite
