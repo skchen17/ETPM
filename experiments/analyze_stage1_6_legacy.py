@@ -50,7 +50,7 @@ def main()->None:
             "seed_manifest":manifest}
     (BASE/"summary.json").write_text(json.dumps(result,indent=2))
     report=("# Original-objective training-length scaling (exploratory)\n\n"
-            "This is an extension, **not G34–G37**. Eight new B5 seeds were trained on the frozen Stage 1.5 four-family future-event objective for 3000 steps with its selected LR .001, batch 32 and original data schedule. The old historical oracle evaluator was reused on the 128-distractor long-gap slice, tick 4. It does not cover the old 512/2048 long-gap grid. Below are seed-equal mean CE and finite read interventions; positive `oracle_vs_no_read` means the historical read helps.\n\n"
+            "This is an extension, **not G34–G37**. Eight new B5 seeds were trained on the frozen Stage 1.5 four-family future-event objective for 3000 steps with its selected LR .001, batch 32 and original data schedule. The old historical oracle evaluator was reused on the 128-distractor long-gap slice, tick 4. It does not cover the old 512/2048 long-gap grid. In that old world, past A is also the future class, so its oracle read can approximate the answer itself; this does not test compositional integration the way the new H-scrub world does. Below are seed-equal mean CE and finite read interventions; positive `oracle_vs_no_read` means the historical read helps.\n\n"
             +means.round(5).reset_index().to_markdown(index=False)
             +"\n\nAt 3000 minus 160 steps: "+json.dumps(result["mean_effect_3000_minus_160"])
             +". Replication counts (oracle vs no-read ≥.01): "+json.dumps(result["oracle_benefit_seeds_at_least_0.01_by_checkpoint"])
