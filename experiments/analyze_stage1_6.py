@@ -157,7 +157,9 @@ def main() -> None:
             diagnostic_path=PROCESSED/"jacobian_gate_diagnostics.parquet"
             if diagnostic_path.exists():
                 j=pd.read_parquet(diagnostic_path)
-                extra="\n## JVP and recurrent-gate diagnostics\n\n"+j.groupby(["arm","step"]).mean(numeric_only=True).round(5).reset_index().drop(columns=["seed"]).to_markdown(index=False)+"\n"
+                extra=("\n## JVP and recurrent-gate diagnostics\n\n"
+                       "`JVP_memory_to_H_norm` is the mean norm of four seeded unit-direction Jacobian-vector products from the slow read to next H at the bridge, not an exact full Jacobian norm. Gate saturation counts sigmoid gate values below .05 or above .95. These are not causal-use gates.\n\n"
+                       +j.groupby(["arm","step"]).mean(numeric_only=True).round(5).reset_index().drop(columns=["seed"]).to_markdown(index=False)+"\n")
         if report_name=="ORACLE_TO_LEARNED_CURRICULUM_STAGE1_6.md":
             schedule_table=(schedule.assign(quintile=schedule.step//(final_step//5))
                             .groupby("quintile").agg(steps=("step","count"),
