@@ -1,0 +1,95 @@
+protocol:
+  name: etrcm-stage1.5
+  version: 1.0.0
+  prior_revision: 13671106e0602326e9fd84de9493568e24ff003f
+  development_run_id: stage1_5-development-v1
+  formal_run_id: stage1_5-formal-v1
+  split_salt: stage1.5-independent-v1
+  frozen_before_formal: true
+  language_model_training_allowed: false
+
+model:
+  hidden_dim: 64
+  latent_slots: 2
+  symbol_count: 24
+  key_dim: 16
+  value_dim: 16
+  event_type_dim: 8
+  gamma: 0.12
+  rho_fast: 0.97
+  rho_slow: 0.9995
+  eta_external: 0.6
+  read_epsilon: 0.000001
+
+training:
+  development_seeds: [8401, 8402]
+  formal_seeds: [8501, 8502, 8503, 8504, 8505, 8506, 8507, 8508]
+  candidate_learning_rates: [0.001, 0.0003]
+  development_steps: 100
+  formal_steps: 160
+  batch_size: 32
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  base_models: [B0_no_memory, B1_gru, B2_single_memory, B3_joint, B4_shared, B5_separate, B6_gamma_zero, B7_random_query]
+  selection_rule: minimum_equal_family_heldout_CE_then_lower_LR
+
+evaluation:
+  null_ticks: [0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+  causal_horizons: [1, 2, 4, 8]
+  perturbation_epsilons: [0.001, 0.01]
+  perturbation_ticks: [0, 1, 2, 4, 8, 16, 32, 64, 128]
+  history_lags: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+  history_probe_train_episodes: 512
+  history_probe_test_episodes: 256
+  history_probe_ridge: 1.0
+  capacity_grid:
+    - {hidden_dim: 32, memory_dim: 8}
+    - {hidden_dim: 64, memory_dim: 16}
+    - {hidden_dim: 128, memory_dim: 32}
+    - {hidden_dim: 256, memory_dim: 64}
+    - {hidden_dim: 256, memory_dim: 128}
+  capacity_items: [1, 2, 4, 8, 16, 32, 64, 128]
+  capacity_distractors: [0, 32, 128, 512, 2048, 8192]
+  long_gap_distractors: [128, 512, 2048]
+  oracle_ticks: [1, 2, 4, 8]
+  anatomy_pairs_per_seed: 32
+  long_gap_pairs_per_seed: 16
+  bootstrap_resamples: 2000
+  bootstrap_seed: 1515
+  primary_aggregation: episode_then_seed_then_equal_seed_mean
+
+gates:
+  replication_positive_seeds_min: 6
+  G27:
+    max_state_norm: 1000.0
+    max_prediction_js_from_tick0: 0.5
+    max_perturbation_growth_at_128: 100.0
+    requires_all_finite: true
+  G28:
+    min_H_F_lag_auprc_difference: 0.02
+    min_F_M_lag_auprc_difference: 0.02
+    requires_nontrivial_decay_ablation: true
+  G29:
+    min_single_channel_prediction_js: 0.00001
+    min_joint_prediction_js: 0.00001
+    requires_explicit_pairwise_interactions: true
+  G30:
+    minimum_absolute_swap_js: 0.00001
+    minimum_read_restore_reduction_fraction: 0.5
+  G31:
+    minimum_oracle_CE_improvement: 0.01
+    comparators: [zero, random, shuffled, learned]
+  G32:
+    minimum_oracle_fraction: 0.5
+    minimum_CE_improvement_over_zero_random: 0.01
+    heldout_world_required: true
+  G33:
+    minimum_K4_CE_improvement: 0.01
+    requires_better_than_frozen_random: true
+
+authorization:
+  finite_advantage_requires: [G31]
+  routing_distillation_requires: [G31, stable_finite_advantage]
+  routed_internal_time_requires: [G32]
+  causal_utility_retention_requires: [G32]
+  small_sequence_prototype_requires: [G27, G28, G29, G30, G31, G32, G33]
