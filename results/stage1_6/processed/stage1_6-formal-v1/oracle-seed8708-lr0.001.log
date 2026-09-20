@@ -1,0 +1,10 @@
+{"cell": "oracle-seed8708-lr0.001", "checkpoint": 0, "elapsed_s": 0.8}
+{"cell": "oracle-seed8708-lr0.001", "checkpoint": 50, "elapsed_s": 7.5}
+{"cell": "oracle-seed8708-lr0.001", "checkpoint": 100, "elapsed_s": 14.1}
+{"cell": "oracle-seed8708-lr0.001", "checkpoint": 160, "elapsed_s": 21.9}
+{"cell": "oracle-seed8708-lr0.001", "checkpoint": 300, "elapsed_s": 39.7}
+{"cell": "oracle-seed8708-lr0.001", "checkpoint": 500, "elapsed_s": 64.8}
+{"cell": "oracle-seed8708-lr0.001", "checkpoint": 1000, "elapsed_s": 127.0}
+{"cell": "oracle-seed8708-lr0.001", "checkpoint": 2000, "elapsed_s": 245.1}
+{"cell": "oracle-seed8708-lr0.001", "checkpoint": 3000, "elapsed_s": 359.9}
+{"cell_complete": "oracle-seed8708-lr0.001", "elapsed_s": 360.1}

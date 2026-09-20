@@ -1,0 +1,14 @@
+{
+  "seed": 8703,
+  "steps": 3000,
+  "arm": "auxiliary_F",
+  "elapsed_seconds": 169.551867865026,
+  "hashes": {
+    "checkpoint_0000.pt": "486fe9d3186e080a9b6095e9c2d6ccfd566279ba76696690d6c7b3e018814cf5",
+    "checkpoint_1000.pt": "719f6bb54950d655905b57927c7ecbc7133ac383f4e759fac39a87e2f7b75e0e",
+    "checkpoint_2000.pt": "638eff3f0de0941280404101f0fca55c92c13163e5c4bd9e3bd63df8ca0ef0cc",
+    "checkpoint_3000.pt": "371e0271ea4894623f7c96e8631bdab2971ac3106ed64ac27f3d52fbc38f55e7",
+    "interventions.parquet": "747872c88089bc0995c780e8e731474e7ddf5064d1f565b22aec43b3ef38891c",
+    "train_log.parquet": "eb36fc7d8f0546b120227899929294599b85248cf53bc1f37b669c353bd951e3"
+  }
+}

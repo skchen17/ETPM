@@ -1,0 +1,10 @@
+{"cell": "learned-seed8707-lr0.001", "checkpoint": 0, "elapsed_s": 0.7}
+{"cell": "learned-seed8707-lr0.001", "checkpoint": 50, "elapsed_s": 6.4}
+{"cell": "learned-seed8707-lr0.001", "checkpoint": 100, "elapsed_s": 12.1}
+{"cell": "learned-seed8707-lr0.001", "checkpoint": 160, "elapsed_s": 18.8}
+{"cell": "learned-seed8707-lr0.001", "checkpoint": 300, "elapsed_s": 34.1}
+{"cell": "learned-seed8707-lr0.001", "checkpoint": 500, "elapsed_s": 55.9}
+{"cell": "learned-seed8707-lr0.001", "checkpoint": 1000, "elapsed_s": 108.2}
+{"cell": "learned-seed8707-lr0.001", "checkpoint": 2000, "elapsed_s": 212.9}
+{"cell": "learned-seed8707-lr0.001", "checkpoint": 3000, "elapsed_s": 316.7}
+{"cell_complete": "learned-seed8707-lr0.001", "elapsed_s": 316.9}

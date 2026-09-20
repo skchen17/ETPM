@@ -1,0 +1,10 @@
+{"cell": "single_memory-seed8704-lr0.001", "checkpoint": 0, "elapsed_s": 0.5}
+{"cell": "single_memory-seed8704-lr0.001", "checkpoint": 50, "elapsed_s": 4.7}
+{"cell": "single_memory-seed8704-lr0.001", "checkpoint": 100, "elapsed_s": 9.0}
+{"cell": "single_memory-seed8704-lr0.001", "checkpoint": 160, "elapsed_s": 14.2}
+{"cell": "single_memory-seed8704-lr0.001", "checkpoint": 300, "elapsed_s": 25.9}
+{"cell": "single_memory-seed8704-lr0.001", "checkpoint": 500, "elapsed_s": 42.7}
+{"cell": "single_memory-seed8704-lr0.001", "checkpoint": 1000, "elapsed_s": 83.9}
+{"cell": "single_memory-seed8704-lr0.001", "checkpoint": 2000, "elapsed_s": 166.0}
+{"cell": "single_memory-seed8704-lr0.001", "checkpoint": 3000, "elapsed_s": 248.3}
+{"cell_complete": "single_memory-seed8704-lr0.001", "elapsed_s": 248.3}

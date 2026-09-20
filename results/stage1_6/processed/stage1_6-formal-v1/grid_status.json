@@ -1,0 +1,290 @@
+[
+  {
+    "cell": "learned-seed8701-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/learned-seed8701-lr0.001.log"
+  },
+  {
+    "cell": "curriculum-seed8701-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/curriculum-seed8701-lr0.001.log"
+  },
+  {
+    "cell": "gru-seed8701-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/gru-seed8701-lr0.001.log"
+  },
+  {
+    "cell": "learned-seed8702-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/learned-seed8702-lr0.001.log"
+  },
+  {
+    "cell": "curriculum-seed8702-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/curriculum-seed8702-lr0.001.log"
+  },
+  {
+    "cell": "gru-seed8702-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/gru-seed8702-lr0.001.log"
+  },
+  {
+    "cell": "learned-seed8703-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/learned-seed8703-lr0.001.log"
+  },
+  {
+    "cell": "curriculum-seed8703-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/curriculum-seed8703-lr0.001.log"
+  },
+  {
+    "cell": "gru-seed8703-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/gru-seed8703-lr0.001.log"
+  },
+  {
+    "cell": "learned-seed8704-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/learned-seed8704-lr0.001.log"
+  },
+  {
+    "cell": "curriculum-seed8704-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/curriculum-seed8704-lr0.001.log"
+  },
+  {
+    "cell": "gru-seed8704-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/gru-seed8704-lr0.001.log"
+  },
+  {
+    "cell": "learned-seed8705-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/learned-seed8705-lr0.001.log"
+  },
+  {
+    "cell": "curriculum-seed8705-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/curriculum-seed8705-lr0.001.log"
+  },
+  {
+    "cell": "gru-seed8705-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/gru-seed8705-lr0.001.log"
+  },
+  {
+    "cell": "learned-seed8706-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/learned-seed8706-lr0.001.log"
+  },
+  {
+    "cell": "curriculum-seed8706-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/curriculum-seed8706-lr0.001.log"
+  },
+  {
+    "cell": "gru-seed8706-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/gru-seed8706-lr0.001.log"
+  },
+  {
+    "cell": "learned-seed8707-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/learned-seed8707-lr0.001.log"
+  },
+  {
+    "cell": "curriculum-seed8707-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/curriculum-seed8707-lr0.001.log"
+  },
+  {
+    "cell": "gru-seed8707-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/gru-seed8707-lr0.001.log"
+  },
+  {
+    "cell": "learned-seed8708-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/learned-seed8708-lr0.001.log"
+  },
+  {
+    "cell": "curriculum-seed8708-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/curriculum-seed8708-lr0.001.log"
+  },
+  {
+    "cell": "gru-seed8708-lr0.001",
+    "gpu": 0,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/gru-seed8708-lr0.001.log"
+  },
+  {
+    "cell": "oracle-seed8701-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/oracle-seed8701-lr0.001.log"
+  },
+  {
+    "cell": "no_memory-seed8701-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/no_memory-seed8701-lr0.001.log"
+  },
+  {
+    "cell": "single_memory-seed8701-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/single_memory-seed8701-lr0.001.log"
+  },
+  {
+    "cell": "oracle-seed8702-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/oracle-seed8702-lr0.001.log"
+  },
+  {
+    "cell": "no_memory-seed8702-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/no_memory-seed8702-lr0.001.log"
+  },
+  {
+    "cell": "single_memory-seed8702-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/single_memory-seed8702-lr0.001.log"
+  },
+  {
+    "cell": "oracle-seed8703-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/oracle-seed8703-lr0.001.log"
+  },
+  {
+    "cell": "no_memory-seed8703-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/no_memory-seed8703-lr0.001.log"
+  },
+  {
+    "cell": "single_memory-seed8703-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/single_memory-seed8703-lr0.001.log"
+  },
+  {
+    "cell": "oracle-seed8704-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/oracle-seed8704-lr0.001.log"
+  },
+  {
+    "cell": "no_memory-seed8704-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/no_memory-seed8704-lr0.001.log"
+  },
+  {
+    "cell": "single_memory-seed8704-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/single_memory-seed8704-lr0.001.log"
+  },
+  {
+    "cell": "oracle-seed8705-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/oracle-seed8705-lr0.001.log"
+  },
+  {
+    "cell": "no_memory-seed8705-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/no_memory-seed8705-lr0.001.log"
+  },
+  {
+    "cell": "single_memory-seed8705-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/single_memory-seed8705-lr0.001.log"
+  },
+  {
+    "cell": "oracle-seed8706-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/oracle-seed8706-lr0.001.log"
+  },
+  {
+    "cell": "no_memory-seed8706-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/no_memory-seed8706-lr0.001.log"
+  },
+  {
+    "cell": "single_memory-seed8706-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/single_memory-seed8706-lr0.001.log"
+  },
+  {
+    "cell": "oracle-seed8707-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/oracle-seed8707-lr0.001.log"
+  },
+  {
+    "cell": "no_memory-seed8707-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/no_memory-seed8707-lr0.001.log"
+  },
+  {
+    "cell": "single_memory-seed8707-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/single_memory-seed8707-lr0.001.log"
+  },
+  {
+    "cell": "oracle-seed8708-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/oracle-seed8708-lr0.001.log"
+  },
+  {
+    "cell": "no_memory-seed8708-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/no_memory-seed8708-lr0.001.log"
+  },
+  {
+    "cell": "single_memory-seed8708-lr0.001",
+    "gpu": 1,
+    "exit_code": 0,
+    "log": "results/stage1_6/processed/stage1_6-formal-v1/single_memory-seed8708-lr0.001.log"
+  }
+]

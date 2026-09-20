@@ -1,0 +1,3 @@
+{"cell": "gru-seed8601-lr0.001", "checkpoint": 0, "elapsed_s": 0.4}
+{"cell": "gru-seed8601-lr0.001", "checkpoint": 160, "elapsed_s": 9.9}
+{"cell_complete": "gru-seed8601-lr0.001", "elapsed_s": 9.9}

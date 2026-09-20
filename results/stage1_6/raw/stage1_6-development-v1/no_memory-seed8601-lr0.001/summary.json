@@ -1,0 +1,22 @@
+{
+  "arm": "no_memory",
+  "elapsed_seconds": 11.943679871037602,
+  "final_CE": {
+    "F_lesion": 2.119718068279326,
+    "M_lesion": 2.119718068279326,
+    "learned": 2.119718068279326
+  },
+  "hashes": {
+    "checkpoint_0000.pt": "a473ef2907aa3d317562bc1aa18df0d6c7e9724739001a43c6606d903c9cd050",
+    "checkpoint_0160.pt": "de1a95aa7b3a278a334744aa68e7e4224a74418c991ffa2e392b429e80ed809b",
+    "interventions.parquet": "e0749af04857c765f8e945084229476521084a4139ce7ba4713f3de019b58f1c",
+    "train_log.parquet": "76be73511e891d2034b787bb346b4587478ed2a4ffaa9f4f3fe658a2567c4156"
+  },
+  "learning_rate": 0.001,
+  "parameter_count": 151877,
+  "phase": "development",
+  "run_id": "stage1_6-development-v1",
+  "seed": 8601,
+  "state_bytes": 2560,
+  "steps": 160
+}

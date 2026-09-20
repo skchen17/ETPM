@@ -1,0 +1,26 @@
+{
+  "arm": "curriculum",
+  "elapsed_seconds": 19.256945921108127,
+  "final_CE": {
+    "F_lesion": 2.135663356166333,
+    "M_lesion": 2.1355003165081143,
+    "learned": 2.135622166097164,
+    "oracle": 2.1358491498976946,
+    "random": 2.1353149325586855,
+    "shuffled": 2.1356172850355506,
+    "zero": 2.1355218924582005
+  },
+  "hashes": {
+    "checkpoint_0000.pt": "feb477bb62313d5505604050d6b8b4a794d0908ef8df5d0416213ef6e96a570f",
+    "checkpoint_0160.pt": "3ce3789c60348c0cbe28e314ed7c78e77ec415690cdf7ff20e1016a16869cef6",
+    "interventions.parquet": "2b6fda7abd281f2418a74dc257d682e01be367b193e64afd1c899794ff0ecaef",
+    "train_log.parquet": "c7cdbf4cf7d6da2af46668850380ff22cdb8f7df143e5340e16b849f03d87d16"
+  },
+  "learning_rate": 0.0003,
+  "parameter_count": 151877,
+  "phase": "development",
+  "run_id": "stage1_6-development-v1",
+  "seed": 8601,
+  "state_bytes": 2560,
+  "steps": 160
+}

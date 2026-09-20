@@ -1,0 +1,10 @@
+{"cell": "curriculum-seed8702-lr0.001", "checkpoint": 0, "elapsed_s": 0.7}
+{"cell": "curriculum-seed8702-lr0.001", "checkpoint": 50, "elapsed_s": 6.8}
+{"cell": "curriculum-seed8702-lr0.001", "checkpoint": 100, "elapsed_s": 12.8}
+{"cell": "curriculum-seed8702-lr0.001", "checkpoint": 160, "elapsed_s": 19.2}
+{"cell": "curriculum-seed8702-lr0.001", "checkpoint": 300, "elapsed_s": 33.4}
+{"cell": "curriculum-seed8702-lr0.001", "checkpoint": 500, "elapsed_s": 54.7}
+{"cell": "curriculum-seed8702-lr0.001", "checkpoint": 1000, "elapsed_s": 120.9}
+{"cell": "curriculum-seed8702-lr0.001", "checkpoint": 2000, "elapsed_s": 247.5}
+{"cell": "curriculum-seed8702-lr0.001", "checkpoint": 3000, "elapsed_s": 383.3}
+{"cell_complete": "curriculum-seed8702-lr0.001", "elapsed_s": 383.5}

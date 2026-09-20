@@ -1,0 +1,10 @@
+{"cell": "no_memory-seed8706-lr0.001", "checkpoint": 0, "elapsed_s": 0.5}
+{"cell": "no_memory-seed8706-lr0.001", "checkpoint": 50, "elapsed_s": 4.9}
+{"cell": "no_memory-seed8706-lr0.001", "checkpoint": 100, "elapsed_s": 9.2}
+{"cell": "no_memory-seed8706-lr0.001", "checkpoint": 160, "elapsed_s": 14.4}
+{"cell": "no_memory-seed8706-lr0.001", "checkpoint": 300, "elapsed_s": 26.1}
+{"cell": "no_memory-seed8706-lr0.001", "checkpoint": 500, "elapsed_s": 42.5}
+{"cell": "no_memory-seed8706-lr0.001", "checkpoint": 1000, "elapsed_s": 83.5}
+{"cell": "no_memory-seed8706-lr0.001", "checkpoint": 2000, "elapsed_s": 166.6}
+{"cell": "no_memory-seed8706-lr0.001", "checkpoint": 3000, "elapsed_s": 247.2}
+{"cell_complete": "no_memory-seed8706-lr0.001", "elapsed_s": 247.3}

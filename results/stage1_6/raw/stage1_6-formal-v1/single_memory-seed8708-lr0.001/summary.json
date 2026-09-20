@@ -1,0 +1,29 @@
+{
+  "arm": "single_memory",
+  "elapsed_seconds": 246.2624237500131,
+  "final_CE": {
+    "F_lesion": 2.0821447814814746,
+    "M_lesion": 2.082220428623259,
+    "learned": 2.0821447814814746
+  },
+  "hashes": {
+    "checkpoint_0000.pt": "7fc3b0297101eb5324aa2df843d0c5890865c88a6e4c508500b6b72c96efafe1",
+    "checkpoint_0050.pt": "92297e0e7e23bf4d5cc87602ba4190922cd57a094c7c702038ab9c1ce57d2f80",
+    "checkpoint_0100.pt": "1e463b75973dcf3f63487bb436da34eff71ad908adf3e33ca7876ea792586b97",
+    "checkpoint_0160.pt": "09807f88a654a77bb3515b49c4b97ac1327957a710b9bc6d04e18e1e70278f5c",
+    "checkpoint_0300.pt": "add440351b10a340a7d634497055a1190bc6be73edf00b96321b3e457032f2ec",
+    "checkpoint_0500.pt": "9f165885a1b1f2ddd37cb57abdfc43cb39a97aa11c64ac09a438d4aa36f3a645",
+    "checkpoint_1000.pt": "8edb16c9d3a2abb7b497d1a41bb241549bf05c5a0be8f8bc2e4a1fdf4a18f8c0",
+    "checkpoint_2000.pt": "5fb4df2c8005ab3ad58d0b928918077814cc979f768c788402fcab48e3e17bba",
+    "checkpoint_3000.pt": "d4f64b8030631d5052d3f4588cf2547016ebbad82196fa37c1f31e219f3ae146",
+    "interventions.parquet": "7c5a4b91fe1543a48123b47b3919492f668b1bc717eb1421758e805ed7325827",
+    "train_log.parquet": "917494d66c0c70c53570e11b7818fb884d693b8e80a54e65e2ff3e581cd7196c"
+  },
+  "learning_rate": 0.001,
+  "parameter_count": 151877,
+  "phase": "formal",
+  "run_id": "stage1_6-formal-v1",
+  "seed": 8708,
+  "state_bytes": 2560,
+  "steps": 3000
+}

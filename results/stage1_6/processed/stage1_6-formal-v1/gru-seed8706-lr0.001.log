@@ -1,0 +1,10 @@
+{"cell": "gru-seed8706-lr0.001", "checkpoint": 0, "elapsed_s": 0.4}
+{"cell": "gru-seed8706-lr0.001", "checkpoint": 50, "elapsed_s": 3.2}
+{"cell": "gru-seed8706-lr0.001", "checkpoint": 100, "elapsed_s": 6.0}
+{"cell": "gru-seed8706-lr0.001", "checkpoint": 160, "elapsed_s": 9.3}
+{"cell": "gru-seed8706-lr0.001", "checkpoint": 300, "elapsed_s": 16.9}
+{"cell": "gru-seed8706-lr0.001", "checkpoint": 500, "elapsed_s": 27.6}
+{"cell": "gru-seed8706-lr0.001", "checkpoint": 1000, "elapsed_s": 54.0}
+{"cell": "gru-seed8706-lr0.001", "checkpoint": 2000, "elapsed_s": 105.5}
+{"cell": "gru-seed8706-lr0.001", "checkpoint": 3000, "elapsed_s": 155.9}
+{"cell_complete": "gru-seed8706-lr0.001", "elapsed_s": 156.0}
