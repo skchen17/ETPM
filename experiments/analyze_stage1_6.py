@@ -161,7 +161,10 @@ def main() -> None:
     if not g35:
         adjudication="The oracle-trained current operator did not clear the preregistered benefit gate. A Stage 1.7 operator redesign is authorized as a hypothesis test, not proven necessary; training limits remain possible."
     elif g36 and not g37:
-        adjudication="The current operator can use supplied historical memory, but learned retrieval/curriculum transfer remains a blocker. Retain the operator while studying routing training."
+        if g37_abs["positive_seeds"]>=minimum and g37_cross["positive_seeds"]>=minimum:
+            adjudication=("The current operator and learned read show strong finite benefit, but frozen G37 fails because its within-curriculum oracle-benefit denominator was not retained. The cross-arm ratio is favorable only as a secondary diagnostic. This is not evidence that learned retrieval failed; the strict gate must remain FAIL and the oracle-forgetting interpretation needs a new preregistered test.")
+        else:
+            adjudication="The current operator can use supplied historical memory, but the frozen learned-read transfer criterion was not met. Retain the operator while studying routing training."
     elif g36 and g37:
         adjudication="The current operator can use memory and transfer part of oracle benefit to learned read on this toy. The Stage 1.5 failure was substantially training/optimization-dependent. This is not LM readiness."
     else:
