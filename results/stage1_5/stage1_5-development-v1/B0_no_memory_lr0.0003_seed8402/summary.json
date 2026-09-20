@@ -1,0 +1,23 @@
+{
+  "mode": "development",
+  "run_id": "stage1_5-development-v1",
+  "model": "B0_no_memory",
+  "variant": "B0_no_memory",
+  "seed": 8402,
+  "learning_rate": 0.0003,
+  "hidden_dim": 64,
+  "memory_dim": 16,
+  "validation_loss": 2.8322160243988037,
+  "validation_by_family": {
+    "latent_transition": 3.258538246154785,
+    "long_gap_relation": 2.604846477508545,
+    "latent_regime": 2.58693528175354,
+    "distractor_heavy": 2.8785440921783447
+  },
+  "parameter_count": 151877,
+  "persistent_state_bytes": 512,
+  "training_steps": 100,
+  "config_sha256": "60ced1c8444fc3dc129a824fbee78ae15537467e0379505e84f5a6a4983b9210",
+  "checkpoint_sha256": "712ef4649b4586c0cbf712a42cbf9d9a7ecb346bc6b8cce30b399e67c9eec1b3",
+  "created_utc": "2026-09-20T02:34:17.824851+00:00"
+}

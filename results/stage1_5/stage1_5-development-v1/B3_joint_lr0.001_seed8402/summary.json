@@ -1,0 +1,23 @@
+{
+  "mode": "development",
+  "run_id": "stage1_5-development-v1",
+  "model": "B3_joint",
+  "variant": "B3_joint",
+  "seed": 8402,
+  "learning_rate": 0.001,
+  "hidden_dim": 64,
+  "memory_dim": 16,
+  "validation_loss": 1.909471035003662,
+  "validation_by_family": {
+    "latent_transition": 2.8989272117614746,
+    "long_gap_relation": 1.6352598667144775,
+    "latent_regime": 1.6674753427505493,
+    "distractor_heavy": 1.436221718788147
+  },
+  "parameter_count": 151877,
+  "persistent_state_bytes": 2560,
+  "training_steps": 100,
+  "config_sha256": "60ced1c8444fc3dc129a824fbee78ae15537467e0379505e84f5a6a4983b9210",
+  "checkpoint_sha256": "74b29cbacd59b4483a4dbe6adcb7852534f19322b7c9580cd6b30f36fe5f2dd8",
+  "created_utc": "2026-09-20T02:35:25.058976+00:00"
+}

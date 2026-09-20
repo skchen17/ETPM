@@ -1,0 +1,23 @@
+{
+  "mode": "development",
+  "run_id": "stage1_5-development-v1",
+  "model": "B4_shared",
+  "variant": "B4_shared",
+  "seed": 8401,
+  "learning_rate": 0.001,
+  "hidden_dim": 64,
+  "memory_dim": 16,
+  "validation_loss": 1.979698807001114,
+  "validation_by_family": {
+    "latent_transition": 2.8732120990753174,
+    "long_gap_relation": 1.7262386083602905,
+    "latent_regime": 1.6624873876571655,
+    "distractor_heavy": 1.6568571329116821
+  },
+  "parameter_count": 151877,
+  "persistent_state_bytes": 2560,
+  "training_steps": 100,
+  "config_sha256": "60ced1c8444fc3dc129a824fbee78ae15537467e0379505e84f5a6a4983b9210",
+  "checkpoint_sha256": "d4e0ebc985fcd8ac29631fa47767b9a5c0994e38b7f71e60dce20f426ca847b6",
+  "created_utc": "2026-09-20T02:35:57.266309+00:00"
+}
