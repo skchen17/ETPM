@@ -1,0 +1,68 @@
+protocol:
+  name: etrcm-stage1.6
+  version: 1.0.0
+  frozen_parent: fbe650424281ce9606f683d884b4bff3efa91e34
+  development_run_id: stage1_6-development-v1
+  formal_run_id: stage1_6-formal-v1
+  split_salt: stage1.6-independent-v1
+  no_architecture_change: true
+  no_memory_law_change: true
+model:
+  hidden_dim: 64
+  latent_slots: 2
+  symbol_count: 24
+  key_dim: 16
+  value_dim: 16
+  event_type_dim: 8
+  gamma: 0.12
+  rho_fast: 0.97
+  rho_slow: 0.9995
+  eta_external: 0.6
+  read_epsilon: 0.000001
+training:
+  development_seeds: [8601, 8602]
+  formal_seeds: [8701, 8702, 8703, 8704, 8705, 8706, 8707, 8708]
+  learning_rate_candidates: [0.001, 0.0003]
+  development_steps: 160
+  formal_steps: 3000
+  batch_size: 32
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  checkpoints: [0, 50, 100, 160, 300, 500, 1000, 2000, 3000]
+  arms: [learned, oracle, curriculum, no_memory, gru, single_memory]
+  curriculum_boundaries: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+  curriculum_probs: [1.0, 0.75, 0.5, 0.25, 0.0]
+world:
+  name: composed_h_scrub_v1
+  early_exposures: 4
+  distractors: 8
+  values: 8
+  classes: 8
+  target_rule: (past_value_plus_later_offset)_mod_8
+  oracle_source: past_F_plus_M_at_observed_key_after_last_early_exposure
+  scrub: initial_H_only_F_and_M_unchanged
+  read_override_at: bridge_only
+evaluation:
+  episodes_per_seed: 256
+  intervention_conditions: [learned, oracle, zero, random, shuffled, M_lesion, F_lesion]
+  primary_aggregation: episode_then_seed_then_equal_seed_mean
+  confidence_interval: seed_bootstrap_2000
+  checkpoint_eval_world_seed_salt: 16000000
+gates:
+  positive_seeds_min: 6
+  G34:
+    min_D_R_or_D_M_increase_3000_minus_160: 0.01
+  G35:
+    min_oracle_vs_zero_CE: 0.05
+    min_oracle_vs_random_CE: 0.02
+    min_oracle_vs_shuffled_CE: 0.02
+  G36:
+    min_full_vs_no_memory_CE: 0.05
+    min_M_lesion_vs_full_CE: 0.02
+  G37:
+    min_oracle_benefit_denominator: 0.05
+    min_transfer_fraction: 0.5
+    min_learned_vs_zero_CE: 0.025
+decision:
+  gate_fails_are_not_rewritten: true
+  sequence_LM_prototype_authorized: false

@@ -1,0 +1,25 @@
+# Stage 1.6 frozen protocol
+
+> **Is ET-RCM failing to use persistent memory because its current integration architecture is incapable of doing so, or because the training process never forces the recurrent core to learn memory-dependent computation?**
+
+> **ET-RCM 当前无法有效利用持久记忆，究竟是因为现有 memory-to-H integration 架构本身做不到，还是因为训练过程从未真正迫使 recurrent core 学会依赖 memory 进行计算？**
+
+This add-only stage uses parent commit `fbe650424281ce9606f683d884b4bff3efa91e34`. Stage 1.5 artifacts and gates G27–G33 are immutable. Stage 1.6 changes neither the gated-residual integration architecture nor the external delta write, readout-conserving transfer, or decay law. `AnatomicalETRCM.step_with_read` is the existing read-only intervention interface. No query/path labels or target values enter the transition.
+
+## Primary task and leakage boundary
+
+In `composed_h_scrub_v1`, four real past external exposures supply `key B -> value A` with independent random B in 0–7 and A in 8–15. H is then reset to the model's learned initial H while F/M remain bitwise identical. Eight identical non-writing context distractors follow. At the bridge, the model observes B and an independently sampled offset C in 16–23; only then is the target `Y=(A-8+C-16) mod 8` defined. The future target is never an input event. The oracle is the *raw historical* `(F+M) target_key(B)` saved after exposure 4; it sees past evidence and the observed bridge B, but neither C nor Y when its bank is formed. It is injected only into the existing slow-read input at the bridge, not the prediction head. The oracle read carries A-related history but is not an answer label. Independent A/C and counterfactual tests audit this.
+
+All arms use equal batch, episode draws, AdamW family, step counts, evaluation set and LR development budget. Six arms: learned B5, oracle B5, oracle-to-learned B5, no-memory B0, GRU B1, single-persistent B2. Only bridge read delivery changes among B5 arms. Oracle-to-learned probabilities are 1, .75, .5, .25, 0 across five equal training fractions. No auxiliary query supervision is authorized unless the conditional experiment F trigger is met; any later F run must be separately labeled exploratory and cannot revise these gates.
+
+Two fresh development seeds (8601–8602) select a common LR from .001/.0003 via equal held-out CE, before formal training. Eight independent formal training seeds (8701–8708) each run 3000 steps. Every B5 arm uses the same initialized parameters per seed and exactly paired data. Checkpoints 0, 50, 100, 160, 300, 500, 1000, 2000, 3000 are evaluated with paired held-out episodes (256/seed) under learned, oracle, zero, norm-matched random, episode-shuffled, M-lesion and F-lesion conditions. Non-B5 baselines use native read, with comparable lesions where available. `zero` changes read only; M/F lesion change state component before bridge and preserve H/other component. Random and shuffled controls cannot share same episode's oracle read. Future CE is primary; accuracy, norms, gate/update and gradient diagnostics are secondary. `D_R=L_zero-L_learned`, `D_M=L_Mlesion-L_learned`, `D_O=L_zero-L_oracle`. Finite read/lesion effects, not lower training loss or Jacobians, establish memory use.
+
+## Preregistered gates
+
+All effects are seed-level mean paired CE improvements, with at least 6/8 seeds meeting threshold; report pooled mean and bootstrap seed CI regardless. G34: in the learned arm, `D_R` or `D_M` at step 3000 exceeds step 160 by at least .01. G35: oracle-trained B5 at 3000 has oracle CE below zero by .05 and below each random/shuffled by .02. G36: learned H-scrub B5 full CE below matched no-memory by .05 and M-lesion CE above full by .02. G37: curriculum B5 learned-vs-zero CE ≥.025 and `(L_zero-L_learned)/(L_zero-L_oracle)≥.5`, only with denominator ≥.05. Unmet denominators cause G37 failure, not an undefined pass. No threshold changes after formal evaluation.
+
+G35 failure permits future Stage 1.7 integration-operator testing; it does not prove mathematical impossibility. G35/G36 pass but G37 fail points to learned retrieval/curriculum. All pass supports retaining the operator; G34 pass alone is not enough. No sequence/LM prototype is authorized by this protocol. Stage 1.5's old-world 160-step checkpoint is a historical comparator, not a matched training cell; the formal 160→3000 dependence test uses new from-scratch matched seeds and this task.
+
+## Data integrity and compute
+
+Results live only under `results/stage1_6`. Checkpoints and tensors are hashed. Logs include run/arm/seed/step/world/episode, H-scrub flag, condition CE, read and state norms, gates, candidate update, gradients, parameter count, state bytes and transition count. Training draw seeds and evaluation draw seeds are disjoint. Historical frozen assets are audited by their committed Git tree and the existing Stage 1.5 manifest; no file before this stage is rewritten. Any interrupted run, missing seed, NaN or operational deviation is explicitly reported, not silently imputed.
