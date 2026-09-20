@@ -12,6 +12,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 RUN = "stage1_5-formal-v1"
 PROCESSED = ROOT / "results/stage1_5/processed" / RUN
+PENDING_REPORTS: dict[Path, str] = {}
 
 
 def fmt(value: object) -> str:
@@ -42,13 +43,12 @@ def write(name: str, title: str, methods: str, body: str, limitations: str) -> N
     path = ROOT / "reports" / name
     if path.exists():
         raise FileExistsError(f"immutable report already exists: {path}")
-    path.write_text(
+    PENDING_REPORTS[path] = (
         f"# {title}\n\nFormal run `{RUN}`. Protocol: `reports/STAGE1_5_PROTOCOL.md`; "
         f"analysis plan: `reports/STAGE1_5_ANALYSIS_PLAN.md`. "
         f"Raw Parquet: `results/stage1_5/{RUN}/evaluation/`.\n\n"
         f"## Methods\n\n{methods}\n\n## Results\n\n{body}\n\n"
         f"## Scope and limitations\n\n{limitations}\n",
-        encoding="utf-8",
     )
 
 
@@ -341,7 +341,7 @@ def main() -> None:
     final = ROOT / "reports/STAGE1_5_FINAL_REPORT.md"
     if final.exists():
         raise FileExistsError(final)
-    final.write_text(
+    PENDING_REPORTS[final] = (
         "# ET-RCM Stage 1.5 Final Report\n\n"
         "> **What dynamical and causal structure does the ET-RCM architecture itself possess, and can a learned state-dependent routing policy select the peripheral information whose finite use actually improves future computation?**\n\n"
         "> **ET-RCM 架构自身究竟具有怎样的动力学与因果结构；同时，一个可学习的状态依赖路由机制，能否从外围持续状态中选择那些经真实有限干预验证、确实能够改善未来计算的信息？**\n\n"
@@ -392,8 +392,12 @@ def main() -> None:
         "spontaneous language content is claimed. All failed, null and "
         "conditionally unexecuted outcomes are preserved; no gate was "
         "changed after formal results.\n",
-        encoding="utf-8",
     )
+    for path in PENDING_REPORTS:
+        if path.exists():
+            raise FileExistsError(f"immutable report already exists: {path}")
+    for path, content in PENDING_REPORTS.items():
+        path.write_text(content, encoding="utf-8")
     print(f"wrote Stage 1.5 reports; G27–G33 = {[gates[f'G{i}'] for i in range(27, 34)]}")
 
 
