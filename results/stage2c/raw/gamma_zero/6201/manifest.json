@@ -1,0 +1,9 @@
+{
+  "seed": 6201,
+  "variant": "gamma_zero",
+  "pairs": 4,
+  "rows": 110,
+  "parameter_hash_before": "6d40925f73afcf4401b465a40af12d69557ce4ecf7efa8841daff3db88ba3185",
+  "parameter_hash_after": "6d40925f73afcf4401b465a40af12d69557ce4ecf7efa8841daff3db88ba3185",
+  "checkpoint_sha256": "cf5e981064bdd4e8de1bb8863c8f617e4e8f828fc495fb8352fc11d4b4dd13e4"
+}

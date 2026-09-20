@@ -1,0 +1,9 @@
+{
+  "seed": 6207,
+  "variant": "gamma_zero",
+  "pairs": 4,
+  "rows": 110,
+  "parameter_hash_before": "c10dbd9e76fa2f2fbe9f0da910ede73c287431fb14b653577a5f47e830300fee",
+  "parameter_hash_after": "c10dbd9e76fa2f2fbe9f0da910ede73c287431fb14b653577a5f47e830300fee",
+  "checkpoint_sha256": "10ac135c68702886f3aa2aa22159799ad9644ff045d1a8b60d83b06b2fa6e368"
+}

@@ -1,0 +1,9 @@
+{
+  "seed": 6208,
+  "variant": "f_only",
+  "pairs": 4,
+  "rows": 110,
+  "parameter_hash_before": "f791480b5eab6db1d0b1824acfe0549d1b7453cbe56f3e153a7170dd58f6d343",
+  "parameter_hash_after": "f791480b5eab6db1d0b1824acfe0549d1b7453cbe56f3e153a7170dd58f6d343",
+  "checkpoint_sha256": "5d879c758c8f8e3a084b10b6ee5a24ffda690e124434f6b11c288a38987bd395"
+}

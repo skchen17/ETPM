@@ -1,0 +1,97 @@
+{
+  "seed": 6207,
+  "parameter_hash_before": "da280400960592f70adc168c852d89deb88b4efb4991295e2b662cf5b43e2c56",
+  "parameter_hash_after": "da280400960592f70adc168c852d89deb88b4efb4991295e2b662cf5b43e2c56",
+  "cases": [
+    {
+      "case": "none_none_none",
+      "events_logged": 153,
+      "BS": -1.043081283569336e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W1_F",
+      "events_logged": 153,
+      "BS": 6.109476089477539e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W1_M",
+      "events_logged": 153,
+      "BS": 5.513429641723633e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W1_FM",
+      "events_logged": 153,
+      "BS": 6.258487701416016e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W2_F",
+      "events_logged": 153,
+      "BS": -8.940696716308594e-08,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W2_M",
+      "events_logged": 153,
+      "BS": -2.086162567138672e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W2_FM",
+      "events_logged": 153,
+      "BS": -1.1920928955078125e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W3_F",
+      "events_logged": 153,
+      "BS": -2.086162567138672e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W3_M",
+      "events_logged": 153,
+      "BS": -2.2351741790771484e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W3_FM",
+      "events_logged": 153,
+      "BS": -4.3213367462158203e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W4_F",
+      "events_logged": 153,
+      "BS": -1.341104507446289e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W4_M",
+      "events_logged": 153,
+      "BS": -1.043081283569336e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "read_W4_FM",
+      "events_logged": 153,
+      "BS": -4.470348358154297e-08,
+      "first_H_over_100": null
+    },
+    {
+      "case": "write_W1_none",
+      "events_logged": 153,
+      "BS": 5.662441253662109e-07,
+      "first_H_over_100": null
+    },
+    {
+      "case": "write_W2_none",
+      "events_logged": 153,
+      "BS": -8.791685104370117e-07,
+      "first_H_over_100": null
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "seed": 6207,
+  "variant": "gru",
+  "pairs": 4,
+  "rows": 86,
+  "parameter_hash_before": "02fef915d1495f103fe225fbd0ffb7397a2c874d5fa2519d6166e92f68c010aa",
+  "parameter_hash_after": "02fef915d1495f103fe225fbd0ffb7397a2c874d5fa2519d6166e92f68c010aa",
+  "checkpoint_sha256": "bb55aae5b6202085548514b5a9edaf6e4292e47ff10c7a9c2d6224ef364eef38"
+}

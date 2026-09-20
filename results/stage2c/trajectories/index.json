@@ -1,0 +1,394 @@
+[
+  {
+    "run_id": "full-6201",
+    "trace": "results/stage2c/raw/full/6201/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/full/6201/state_tensors.pt",
+    "window_trace": "results/stage2c/trajectories/full/6201/windows.jsonl",
+    "window_state_tensors": "results/stage2c/trajectories/full/6201/window_states.pt"
+  },
+  {
+    "run_id": "full-6202",
+    "trace": "results/stage2c/raw/full/6202/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/full/6202/state_tensors.pt",
+    "window_trace": "results/stage2c/trajectories/full/6202/windows.jsonl",
+    "window_state_tensors": "results/stage2c/trajectories/full/6202/window_states.pt"
+  },
+  {
+    "run_id": "full-6203",
+    "trace": "results/stage2c/raw/full/6203/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/full/6203/state_tensors.pt",
+    "window_trace": "results/stage2c/trajectories/full/6203/windows.jsonl",
+    "window_state_tensors": "results/stage2c/trajectories/full/6203/window_states.pt"
+  },
+  {
+    "run_id": "full-6204",
+    "trace": "results/stage2c/raw/full/6204/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/full/6204/state_tensors.pt",
+    "window_trace": "results/stage2c/trajectories/full/6204/windows.jsonl",
+    "window_state_tensors": "results/stage2c/trajectories/full/6204/window_states.pt"
+  },
+  {
+    "run_id": "full-6205",
+    "trace": "results/stage2c/raw/full/6205/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/full/6205/state_tensors.pt",
+    "window_trace": "results/stage2c/trajectories/full/6205/windows.jsonl",
+    "window_state_tensors": "results/stage2c/trajectories/full/6205/window_states.pt"
+  },
+  {
+    "run_id": "full-6206",
+    "trace": "results/stage2c/raw/full/6206/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/full/6206/state_tensors.pt",
+    "window_trace": "results/stage2c/trajectories/full/6206/windows.jsonl",
+    "window_state_tensors": "results/stage2c/trajectories/full/6206/window_states.pt"
+  },
+  {
+    "run_id": "full-6207",
+    "trace": "results/stage2c/raw/full/6207/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/full/6207/state_tensors.pt",
+    "window_trace": "results/stage2c/trajectories/full/6207/windows.jsonl",
+    "window_state_tensors": "results/stage2c/trajectories/full/6207/window_states.pt"
+  },
+  {
+    "run_id": "full-6208",
+    "trace": "results/stage2c/raw/full/6208/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/full/6208/state_tensors.pt",
+    "window_trace": "results/stage2c/trajectories/full/6208/windows.jsonl",
+    "window_state_tensors": "results/stage2c/trajectories/full/6208/window_states.pt"
+  },
+  {
+    "run_id": "no_memory-6201",
+    "trace": "results/stage2c/raw/no_memory/6201/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/no_memory/6201/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "no_memory-6202",
+    "trace": "results/stage2c/raw/no_memory/6202/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/no_memory/6202/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "no_memory-6203",
+    "trace": "results/stage2c/raw/no_memory/6203/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/no_memory/6203/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "no_memory-6204",
+    "trace": "results/stage2c/raw/no_memory/6204/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/no_memory/6204/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "no_memory-6205",
+    "trace": "results/stage2c/raw/no_memory/6205/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/no_memory/6205/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "no_memory-6206",
+    "trace": "results/stage2c/raw/no_memory/6206/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/no_memory/6206/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "no_memory-6207",
+    "trace": "results/stage2c/raw/no_memory/6207/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/no_memory/6207/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "no_memory-6208",
+    "trace": "results/stage2c/raw/no_memory/6208/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/no_memory/6208/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gru-6201",
+    "trace": "results/stage2c/raw/gru/6201/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gru/6201/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gru-6202",
+    "trace": "results/stage2c/raw/gru/6202/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gru/6202/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gru-6203",
+    "trace": "results/stage2c/raw/gru/6203/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gru/6203/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gru-6204",
+    "trace": "results/stage2c/raw/gru/6204/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gru/6204/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gru-6205",
+    "trace": "results/stage2c/raw/gru/6205/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gru/6205/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gru-6206",
+    "trace": "results/stage2c/raw/gru/6206/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gru/6206/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gru-6207",
+    "trace": "results/stage2c/raw/gru/6207/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gru/6207/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gru-6208",
+    "trace": "results/stage2c/raw/gru/6208/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gru/6208/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero-6201",
+    "trace": "results/stage2c/raw/gamma_zero/6201/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero/6201/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero-6202",
+    "trace": "results/stage2c/raw/gamma_zero/6202/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero/6202/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero-6203",
+    "trace": "results/stage2c/raw/gamma_zero/6203/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero/6203/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero-6204",
+    "trace": "results/stage2c/raw/gamma_zero/6204/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero/6204/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero-6205",
+    "trace": "results/stage2c/raw/gamma_zero/6205/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero/6205/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero-6206",
+    "trace": "results/stage2c/raw/gamma_zero/6206/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero/6206/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero-6207",
+    "trace": "results/stage2c/raw/gamma_zero/6207/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero/6207/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero-6208",
+    "trace": "results/stage2c/raw/gamma_zero/6208/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero/6208/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "f_only-6201",
+    "trace": "results/stage2c/raw/f_only/6201/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/f_only/6201/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "f_only-6202",
+    "trace": "results/stage2c/raw/f_only/6202/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/f_only/6202/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "f_only-6203",
+    "trace": "results/stage2c/raw/f_only/6203/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/f_only/6203/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "f_only-6204",
+    "trace": "results/stage2c/raw/f_only/6204/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/f_only/6204/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "f_only-6205",
+    "trace": "results/stage2c/raw/f_only/6205/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/f_only/6205/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "f_only-6206",
+    "trace": "results/stage2c/raw/f_only/6206/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/f_only/6206/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "f_only-6207",
+    "trace": "results/stage2c/raw/f_only/6207/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/f_only/6207/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "f_only-6208",
+    "trace": "results/stage2c/raw/f_only/6208/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/f_only/6208/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "m_disabled-6201",
+    "trace": "results/stage2c/raw/m_disabled/6201/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/m_disabled/6201/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "m_disabled-6202",
+    "trace": "results/stage2c/raw/m_disabled/6202/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/m_disabled/6202/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "m_disabled-6203",
+    "trace": "results/stage2c/raw/m_disabled/6203/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/m_disabled/6203/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "m_disabled-6204",
+    "trace": "results/stage2c/raw/m_disabled/6204/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/m_disabled/6204/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "m_disabled-6205",
+    "trace": "results/stage2c/raw/m_disabled/6205/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/m_disabled/6205/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "m_disabled-6206",
+    "trace": "results/stage2c/raw/m_disabled/6206/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/m_disabled/6206/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "m_disabled-6207",
+    "trace": "results/stage2c/raw/m_disabled/6207/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/m_disabled/6207/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "m_disabled-6208",
+    "trace": "results/stage2c/raw/m_disabled/6208/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/m_disabled/6208/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero_posthoc-6201",
+    "trace": "results/stage2c/raw/gamma_zero_posthoc/6201/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero_posthoc/6201/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero_posthoc-6202",
+    "trace": "results/stage2c/raw/gamma_zero_posthoc/6202/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero_posthoc/6202/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero_posthoc-6203",
+    "trace": "results/stage2c/raw/gamma_zero_posthoc/6203/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero_posthoc/6203/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero_posthoc-6204",
+    "trace": "results/stage2c/raw/gamma_zero_posthoc/6204/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero_posthoc/6204/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero_posthoc-6205",
+    "trace": "results/stage2c/raw/gamma_zero_posthoc/6205/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero_posthoc/6205/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero_posthoc-6206",
+    "trace": "results/stage2c/raw/gamma_zero_posthoc/6206/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero_posthoc/6206/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero_posthoc-6207",
+    "trace": "results/stage2c/raw/gamma_zero_posthoc/6207/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero_posthoc/6207/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  },
+  {
+    "run_id": "gamma_zero_posthoc-6208",
+    "trace": "results/stage2c/raw/gamma_zero_posthoc/6208/trajectory.jsonl",
+    "state_tensors": "results/stage2c/raw/gamma_zero_posthoc/6208/state_tensors.pt",
+    "window_trace": null,
+    "window_state_tensors": null
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "seed": 5101,
+  "variant": "full",
+  "pairs": 2,
+  "rows": 50,
+  "parameter_hash_before": "3e40fc79b989958e7dc7ea143d191ae4b92f64fcd62fb10f17b73c12d61adbc6",
+  "parameter_hash_after": "3e40fc79b989958e7dc7ea143d191ae4b92f64fcd62fb10f17b73c12d61adbc6",
+  "checkpoint_sha256": "924110d9fa4ba57f3f6030986d1a563441ddf8d037e00b64a7f87c63ec2cacfa"
+}

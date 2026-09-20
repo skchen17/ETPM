@@ -1,0 +1,9 @@
+{
+  "seed": 6207,
+  "variant": "m_disabled",
+  "pairs": 4,
+  "rows": 110,
+  "parameter_hash_before": "dea8e5a3b6ef0a1fbfa8fb3ea00878d014549a94b2ec69d6691cc1cc2f86b571",
+  "parameter_hash_after": "dea8e5a3b6ef0a1fbfa8fb3ea00878d014549a94b2ec69d6691cc1cc2f86b571",
+  "checkpoint_sha256": "152037ca0fef362b31532dba082f63bca712da735afd9ac6ba3693e5d3004bcb"
+}

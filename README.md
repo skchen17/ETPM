@@ -231,6 +231,51 @@ bash experiments/run_stage1_3_all.sh
 python experiments/analyze_stage1_3.py --run-id stage1_3-formal-v1
 ```
 
+## Stage 2C behavioral memory / habit formation (2026-09-21)
+
+> **Can past experience produce persistent, selective, generalizable, revisable, and causally state-mediated changes in ET-RCM's future behavior without changing its parameters?**
+
+> **在模型参数完全不更新的情况下，过去经历能否通过持续内部状态形成持久、选择性、可泛化、可修正，并具有因果作用的未来行为改变？**
+
+Stage 2C changes the operational definition from exact past-content recall to a
+persistent causal effect of past experience on behavior. It uses a controlled
+two-rule consequence-prediction world, paired identical present inputs with
+different histories, frozen-parameter lifetimes, H/F/M swaps and resets,
+read-only time-window clamps, write blocks, gamma-zero controls, an N×D
+timescale grid, and six separately trained architectures. Eight independent
+formal training seeds are the statistical units. The existing memory law and
+main H recurrence are unchanged. There is no direct reward, correct-action,
+remember, importance, or memory-supervision label.
+
+**Formal result: Outcome C — state changes but useful generalized behavioral
+memory was not established.** All G42–G47 gates failed (`0/8` independent
+training seeds each). At 16 experiences the novel-probe behavioral separation
+was `-2.89e-6` (seed SD `8.02e-6`); after 500 unrelated events it was
+`-3.54e-8`. Predicted consequence distributions for the two proposed actions
+were almost identical (mean total variation `2.59e-4`), suggesting an
+action-conditioning failure before any long-memory claim. All 56 formal
+evaluations had bit-exact frozen parameter hashes; all eight full-model seeds
+crossed `||H|| > 100` during long lifetimes, though none crossed 1000 or became
+nonfinite. The main recurrence was not changed to improve these results.
+
+The formal protocol and development amendments are in
+`docs/STAGE2C_PROTOCOL.md`; fixed thresholds are in
+`configs/stage2c_formal.yaml`. The detailed outcome and all 24 scientific
+answers are in `reports/STAGE2C_BEHAVIORAL_MEMORY_RESULTS.md`. Compact rows,
+checkpoints, seed summaries, and manifests are under `results/stage2c/`.
+Dense per-tick tensors and window traces are retained on the research server
+under the same path but ignored by Git due to size; the tracked scripts and
+checkpoints regenerate them. No Stage 1, 2A, or 2B frozen result was changed.
+
+Reproduction (on a machine with two CUDA devices, from this directory):
+
+```bash
+PYTHONPATH=src:. .venv/bin/python experiments/stage2c_formal.py --worker 0 --root results/stage2c_reproduction
+PYTHONPATH=src:. .venv/bin/python experiments/stage2c_formal.py --worker 1 --root results/stage2c_reproduction
+PYTHONPATH=src:. .venv/bin/python experiments/stage2c_analyze.py --root results/stage2c_reproduction --report reports/STAGE2C_REPRODUCTION.md
+PYTHONPATH=src:. .venv/bin/pytest -q
+```
+
 ## Layout
 
 - `src/etrcm/`: state, memory math, latent dynamics, baselines, and toy suite

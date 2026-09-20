@@ -1,0 +1,34 @@
+{
+  "variant": "no_memory",
+  "seed": 6208,
+  "steps": 500,
+  "batch": 16,
+  "config": {
+    "hidden_dim": 32,
+    "latent_slots": 1,
+    "symbol_count": 24,
+    "key_dim": 8,
+    "value_dim": 8,
+    "event_type_dim": 8,
+    "gamma": 0.12,
+    "rho_fast": 0.97,
+    "rho_slow": 0.9995,
+    "eta_external": 0.6,
+    "expression_content_count": 32,
+    "read_epsilon": 1e-06
+  },
+  "nominal_parameters": 26489,
+  "active_parameters": 12804,
+  "events_seen": 431616,
+  "elapsed_s": 109.1762121822685,
+  "validation": {
+    "behavioral_separation": 3.7476420402526855e-06,
+    "mean_correct_action_probability": 0.5000018794089556,
+    "H_norm": 12.94347858428955,
+    "F_norm": 0.0,
+    "M_norm": 0.0
+  },
+  "objective": "observable consequence CE plus optional H norm regularization; no reward/action/memory label",
+  "optimizer": "AdamW lr=0.001; parameter gradient clip=1; no state clip",
+  "state_penalty": 0.001
+}

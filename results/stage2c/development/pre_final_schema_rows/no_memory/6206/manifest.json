@@ -1,0 +1,9 @@
+{
+  "seed": 6206,
+  "variant": "no_memory",
+  "pairs": 4,
+  "rows": 86,
+  "parameter_hash_before": "aa5fa0f53c65a69c88364c1d61000e4850c51f58b331d77df10e6176e8024bfc",
+  "parameter_hash_after": "aa5fa0f53c65a69c88364c1d61000e4850c51f58b331d77df10e6176e8024bfc",
+  "checkpoint_sha256": "94d43cff55a777f62ac85374ff766285c762c62c9b9fa722f103cd8646364072"
+}

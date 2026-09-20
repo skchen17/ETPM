@@ -1,0 +1,6 @@
+{
+  "reason": "uniform final telemetry/metadata schema; weights/gates unchanged",
+  "runs": 56,
+  "max_abs_BS_change": 2.980232238769531e-07,
+  "archived_rows": "results/stage2c/development/pre_final_schema_rows"
+}

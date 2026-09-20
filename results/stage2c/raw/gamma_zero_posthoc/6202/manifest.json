@@ -1,0 +1,9 @@
+{
+  "seed": 6202,
+  "variant": "gamma_zero_posthoc",
+  "pairs": 4,
+  "rows": 110,
+  "parameter_hash_before": "ae8ca497935a4def51393d6b2e31d8a9bd82fdc0dc345e27c9a269ee8e666149",
+  "parameter_hash_after": "ae8ca497935a4def51393d6b2e31d8a9bd82fdc0dc345e27c9a269ee8e666149",
+  "checkpoint_sha256": "4d5f1a99c1e095706dba2d055eb932f0107bb46e737b1f14bb45a055f5ac8dd0"
+}

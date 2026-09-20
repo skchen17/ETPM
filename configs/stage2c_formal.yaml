@@ -1,0 +1,35 @@
+stage: "2C Behavioral Memory / Habit Formation"
+protocol_status: frozen_before_formal
+development_seeds: [5101, 5102]
+formal_training_seeds: [6201, 6202, 6203, 6204, 6205, 6206, 6207, 6208]
+variants: [full, no_memory, gru, gamma_zero, f_only, m_disabled]
+posthoc_gamma_zero_from_full: true
+training:
+  steps: 500
+  batch: 16
+  optimizer: AdamW
+  learning_rate: 0.001
+  parameter_gradient_clip: 1.0
+  state_magnitude_penalty: 0.001
+  main_recurrence_modified: false
+  outcome: observable_consequence_cross_entropy
+evaluation:
+  paired_lifetimes_per_seed: 4
+  exposure_curve: [0, 1, 2, 4, 8, 16, 32]
+  delays: [0, 10, 50, 100, 500, 1000]
+  grid_exposures: [1, 2, 4, 8, 16]
+  grid_delays: [0, 10, 100, 500, 1000]
+  revision_counts: [0, 1, 2, 4, 8, 16, 32]
+  parameter_updates_per_lifetime: 0
+  reads: [F, M, FM]
+  read_windows: [W1_early_8, W2_late_8_and_4_NULL, W3_50_unrelated, W4_probe]
+  write_windows: [W1_early_8, W2_late_8]
+gates:
+  threshold_seeds: 6
+  G42: "BS_novel(N=16,D=0) >= 0.05"
+  G43: "BS0 >= 0.05 and BS500/BS0 >= 0.5"
+  G44: "BS_novel >= 0.03 and BS_novel/BS_seen >= 0.5 with BS_seen >= 0.03"
+  G45: "BS_useful - abs(BS_noise) >= 0.03"
+  G46: "BS_revision0 - BS_revision16 >= 0.03 and BS_revision32 < 0"
+  G47: "one prespecified peripheral intervention (F/M/FM swap, read window, or gamma0) changes BS by >= 0.02 in same direction in >=6 seeds"
+outcome_rule: "A if >=5 gates incl G42 G43 G44 G46 G47; B if G42 but not A; D only if an otherwise meaningful long-delay behavior effect is inseparable from nonfinite/H>1000 trajectories; otherwise C"

@@ -1,0 +1,6 @@
+{
+  "train_log.json": "fa66c1eb72eeba471f21d3c3edfd7857a65bb4b84defc88653144e14cbd11f8a",
+  "checkpoint.pt": "511391b5301967665faf977055d489351210c3bba965fdacf727316252ffcd76",
+  "config.json": "4d82c436a53c04009fc53c7f6f41284f64cd0e5e059bc8ba1aeed8c3e989f820",
+  "summary.json": "514b8900be9bb9e4f0fc0da48b5574f84a182bea8d97eb9ac640ec9f079431f9"
+}

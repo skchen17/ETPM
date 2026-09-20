@@ -1,0 +1,9 @@
+{
+  "seed": 5102,
+  "variant": "full",
+  "pairs": 2,
+  "rows": 110,
+  "parameter_hash_before": "2901e820992ae004b19d4023ea25c4db84c3261d242a768798c068b1f282a1b2",
+  "parameter_hash_after": "2901e820992ae004b19d4023ea25c4db84c3261d242a768798c068b1f282a1b2",
+  "checkpoint_sha256": "7c50c322ef341da74c43429640fe3d1a1c11b0b5ef0a1c2e0745315cc34faf6f"
+}

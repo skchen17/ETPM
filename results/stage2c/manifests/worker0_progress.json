@@ -1,0 +1,170 @@
+[
+  {
+    "seed": 6201,
+    "variant": "full",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 294.1883691698313
+  },
+  {
+    "seed": 6201,
+    "variant": "no_memory",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 166.04035246744752
+  },
+  {
+    "seed": 6201,
+    "variant": "gru",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 147.33945908397436
+  },
+  {
+    "seed": 6201,
+    "variant": "gamma_zero",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 254.21354786120355
+  },
+  {
+    "seed": 6201,
+    "variant": "f_only",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 256.0017030555755
+  },
+  {
+    "seed": 6201,
+    "variant": "m_disabled",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 234.3111623302102
+  },
+  {
+    "seed": 6202,
+    "variant": "full",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 285.6418013200164
+  },
+  {
+    "seed": 6202,
+    "variant": "no_memory",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 158.53865444473922
+  },
+  {
+    "seed": 6202,
+    "variant": "gru",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 139.4686165098101
+  },
+  {
+    "seed": 6202,
+    "variant": "gamma_zero",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 241.30601145885885
+  },
+  {
+    "seed": 6202,
+    "variant": "f_only",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 253.8796725422144
+  },
+  {
+    "seed": 6202,
+    "variant": "m_disabled",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 254.61348485574126
+  },
+  {
+    "seed": 6203,
+    "variant": "full",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 311.51560502685606
+  },
+  {
+    "seed": 6203,
+    "variant": "no_memory",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 164.72126894444227
+  },
+  {
+    "seed": 6203,
+    "variant": "gru",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 115.07025015540421
+  },
+  {
+    "seed": 6203,
+    "variant": "gamma_zero",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 218.89354149252176
+  },
+  {
+    "seed": 6203,
+    "variant": "f_only",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 221.83688141219318
+  },
+  {
+    "seed": 6203,
+    "variant": "m_disabled",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 229.32461603917181
+  },
+  {
+    "seed": 6204,
+    "variant": "full",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 269.00604259595275
+  },
+  {
+    "seed": 6204,
+    "variant": "no_memory",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 131.78881225176156
+  },
+  {
+    "seed": 6204,
+    "variant": "gru",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 111.12142126820982
+  },
+  {
+    "seed": 6204,
+    "variant": "gamma_zero",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 211.85343818739057
+  },
+  {
+    "seed": 6204,
+    "variant": "f_only",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 227.1458578761667
+  },
+  {
+    "seed": 6204,
+    "variant": "m_disabled",
+    "worker": 0,
+    "status": "completed",
+    "elapsed_s": 225.0145934857428
+  }
+]

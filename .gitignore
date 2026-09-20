@@ -12,4 +12,10 @@ results/processed/*.parquet
 /results/stage1_3/processed/*/records.parquet
 /results/stage1_3_dev_*.log
 /results/stage1_3_threshold_*.log
-
+# Stage 2C full per-tick tensors/traces remain on the research server and can
+# be regenerated from tracked checkpoints, source, and protocol. Compact rows,
+# summaries, manifests, and the report remain versioned.
+/results/stage2c/**/state_tensors.pt
+/results/stage2c/**/trajectory.jsonl
+/results/stage2c/trajectories/full/*/windows.jsonl
+/results/stage2c/trajectories/full/*/window_states.pt
