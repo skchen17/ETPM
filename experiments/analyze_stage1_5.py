@@ -288,6 +288,14 @@ def main() -> None:
     processed.mkdir(parents=True)
     precision = pd.DataFrame(evaluate_precision(run_id=run_id))
     precision.to_parquet(processed / "precision.parquet", index=False)
+    access = stability[[
+        "run_id", "model", "seed", "world_family", "state_id",
+        "external_step", "internal_tick", "r_F_norm", "r_M_norm", "g_F", "g_M",
+    ]].copy().sort_values(["state_id", "internal_tick"])
+    access["cumulative_raw_F_read_norm"] = access.groupby("state_id").r_F_norm.cumsum()
+    access["cumulative_raw_M_read_norm"] = access.groupby("state_id").r_M_norm.cumsum()
+    access["read_usage_definition"] = "cumulative_raw_norm_diagnostic_not_causal_use"
+    access.to_parquet(processed / "read_usage.parquet", index=False)
     metrics = {
         "run_id": run_id, "formal_training_cells": 96, "formal_evaluation_shards": checked,
         "formal_evaluation_rows": rows_total,
@@ -307,6 +315,7 @@ def main() -> None:
         "observability_event_CE": observable,
         "capacity": capacity,
         "precision_sha256": digest(processed / "precision.parquet"),
+        "read_usage_sha256": digest(processed / "read_usage.parquet"),
     }
     (processed / "metrics.json").write_text(json.dumps(metrics, indent=2, sort_keys=True), encoding="utf-8")
     adjudication = {
@@ -325,6 +334,7 @@ def main() -> None:
         "metrics_sha256": digest(processed / "metrics.json"),
         "adjudication_sha256": digest(processed / "adjudication.json"),
         "precision_sha256": digest(processed / "precision.parquet"),
+        "read_usage_sha256": digest(processed / "read_usage.parquet"),
         "all_shard_hashes_valid": True,
         "prior_revision": config["protocol"]["prior_revision"],
         "prior_tracked_artifacts_unchanged": True,

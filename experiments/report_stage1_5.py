@@ -352,7 +352,9 @@ def main() -> None:
         "Development: 48 train cells, 2 seeds × 2 LRs for 12 variants. "
         "All source/checkpoint/config/record hashes are checked in "
         f"`results/stage1_5/processed/{RUN}/integrity.json`. "
-        "Historic Stage 1.4 files remain unchanged.\n\n"
+        "Historic Stage 1.4 files remain unchanged. A diagnostic cumulative "
+        f"raw-read-norm table is saved at `results/stage1_5/processed/{RUN}/read_usage.parquet`; "
+        "it is not a causal-use measure.\n\n"
         "## Registered gates\n\n" + table(
             ("Gate", "Outcome", "Criterion"), [
                 (name, gates[name], description) for name, description in (
