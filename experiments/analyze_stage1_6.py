@@ -41,10 +41,13 @@ def fmt(value: float) -> str:
 
 def summarize_effect(name: str, values: pd.Series, threshold: float) -> dict:
     array = values.to_numpy(dtype=float)
-    lo, hi = bootstrap_interval(array)
-    return {"effect": name, "mean": float(array.mean()), "ci95": [lo, hi],
+    finite = array[np.isfinite(array)]
+    lo, hi = bootstrap_interval(finite) if len(finite) else (None, None)
+    return {"effect": name, "mean": float(finite.mean()) if len(finite) else None,
+            "ci95": [lo, hi], "invalid_seeds": int(len(array)-len(finite)),
             "positive_seeds": int((array >= threshold).sum()), "threshold": threshold,
-            "seed_values": {str(seed): float(value) for seed, value in values.items()}}
+            "seed_values": {str(seed): (float(value) if np.isfinite(value) else None)
+                            for seed, value in values.items()}}
 
 
 def main() -> None:
@@ -100,7 +103,7 @@ def main() -> None:
                              gate_config["G36"]["min_M_lesion_vs_full_CE"])
     denominator = curriculum3000.zero-curriculum3000.oracle
     fraction = (curriculum3000.zero-curriculum3000.learned) / denominator.where(denominator >= gate_config["G37"]["min_oracle_benefit_denominator"])
-    g37_fraction = summarize_effect("curriculum_fraction", fraction.fillna(-1e9),
+    g37_fraction = summarize_effect("curriculum_fraction", fraction,
                                     gate_config["G37"]["min_transfer_fraction"])
     g37_abs = summarize_effect("curriculum_learned_vs_zero", curriculum3000.zero-curriculum3000.learned,
                                gate_config["G37"]["min_learned_vs_zero_CE"])
@@ -128,9 +131,15 @@ def main() -> None:
     ]:
         subset=paired.loc[paired.training_arm.isin(arms)]
         table=subset.groupby(["training_arm","training_step","condition"],observed=True)[["CE","accuracy","read_norm","gate","H_norm","F_norm","M_norm","candidate_update","memory_gradient","core_gradient"]].mean().round(5).reset_index()
+        extra=""
+        if report_name=="MEMORY_GRADIENT_DIAGNOSTICS_STAGE1_6.md":
+            diagnostic_path=PROCESSED/"jacobian_gate_diagnostics.parquet"
+            if diagnostic_path.exists():
+                j=pd.read_parquet(diagnostic_path)
+                extra="\n## JVP and recurrent-gate diagnostics\n\n"+j.groupby(["arm","step"]).mean(numeric_only=True).round(5).reset_index().drop(columns=["seed"]).to_markdown(index=False)+"\n"
         REPORTS.joinpath(report_name).write_text(
             f"# {title}\n\nProtocol: `reports/STAGE1_6_PROTOCOL.md`. Eight independent formal seeds, 256 paired held-out episodes/seed/checkpoint, 3000 equal-budget AdamW steps, H scrub after four real B→A exposures, eight non-writing distractors, bridge (B,C), future target (A+C) mod 8. Smaller CE is better. Read interventions happen only at bridge; component lesions begin immediately after H scrub. Gate thresholds were frozen before formal data.\n\n"+
-            table.to_markdown(index=False)+"\n\nThese are finite toy-world outcomes; gradients and read norms are diagnostics, not proof of use. Seed-level paired effects and confidence intervals are in `results/stage1_6/processed/stage1_6-formal-v1/gate_summary.json`.\n")
+            table.to_markdown(index=False)+"\n\nThese are finite toy-world outcomes; gradients and read norms are diagnostics, not proof of use. Seed-level paired effects and confidence intervals are in `results/stage1_6/processed/stage1_6-formal-v1/gate_summary.json`.\n"+extra)
     final_table=paired.loc[paired.training_step.eq(final_step)].groupby(["training_arm","condition"],observed=True)[["CE","accuracy"]].mean().round(5).reset_index().to_markdown(index=False)
     effect_table=pd.DataFrame([{k:v for k,v in effect.items() if k!="seed_values"} for effect in effects]).to_markdown(index=False)
     gate_table=pd.DataFrame([{"gate":k,"outcome":v} for k,v in gates.items()]).to_markdown(index=False)
