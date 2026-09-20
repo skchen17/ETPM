@@ -115,6 +115,20 @@ def test_checkpoint_intervention_reproducibility():
     assert not bool(shuffled.eq(torch.arange(8)).any())
 
 
+def test_reloaded_checkpoint_preserves_intervention(tmp_path):
+    model = make_model(CONFIG, "learned", seed=22, device=torch.device("cpu"))
+    world = generate_world(batch=8, seed=101)
+    with torch.no_grad():
+        before, _ = run_episode(model, world, condition="oracle", random_seed=91)
+    path = tmp_path / "checkpoint.pt"
+    torch.save(model.state_dict(), path)
+    reloaded = make_model(CONFIG, "learned", seed=23, device=torch.device("cpu"))
+    reloaded.load_state_dict(torch.load(path, weights_only=True))
+    with torch.no_grad():
+        after, _ = run_episode(reloaded, world, condition="oracle", random_seed=91)
+    assert torch.equal(before, after)
+
+
 def test_no_memory_counterfactual_identifiability():
     world = generate_world(batch=8, seed=55)
     alternate_A = 8 + (world.past_value - 7).remainder(8)
