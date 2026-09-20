@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pandas as pd
 import torch
+from torch.nn import functional as Fnn
 import yaml
 
 from etrcm.stage1_4.model import Stage14Config
@@ -34,9 +35,16 @@ def one(model, world, *, seed: int, step: int) -> dict[str,float]:
         encoded=model.event_encoder(event)
         h_pre=state.H+model.event_to_slots(encoded).view_as(state.H)
         q_fast,q_slow=model._queries(h_pre)
-        gate=torch.sigmoid(model.core_gate(torch.cat([
-            model.norm(h_pre),torch.zeros_like(oracle)[:,None,:].expand(-1,model.config.latent_slots,-1),
-            encoded[:,None,:].expand(-1,model.config.latent_slots,-1)],dim=-1)))
+        _,output=model.step_with_read(state,event,
+                                      fast_read_override=torch.zeros_like(oracle),
+                                      slow_read_override=oracle)
+        read=output["read"]
+        core_input=torch.cat([
+            model.norm(h_pre),read[:,None,:].expand(-1,model.config.latent_slots,-1),
+            encoded[:,None,:].expand(-1,model.config.latent_slots,-1)],dim=-1)
+        gate=torch.sigmoid(model.core_gate(core_input))
+        raw_candidate=model.core_out(Fnn.silu(model.core_in(core_input)))
+        gated_candidate=gate*raw_candidate
     def h_after(read:torch.Tensor)->torch.Tensor:
         next_state,_=model.step_with_read(state,event,
                                            fast_read_override=torch.zeros_like(read),
@@ -54,6 +62,8 @@ def one(model, world, *, seed: int, step: int) -> dict[str,float]:
     return {"JVP_memory_to_H_norm":sum(magnitudes)/len(magnitudes),
             "recurrent_gate_mean":gate.mean().item(),
             "recurrent_gate_saturated_fraction":((gate<.05)|(gate>.95)).float().mean().item(),
+            "raw_candidate_norm":raw_candidate.norm(dim=(-2,-1)).mean().item(),
+            "gated_candidate_norm":gated_candidate.norm(dim=(-2,-1)).mean().item(),
             "fast_query_projection_norm":model.q_fast_projection.weight.norm().item(),
             "slow_query_projection_norm":model.q_slow_projection.weight.norm().item(),
             "q_fast_norm":q_fast.norm(dim=-1).mean().item(),

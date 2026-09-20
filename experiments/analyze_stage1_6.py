@@ -103,22 +103,36 @@ def main() -> None:
                              gate_config["G36"]["min_M_lesion_vs_full_CE"])
     denominator = curriculum3000.zero-curriculum3000.oracle
     fraction = (curriculum3000.zero-curriculum3000.learned) / denominator.where(denominator >= gate_config["G37"]["min_oracle_benefit_denominator"])
+    oracle_trained_denominator = oracle3000.zero-oracle3000.oracle
+    cross_arm_fraction = (curriculum3000.zero-curriculum3000.learned) / oracle_trained_denominator.where(
+        oracle_trained_denominator >= gate_config["G37"]["min_oracle_benefit_denominator"])
     g37_fraction = summarize_effect("curriculum_fraction", fraction,
                                     gate_config["G37"]["min_transfer_fraction"])
     g37_abs = summarize_effect("curriculum_learned_vs_zero", curriculum3000.zero-curriculum3000.learned,
                                gate_config["G37"]["min_learned_vs_zero_CE"])
-    effects = [g34_r,g34_m,g35_zero,g35_random,g35_shuffle,g36_baseline,g36_m,g37_fraction,g37_abs]
+    g37_cross = summarize_effect("curriculum_vs_oracle_trained_fraction_secondary",cross_arm_fraction,
+                                 gate_config["G37"]["min_transfer_fraction"])
+    effects = [g34_r,g34_m,g35_zero,g35_random,g35_shuffle,g36_baseline,g36_m,g37_fraction,g37_abs,g37_cross]
     gates = {
         "G34": "PASS" if max(g34_r["positive_seeds"],g34_m["positive_seeds"])>=minimum else "FAIL",
         "G35": "PASS" if all(x["positive_seeds"]>=minimum for x in (g35_zero,g35_random,g35_shuffle)) else "FAIL",
         "G36": "PASS" if g36_baseline["positive_seeds"]>=minimum and g36_m["positive_seeds"]>=minimum else "FAIL",
         "G37": "PASS" if g37_fraction["positive_seeds"]>=minimum and g37_abs["positive_seeds"]>=minimum else "FAIL",
     }
+    onset: dict[str, int | None] = {}
+    for arm, measure in (("learned", "D_R"), ("learned", "D_M"),
+                         ("oracle", "D_O"), ("curriculum", "D_O"),
+                         ("curriculum", "D_R")):
+        matching = wide.loc[wide.training_arm.eq(arm)]
+        crossing = [int(step) for step, part in matching.groupby("training_step")
+                    if int((part[measure] >= .01).sum()) >= minimum]
+        onset[f"{arm}_{measure}_at_least_0.01_in_6_seeds"] = min(crossing) if crossing else None
     PROCESSED.mkdir(parents=True, exist_ok=True)
     records.to_parquet(PROCESSED/"all_interventions.parquet", index=False)
     paired.to_parquet(PROCESSED/"seed_checkpoint_condition.parquet", index=False)
     wide.to_parquet(PROCESSED/"seed_checkpoint_effects.parquet", index=False)
     output = {"run_id":RUN_ID,"cells":len(paths),"episodes":len(records),"gates":gates,
+              "onset":onset,
               "effects":effects,"config_sha256":sha256(ROOT/"configs/stage1_6.yaml")}
     (PROCESSED/"gate_summary.json").write_text(json.dumps(output,indent=2,allow_nan=True))
     for report_name, title, arms in [
@@ -139,7 +153,7 @@ def main() -> None:
                 extra="\n## JVP and recurrent-gate diagnostics\n\n"+j.groupby(["arm","step"]).mean(numeric_only=True).round(5).reset_index().drop(columns=["seed"]).to_markdown(index=False)+"\n"
         REPORTS.joinpath(report_name).write_text(
             f"# {title}\n\nProtocol: `reports/STAGE1_6_PROTOCOL.md`. Eight independent formal seeds, 256 paired held-out episodes/seed/checkpoint, 3000 equal-budget AdamW steps, H scrub after four real B→A exposures, eight non-writing distractors, bridge (B,C), future target (A+C) mod 8. Smaller CE is better. Read interventions happen only at bridge; component lesions begin immediately after H scrub. Gate thresholds were frozen before formal data.\n\n"+
-            table.to_markdown(index=False)+"\n\nThese are finite toy-world outcomes; gradients and read norms are diagnostics, not proof of use. Seed-level paired effects and confidence intervals are in `results/stage1_6/processed/stage1_6-formal-v1/gate_summary.json`.\n"+extra)
+            table.to_markdown(index=False)+"\n\nThe `candidate_update` column in episode records is the total bridge H-step delta (including event input), not the isolated gated candidate; exact raw/gated candidate norms are in the separate JVP diagnostics. Gradients and read norms are diagnostics, not proof of use. Seed-level paired effects and confidence intervals are in `results/stage1_6/processed/stage1_6-formal-v1/gate_summary.json`.\n"+extra)
     final_table=paired.loc[paired.training_step.eq(final_step)].groupby(["training_arm","condition"],observed=True)[["CE","accuracy"]].mean().round(5).reset_index().to_markdown(index=False)
     effect_table=pd.DataFrame([{k:v for k,v in effect.items() if k!="seed_values"} for effect in effects]).to_markdown(index=False)
     gate_table=pd.DataFrame([{"gate":k,"outcome":v} for k,v in gates.items()]).to_markdown(index=False)
@@ -163,10 +177,10 @@ def main() -> None:
         f"G36={gates['G36']}; lesions start immediately after H scrub, before memory can repopulate H.",
         "No-memory recurrent baseline final CE is shown in the condition table; compare paired per-seed G36 effect.",
         "M-lesion paired CE effect and replication are shown in G36.",
-        "The checkpoint-wise intervention table identifies earliest replicated nontrivial dependence; do not infer it from training loss.",
-        "D_O vs D_R checkpoint curves in the learning-curve report show whether oracle benefit precedes learned read; descriptive only unless replicated.",
-        "Memory-branch gradient norm is reported by checkpoint; near-zero gradients alone are not causal evidence.",
-        "Slow read gate and update norms are reported; saturation is a diagnostic, not proof of collapse.",
+        "The earliest checkpoint with ≥.01 finite benefit in ≥6/8 seeds is "+str(onset)+"; training loss is not used for this conclusion.",
+        "Within the curriculum arm, oracle-benefit onset is "+str(onset["curriculum_D_O_at_least_0.01_in_6_seeds"])+" and learned-benefit onset is "+str(onset["curriculum_D_R_at_least_0.01_in_6_seeds"])+". This is a preregistered-checkpoint descriptive order, not a new gate.",
+        "Memory-branch gradient norms are in the checkpoint diagnostic table; compare them with finite benefits before interpreting starvation.",
+        "Slow read and recurrent gate values are in the diagnostic tables; saturation is not by itself proof of failed causal use.",
         "H scrub eliminates a direct H-history shortcut on the new task; it does not retroactively prove the old-world shortcut caused Stage 1.5 failure.",
         f"G37={gates['G37']}; ratio requires a positive oracle-benefit denominator.",
         adjudication,
@@ -183,6 +197,10 @@ def main() -> None:
     for path in sorted((ROOT/"results/stage1_6").rglob("*")):
         if path.is_file() and path.name != "integrity.json":
             manifest.append({"path":str(path.relative_to(ROOT)),"sha256":sha256(path),"bytes":path.stat().st_size})
+    for path in [ROOT/"configs/stage1_6.yaml", *sorted(REPORTS.glob("*STAGE1_6*.md")),
+                 *sorted((ROOT/"src/etrcm/stage1_6").glob("*.py")),
+                 *sorted((ROOT/"experiments").glob("*stage1_6*.py"))]:
+        manifest.append({"path":str(path.relative_to(ROOT)),"sha256":sha256(path),"bytes":path.stat().st_size})
     (PROCESSED/"integrity.json").write_text(json.dumps(manifest,indent=2))
     print(json.dumps({"gates":gates,"records":len(records),"manifest_files":len(manifest)}))
 

@@ -1,9 +1,11 @@
 from pathlib import Path
 import subprocess
+from dataclasses import replace
 
 import torch
 
 from etrcm.stage1_4.model import Stage14Config
+from etrcm.stage1_3.events import ContinuousEvent, Stage13EventKind
 from etrcm.stage1_6.runner import (derangement, historical_oracle, make_model,
                                     norm_matched_random, oracle_probability, run_episode, scrub)
 from etrcm.stage1_6.world import audit_no_future_leak, generate_world
@@ -106,3 +108,28 @@ def test_checkpoint_intervention_reproducibility():
     assert torch.equal(metrics_a["read_norm"], metrics_b["read_norm"])
     shuffled = derangement(8, torch.device("cpu"))
     assert not bool(shuffled.eq(torch.arange(8)).any())
+
+
+def test_no_memory_counterfactual_identifiability():
+    world = generate_world(batch=8, seed=55)
+    alternate_A = 8 + (world.past_value - 7).remainder(8)
+    alternate_events = tuple(
+        ContinuousEvent.create(kind=Stage13EventKind.EVIDENCE,
+                               key_id=world.key, value_id=alternate_A, write=True)
+        for _ in range(world.early_exposures)) + world.events[world.early_exposures:]
+    alternate = replace(world, events=alternate_events, past_value=alternate_A,
+                        target=((alternate_A-8)+(world.offset-16)).remainder(8))
+    assert bool(world.target.ne(alternate.target).all())
+    model = make_model(CONFIG, "no_memory", seed=5, device=torch.device("cpu"))
+    with torch.no_grad():
+        for candidate in (world, alternate):
+            state = model.initial_state(8)
+            for event in candidate.events[:4]:
+                state, _ = model.step(state, event)
+            state = scrub(model, state)
+            for event in candidate.events[4:]:
+                state, _ = model.step(state, event)
+            if candidate is world:
+                logits = model.predict_logits(state)[1]
+            else:
+                assert torch.equal(logits, model.predict_logits(state)[1])
