@@ -129,9 +129,21 @@ def main() -> None:
             ~np.isnan(one.select_dtypes(include=["number"]).to_numpy(dtype=float, na_value=np.nan))
         ]).all())
         passed = finite and max_norm < 1000 and max_js < 0.5 and max_median_growth < 100
+        curve = one.groupby("internal_tick")[["H_delta_norm", "F_delta_norm", "M_delta_norm", "H_norm"]].mean()
+        tail_delta = float(curve.loc[897:1024, ["H_delta_norm", "F_delta_norm", "M_delta_norm"]].sum(axis=1).median())
+        h_norm_drift = float(curve.loc[1024, "H_norm"] - curve.loc[0, "H_norm"])
+        if not passed:
+            dynamics_class = "unstable_or_divergent_on_sample"
+        elif tail_delta < 1e-4:
+            dynamics_class = "fixed_point_like_on_sample"
+        else:
+            dynamics_class = "bounded_drift_or_unresolved_oscillation"
         g27_by_seed[seed] = {
             "max_component_norm": max_norm, "max_prediction_js": max_js,
             "max_median_finite_growth_128": max_median_growth,
+            "tail_median_total_delta": tail_delta,
+            "H_norm_drift_0_to_1024": h_norm_drift,
+            "descriptive_dynamics_class": dynamics_class,
             "all_finite": finite, "pass": passed,
         }
     g27 = all(item["pass"] for item in g27_by_seed.values())
