@@ -1,0 +1,5 @@
+# Pre-analysis exploratory extension: original-objective scaling
+
+The frozen G34–G37 protocol remains unchanged. To answer the narrower historical question “was Stage 1.5's **original four-family objective** undertrained at 160 steps?”, Stage 1.6 additionally repeats that original B5-separate training objective with fresh seeds 8701–8708 to checkpoints 160/500/1000/3000, LR .001 (the Stage 1.5 B5 development selection), batch 32 and the original four-family sampling schedule. The original Stage 1.5 future CE and historical oracle-read evaluation interfaces are reused without editing their source. This is a separately labeled exploratory extension, not a fifth gate and not a replacement for the frozen memory-necessary task. The evaluation uses the 128-distractor slice of the original long-gap family, not the full 128/512/2048 original Stage 1.5 grid. Any positive outcome must be described at that limited scope.
+
+This extension was specified before the eight-seed Stage 1.6 formal analysis. Stage 1.6's four gates continue to use only the frozen H-scrub formal dataset. All extension records live under `results/stage1_6/legacy_scaling/` and are hashed separately.
