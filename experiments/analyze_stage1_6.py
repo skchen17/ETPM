@@ -257,11 +257,11 @@ def main() -> None:
     oracle_zero_ce=float(oracle3000.zero.mean())
     answers=[
         old_answer,
-        f"Not reliably in ordinary learned-read training: G34={gates['G34']}; D_R and D_M gains from 160 to 3000 averaged {g34_r['mean']:.3f}/{g34_m['mean']:.3f} CE but crossed .01 in only {g34_r['positive_seeds']}/{g34_m['positive_seeds']} of 8 seeds.",
+        f"Not reliably in ordinary learned-read training: G34={gates['G34']}; D_R and D_M gains from 160 to 3000 averaged {g34_r['mean']:.3f}/{g34_m['mean']:.3f} CE but crossed .01 in only {g34_r['positive_seeds']}/8 and {g34_m['positive_seeds']}/8 seeds, respectively.",
         f"Yes, for supplied past-only read on this toy: G35={gates['G35']}; oracle-trained oracle CE={oracle_ce:.3f} versus zero CE={oracle_zero_ce:.3f}, with all three registered contrasts clearing margin in 8/8 seeds.",
         f"Yes under registered margins: oracle-vs-zero/random/shuffled CE advantages were {g35_zero['mean']:.3f}/{g35_random['mean']:.3f}/{g35_shuffle['mean']:.3f}, each 8/8 seeds.",
         "The existing integration operator demonstrably has capacity to use a correct historical read on this task; no absolute architecture ceiling is established. This does not imply learned routing or persistent M use.",
-        f"Not reproducibly with the ordinary full model: G36={gates['G36']}; full-vs-no-memory and M-lesion effects cleared thresholds in only {g36_baseline['positive_seeds']}/{g36_m['positive_seeds']} seeds. The curriculum did induce F-sensitive computation, not replicated M necessity.",
+        f"Not reproducibly with the ordinary full model: G36={gates['G36']}; full-vs-no-memory and M-lesion effects cleared thresholds in only {g36_baseline['positive_seeds']}/8 and {g36_m['positive_seeds']}/8 seeds, respectively. The curriculum did induce F-sensitive computation, not replicated M necessity.",
         f"The no-memory baseline remained near chance (CE={no_memory_ce:.3f}, 8-class chance ≈2.079) after H scrub; ordinary full CE={learned_ce:.3f}, but the paired advantage crossed .05 in only {g36_baseline['positive_seeds']}/8 seeds.",
         f"Not robustly: ordinary M lesion crossed .02 CE harm in {g36_m['positive_seeds']}/8 seeds; curriculum M lesion did so in {curriculum_slow['positive_seeds']}/8 versus F lesion in {curriculum_fast['positive_seeds']}/8 (the latter two are post-formal descriptive checks).",
         f"Replicated oracle benefit first appeared at step {onset['oracle_D_O_at_least_0.01_in_6_seeds']}; ordinary learned benefit never reached 6/8 at any checkpoint, while curriculum learned benefit did so at {onset['curriculum_D_R_at_least_0.01_in_6_seeds']}.",
