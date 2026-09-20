@@ -123,6 +123,8 @@ def main() -> None:
         "G36": "PASS" if g36_baseline["positive_seeds"]>=minimum and g36_m["positive_seeds"]>=minimum else "FAIL",
         "G37": "PASS" if g37_fraction["positive_seeds"]>=minimum and g37_abs["positive_seeds"]>=minimum else "FAIL",
     }
+    learned_read_success_seeds=int((learned3000.D_R>=.01).sum())
+    auxiliary_F_triggered=(gates["G35"]=="PASS" and learned_read_success_seeds<minimum)
     onset: dict[str, int | None] = {}
     for arm, measure in (("learned", "D_R"), ("learned", "D_M"),
                          ("oracle", "D_O"), ("curriculum", "D_O"),
@@ -161,6 +163,8 @@ def main() -> None:
     fig.savefig(PROCESSED/"memory_dependence_curve.png",dpi=180)
     plt.close(fig)
     output = {"run_id":RUN_ID,"cells":len(paths),"episodes":len(records),"gates":gates,
+              "auxiliary_F_triggered":auxiliary_F_triggered,
+              "learned_read_success_seeds_at_0.01":learned_read_success_seeds,
               "onset":onset,
               "effects":effects,"config_sha256":sha256(ROOT/"configs/stage1_6.yaml")}
     (PROCESSED/"gate_summary.json").write_text(json.dumps(output,indent=2,allow_nan=True))
@@ -238,7 +242,7 @@ def main() -> None:
         "Memory-branch gradient norms are in the checkpoint diagnostic table; compare them with finite benefits before interpreting starvation.",
         "Slow read and recurrent gate values are in the diagnostic tables; saturation is not by itself proof of failed causal use.",
         "H scrub eliminates a direct H-history shortcut on the new task; it does not retroactively prove the old-world shortcut caused Stage 1.5 failure.",
-        f"G37={gates['G37']}; ratio requires a positive oracle-benefit denominator.",
+        f"G37={gates['G37']}; ratio requires a positive oracle-benefit denominator. Separate auxiliary F trigger={auxiliary_F_triggered}, with {learned_read_success_seeds}/8 learned-arm seeds clearing D_R≥.01. The registered B3 curriculum always ran; a further F curriculum is conditional.",
         adjudication,
         "Stage 1.7 operator changes are justified as a future test only if G35 fails; otherwise first address routing or persistent-state use.",
         "Retain the present operator for further toy tests only if oracle integration and persistent M use clear their respective gates.",
@@ -251,6 +255,10 @@ def main() -> None:
         "**Optimization and pairing.** Development seeds 8601–8602 each tested LR .001/.0003 across all six arms for 160 AdamW steps and selected common LR .001 by equal-arm/seed held-out CE (2.10779 versus 2.12833). Formal seeds 8701–8708 are independent and disjoint. Each of six arms sees the same 3000 world draws per seed, batch 32 (96,000 train episodes per arm/seed), gradient clip 1.0, weight decay .0001, FP32. B5 arms share exact initialization per seed. Curriculum p_oracle=1/.75/.5/.25/0 over five 600-step blocks; the realized per-step draws are stored. Checkpoints 0/50/100/160/300/500/1000/2000/3000 use the same 256 held-out episodes/seed across arms, conditions and checkpoints. These are repeated paired evaluations, not independent new episodes.\n\n"
         "**Statistics and diagnostics.** Episode CE is averaged within seed; seeds receive equal weight. Gate margins require at least 6/8 seed-level replications at preregistered thresholds; 95% intervals bootstrap independent seeds 2000 times. Finite interventions decide use; gradient/JVP, gate saturation, read norm, train loss and raw state norms are only explanatory diagnostics. A bridge H-step delta in raw records includes event input; isolated raw/gated candidate norms are in the JVP diagnostic file. The pre-formal lesion-timing correction and post-first-seed G37 interpretation caveat are documented in separate amendment notes; no formal threshold changed. Checkpoint tensors, train logs, raw Parquet, source/config/report hashes and integrity manifest live under `results/stage1_6`.\n\n## Answers to the 18 registered questions\n\n")
     final_report += "\n".join(f"{i}. {answer}\n" for i,answer in enumerate(answers,1))
+    final_report += ("\n## Conditional auxiliary Experiment F\n\n"
+                     +("TRIGGERED by the stated condition; an additional separately labeled curriculum run is required before calling this subexperiment complete.\n"
+                       if auxiliary_F_triggered else
+                       "NOT_RUN_BY_CONDITION: the oracle-trained arm was not simultaneously successful with failure of learned-read finite dependence under the operational ≥.01 CE, ≥6/8-seed criterion. The always-run B3 oracle-to-learned curriculum is reported separately.\n"))
     final_report += legacy_section+"\n## Interpretation and limits\n\n"+adjudication+" The historical oracle is a saved pre-distractor F+M read, so it is an upper-bound delivery intervention, not proof that current slow M retrieves the same content. The H-scrub compositional task is intentionally simpler and more memory-forcing than Stage 1.5's four-family distribution; success here does not retroactively erase its negative results. M/F lesions are one-time at the scrub boundary; the remaining component may later reconsolidate, so their effects are conservative about sustained component necessity. The gates are toy-specific and do not imply human-like memory, consciousness, unlimited information capacity or language-model readiness. Missing/negative outcomes are retained.\n"
     REPORTS.joinpath("STAGE1_6_FINAL_REPORT.md").write_text(final_report)
     manifest=[]
