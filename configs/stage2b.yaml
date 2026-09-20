@@ -1,0 +1,53 @@
+stage: "2B contextual associative memory"
+status: "preregistered before formal training/evaluation"
+reference_commit: "d458abd8f5a674e71a57a7d129207278df07cb16"
+arms: [GRU, RNN, E0, E1, E2]
+contextual_write_order: "old memory read -> H update -> K/V from H -> external delta write -> consolidation -> decay"
+E0: "unchanged Stage2A raw-token implementation and its original ordering"
+ordering_control: "E0_late uses raw-token KV with read-before-write; diagnostic only, five small seeds if resources allow"
+outcome_A_attribution_check: "if all five E0_late diagnostics complete, contextual arm must exceed ordering-matched raw control in >=4/5 seeds by mean >=0.03 ID candidate accuracy; otherwise A is disallowed (gates unchanged)"
+active_parameter_control: "GRU with hidden_dim 76, same five seeds/steps, diagnostic against the inherited hidden_dim 64 GRU"
+development_seeds: [1101, 1102]
+formal_seeds: [2401, 2402, 2403, 2404, 2405]
+formal_small:
+  hidden_dim: 64
+  steps_per_arm_seed: 1000
+  batch_size: 16
+medium_check:
+  hidden_dim: 128
+  seeds: [2501]
+  steps_per_arm_seed: 1000
+  batch_size: 16
+training:
+  lr: 0.0005
+  optimizer: AdamW
+  parameter_gradient_clip: 1.0
+  state_clip: false
+  objective: "mean next-token CE + 4*answer-token CE"
+  association_train_examples: 4800
+  basic_train_examples: 800
+  reasoning_train_examples: 800
+  association_gap_tokens: [16, 32, 64, 128]
+  mix: {basic: 0.15, reasoning: 0.15, association: 0.70}
+  lexical_ood_guard: "basic templates never pair name with color/location; auxiliary reasoning excludes name-color binding"
+evaluation:
+  gaps: [32, 64, 128, 256, 512, 1024]
+  in_distribution: [32, 64, 128]
+  extrapolation: [256, 512, 1024]
+  null_ticks: [0, 1, 2, 4, 8, 16]
+  generation_decoders: [greedy, temperature_0_7, top_k_8]
+  splits: [id, lexical_ood]
+  strict_lexical_ood_primary_families: [attribute, location, revision, interference]
+  temporal_ood_status: "exploratory because an old meeting-day mention can overlap held-out name-day combinations"
+  candidate_accuracy_is_not_free_generation: true
+stability:
+  ticks: [100, 500, 1000, 5000]
+  probe_fact: "alice has the red key ."
+  probe_target: red
+  probe_method: "clone state and query off-path; do not reset/mutate continuous stream"
+gates:
+  G38: "primary in-distribution associative candidate gain E1 or E2 over E0, >=4/5 seeds positive and bootstrap 95% CI >0"
+  G39: "counterfactual paired joint correctness > chance 0.25 and E0 by >=0.05, >=4/5 seeds positive"
+  G40: "H-reset peripheral recall correct > H-reset+FM-lesion by >=0.03, >=4/5 seeds positive"
+  G41: "correct-memory answer CE lower than zero/random/shuffled in >=4/5 seeds with positive mean benefit"
+  M_necessity: "not a gate"
