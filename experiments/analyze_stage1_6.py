@@ -183,10 +183,23 @@ def main() -> None:
         adjudication="The current operator can use memory and transfer part of oracle benefit to learned read on this toy. The Stage 1.5 failure was substantially training/optimization-dependent. This is not LM readiness."
     else:
         adjudication="Oracle integration passed, but persistent M necessity did not. Integration capacity and useful persistent-state use remain distinct."
+    legacy_path=ROOT/"results/stage1_6/legacy_scaling/summary.json"
+    if legacy_path.exists():
+        legacy=json.loads(legacy_path.read_text())
+        old_effect=legacy["mean_effect_3000_minus_160"]
+        old_answer=("On the original four-family objective's 128-distractor long-gap slice, "
+                    f"the exploratory 3000-minus-160 oracle-vs-no-read CE effect was {old_effect['oracle_vs_no_read']:.5f}; "
+                    "the separate report gives seed replication. This is a limited old-objective check, not the full Stage 1.5 grid.")
+        legacy_section=("\n## Original-objective exploratory scaling\n\n"
+                        "See `reports/TRAINING_LENGTH_SCALING_ORIGINAL_OBJECTIVE_STAGE1_6.md`. "
+                        +old_answer+"\n")
+    else:
+        old_answer="The historical 160-step objective was not rerun; exact Stage 1.5 undertraining remains unresolved."
+        legacy_section=""
     REPORTS.joinpath("TRAINING_VS_ARCHITECTURE_ADJUDICATION_STAGE1_6.md").write_text(
         "# Training vs architecture adjudication\n\n"+gate_table+"\n\n"+adjudication+"\n\n"+effect_table+"\n")
     answers=[
-        "The historical 160-step objective is not directly re-run here; the matched H-scrub scaling tests the same operator on a new memory-necessary objective. Therefore Stage 1.5 exact-objective undertraining remains unresolved.",
+        old_answer,
         f"G34={gates['G34']}; paired D_R/D_M step-3000 minus step-160 effects above.",
         f"G35={gates['G35']}; supplied historical-read capacity is evaluated causally.",
         "Oracle vs zero/random/shuffled paired CE margins and seed replication are in the effect table.",
@@ -208,7 +221,7 @@ def main() -> None:
     final_report=("# ET-RCM Stage 1.6 Final Report\n\n"+QUESTION+
         f"Formal run `{RUN_ID}`: {len(paths)} training cells, 8 fresh training seeds, {len(records):,} intervention rows. Parent Stage 1.5 reports and frozen results were not modified. No integration architecture or memory-law change.\n\n## Frozen gates\n\n"+gate_table+"\n\n## Paired causal effects\n\n"+effect_table+"\n\n## Final condition outcomes\n\n"+final_table+"\n\n## Experimental details\n\nFour real early B→A exposures, H reset alone, eight identical non-writing distractors, observed bridge B+C and unobserved future class Y=(A-8+C-16) mod 8. Random B/A/C independent. The oracle read is saved from actual F+M at the true historical key after exposure 4; it contains neither C nor Y. During oracle training it replaces only the slow read at the bridge, with the fast read clamped to zero. Learned read uses the existing fast/slow arbitration. Zero/random/shuffled comparators use the same read interface; random is per-episode norm-matched and shuffle is a derangement. F/M lesions occur at the scrub boundary. AdamW, batch 32, selected LR, 3000 draws and evaluation episodes are paired across arms. Checkpoints: 0/50/100/160/300/500/1000/2000/3000. Full raw Parquet, checkpoints, train logs and hashes reside in `results/stage1_6`.\n\n## Answers to the 18 registered questions\n\n")
     final_report += "\n".join(f"{i}. {answer}\n" for i,answer in enumerate(answers,1))
-    final_report += "\n## Interpretation and limits\n\n"+adjudication+" The gates are toy-specific and do not imply human-like memory, consciousness, unlimited information capacity or language-model readiness. Missing/negative outcomes are retained.\n"
+    final_report += legacy_section+"\n## Interpretation and limits\n\n"+adjudication+" The gates are toy-specific and do not imply human-like memory, consciousness, unlimited information capacity or language-model readiness. Missing/negative outcomes are retained.\n"
     REPORTS.joinpath("STAGE1_6_FINAL_REPORT.md").write_text(final_report)
     manifest=[]
     for path in sorted((ROOT/"results/stage1_6").rglob("*")):
