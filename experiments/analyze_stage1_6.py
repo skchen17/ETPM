@@ -105,6 +105,11 @@ def main() -> None:
                                     gate_config["G36"]["min_full_vs_no_memory_CE"])
     g36_m = summarize_effect("M_lesion_vs_full", learned3000.M_lesion-learned3000.learned,
                              gate_config["G36"]["min_M_lesion_vs_full_CE"])
+    # Descriptive post-formal dissection; these are not new gates.
+    curriculum_fast = summarize_effect("curriculum_F_lesion_secondary",
+                                       curriculum3000.F_lesion-curriculum3000.learned,.02)
+    curriculum_slow = summarize_effect("curriculum_M_lesion_secondary",
+                                       curriculum3000.M_lesion-curriculum3000.learned,.02)
     denominator = curriculum3000.zero-curriculum3000.oracle
     fraction = (curriculum3000.zero-curriculum3000.learned) / denominator.where(denominator >= gate_config["G37"]["min_oracle_benefit_denominator"])
     oracle_trained_denominator = oracle3000.zero-oracle3000.oracle
@@ -116,7 +121,8 @@ def main() -> None:
                                gate_config["G37"]["min_learned_vs_zero_CE"])
     g37_cross = summarize_effect("curriculum_vs_oracle_trained_fraction_secondary",cross_arm_fraction,
                                  gate_config["G37"]["min_transfer_fraction"])
-    effects = [g34_r,g34_m,g35_zero,g35_random,g35_shuffle,g36_baseline,g36_m,g37_fraction,g37_abs,g37_cross]
+    effects = [g34_r,g34_m,g35_zero,g35_random,g35_shuffle,g36_baseline,g36_m,g37_fraction,g37_abs,g37_cross,
+               curriculum_fast,curriculum_slow]
     gates = {
         "G34": "PASS" if max(g34_r["positive_seeds"],g34_m["positive_seeds"])>=minimum else "FAIL",
         "G35": "PASS" if all(x["positive_seeds"]>=minimum for x in (g35_zero,g35_random,g35_shuffle)) else "FAIL",
@@ -195,6 +201,8 @@ def main() -> None:
                                                       realized_oracle_fraction=("oracle_selected","mean"))
                             .round(5).reset_index().to_markdown(index=False))
             extra="\n## Curriculum schedule and realized sampling\n\n"+schedule_table+"\n"
+            if (ROOT/"results/stage1_6/auxiliary_F/analysis.json").exists():
+                extra+="\nThe separately triggered, equal-oracle-budget three-phase auxiliary F is reported in `reports/AUXILIARY_MEMORY_USE_CURRICULUM_STAGE1_6.md`; it cannot change frozen G37.\n"
         REPORTS.joinpath(report_name).write_text(
             f"# {title}\n\nProtocol: `reports/STAGE1_6_PROTOCOL.md`. Eight independent formal seeds, 256 paired held-out episodes/seed/checkpoint, 3000 equal-budget AdamW steps, H scrub after four real B→A exposures, eight non-writing distractors, bridge (B,C), future target (A+C) mod 8. Smaller CE is better. Read interventions happen only at bridge; component lesions begin immediately after H scrub. Gate thresholds were frozen before formal data.\n\n"+
             table.to_markdown(index=False)+"\n\nThe `candidate_update` column in episode records is the total bridge H-step delta (including event input), not the isolated gated candidate; exact raw/gated candidate norms are in the separate JVP diagnostics. Gradients and read norms are diagnostics, not proof of use. Seed-level paired effects and confidence intervals are in `results/stage1_6/processed/stage1_6-formal-v1/gate_summary.json`.\n"+extra)
@@ -214,7 +222,11 @@ def main() -> None:
     elif g36 and g37:
         adjudication="The current operator can use memory and transfer part of oracle benefit to learned read on this toy. The Stage 1.5 failure was substantially training/optimization-dependent. This is not LM readiness."
     else:
-        adjudication="Oracle integration passed, but persistent M necessity did not. Integration capacity and useful persistent-state use remain distinct."
+        adjudication=("Oracle integration passed in the present gated-residual operator, but ordinary learned-read training and persistent M necessity did not replicate. "
+                      f"The preregistered B3 curriculum had learned-read benefit in {g37_abs['positive_seeds']}/8 seeds; a post-formal component dissection found F-lesion benefit in {curriculum_fast['positive_seeds']}/8 but M-lesion benefit in {curriculum_slow['positive_seeds']}/8. "
+                      f"This suggests curriculum-assisted fast-memory use, not proven slow persistent-memory integration. Frozen G36={gates['G36']} and G37={gates['G37']} are unchanged.")
+    auxiliary_path=ROOT/"results/stage1_6/auxiliary_F/analysis.json"
+    auxiliary=json.loads(auxiliary_path.read_text()) if auxiliary_path.exists() else None
     legacy_path=ROOT/"results/stage1_6/legacy_scaling/summary.json"
     if legacy_path.exists():
         legacy=json.loads(legacy_path.read_text())
@@ -244,23 +256,31 @@ def main() -> None:
         "Memory-branch gradient norms are in the checkpoint diagnostic table; compare them with finite benefits before interpreting starvation.",
         "Slow read and recurrent gate values are in the diagnostic tables; saturation is not by itself proof of failed causal use.",
         "H scrub eliminates a direct H-history shortcut on the new task; it does not retroactively prove the old-world shortcut caused Stage 1.5 failure.",
-        f"G37={gates['G37']}; ratio requires a positive oracle-benefit denominator. Separate auxiliary F trigger={auxiliary_F_triggered}, with {learned_read_success_seeds}/8 learned-arm seeds clearing D_R≥.01. The registered B3 curriculum always ran; a further F curriculum is conditional.",
+        f"G37={gates['G37']}; ratio requires a positive oracle-benefit denominator. Separate auxiliary F trigger={auxiliary_F_triggered}, with {learned_read_success_seeds}/8 learned-arm seeds clearing D_R≥.01. " +
+        (f"Triggered F subsequently cleared learned D_R≥.025 in {auxiliary['effects']['aux_D_R']['seeds_above_0.025']}/8 seeds, without revising G37."
+         if auxiliary is not None else "The registered B3 curriculum always ran; a further F curriculum is conditional."),
         adjudication,
         "Stage 1.7 operator changes are justified as a future test only if G35 fails; otherwise first address routing or persistent-state use.",
         "Retain the present operator for further toy tests only if oracle integration and persistent M use clear their respective gates.",
         "No. Stage 1.5's G27/G28/G31 failures and the narrow toy scope preclude sequence/LM prototype authorization.",
     ]
     final_report=("# ET-RCM Stage 1.6 Final Report\n\n"+QUESTION+
-        f"Formal run `{RUN_ID}`: {len(paths)} training cells, 8 fresh training seeds, {len(records):,} intervention rows. Parent Stage 1.5 reports and frozen results were not modified. No integration architecture or memory-law change.\n\n## Frozen gates\n\n"+gate_table+"\n\n## Paired causal effects\n\n"+effect_table+"\n\n## Final condition outcomes\n\n"+final_table+"\n\n## Model and state sizes\n\n"+capacity_table+"\n\nParameter counts include instantiated but potentially inactive baseline modules; state bytes count H/F/M float32 slots per episode.\n\n## Experimental details\n\n"
+        f"Formal run `{RUN_ID}`: {len(paths)} training cells, 8 fresh training seeds, {len(records):,} intervention rows. Parent Stage 1.5 reports and frozen results were not modified. No integration architecture or memory-law change.\n\n## Frozen gates\n\n"+gate_table+"\n\n## Paired causal effects\n\n"+effect_table+"\n\nRows labeled `secondary` were examined after formal gate outcomes and cannot change them. The curriculum F/M-lesion contrast is descriptive about which component carried its learned-read benefit.\n\n## Final condition outcomes\n\n"+final_table+"\n\n## Model and state sizes\n\n"+capacity_table+"\n\nParameter counts include instantiated but potentially inactive baseline modules; state bytes count H/F/M float32 slots per episode.\n\n## Experimental details\n\n"
         "**Task.** B∈0–7, A∈8–15 and C∈16–23 are sampled independently per episode. Four genuine external B→A exposures update F by the unchanged delta rule. Only H is reset to initial H; F/M are preserved exactly. Eight identical non-writing context distractors follow, then a bridge exposes B and C. The unseen future class is Y=(A−8+C−16) mod 8. Thus current H alone cannot identify Y; the historical A is necessary, while A without later C is not the answer. Model output head receives only H. Counterfactual leakage and no-memory identifiability are tested.\n\n"
         "**Read interventions.** At the bridge, the oracle supplies the raw (F+M) read at the observed historical B, saved immediately after exposure 4. It has no episode-specific C or Y. Oracle training uses the existing slow-read normalization/arbitration and clamps fast read to zero. Learned training uses the existing fast/slow route. Zero clamps both read channels; random replaces the slow input with an independent equal-norm vector; shuffled uses a derangement across episodes. These controls use the same interface. F/M lesions zero exactly one component immediately after H scrub, before distractor reads can carry it into H. An induced downstream state change is permitted; external event/write law is unchanged.\n\n"
         "**Optimization and pairing.** Development seeds 8601–8602 each tested LR .001/.0003 across all six arms for 160 AdamW steps and selected common LR .001 by equal-arm/seed held-out CE (2.10779 versus 2.12833). Formal seeds 8701–8708 are independent and disjoint. Each of six arms sees the same 3000 world draws per seed, batch 32 (96,000 train episodes per arm/seed), gradient clip 1.0, weight decay .0001, FP32. B5 arms share exact initialization per seed. Curriculum p_oracle=1/.75/.5/.25/0 over five 600-step blocks; the realized per-step draws are stored. Checkpoints 0/50/100/160/300/500/1000/2000/3000 use the same 256 held-out episodes/seed across arms, conditions and checkpoints. These are repeated paired evaluations, not independent new episodes.\n\n"
         "**Statistics and diagnostics.** Episode CE is averaged within seed; seeds receive equal weight. Gate margins require at least 6/8 seed-level replications at preregistered thresholds; 95% intervals bootstrap independent seeds 2000 times. Finite interventions decide use; gradient/JVP, gate saturation, read norm, train loss and raw state norms are only explanatory diagnostics. A bridge H-step delta in raw records includes event input; isolated raw/gated candidate norms are in the JVP diagnostic file. The pre-formal lesion-timing correction and post-first-seed G37 interpretation caveat are documented in separate amendment notes; no formal threshold changed. Checkpoint tensors, train logs, raw Parquet, source/config/report hashes and integrity manifest live under `results/stage1_6`.\n\n## Answers to the 18 registered questions\n\n")
     final_report += "\n".join(f"{i}. {answer}\n" for i,answer in enumerate(answers,1))
-    final_report += ("\n## Conditional auxiliary Experiment F\n\n"
-                     +("TRIGGERED by the stated condition; an additional separately labeled curriculum run is required before calling this subexperiment complete.\n"
-                       if auxiliary_F_triggered else
-                       "NOT_RUN_BY_CONDITION: the oracle-trained arm was not simultaneously successful with failure of learned-read finite dependence under the operational ≥.01 CE, ≥6/8-seed criterion. The always-run B3 oracle-to-learned curriculum is reported separately.\n"))
+    final_report += "\n## Conditional auxiliary Experiment F\n\n"
+    if auxiliary_F_triggered and auxiliary is not None:
+        final_report+=("TRIGGERED_AND_COMPLETED. The equal-oracle-budget three-phase curriculum is a separately labeled post-trigger experiment, not a fifth gate. "
+                       f"Learned-read benefit ≥.025 replicated in {auxiliary['effects']['aux_D_R']['seeds_above_0.025']}/8 seeds; "
+                       f"M/F-lesion benefit ≥.02 replicated in {auxiliary['effects']['aux_D_M']['seeds_above_0.02']}/8 and {auxiliary['effects']['aux_D_F']['seeds_above_0.02']}/8. "
+                       "See `reports/AUXILIARY_MEMORY_USE_CURRICULUM_STAGE1_6.md`; G34–G37 are unchanged.\n")
+    elif auxiliary_F_triggered:
+        final_report+="TRIGGERED by the stated condition; an additional separately labeled curriculum run is required before calling this subexperiment complete.\n"
+    else:
+        final_report+="NOT_RUN_BY_CONDITION: the oracle-trained arm was not simultaneously successful with failure of learned-read finite dependence under the operational ≥.01 CE, ≥6/8-seed criterion. The always-run B3 oracle-to-learned curriculum is reported separately.\n"
     final_report += legacy_section+"\n## Interpretation and limits\n\n"+adjudication+" The historical oracle is a saved pre-distractor F+M read, so it is an upper-bound delivery intervention, not proof that current slow M retrieves the same content. The H-scrub compositional task is intentionally simpler and more memory-forcing than Stage 1.5's four-family distribution; success here does not retroactively erase its negative results. M/F lesions are one-time at the scrub boundary; the remaining component may later reconsolidate, so their effects are conservative about sustained component necessity. The gates are toy-specific and do not imply human-like memory, consciousness, unlimited information capacity or language-model readiness. Missing/negative outcomes are retained.\n"
     REPORTS.joinpath("STAGE1_6_FINAL_REPORT.md").write_text(final_report)
     manifest=[]
