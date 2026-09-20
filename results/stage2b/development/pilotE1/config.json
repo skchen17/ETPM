@@ -1,0 +1,14 @@
+{
+  "hidden_dim": 64,
+  "latent_slots": 1,
+  "symbol_count": 142,
+  "key_dim": 32,
+  "value_dim": 32,
+  "event_type_dim": 8,
+  "gamma": 0.12,
+  "rho_fast": 0.97,
+  "rho_slow": 0.9995,
+  "eta_external": 0.6,
+  "expression_content_count": 32,
+  "read_epsilon": 1e-06
+}

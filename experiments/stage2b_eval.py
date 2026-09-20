@@ -69,9 +69,13 @@ def result_rows(examples,model,tok,state,logits,diag,condition):
         rows.append({"family":ex.family,"gap":ex.gap,"split":ex.split,"condition":condition,
                      "answer":ex.answer,"candidate":candidate,"candidate_correct":candidate==ex.answer,
                      "raw_predicted":predicted,"raw_exact":predicted==ex.answer,
+                     "answer_logit":float(logits[i,target]),
+                     "candidate_logits":{word:float(logits[i,token_id])
+                                         for word,token_id in zip(ex.candidates,candidates)},
                      "answer_ce":float(F.cross_entropy(logits[i:i+1],torch.tensor([target],device=logits.device))),
                      "answer_probability":float(logits[i].softmax(-1)[target]),
                      "H":float(state.H[i].norm()),"F":float(state.F[i].norm()),"M":float(state.M[i].norm()),
+                     "post_query_H_vector":state.H[i].tolist(),
                      "r_F":float(diag["r_F"][i].norm()),"r_M":float(diag["r_M"][i].norm()),
                      "read":float(diag["read"][i].norm()),
                      "q_F":diag["q_F"][i].tolist(),"q_M":diag["q_M"][i].tolist(),
@@ -322,7 +326,8 @@ def main():
     (args.out/"evaluation.json").write_text(json.dumps(output,indent=2))
     (args.out/"summary.json").write_text(json.dumps({k:v for k,v in output.items() if not k.endswith("records")
                                                       and k not in {"generations","representation","stability"}},indent=2))
-    hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in args.out.iterdir() if p.is_file()}
+    hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in args.out.iterdir()
+            if p.is_file() and p.name!="hashes.json"}
     (args.out/"hashes.json").write_text(json.dumps(hashes,indent=2))
     print(json.dumps({"arm":checkpoint["arm"],"seed":checkpoint["seed"],"size":output["size"],
                       "ID":output["main"]["in_distribution"],"OOD":output["main"]["lexical_ood"],

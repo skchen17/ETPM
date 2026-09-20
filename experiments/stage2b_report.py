@@ -139,7 +139,7 @@ def main():
         outcome="B — contextual KV helps, but retrieval/integration/stability remains limiting"
     else:outcome="C — contextual KV does not materially improve memory behavior"
 
-    train_rows=[]; recall_rows=[]; gap_rows=[]; cf_rows=[]; lesion_rows=[]; generation_rows=[]; stability_rows=[]; null_rows=[]
+    train_rows=[]; recall_rows=[]; gap_rows=[]; family_rows=[]; cf_rows=[]; lesion_rows=[]; generation_rows=[]; stability_rows=[]; null_rows=[]
     for size,seeds in (("small",SEEDS),("medium",(2501,))):
         for arm in ARMS:
             records=[data[(size,s,arm)] for s in seeds]
@@ -185,11 +185,13 @@ def main():
             if arm in {"E0","E1","E2"}:
                 for condition in ("full","F_swap","M_swap","FM_swap","zero","random","H_reset","H_reset_FM_zero"):
                     cf_rows.append({"size":size,"arm":arm,"condition":condition,
+                      "pairs_per_seed":records[0][1]["counterfactual"][condition]["n"],
                       "joint_acc":avg([r[1]["counterfactual"][condition]["joint_accuracy"] for r in records]),
                       "candidate_acc":avg([r[1]["counterfactual"][condition]["candidate_accuracy"] for r in records]),
                       "answer_CE":avg([r[1]["counterfactual"][condition]["mean_answer_ce"] for r in records])})
                 for condition in ("full","H","F","M","FM","zero","random","shuffle"):
                     lesion_rows.append({"size":size,"arm":arm,"condition":condition,
+                      "n_per_seed":records[0][1]["interventions"][condition]["n"],
                       "candidate_acc":avg([r[1]["interventions"][condition]["candidate_accuracy"] for r in records]),
                       "answer_CE":avg([r[1]["interventions"][condition]["answer_ce"] for r in records])})
                 for K in (0,1,2,4,8,16):
@@ -223,6 +225,24 @@ def main():
                       "probe_correct_1000":st["snapshots"]["1000"].get("probe_correct") if st["snapshots"]["1000"] else None})
 
     seed_rows=[]
+    for arm in ARMS:
+        for family in FAMILIES:
+            for split in ("train","ood"):
+                by_seed=[]
+                for seed in SEEDS:
+                    rows=[row for row in data[("small",seed,arm)][1]["main_records"]
+                          if row["family"]==family and row["split"]==split and row["gap"]<=128]
+                    if rows:
+                        by_seed.append({"n":len(rows),"candidate":avg([r["candidate_correct"] for r in rows]),
+                                        "raw":avg([r["raw_exact"] for r in rows]),
+                                        "CE":avg([r["answer_ce"] for r in rows])})
+                if by_seed:
+                    family_rows.append({"arm":arm,"family":family,"split":split,
+                                        "primary_OOD":"yes" if split=="ood" and family in STRICT_OOD_FAMILIES else "no",
+                                        "n_per_seed":by_seed[0]["n"],
+                                        "candidate_acc":avg([r["candidate"] for r in by_seed]),
+                                        "raw_exact":avg([r["raw"] for r in by_seed]),
+                                        "answer_CE":avg([r["CE"] for r in by_seed])})
     for seed in SEEDS:
         for arm in ARMS:
             record=data[("small",seed,arm)][1]
@@ -273,7 +293,27 @@ def main():
         ordering_rows.append({"seed":seed,"arm":"E0_late","ID_acc":eval_record["main"]["in_distribution"]["candidate_accuracy"],
                               "OOD_acc":eval_record["main"]["lexical_ood_strict"]["candidate_accuracy"],
                               "ID_answer_CE":eval_record["main"]["in_distribution"]["answer_ce"],
+                              "pair_joint":eval_record["counterfactual"]["full"]["joint_accuracy"],
+                              "Hreset_gain":eval_record["counterfactual"]["H_reset"]["candidate_accuracy"]-
+                                            eval_record["counterfactual"]["H_reset_FM_zero"]["candidate_accuracy"],
+                              "mem_zero_benefit":eval_record["interventions"]["zero"]["answer_ce"]-
+                                                 eval_record["interventions"]["full"]["answer_ce"],
                               "active_parameters":train_record["active_parameters"]})
+    ordering_comparison_rows=[]
+    if len(ordering_control)==5:
+        late_by_seed={seed:record[1] for seed,record in ordering_control}
+        for arm in ("E1","E2"):
+            id_diff=[metric(s,arm,["main","in_distribution","candidate_accuracy"])-
+                     late_by_seed[s]["main"]["in_distribution"]["candidate_accuracy"] for s in SEEDS]
+            pair_diff=[metric(s,arm,["counterfactual","full","joint_accuracy"])-
+                       late_by_seed[s]["counterfactual"]["full"]["joint_accuracy"] for s in SEEDS]
+            ce_benefit=[late_by_seed[s]["main"]["in_distribution"]["answer_ce"]-
+                        metric(s,arm,["main","in_distribution","answer_ce"]) for s in SEEDS]
+            ordering_comparison_rows.append({"arm_vs_E0_late":arm,
+                "mean_ID_candidate_gain":avg(id_diff),"positive_ID_seeds":sum(x>0 for x in id_diff),
+                "mean_pair_joint_gain":avg(pair_diff),"positive_pair_seeds":sum(x>0 for x in pair_diff),
+                "mean_answer_CE_benefit":avg(ce_benefit),
+                "positive_CE_seeds":sum(x>0 for x in ce_benefit)})
     active_rows=[]
     for seed,(train_record,eval_record) in active_control:
         active_rows.append({"seed":seed,"hidden":train_record["hidden_dim"],
@@ -328,9 +368,13 @@ def main():
             table(recall_rows), "", "### Gap-by-gap recall, including 256/512/1024 extrapolation", "",
             "For strict OOD gaps 32–128, only the four train/OOD-disjoint answer-pair families are included; "
             "long gaps use attribute/interference, exactly as generated. Each cell gives examples per seed.", "",
-            table(gap_rows), "", "### Independent formal seed records", "",table(seed_rows), "",
+            table(gap_rows), "", "### Family-by-family recall (small model, five seeds)", "",
+            "Only OOD rows marked `primary_OOD=yes` contribute to the strict lexical-OOD headline. "
+            "The other OOD family rows are exploratory and retained to expose template/recency shortcuts.", "",
+            table(family_rows), "", "### Independent formal seed records", "",table(seed_rows), "",
             "### Optional E0-late ordering control (not part of G38–G41)", "",
-            table(ordering_rows), "",
+            table(ordering_rows), "", "Paired contextual-minus-ordering-control comparisons:", "",
+            table(ordering_comparison_rows), "",
             "The optional controls were trained on CPU while mandatory formal arms used GPU. "
             "This is a numerical/hardware caveat for close differences; data, seeds and optimizer schedule are otherwise matched.", "",
             "### Optional GRU-76 active-parameter control (not part of G38–G41)", "",
@@ -403,29 +447,44 @@ def main():
     def intervention(arm,condition,field):return pick(lesion_rows,size="small",arm=arm,condition=condition)[field]
     def gen(arm,decoder,field):return pick(generation_rows,size="small",arm=arm,decoder=decoder)[field]
     def null(arm,K,field):return pick(null_rows,size="small",arm=arm,K=K)[field]
+    stability_small={arm:[r for r in stability_rows if r["size"]=="small" and r["arm"]==arm]
+                     for arm in ("E1","E2")}
+    h5000={arm:avg([r["H_5000"] for r in rows if r["H_5000"] is not None])
+           for arm,rows in stability_small.items()}
+    h1000_breach={arm:sum(r["first_H_1000"] is not None for r in rows)
+                  for arm,rows in stability_small.items()}
+    relatively_stable=min(("E1","E2"),key=lambda arm:h5000[arm])
+    h_revision_warranted=any(h1000_breach[arm]>=4 for arm in ("E1","E2"))
+    late_summary=(f"E1/E2 mean ID candidate gain vs E0-late "
+                  f"{ordering_comparison_rows[0]['mean_ID_candidate_gain']:+.3f}/"
+                  f"{ordering_comparison_rows[1]['mean_ID_candidate_gain']:+.3f}"
+                  if len(ordering_comparison_rows)==2 else "ordering control unavailable")
+    gru_lm_stronger=train_ce("GRU")<min(train_ce(a) for a in ("E0","E1","E2"))
+    gru_recall_stronger=recall("GRU","ID","candidate_acc")>max(
+        recall(a,"ID","candidate_acc") for a in ("E0","E1","E2"))
     q_and_a=[
-      ("1. Contextual KV improves basic LM?",f"E0/E1/E2 mean CE {train_ce('E0'):.3f}/{train_ce('E1'):.3f}/{train_ce('E2'):.3f}; lower is better."),
-      ("2. Improves associative recall?",f"ID candidate E0/E1/E2 {recall('E0','ID','candidate_acc'):.3f}/{recall('E1','ID','candidate_acc'):.3f}/{recall('E2','ID','candidate_acc'):.3f}; G38={gates['G38']}."),
-      ("3. E1 or E2 more stable?",f"Compare all 5-seed first-H>1000/H5000 rows above; E1 ID accuracy {recall('E1','ID','candidate_acc'):.3f}, E2 {recall('E2','ID','candidate_acc'):.3f}. No single-sample stability claim."),
-      ("4. Raw token KV the main bottleneck?",f"G38={gates['G38']}; ordering-matched E0_late has {len(ordering_rows)}/5 seeds. Any gain is not solely encoding without this control."),
-      ("5. Counterfactual binding established?",f"Pair joint E0/E1/E2 {cf('E0','full','joint_acc'):.3f}/{cf('E1','full','joint_acc'):.3f}/{cf('E2','full','joint_acc'):.3f} vs chance 0.25; G39={gates['G39']}."),
-      ("6. Same tokens, swapped relations distinguished?",f"Correct paired joint accuracy best contextual {cf(best,'full','joint_acc'):.3f}; both answers must switch, not just one."),
-      ("7. Correct memory reduces answer CE?",f"Best arm {best}: full CE {intervention(best,'full','answer_CE'):.3f}, zero CE {intervention(best,'zero','answer_CE'):.3f}."),
-      ("8. Zero/random/shuffled worse?",f"Best arm {best} CE controls {intervention(best,'zero','answer_CE'):.3f}/{intervention(best,'random','answer_CE'):.3f}/{intervention(best,'shuffle','answer_CE'):.3f} vs correct {intervention(best,'full','answer_CE'):.3f}; G41={gates['G41']}."),
-      ("9. H-reset peripheral benefit?",f"Best arm H-reset candidate {cf(best,'H_reset','candidate_acc'):.3f} vs H-reset+FM0 {cf(best,'H_reset_FM_zero','candidate_acc'):.3f}; G40={gates['G40']}."),
+      ("1. Contextual KV improves basic LM?",f"No in this protocol: E0/E1/E2 mean CE {train_ce('E0'):.3f}/{train_ce('E1'):.3f}/{train_ce('E2'):.3f}; lower is better."),
+      ("2. Improves associative recall?",f"No: ID candidate E0/E1/E2 {recall('E0','ID','candidate_acc'):.3f}/{recall('E1','ID','candidate_acc'):.3f}/{recall('E2','ID','candidate_acc'):.3f}; G38={gates['G38']}."),
+      ("3. E1 or E2 more stable?",f"{relatively_stable} has lower five-seed mean H5000 ({h5000[relatively_stable]:.1f}); E1/E2 means {h5000['E1']:.1f}/{h5000['E2']:.1f}, H>1000 in {h1000_breach['E1']}/5 and {h1000_breach['E2']}/5. Relative advantage does not establish stability."),
+      ("4. Raw token KV the main bottleneck?",f"{'Not established' if not (gates['G38'] and ordering_specific) else 'Supported within this protocol'}: G38={gates['G38']}, ordering-specific={ordering_specific}; {late_summary}."),
+      ("5. Counterfactual binding established?",f"Pair joint E0/E1/E2 {cf('E0','full','joint_acc'):.3f}/{cf('E1','full','joint_acc'):.3f}/{cf('E2','full','joint_acc'):.3f} vs chance 0.25; G39={gates['G39']}. E0-late mean={avg([r['pair_joint'] for r in ordering_rows]):.3f} when available."),
+      ("6. Same tokens, swapped relations distinguished?",f"Not reliably: correct paired joint accuracy best contextual {cf(best,'full','joint_acc'):.3f}; both answers must switch, not just one."),
+      ("7. Correct memory reduces answer CE?",f"No aggregate benefit for best arm {best}: full CE {intervention(best,'full','answer_CE'):.3f}, zero CE {intervention(best,'zero','answer_CE'):.3f}."),
+      ("8. Zero/random/shuffled worse?",f"Not consistently: best arm {best} CE controls {intervention(best,'zero','answer_CE'):.3f}/{intervention(best,'random','answer_CE'):.3f}/{intervention(best,'shuffle','answer_CE'):.3f} vs correct {intervention(best,'full','answer_CE'):.3f}; G41={gates['G41']}."),
+      ("9. H-reset peripheral benefit?",f"No reproducible benefit: best arm H-reset candidate {cf(best,'H_reset','candidate_acc'):.3f} vs H-reset+FM0 {cf(best,'H_reset_FM_zero','candidate_acc'):.3f}; G40={gates['G40']}."),
       ("10. Separate F/M lesions?",f"Best arm full/F0/M0/FM0 answer CE {intervention(best,'full','answer_CE'):.3f}/{intervention(best,'F','answer_CE'):.3f}/{intervention(best,'M','answer_CE'):.3f}/{intervention(best,'FM','answer_CE'):.3f}; M necessity was not a gate."),
-      ("11. Lexical OOD benefit?",f"Strict OOD candidate E0/E1/E2 {recall('E0','strict lexical OOD','candidate_acc'):.3f}/{recall('E1','strict lexical OOD','candidate_acc'):.3f}/{recall('E2','strict lexical OOD','candidate_acc'):.3f}."),
-      ("12. GRU still stronger?",f"GRU/E0/{best} basic CE {train_ce('GRU'):.3f}/{train_ce('E0'):.3f}/{train_ce(best):.3f}; ID candidate {recall('GRU','ID','candidate_acc'):.3f}/{recall('E0','ID','candidate_acc'):.3f}/{recall(best,'ID','candidate_acc'):.3f}."),
-      ("13. Long-gap advantage?",f"256+ candidate GRU/E0/{best} {recall('GRU','256+','candidate_acc'):.3f}/{recall('E0','256+','candidate_acc'):.3f}/{recall(best,'256+','candidate_acc'):.3f}; this is extrapolation."),
-      ("14. Semantic organization in KV?",f"See same-entity/different-value, same-value/different-entity and cross-relation cosine diagnostics; geometry alone is descriptive."),
-      ("15. Causal intervention support?",f"G41={gates['G41']}; correct-vs-swapped/zero CE, not cosine, carries the behavioral evidence."),
-      ("16. Better free generation?",f"Greedy semantic-answer accuracy E0/E1/E2 {gen('E0','greedy','semantic_acc'):.3f}/{gen('E1','greedy','semantic_acc'):.3f}/{gen('E2','greedy','semantic_acc'):.3f}; different data/objective prevent a controlled Stage 2A cross-stage estimate."),
-      ("17. EOS/punctuation collapse?",f"Best arm {best} greedy EOS {gen(best,'greedy','EOS'):.3f}, punctuation-only {gen(best,'greedy','punct_only'):.3f}, whole-answer exact {gen(best,'greedy','whole_exact'):.3f}."),
-      ("18. NULL ticks harmful?",f"{best} answer CE K0→K16 {null(best,0,'answer_CE'):.3f}→{null(best,16,'answer_CE'):.3f}; H {null(best,0,'H'):.2f}→{null(best,16,'H'):.2f}."),
-      ("19. H norm growth remains?",f"First-H>1000 and H5000 are per seed in Section 9; a finite trajectory is not a boundedness proof."),
-      ("20. Modify H dynamics?",f"The separate alpha diagnostic, if available, tests norm-control vs recall tradeoff. Do not merge it with contextual-KV gates."),
+      ("11. Lexical OOD benefit?",f"No: strict OOD candidate E0/E1/E2 {recall('E0','strict lexical OOD','candidate_acc'):.3f}/{recall('E1','strict lexical OOD','candidate_acc'):.3f}/{recall('E2','strict lexical OOD','candidate_acc'):.3f}."),
+      ("12. GRU still stronger?",f"Basic LM stronger={gru_lm_stronger}; recall stronger={gru_recall_stronger}. GRU/E0/{best} basic CE {train_ce('GRU'):.3f}/{train_ce('E0'):.3f}/{train_ce(best):.3f}; ID candidate {recall('GRU','ID','candidate_acc'):.3f}/{recall('E0','ID','candidate_acc'):.3f}/{recall(best,'ID','candidate_acc'):.3f}."),
+      ("13. Long-gap advantage?",f"No contextual advantage: 256+ candidate GRU/E0/{best} {recall('GRU','256+','candidate_acc'):.3f}/{recall('E0','256+','candidate_acc'):.3f}/{recall(best,'256+','candidate_acc'):.3f}; this is extrapolation."),
+      ("14. Semantic organization in KV?",f"Not established functionally. See same-entity/different-value, same-value/different-entity and cross-relation cosine diagnostics; geometry alone is descriptive."),
+      ("15. Causal intervention support?",f"G41={gates['G41']}; best arm {best} pair full/FM-swap CE {cf(best,'full','answer_CE'):.3f}/{cf(best,'FM_swap','answer_CE'):.3f} and unrelated-example full/zero CE {intervention(best,'full','answer_CE'):.3f}/{intervention(best,'zero','answer_CE'):.3f}. Geometry alone is insufficient."),
+      ("16. Better free generation?",f"No vs E0: greedy semantic-answer accuracy E0/E1/E2 {gen('E0','greedy','semantic_acc'):.3f}/{gen('E1','greedy','semantic_acc'):.3f}/{gen('E2','greedy','semantic_acc'):.3f}; different data/objective prevent a controlled Stage 2A cross-stage estimate."),
+      ("17. EOS/punctuation collapse?",f"Not predominant for {best}, but no whole-answer success: greedy EOS {gen(best,'greedy','EOS'):.3f}, punctuation-only {gen(best,'greedy','punct_only'):.3f}, whole-answer exact {gen(best,'greedy','whole_exact'):.3f}."),
+      ("18. NULL ticks harmful?",f"No uniform short-horizon deterioration: {best} answer CE K0→K16 {null(best,0,'answer_CE'):.3f}→{null(best,16,'answer_CE'):.3f}; H still rises {null(best,0,'H'):.2f}→{null(best,16,'H'):.2f}."),
+      ("19. H norm growth remains?",f"H>1000 occurred in E1 {h1000_breach['E1']}/5 and E2 {h1000_breach['E2']}/5 mixed streams; mean H5000 {h5000['E1']:.1f}/{h5000['E2']:.1f}. Finite trajectories are not boundedness proofs."),
+      ("20. Modify H dynamics?",f"{'Yes: separately prioritize stability redesign' if h_revision_warranted else 'Not yet established by the registered 5000-tick threshold'}, while preserving the contextual-KV comparison. The exploratory alpha diagnostic reports norm and recall jointly."),
       ("21. Priority next?",f"Given Outcome {outcome[0]}, prioritize functional routing/encoding discrimination, generation feedback and H stability before capacity scaling."),
-      ("22. Larger language prototype justified?",f"Only if robust binding, intervention benefit and safe long-running behavior replicate; current gate vector is {gates}."),
+      ("22. Larger language prototype justified?",f"No on this controlled synthetic evidence alone; current gate vector is {gates}. Robust out-of-template binding, useful memory interventions, free generation and long-run stability need replication."),
     ]
     report += ["### Direct 22-question answer matrix", "",table([{"question":q,"measured answer":a} for q,a in q_and_a]), ""]
     report += [f"1. Contextual KV basic LM: compare CE/PPL in Section 3; GRU remains the training-strength reference.",
@@ -463,9 +522,11 @@ def main():
     summary={"outcome":outcome,"gates":gates,"g38_by_arm":g38,"g39_by_arm":g39,"g40_by_arm":g40,
              "g41_by_arm":g41,"ordering_specific":ordering_specific,
              "seed_rows":seed_rows,"train_rows":train_rows,"recall_rows":recall_rows,"gap_rows":gap_rows,
+             "family_rows":family_rows,
              "counterfactual_rows":cf_rows,"lesion_rows":lesion_rows,"generation_rows":generation_rows,
              "stability_rows":stability_rows,"null_rows":null_rows,"contextual_gains":gain,
-             "ordering_control_rows":ordering_rows,"active_control_rows":active_rows,
+             "ordering_control_rows":ordering_rows,"ordering_comparison_rows":ordering_comparison_rows,
+             "active_control_rows":active_rows,
              "stabilization_rows":stabilization_rows,"answer_label_audit":answer_balance}
     (processed/"formal_summary.json").write_text(json.dumps(summary,indent=2))
     project=args.report.parent.parent

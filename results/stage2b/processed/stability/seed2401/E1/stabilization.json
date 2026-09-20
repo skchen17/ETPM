@@ -1,0 +1,88 @@
+{
+  "arm": "E1",
+  "seed": 2401,
+  "size": 64,
+  "design": "post-training forward-hook scales core_out proposal; no retraining, not a formal contextual-KV arm",
+  "results": [
+    {
+      "alpha": 1.0,
+      "recall": {
+        "n": 16,
+        "candidate_accuracy": 0.375,
+        "raw_accuracy": 0.375,
+        "answer_ce": 1.9607190117239952,
+        "H": 99.63043451309204,
+        "F": 2.671508178114891,
+        "M": 3.2849845588207245,
+        "r_F": 0.06517033092677593,
+        "r_M": 0.8601078577339649
+      },
+      "completed": 5000,
+      "first_H_gt_100": 139,
+      "first_H_gt_1000": 881,
+      "first_nonfinite": null,
+      "H_at_1000": 1161.6737060546875,
+      "H_at_5000": 6824.87548828125
+    },
+    {
+      "alpha": 0.5,
+      "recall": {
+        "n": 16,
+        "candidate_accuracy": 0.375,
+        "raw_accuracy": 0.375,
+        "answer_ce": 2.2903159633278847,
+        "H": 58.10858869552612,
+        "F": 1.708796851336956,
+        "M": 3.5474004298448563,
+        "r_F": 0.3648291826248169,
+        "r_M": 2.1581620946526527
+      },
+      "completed": 5000,
+      "first_H_gt_100": 193,
+      "first_H_gt_1000": 1221,
+      "first_nonfinite": null,
+      "H_at_1000": 810.3261108398438,
+      "H_at_5000": 4242.07861328125
+    },
+    {
+      "alpha": 0.25,
+      "recall": {
+        "n": 16,
+        "candidate_accuracy": 0.1875,
+        "raw_accuracy": 0.125,
+        "answer_ce": 3.1672470569610596,
+        "H": 60.05029511451721,
+        "F": 1.048812661319971,
+        "M": 3.9960203617811203,
+        "r_F": 0.3827871046960354,
+        "r_M": 2.6835934668779373
+      },
+      "completed": 5000,
+      "first_H_gt_100": 234,
+      "first_H_gt_1000": 1850,
+      "first_nonfinite": null,
+      "H_at_1000": 517.0228881835938,
+      "H_at_5000": 2809.586181640625
+    },
+    {
+      "alpha": 0.1,
+      "recall": {
+        "n": 16,
+        "candidate_accuracy": 0.125,
+        "raw_accuracy": 0.0,
+        "answer_ce": 3.442169174551964,
+        "H": 67.74817848205566,
+        "F": 1.0838140100240707,
+        "M": 4.824685990810394,
+        "r_F": 0.3289562687277794,
+        "r_M": 3.2254493683576584
+      },
+      "completed": 5000,
+      "first_H_gt_100": 250,
+      "first_H_gt_1000": 2641,
+      "first_nonfinite": null,
+      "H_at_1000": 378.9640808105469,
+      "H_at_5000": 1893.7928466796875
+    }
+  ]
+}

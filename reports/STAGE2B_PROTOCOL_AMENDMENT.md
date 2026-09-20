@@ -44,3 +44,14 @@ branches, so nominal parameter equality exaggerates active matching. A
 separately labeled GRU-76 diagnostic is registered to approach contextual-arm
 active parameter count. It uses the same five seeds, data and 1000-step
 schedule; it does not alter the mandatory GRU-64 baseline or gates.
+
+During formal execution, the evaluation record was extended with target and
+candidate logits and the post-question H vector, in addition to the already
+recorded q/read vectors and H norm. Completed checkpoints were re-evaluated
+deterministically with the same evaluation seed, examples, interventions and
+scoring code; this only adds raw diagnostic fields. It changes no checkpoint,
+metric definition, sample count, gate or formal conclusion rule. The final
+`evaluation.json` and hashes are the authoritative enriched records.
+Per-run hash generation excludes its own `hashes.json` on deterministic
+re-evaluation, avoiding a stale self-hash; final manifests are regenerated
+after all records finish.

@@ -49,6 +49,25 @@ def test_no_future_target_leakage_and_same_step_read_before_write():
         assert float(diag_a["external_update"].norm())>0
 
 
+def test_nonzero_old_memory_read_is_not_contaminated_by_current_write():
+    model=net("E1")
+    state=model.initial_state(1)
+    state,_,_=model.step_token(state,torch.tensor([5]))
+    old=state.clone()
+    token=torch.tensor([6])
+    from etrcm.stage1_3.events import evidence_event
+    event=evidence_event(token,token)
+    encoded=model.event_encoder(event).to(old.H.dtype)
+    H_pre=old.H+model.event_to_slots(encoded).view_as(old.H)
+    q_F,q_M=model._queries(H_pre)
+    old_reads=model._read_stage14(old.F,old.M,q_F,q_M,H_pre,encoded)
+    newer,_,diag=model.step_token(state,token)
+    assert torch.allclose(diag["read_pre_write_F"],old_reads["r_F"],atol=1e-6)
+    assert torch.allclose(diag["read_pre_write_M"],old_reads["r_M"],atol=1e-6)
+    assert float(diag["external_update"].norm())>0
+    assert not torch.equal(newer.F,old.F)
+
+
 def test_answer_target_is_shifted_after_prefix_not_in_current_event():
     example=make_association(random.Random(99),"attribute",16,"train")
     tok=WordTokenizer.fit([example.text])

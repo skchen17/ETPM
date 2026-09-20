@@ -1,0 +1,53 @@
+{
+  "arm": "E1",
+  "seed": 1102,
+  "steps": 100,
+  "batch_size": 16,
+  "hidden_dim": 64,
+  "vocab_size": 142,
+  "nominal_parameters": 155531,
+  "active_parameters": 76977,
+  "memory_state_bytes": 8448,
+  "elapsed_s": 106.0013227649033,
+  "tokens_seen": 126556,
+  "compute_seconds_per_token": 0.0008375843435799295,
+  "validation": {
+    "basic": {
+      "CE": 4.155621608098348,
+      "PPL": 63.79160560458594,
+      "answer_CE": null,
+      "n": 30
+    },
+    "memory_id": {
+      "CE": 4.951140435536702,
+      "PPL": 141.33605670773497,
+      "answer_CE": 4.0262344678243,
+      "n": 30
+    },
+    "memory_ood": {
+      "CE": 4.935869344075521,
+      "PPL": 139.194097512733,
+      "answer_CE": 3.977011871337891,
+      "n": 30
+    },
+    "reasoning": {
+      "CE": 4.50531218846639,
+      "PPL": 90.49659163150992,
+      "answer_CE": 3.541621955235799,
+      "n": 30
+    }
+  },
+  "train_counts": {
+    "association": 4800,
+    "basic": 800,
+    "reasoning": 800
+  },
+  "validation_counts": {
+    "basic": 100,
+    "memory_id": 180,
+    "memory_ood": 180,
+    "reasoning": 100
+  },
+  "objective": "mean next-token CE + 4*answer-token CE for association/reasoning episodes",
+  "optimizer": "AdamW lr=5e-4; parameter gradient clip=1; no state clip"
+}
