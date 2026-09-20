@@ -1,0 +1,61 @@
+{
+  "scope": "exploratory original Stage 1.5 objective, 128-distractor long-gap only",
+  "mean_effect_3000_minus_160": {
+    "learned": -0.7244226410102783,
+    "no_read": -0.7235810114948436,
+    "oracle_closed_loop": -0.7233692336531021,
+    "oracle_static": -0.7231675458858717,
+    "random": -0.7242532855314039,
+    "shuffled": -0.7243023434953102,
+    "zero": -0.7235387568459828,
+    "oracle_vs_no_read": -0.00041346560897181917,
+    "oracle_vs_random": -0.0010857396455321577,
+    "oracle_vs_shuffled": -0.0011347976094384649,
+    "learned_vs_no_read": 0.0008416295154347608
+  },
+  "oracle_benefit_seeds_at_least_0.01_by_checkpoint": {
+    "0": 0,
+    "50": 1,
+    "100": 1,
+    "160": 1,
+    "300": 0,
+    "500": 0,
+    "1000": 2,
+    "2000": 0,
+    "3000": 1
+  },
+  "seed_manifest": [
+    {
+      "seed": 8701,
+      "summary_sha256": "3d9077197d56d8c7aaeeb97871b63d61eb9cac6761ec669ed95c1304fecf9f75"
+    },
+    {
+      "seed": 8702,
+      "summary_sha256": "b1ff62c9f3b058e440676ca751ac4308cf32c257c967dd0033f384c8260f69f7"
+    },
+    {
+      "seed": 8703,
+      "summary_sha256": "f3163b2ebb5a7006cfef415d36dcf82e5619d505380cbb9ff1bcc4e668ac1130"
+    },
+    {
+      "seed": 8704,
+      "summary_sha256": "5aaef751d44cb5cc4d8338692c6703a5782997e5b3a3b3d61078402582121622"
+    },
+    {
+      "seed": 8705,
+      "summary_sha256": "86fc158ef9db45c2d0862ed786500cc821195062bdee93715f615644e9ee5061"
+    },
+    {
+      "seed": 8706,
+      "summary_sha256": "76a5004e9fa75bf6fc2d84358aad1fd1bd4d9edb2e30c6890399686cbb1cbbf2"
+    },
+    {
+      "seed": 8707,
+      "summary_sha256": "7031d24bc4db81c4c7ce99bc8329fb32ad126152f3bd048e3e7b77dcc0ed15d9"
+    },
+    {
+      "seed": 8708,
+      "summary_sha256": "8c9eff6b85e1de40e848c77b37f73ec51f7cf88d76d4fe0fabc6ac36791c088c"
+    }
+  ]
+}

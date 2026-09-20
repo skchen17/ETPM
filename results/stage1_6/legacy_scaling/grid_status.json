@@ -1,0 +1,42 @@
+[
+  {
+    "seed": 8701,
+    "exit_code": 0,
+    "log": "results/stage1_6/legacy_scaling/B5_seed8701.log"
+  },
+  {
+    "seed": 8702,
+    "exit_code": 0,
+    "log": "results/stage1_6/legacy_scaling/B5_seed8702.log"
+  },
+  {
+    "seed": 8703,
+    "exit_code": 0,
+    "log": "results/stage1_6/legacy_scaling/B5_seed8703.log"
+  },
+  {
+    "seed": 8704,
+    "exit_code": 0,
+    "log": "results/stage1_6/legacy_scaling/B5_seed8704.log"
+  },
+  {
+    "seed": 8705,
+    "exit_code": 0,
+    "log": "results/stage1_6/legacy_scaling/B5_seed8705.log"
+  },
+  {
+    "seed": 8706,
+    "exit_code": 0,
+    "log": "results/stage1_6/legacy_scaling/B5_seed8706.log"
+  },
+  {
+    "seed": 8707,
+    "exit_code": 0,
+    "log": "results/stage1_6/legacy_scaling/B5_seed8707.log"
+  },
+  {
+    "seed": 8708,
+    "exit_code": 0,
+    "log": "results/stage1_6/legacy_scaling/B5_seed8708.log"
+  }
+]

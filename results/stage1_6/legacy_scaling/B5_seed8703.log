@@ -1,0 +1,9 @@
+{"seed": 8703, "checkpoint": 0, "elapsed_s": 0.4}
+{"seed": 8703, "checkpoint": 50, "elapsed_s": 3.5}
+{"seed": 8703, "checkpoint": 100, "elapsed_s": 6.6}
+{"seed": 8703, "checkpoint": 160, "elapsed_s": 10.3}
+{"seed": 8703, "checkpoint": 300, "elapsed_s": 18.4}
+{"seed": 8703, "checkpoint": 500, "elapsed_s": 29.7}
+{"seed": 8703, "checkpoint": 1000, "elapsed_s": 57.5}
+{"seed": 8703, "checkpoint": 2000, "elapsed_s": 113.2}
+{"seed": 8703, "checkpoint": 3000, "elapsed_s": 168.7}

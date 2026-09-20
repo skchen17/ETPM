@@ -1,0 +1,19 @@
+{
+  "seed": 8701,
+  "steps": 3000,
+  "source": "frozen Stage 1.5 four-family objective",
+  "eval_gap": 128,
+  "hashes": {
+    "checkpoint_0000.pt": "13cc65c4778fc317b8acfbf9a9cd22f92f661c589e9871a8d36fea8ab5c3e059",
+    "checkpoint_0050.pt": "b7f1a50a059bff911827035851fd66875f909a67fdc7f16ed0dabf4389ae454d",
+    "checkpoint_0100.pt": "8c80403a474eef94427e7ea5efc39b5a1f8bf9a324c15bcdb864fc3c753746ed",
+    "checkpoint_0160.pt": "606a8320ce3816cb5426ee1ad76abfe16cdc4b31474d15b0b7c033fca85d3d38",
+    "checkpoint_0300.pt": "a094189221c49b4060471a0ca714bd006eb68bf35f62f2fa5a6c44a1e5f56d91",
+    "checkpoint_0500.pt": "3d8907411cf2f32e73e29d6d42dd7cf04b22254955f914db5be3e3cccfb6fa79",
+    "checkpoint_1000.pt": "0595515d7b639a0dea9e5db50d442d5494018cceae9962236ac00b7af283d81b",
+    "checkpoint_2000.pt": "50a374bc604959582dad021e9cf9bc3fe69c6615bc38c111bae1bf588a272a3c",
+    "checkpoint_3000.pt": "b328dffb8a41f68b6d703f60bd4e630e26c44a534b59e658130135e90350b378",
+    "oracle_interventions.parquet": "f541ec78ec7b1b242c99de26b6e21405202aa21a76e47d77e7242411992de0f8",
+    "train_log.parquet": "8db23e892026bdbd9e8b29d1bb6ec2394214d7709e6c6a81f096d77196c91c92"
+  }
+}
