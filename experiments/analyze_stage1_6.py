@@ -10,6 +10,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import yaml
+from etrcm.stage1_6.runner import choose_oracle, oracle_probability
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -128,6 +129,12 @@ def main() -> None:
                     if int((part[measure] >= .01).sum()) >= minimum]
         onset[f"{arm}_{measure}_at_least_0.01_in_6_seeds"] = min(crossing) if crossing else None
     PROCESSED.mkdir(parents=True, exist_ok=True)
+    schedule=pd.DataFrame([
+        {"seed":seed,"step":step,"p_oracle":oracle_probability(step,final_step),
+         "oracle_selected":choose_oracle(step,final_step,seed=seed)}
+        for seed in CONFIG["training"]["formal_seeds"] for step in range(final_step)
+    ])
+    schedule.to_parquet(PROCESSED/"curriculum_schedule.parquet",index=False)
     records.to_parquet(PROCESSED/"all_interventions.parquet", index=False)
     paired.to_parquet(PROCESSED/"seed_checkpoint_condition.parquet", index=False)
     wide.to_parquet(PROCESSED/"seed_checkpoint_effects.parquet", index=False)
@@ -151,6 +158,13 @@ def main() -> None:
             if diagnostic_path.exists():
                 j=pd.read_parquet(diagnostic_path)
                 extra="\n## JVP and recurrent-gate diagnostics\n\n"+j.groupby(["arm","step"]).mean(numeric_only=True).round(5).reset_index().drop(columns=["seed"]).to_markdown(index=False)+"\n"
+        if report_name=="ORACLE_TO_LEARNED_CURRICULUM_STAGE1_6.md":
+            schedule_table=(schedule.assign(quintile=schedule.step//(final_step//5))
+                            .groupby("quintile").agg(steps=("step","count"),
+                                                      target_p=("p_oracle","mean"),
+                                                      realized_oracle_fraction=("oracle_selected","mean"))
+                            .round(5).reset_index().to_markdown(index=False))
+            extra="\n## Curriculum schedule and realized sampling\n\n"+schedule_table+"\n"
         REPORTS.joinpath(report_name).write_text(
             f"# {title}\n\nProtocol: `reports/STAGE1_6_PROTOCOL.md`. Eight independent formal seeds, 256 paired held-out episodes/seed/checkpoint, 3000 equal-budget AdamW steps, H scrub after four real B→A exposures, eight non-writing distractors, bridge (B,C), future target (A+C) mod 8. Smaller CE is better. Read interventions happen only at bridge; component lesions begin immediately after H scrub. Gate thresholds were frozen before formal data.\n\n"+
             table.to_markdown(index=False)+"\n\nThe `candidate_update` column in episode records is the total bridge H-step delta (including event input), not the isolated gated candidate; exact raw/gated candidate norms are in the separate JVP diagnostics. Gradients and read norms are diagnostics, not proof of use. Seed-level paired effects and confidence intervals are in `results/stage1_6/processed/stage1_6-formal-v1/gate_summary.json`.\n"+extra)
