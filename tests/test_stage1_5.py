@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 from dataclasses import replace
+import subprocess
+from pathlib import Path
 
 import pytest
 import torch
@@ -12,7 +14,14 @@ from etrcm.stage1_3.events import self_output_event
 from etrcm.stage1_4.model import Stage14Config
 from etrcm.stage1_4.world import generate_world
 from etrcm.stage1_5.interventions import CHANNELS, finite_read_intervention, swap_components
+from etrcm.stage1_5.capacity import evaluate_associative_capacity, evaluate_capacity_prediction
+from etrcm.stage1_5.evaluation import (
+    evaluate_anatomy, evaluate_oracle, evaluate_perturbations,
+    evaluate_read_mediation, evaluate_stability,
+)
 from etrcm.stage1_5.model import AnatomicalETRCM
+from etrcm.stage1_5.precision import evaluate_precision
+from etrcm.stage1_5.probes import evaluate_observability, evaluate_timescales
 from etrcm.stage1_5.routing import (
     build_historical_bank, closed_loop_oracle_read, static_oracle_read,
 )
@@ -56,6 +65,19 @@ def test_read_restore_changes_read_not_stored_memory(model: AnatomicalETRCM) -> 
         swapped.M + output["transfer"]
     ))
     assert not torch.equal(swapped.M, base.M)
+
+
+def test_unclamped_read_interface_matches_frozen_transition(model: AnatomicalETRCM) -> None:
+    world = generate_world("long_gap_relation", batch=4, length=16, seed=1520)
+    state = model.initial_state(4)
+    state, _ = model.step(state, world.events[0])
+    qf, qm = model._queries(state.H)
+    raw_m = torch.einsum("bvk,bk->bv", state.M, qm)
+    standard, _ = model.step(state.clone(), None)
+    clamped, _ = model.step_with_read(state.clone(), None, slow_read_override=raw_m)
+    for component in "HFM":
+        torch.testing.assert_close(getattr(standard, component), getattr(clamped, component),
+                                   atol=1e-7, rtol=1e-6)
 
 
 def test_oracle_is_historical_only_and_distinct_from_future_label(model: AnatomicalETRCM) -> None:
@@ -154,3 +176,50 @@ def test_bf16_vs_shadow_small_update_diagnostic() -> None:
     assert float(sh_fast) == pytest.approx((1 - gamma) ** steps, rel=1e-4)
     assert float(bf_fast) == 1.0  # the tiny subtraction was rounded away
     assert float(bf_slow) < 0.5 * float(sh_slow)  # accumulation also stalled
+
+
+def test_architecture_and_routing_smoke(model: AnatomicalETRCM) -> None:
+    device = torch.device("cpu")
+    assert evaluate_stability(model, seed=1, run_id="smoke", device=device, batch=2, ticks=2)
+    assert evaluate_perturbations(
+        model, seed=1, run_id="smoke", device=device, batch=2, checkpoints=(0, 1, 2)
+    )
+    assert evaluate_anatomy(model, seed=1, run_id="smoke", device=device, batch=4)
+    assert evaluate_read_mediation(model, seed=1, run_id="smoke", device=device, batch=4)
+    oracle_rows = evaluate_oracle(model, seed=1, run_id="smoke", device=device,
+                                  gaps=(8,), batch=4)
+    assert {row["intervention_condition"] for row in oracle_rows} == {
+        "learned", "zero", "no_read", "random", "shuffled", "oracle_static", "oracle_closed_loop"
+    }
+
+
+def test_capacity_probe_precision_smoke(model: AnatomicalETRCM) -> None:
+    device = torch.device("cpu")
+    assert evaluate_associative_capacity(
+        model, seed=1, run_id="smoke", device=device,
+        counts=(1, 2), distractor_grid=(0, 2),
+    )
+    assert evaluate_capacity_prediction(
+        model, seed=1, run_id="smoke", device=device,
+        batch=2, max_gap=8, distractor_grid=(0, 8),
+    )
+    assert evaluate_timescales(
+        model, seed=1, run_id="smoke", device=device,
+        train_episodes=8, test_episodes=4, lags=(1, 2),
+    )
+    assert evaluate_observability(
+        model, seed=1, run_id="smoke", device=device,
+        train_per_family=8, test_per_family=4,
+    )
+    assert len(evaluate_precision(run_id="smoke")) == 12
+
+
+def test_prior_frozen_artifacts_have_no_tracked_edits() -> None:
+    root = Path(__file__).resolve().parents[1]
+    result = subprocess.run(
+        ["git", "diff", "--name-only", "13671106e0602326e9fd84de9493568e24ff003f", "--",
+         "README.md", "configs/stage1_4_v1a1.yaml", "reports/STAGE1_4_FINAL_REPORT.md",
+         "results/stage1_4", "artifacts/stage1_4_all_assets.sha256"],
+        cwd=root, capture_output=True, text=True, check=True,
+    )
+    assert not result.stdout.strip()
