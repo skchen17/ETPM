@@ -77,9 +77,10 @@ def main() -> None:
         "no JVP substitutes for these rollouts. G27 uses maximum state norm, "
         "prediction JS drift, and median finite-perturbation growth.",
         f"G27: **{gates['G27']}**. Per-seed maximums:\n\n" + table(
-            ("Seed", "Max norm", "Max JS", "Max median growth@128", "Tail Δ", "Descriptive class", "Pass"), [
+            ("Seed", "Max norm", "Max JS", "Max growth@128", "Tail Δ", "Peak period", "Peak power", "Descriptive class", "Pass"), [
                 (seed, one["max_component_norm"], one["max_prediction_js"],
                  one["max_median_finite_growth_128"], one["tail_median_total_delta"],
+                 one["detrended_H_norm_peak_period"], one["detrended_H_norm_peak_power_fraction"],
                  one["descriptive_dynamics_class"], one["pass"])
                 for seed, one in metrics["G27"]["by_seed"].items()
             ]) + "\n\nMean trajectories:\n\n" + table(

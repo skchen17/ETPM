@@ -132,17 +132,33 @@ def main() -> None:
         curve = one.groupby("internal_tick")[["H_delta_norm", "F_delta_norm", "M_delta_norm", "H_norm"]].mean()
         tail_delta = float(curve.loc[897:1024, ["H_delta_norm", "F_delta_norm", "M_delta_norm"]].sum(axis=1).median())
         h_norm_drift = float(curve.loc[1024, "H_norm"] - curve.loc[0, "H_norm"])
+        tail_h = curve.loc[513:1024, "H_norm"].to_numpy(dtype=float)
+        time_axis = np.arange(len(tail_h), dtype=float)
+        detrended = tail_h - np.polyval(np.polyfit(time_axis, tail_h, 1), time_axis)
+        power = np.abs(np.fft.rfft(detrended)) ** 2
+        frequency = np.fft.rfftfreq(len(tail_h))
+        periodic_band = (frequency >= 1 / 256) & (frequency <= 1 / 2)
+        if periodic_band.any() and power[periodic_band].sum() > 0:
+            peak_index = np.flatnonzero(periodic_band)[np.argmax(power[periodic_band])]
+            peak_period = float(1 / frequency[peak_index])
+            peak_fraction = float(power[peak_index] / power[periodic_band].sum())
+        else:
+            peak_period, peak_fraction = None, 0.0
         if not passed:
             dynamics_class = "unstable_or_divergent_on_sample"
         elif tail_delta < 1e-4:
             dynamics_class = "fixed_point_like_on_sample"
+        elif peak_fraction > 0.5 and float(detrended.std()) > 1e-3:
+            dynamics_class = "oscillatory_candidate_on_sample"
         else:
-            dynamics_class = "bounded_drift_or_unresolved_oscillation"
+            dynamics_class = "bounded_drift_on_sample"
         g27_by_seed[seed] = {
             "max_component_norm": max_norm, "max_prediction_js": max_js,
             "max_median_finite_growth_128": max_median_growth,
             "tail_median_total_delta": tail_delta,
             "H_norm_drift_0_to_1024": h_norm_drift,
+            "detrended_H_norm_peak_period": peak_period,
+            "detrended_H_norm_peak_power_fraction": peak_fraction,
             "descriptive_dynamics_class": dynamics_class,
             "all_finite": finite, "pass": passed,
         }
