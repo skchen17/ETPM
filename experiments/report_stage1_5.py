@@ -381,6 +381,12 @@ def main() -> None:
         "episodes per seed/gap and matched controls. The historical oracle "
         "bank sees early real external evidence and the observed bridge only, "
         "never future targets. Full details are in the 12 topic reports.\n\n"
+        "## Required trained baselines\n\n"
+        "Paired long-gap 512/2048 full-condition CE (lower is better):\n\n" + table(
+            ("Architecture", "Mean CE", "95% seed CI"), [
+                (name, one["mean"], one["ci95"])
+                for name, one in metrics["baseline_long_gap_CE"].items()
+            ]) + "\n\n"
         "## Direct answers to the 20 registered questions\n\n" + "\n".join(
             f"{answer}\n" for answer in answers
         ) + "\n"
