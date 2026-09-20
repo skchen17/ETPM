@@ -1,0 +1,23 @@
+{
+  "mode": "formal",
+  "run_id": "stage1_5-formal-v1",
+  "model": "B1_gru",
+  "variant": "B1_gru",
+  "seed": 8501,
+  "learning_rate": 0.001,
+  "hidden_dim": 64,
+  "memory_dim": 16,
+  "validation_loss": 2.3593170940876007,
+  "validation_by_family": {
+    "latent_transition": 2.6466243267059326,
+    "long_gap_relation": 2.4744343757629395,
+    "latent_regime": 1.8130193948745728,
+    "distractor_heavy": 2.503190279006958
+  },
+  "parameter_count": 151877,
+  "persistent_state_bytes": 512,
+  "training_steps": 160,
+  "config_sha256": "60ced1c8444fc3dc129a824fbee78ae15537467e0379505e84f5a6a4983b9210",
+  "checkpoint_sha256": "fcd2bac7191e44f362f4aed6752ebf90b35f4fd1ca7c3236b74e0cc87c5ab1d9",
+  "created_utc": "2026-09-20T02:46:00.939432+00:00"
+}

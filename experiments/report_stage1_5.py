@@ -48,7 +48,7 @@ def write(name: str, title: str, methods: str, body: str, limitations: str) -> N
         f"analysis plan: `reports/STAGE1_5_ANALYSIS_PLAN.md`. "
         f"Raw Parquet: `results/stage1_5/{RUN}/evaluation/`.\n\n"
         f"## Methods\n\n{methods}\n\n## Results\n\n{body}\n\n"
-        f"## Scope and limitations\n\n{limitations}\n",
+        f"## Scope and limitations\n\n{limitations}\n"
     )
 
 
@@ -123,9 +123,12 @@ def main() -> None:
                 (row.component, int(row.history_lag), row.heldout_decoding_gain, row.heldout_accuracy)
                 for row in lag.itertuples()
             ]) + "\n\nFull per-seed/decay curves are in the Parquet shards.",
-        "The probe distribution is much longer and more IID than training histories. "
-        "Feature dimension differs by state. A decodable trace does not imply "
-        "future use or a long-term causal memory.",
+        "Every primary held-out CE gain is negative; clipping for the registered "
+        "area yields zero for H, F and M. The raw ablation difference cannot "
+        "rescue the failed hierarchy. The probe distribution is longer/more IID "
+        "than training, feature dimensions differ, and fixed ridge/score "
+        "calibration may be inadequate. Negative probe gain is not proof that "
+        "history is absent; decoding alone would not prove causal memory.",
     )
 
     capacity_rows = []
@@ -307,13 +310,23 @@ def main() -> None:
         f"{max(v['max_component_norm'] for v in metrics['G27']['by_seed'].values()):.4f}.",
         f"2. Effective H/F/M timescale separation: G28 **{gates['G28']}**; "
         f"F−H area {metrics['G28']['F_minus_H_area']['mean']:.5f}, "
-        f"M−F area {metrics['G28']['M_minus_F_area']['mean']:.5f}.",
+        f"M−F area {metrics['G28']['M_minus_F_area']['mean']:.5f}. "
+        "The preregistered probes have no positive held-out CE gain at any lag; "
+        "this does not prove that historical information is absent.",
         "3. Decay versus dynamics/usage: equal-fast, equal-slow and no-transfer "
-        "probe curves are reported; the registered ablation criterion "
-        f"{'passes' if metrics['G28']['equal_decay_ablation_min_difference']['positive_seeds'] >= 6 else 'fails'}. "
-        "These probes do not identify a unique causal decomposition.",
-        "4. Capacity: full sparse-grid × stored-item × distractor curves are "
-        "reported; trained prediction and mechanistic cell retrieval are separate.",
+        "curves are reported. Raw-score ablation differs in "
+        f"{metrics['G28']['equal_decay_ablation_min_difference']['positive_seeds']}/8 seeds, "
+        "but all primary lag-profile areas are zero after clipping negative "
+        "decoding gains; no learned-timescale or usage contribution is established.",
+        "4. Capacity: at 8192 distractors, trained future CE is "
+        f"{metrics['capacity']['B5_separate']['8192']['prediction_CE']['mean']:.3f} "
+        "for (d_H=64,d_M=16), "
+        f"{metrics['capacity']['B5_separate_h256_m64']['8192']['prediction_CE']['mean']:.3f} "
+        "for (256,64), and "
+        f"{metrics['capacity']['B5_separate_h256_m128']['8192']['prediction_CE']['mean']:.3f} "
+        "for (256,128): larger memory is not monotonically better. The "
+        "separate matrix-cell accuracy declines with interference; neither "
+        "arm supports unlimited capacity.",
         f"5. Independent H/F/M future effects: tick-4 JS means H={metrics['G29']['prediction_JS_by_channel']['H']['mean']:.6g}, "
         f"F={metrics['G29']['prediction_JS_by_channel']['F']['mean']:.6g}, "
         f"M={metrics['G29']['prediction_JS_by_channel']['M']['mean']:.6g}; G29 **{gates['G29']}**.",
@@ -321,14 +334,28 @@ def main() -> None:
             f"{k}={metrics['G29']['pairwise_CE_interactions'][k]['mean']:.6g}"
             for k in ("FM", "HF", "HM")
         ) + ".",
-        f"7. H-only held-out future-event CE={obs['H']['mean']:.4f}; compare HF/HM/HFM in observability report.",
+        f"7. H-only held-out future-event CE={obs['H']['mean']:.4f}, versus "
+        f"HF={obs['HF']['mean']:.4f}, HM={obs['HM']['mean']:.4f}, "
+        f"HFM={obs['HFM']['mean']:.4f}. H-only is best for this frozen linear "
+        "probe, not proof of causal sufficiency.",
         f"8. Extra observational F/M information beyond H: HF gain={obs['H']['mean']-obs['HF']['mean']:.5f}, "
         f"HM gain={obs['H']['mean']-obs['HM']['mean']:.5f}, "
-        f"HFM gain={obs['H']['mean']-obs['HFM']['mean']:.5f} CE.",
+        f"HFM gain={obs['H']['mean']-obs['HFM']['mean']:.5f} CE; "
+        "negative gain means the larger frozen linear probe generalized worse, "
+        "not that the added state lacks all information.",
         f"9. Extra causal F/M information is supported only to G29's finite-swap scope: **{gates['G29']}**; "
         "probe gain alone is insufficient.",
-        f"10. Explicit read mediation: G30 **{gates['G30']}**; see absolute JS and conditional ratios.",
-        f"11. Correct historical oracle read improves all registered controls: G31 **{gates['G31']}**.",
+        f"10. Explicit read mediation: G30 **{gates['G30']}**; F/M restored-read "
+        f"fractions are {med['F']['mediation_fraction']['mean']:.3f}/"
+        f"{med['M']['mediation_fraction']['mean']:.3f}. The underlying swap "
+        f"JS effects are only {med['F']['swap_JS']['mean']:.5f}/"
+        f"{med['M']['swap_JS']['mean']:.5f}, so relative mediation does "
+        "not imply useful retrieval.",
+        f"11. Correct historical oracle read improves all registered controls: G31 **{gates['G31']}**. "
+        "Its CE advantages over zero/random/shuffled/learned are " + ", ".join(
+            f"{metrics['G31']['oracle_CE_margins'][name]['mean']:.5f}"
+            for name in ("zero", "random", "shuffled", "learned")
+        ) + ".",
         f"12. Oracle minus learned CE advantage={metrics['G31']['oracle_CE_margins']['learned']['mean']:.5f} "
         "(positive means oracle better).",
         f"13. Static CE minus closed-loop CE at K4={metrics['G31']['closed_loop_minus_static_advantage']['4']['mean']:.5f}.",
@@ -336,13 +363,16 @@ def main() -> None:
         f"15. Learned state-dependent finite-benefit router: {gates['G32']}.",
         f"16. Held-out routing generalization: {gates['G32']}.",
         f"17. Routed NULL-tick prediction benefit: {gates['G33']}.",
-        "18. Current bottleneck follows the frozen decision tree: " + (
-            "architecture stability" if gates["G27"] == "FAIL" else
-            "unlocalized causal anatomy" if gates["G29"] == "FAIL" else
-            "read mediation / unmodeled peripheral pathway" if gates["G30"] == "FAIL" else
-            "integration or historical-read ceiling" if gates["G31"] == "FAIL" else
-            "routing / continuous time, pending conditional tests"
-        ) + ". Capacity/timescale limits are reported separately.",
+        "18. Independent observed bottlenecks: " + "; ".join(
+            label for failed, label in (
+                (gates["G27"] == "FAIL", "long-NULL architecture stability"),
+                (gates["G28"] == "FAIL", "effective multi-timescale evidence"),
+                (gates["G29"] == "FAIL", "peripheral causal localization"),
+                (gates["G30"] == "FAIL", "explicit read mediation"),
+                (gates["G31"] == "FAIL", "historical-read integration/ceiling"),
+            ) if failed
+        ) + ". The decision tree stops at the first failed prerequisite; "
+        "later measured failures remain independently reported.",
         "19. Causal utility should not enter consolidation law in this stage: "
         "routing/finite-use prerequisites have not all been met; transfer law was unchanged.",
         "20. Small sequence/language prototype recommendation: **FALSE**; no LM was trained.",
@@ -395,7 +425,10 @@ def main() -> None:
             ("Architecture", "Mean CE", "95% seed CI"), [
                 (name, one["mean"], one["ci95"])
                 for name, one in metrics["baseline_long_gap_CE"].items()
-            ]) + "\n\n"
+            ]) + "\n\nRandom-q B7 versus learned separate-q B5 CE difference "
+            f"(B5−B7)={metrics['baseline_long_gap_CE']['B5_separate']['mean']-metrics['baseline_long_gap_CE']['B7_random_query']['mean']:.5f}. "
+            "These are separately trained models, so this contrast is a "
+            "baseline outcome, not an isolated query intervention.\n\n"
         "## Direct answers to the 20 registered questions\n\n" + "\n".join(
             f"{answer}\n" for answer in answers
         ) + "\n"
@@ -408,7 +441,7 @@ def main() -> None:
         "No consciousness, human-like autonomy, unlimited capacity, or "
         "spontaneous language content is claimed. All failed, null and "
         "conditionally unexecuted outcomes are preserved; no gate was "
-        "changed after formal results.\n",
+        "changed after formal results.\n"
     )
     for path in PENDING_REPORTS:
         if path.exists():

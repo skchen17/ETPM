@@ -1,0 +1,23 @@
+{
+  "mode": "formal",
+  "run_id": "stage1_5-formal-v1",
+  "model": "B5_separate",
+  "variant": "B5_separate_h256_m128",
+  "seed": 8506,
+  "learning_rate": 0.001,
+  "hidden_dim": 256,
+  "memory_dim": 128,
+  "validation_loss": 0.7434489849256352,
+  "validation_by_family": {
+    "latent_transition": 2.168099880218506,
+    "long_gap_relation": 0.008284397423267365,
+    "latent_regime": 0.7954282164573669,
+    "distractor_heavy": 0.001983445603400469
+  },
+  "parameter_count": 2570661,
+  "persistent_state_bytes": 133120,
+  "training_steps": 160,
+  "config_sha256": "60ced1c8444fc3dc129a824fbee78ae15537467e0379505e84f5a6a4983b9210",
+  "checkpoint_sha256": "4d406eacb0bed3bba14b700c54649aeeee738e598e79ed919bc10f70e88ec218",
+  "created_utc": "2026-09-20T03:01:09.942341+00:00"
+}

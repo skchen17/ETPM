@@ -1,0 +1,14 @@
+{
+  "checked_evaluation_shards": 160,
+  "expected_evaluation_shards": 160,
+  "formal_evaluation_rows": 727360,
+  "config_sha256": "60ced1c8444fc3dc129a824fbee78ae15537467e0379505e84f5a6a4983b9210",
+  "selection_sha256": "4cec820bc4dfb8d98acb2886a675bc124b6d9a09e3e88581b883efdd67126d6f",
+  "metrics_sha256": "748c1a730789a797cddfecd1cf310a91d1a2fae33f335a27e3fe1348721301b5",
+  "adjudication_sha256": "7a433f5b7a4852c80858b7449a3dd049201a42cbf296f7b4a3adb6efa86a255c",
+  "precision_sha256": "8cdb2ace8db931a8289b798795016df51ef18e6f99244a08ae7a05244aecc40a",
+  "read_usage_sha256": "ee7b9c19d4cb8be6f0a4e6615209d4467dcf0e71659581cde98f409c693f94e9",
+  "all_shard_hashes_valid": true,
+  "prior_revision": "13671106e0602326e9fd84de9493568e24ff003f",
+  "prior_tracked_artifacts_unchanged": true
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "stage1_5-formal-v1",
+  "G27": "FAIL",
+  "G28": "FAIL",
+  "G29": "PASS",
+  "G30": "PASS",
+  "G31": "FAIL",
+  "G32": "NOT_RUN_BY_PROTOCOL",
+  "G33": "NOT_RUN_BY_PROTOCOL",
+  "SMALL_SCALE_SEQUENCE_MODEL_PROTOTYPE_RECOMMENDED": false,
+  "LANGUAGE_MODEL_TRAINING_STARTED": false
+}

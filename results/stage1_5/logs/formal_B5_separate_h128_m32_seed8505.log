@@ -1,0 +1,1 @@
+{"lr": 0.001, "seed": 8505, "validation_loss": 0.7375676345545799, "variant": "B5_separate_h128_m32"}
