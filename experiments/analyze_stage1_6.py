@@ -10,6 +10,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import yaml
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 from etrcm.stage1_6.runner import choose_oracle, oracle_probability
 
 
@@ -138,6 +141,25 @@ def main() -> None:
     records.to_parquet(PROCESSED/"all_interventions.parquet", index=False)
     paired.to_parquet(PROCESSED/"seed_checkpoint_condition.parquet", index=False)
     wide.to_parquet(PROCESSED/"seed_checkpoint_effects.parquet", index=False)
+    fig, ax=plt.subplots(figsize=(8,4.5))
+    for arm,measure,label in (("learned","D_R","learned: zero - full"),
+                              ("learned","D_M","learned: M-lesion - full"),
+                              ("oracle","D_O","oracle-trained: zero - oracle"),
+                              ("curriculum","D_R","curriculum: zero - learned")):
+        part=wide.loc[wide.training_arm.eq(arm)]
+        series=part.groupby("training_step")[measure].agg(list)
+        steps=np.asarray(series.index,dtype=float)
+        means=np.asarray([np.mean(v) for v in series])
+        bounds=np.asarray([bootstrap_interval(np.asarray(v,dtype=float)) for v in series])
+        ax.plot(steps,means,marker="o",label=label)
+        ax.fill_between(steps,bounds[:,0],bounds[:,1],alpha=.12)
+    ax.axhline(0,color="black",linewidth=.7)
+    ax.set(xlabel="Training step",ylabel="Paired held-out CE benefit",
+           title="Finite memory dependence across training")
+    ax.legend(fontsize=7,loc="best")
+    fig.tight_layout()
+    fig.savefig(PROCESSED/"memory_dependence_curve.png",dpi=180)
+    plt.close(fig)
     output = {"run_id":RUN_ID,"cells":len(paths),"episodes":len(records),"gates":gates,
               "onset":onset,
               "effects":effects,"config_sha256":sha256(ROOT/"configs/stage1_6.yaml")}
@@ -153,6 +175,8 @@ def main() -> None:
         subset=paired.loc[paired.training_arm.isin(arms)]
         table=subset.groupby(["training_arm","training_step","condition"],observed=True)[["CE","accuracy","read_norm","gate","H_norm","F_norm","M_norm","candidate_update","memory_gradient","core_gradient"]].mean().round(5).reset_index()
         extra=""
+        if report_name=="MEMORY_DEPENDENCE_LEARNING_CURVE_STAGE1_6.md":
+            extra="\n![Finite paired memory-dependence curves](../results/stage1_6/processed/stage1_6-formal-v1/memory_dependence_curve.png)\n"
         if report_name=="MEMORY_GRADIENT_DIAGNOSTICS_STAGE1_6.md":
             diagnostic_path=PROCESSED/"jacobian_gate_diagnostics.parquet"
             if diagnostic_path.exists():
