@@ -27,6 +27,11 @@ def test_oracle_only_past_and_no_future_target_leak():
     # Counterfactual: change only later bridge offset, hence future target.
     changed_offset = 16 + (changed.offset - 15).remainder(8)
     changed_target = ((changed.past_value - 8) + (changed_offset - 16)).remainder(8)
+    changed_events = changed.events[:-1] + (
+        ContinuousEvent.create(kind=Stage13EventKind.CONTEXT,
+                               key_id=changed.key, aux_id=changed_offset, write=False),)
+    changed = replace(changed, offset=changed_offset, target=changed_target,
+                      events=changed_events)
     assert bool(changed_target.ne(world.target).all())
     assert torch.equal(read, historical_oracle(model, state, changed))
     assert all(event.value_id.eq(-1).all() for event in world.events[4:])
