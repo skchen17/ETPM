@@ -1,0 +1,11 @@
+{
+  "gru_basic.pt": "6b94a800a031b57bfb033e317f9127118ea77b15d131901c0e330c30f5e2b5ba",
+  "etrcm_basic.pt": "3ffddbf6254fc1a7114ebf44fb75b4a21b041a165abcc5d7d06b25314d7cd4a1",
+  "recurrent_memory.pt": "9cf6f22875a9d57302dbd1a9913575998ab392bed6e7d5a85dcd109290b1f087",
+  "etrcm_memory.pt": "439007e0adfee226fc1f0f7f997b4a4cb4b883f90d8a35efae392b358d09a0f7",
+  "etrcm_reasoning.pt": "f0b02befa2c226efea6f4c585c31c07ef154f8ccba0c264ec049b110b49821a4",
+  "recurrent_basic.pt": "923d26476a22edcc23d3a2c76a8893b9ad6936c5de3139667c4b08ae340e473e",
+  "gru_reasoning.pt": "9cd6d53bc79a7503e004fe54edfe979704ea2a5d7e2c7f22483b3ca0fc33d7fd",
+  "gru_memory.pt": "67d0015a264037bc6de9e608927c230167827007ab563cb1216839ef1aa039ee",
+  "recurrent_reasoning.pt": "82fd59ec61df48f756ea0e52659590c06e64adeeb65ecbf30cfd2a72708c0f48"
+}

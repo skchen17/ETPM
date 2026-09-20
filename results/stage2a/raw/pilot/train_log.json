@@ -1,0 +1,344 @@
+[
+  {
+    "model": "gru",
+    "phase": "basic",
+    "step": 0,
+    "train_ce": 4.897573947906494,
+    "gradient_norm_preclip": 3.2576394081115723,
+    "H_norm": 0.7214516997337341,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.3720591068267822
+  },
+  {
+    "model": "gru",
+    "phase": "basic",
+    "step": 1,
+    "train_ce": 4.771735191345215,
+    "gradient_norm_preclip": 3.8382084369659424,
+    "H_norm": 0.733841061592102,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.42289304733276367
+  },
+  {
+    "model": "gru",
+    "phase": "basic",
+    "parameter_count": 132871,
+    "validation_ce": {
+      "basic": 4.653200928300749,
+      "memory": 4.697200114993735,
+      "reasoning": 4.692369851660221
+    },
+    "validation_ppl": {
+      "basic": 104.92029097525732,
+      "memory": 109.63976356808013,
+      "reasoning": 109.1114516083556
+    },
+    "elapsed_phase_s": 5.970297336578369
+  },
+  {
+    "model": "gru",
+    "phase": "memory",
+    "step": 0,
+    "train_ce": 4.86604642868042,
+    "gradient_norm_preclip": 3.317523717880249,
+    "H_norm": 0.7331125736236572,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.07719922065734863
+  },
+  {
+    "model": "gru",
+    "phase": "memory",
+    "step": 1,
+    "train_ce": 4.620364665985107,
+    "gradient_norm_preclip": 2.868398427963257,
+    "H_norm": 0.7451620101928711,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.18308329582214355
+  },
+  {
+    "model": "gru",
+    "phase": "memory",
+    "parameter_count": 132871,
+    "validation_ce": {
+      "basic": 4.508794913645915,
+      "memory": 4.583525943864414,
+      "reasoning": 4.572450278216784
+    },
+    "validation_ppl": {
+      "basic": 90.8123158610802,
+      "memory": 97.85883136319424,
+      "reasoning": 96.78095975765781
+    },
+    "elapsed_phase_s": 5.726259708404541
+  },
+  {
+    "model": "gru",
+    "phase": "reasoning",
+    "step": 0,
+    "train_ce": 4.710683345794678,
+    "gradient_norm_preclip": 2.7582156658172607,
+    "H_norm": 0.7555980682373047,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.0774850845336914
+  },
+  {
+    "model": "gru",
+    "phase": "reasoning",
+    "step": 1,
+    "train_ce": 4.3891401290893555,
+    "gradient_norm_preclip": 3.393249750137329,
+    "H_norm": 0.7870760560035706,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.1331939697265625
+  },
+  {
+    "model": "gru",
+    "phase": "reasoning",
+    "parameter_count": 132871,
+    "validation_ce": {
+      "basic": 4.372474404922219,
+      "memory": 4.479082256200163,
+      "reasoning": 4.470076919447446
+    },
+    "validation_ppl": {
+      "basic": 79.23945983004081,
+      "memory": 88.15373299849719,
+      "reasoning": 87.36344270273996
+    },
+    "elapsed_phase_s": 5.6865410804748535
+  },
+  {
+    "model": "recurrent",
+    "phase": "basic",
+    "step": 0,
+    "train_ce": 4.7136359214782715,
+    "gradient_norm_preclip": 3.796738862991333,
+    "H_norm": 13.410806655883789,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.08759546279907227
+  },
+  {
+    "model": "recurrent",
+    "phase": "basic",
+    "step": 1,
+    "train_ce": 4.3636980056762695,
+    "gradient_norm_preclip": 4.301321029663086,
+    "H_norm": 11.332499504089355,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.157135009765625
+  },
+  {
+    "model": "recurrent",
+    "phase": "basic",
+    "parameter_count": 132871,
+    "validation_ce": {
+      "basic": 4.411813733879656,
+      "memory": 4.5538688542692585,
+      "reasoning": 4.42660693073949
+    },
+    "validation_ppl": {
+      "basic": 82.41881381733954,
+      "memory": 94.9992364565966,
+      "reasoning": 83.64711440137398
+    },
+    "elapsed_phase_s": 6.106999635696411
+  },
+  {
+    "model": "recurrent",
+    "phase": "memory",
+    "step": 0,
+    "train_ce": 4.6038498878479,
+    "gradient_norm_preclip": 4.204054832458496,
+    "H_norm": 15.677335739135742,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.09580254554748535
+  },
+  {
+    "model": "recurrent",
+    "phase": "memory",
+    "step": 1,
+    "train_ce": 4.316831588745117,
+    "gradient_norm_preclip": 3.3895037174224854,
+    "H_norm": 22.769662857055664,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.2276897430419922
+  },
+  {
+    "model": "recurrent",
+    "phase": "memory",
+    "parameter_count": 132871,
+    "validation_ce": {
+      "basic": 4.223839949312168,
+      "memory": 4.35862919852383,
+      "reasoning": 4.281741028418214
+    },
+    "validation_ppl": {
+      "basic": 68.29523164728806,
+      "memory": 78.1499329204721,
+      "reasoning": 72.36632221677675
+    },
+    "elapsed_phase_s": 6.160653591156006
+  },
+  {
+    "model": "recurrent",
+    "phase": "reasoning",
+    "step": 0,
+    "train_ce": 4.340734004974365,
+    "gradient_norm_preclip": 3.135244846343994,
+    "H_norm": 17.159921646118164,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.082672119140625
+  },
+  {
+    "model": "recurrent",
+    "phase": "reasoning",
+    "step": 1,
+    "train_ce": 4.011438369750977,
+    "gradient_norm_preclip": 3.2683608531951904,
+    "H_norm": 13.17995548248291,
+    "F_norm": 0.0,
+    "M_norm": 0.0,
+    "elapsed_s": 0.1522841453552246
+  },
+  {
+    "model": "recurrent",
+    "phase": "reasoning",
+    "parameter_count": 132871,
+    "validation_ce": {
+      "basic": 4.102208155731968,
+      "memory": 4.231122458001418,
+      "reasoning": 4.2131962060364705
+    },
+    "validation_ppl": {
+      "basic": 60.47367556579277,
+      "memory": 68.794407685968,
+      "reasoning": 67.57216960431036
+    },
+    "elapsed_phase_s": 6.081222295761108
+  },
+  {
+    "model": "etrcm",
+    "phase": "basic",
+    "step": 0,
+    "train_ce": 4.735141277313232,
+    "gradient_norm_preclip": 3.846142053604126,
+    "H_norm": 12.720787048339844,
+    "F_norm": 1.8375539779663086,
+    "M_norm": 0.1340537816286087,
+    "elapsed_s": 0.1668088436126709
+  },
+  {
+    "model": "etrcm",
+    "phase": "basic",
+    "step": 1,
+    "train_ce": 4.437219142913818,
+    "gradient_norm_preclip": 4.471445560455322,
+    "H_norm": 11.035967826843262,
+    "F_norm": 1.744370937347412,
+    "M_norm": 0.14903798699378967,
+    "elapsed_s": 0.2837181091308594
+  },
+  {
+    "model": "etrcm",
+    "phase": "basic",
+    "parameter_count": 132871,
+    "validation_ce": {
+      "basic": 4.4306911807913965,
+      "memory": 4.568169319243813,
+      "reasoning": 4.420852113277354
+    },
+    "validation_ppl": {
+      "basic": 83.98944874636679,
+      "memory": 96.36753000886388,
+      "reasoning": 83.16712298295037
+    },
+    "elapsed_phase_s": 7.941011190414429
+  },
+  {
+    "model": "etrcm",
+    "phase": "memory",
+    "step": 0,
+    "train_ce": 4.603506565093994,
+    "gradient_norm_preclip": 4.146993637084961,
+    "H_norm": 15.721988677978516,
+    "F_norm": 1.9279305934906006,
+    "M_norm": 0.21898159384727478,
+    "elapsed_s": 0.16025757789611816
+  },
+  {
+    "model": "etrcm",
+    "phase": "memory",
+    "step": 1,
+    "train_ce": 4.308686256408691,
+    "gradient_norm_preclip": 3.387180805206299,
+    "H_norm": 22.882055282592773,
+    "F_norm": 1.8357131481170654,
+    "M_norm": 0.30382832884788513,
+    "elapsed_s": 0.3817903995513916
+  },
+  {
+    "model": "etrcm",
+    "phase": "memory",
+    "parameter_count": 132871,
+    "validation_ce": {
+      "basic": 4.240173580344587,
+      "memory": 4.369949628114023,
+      "reasoning": 4.283196772807597
+    },
+    "validation_ppl": {
+      "basic": 69.41990072328892,
+      "memory": 79.03965022303936,
+      "reasoning": 72.47174580060171
+    },
+    "elapsed_phase_s": 8.036381006240845
+  },
+  {
+    "model": "etrcm",
+    "phase": "reasoning",
+    "step": 0,
+    "train_ce": 4.359332084655762,
+    "gradient_norm_preclip": 3.2148866653442383,
+    "H_norm": 17.18056869506836,
+    "F_norm": 1.9156765937805176,
+    "M_norm": 0.2404017150402069,
+    "elapsed_s": 0.16160225868225098
+  },
+  {
+    "model": "etrcm",
+    "phase": "reasoning",
+    "step": 1,
+    "train_ce": 4.035414695739746,
+    "gradient_norm_preclip": 3.3177289962768555,
+    "H_norm": 12.934219360351562,
+    "F_norm": 1.7383384704589844,
+    "M_norm": 0.18200358748435974,
+    "elapsed_s": 0.27925944328308105
+  },
+  {
+    "model": "etrcm",
+    "phase": "reasoning",
+    "parameter_count": 132871,
+    "validation_ce": {
+      "basic": 4.1023748639369115,
+      "memory": 4.243323236483867,
+      "reasoning": 4.216624600949299
+    },
+    "validation_ppl": {
+      "basic": 60.48375786407026,
+      "memory": 69.63889423588026,
+      "reasoning": 67.80423125902654
+    },
+    "elapsed_phase_s": 7.929519414901733
+  }
+]
