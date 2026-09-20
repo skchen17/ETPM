@@ -10,7 +10,7 @@ import pytest
 import torch
 
 from etrcm.stage1_1.model import LearnedState
-from etrcm.stage1_3.events import self_output_event
+from etrcm.stage1_3.events import ContinuousEvent, Stage13EventKind, self_output_event
 from etrcm.stage1_4.model import Stage14Config
 from etrcm.stage1_4.world import generate_world
 from etrcm.stage1_5.interventions import CHANNELS, finite_read_intervention, swap_components
@@ -94,6 +94,15 @@ def test_oracle_is_historical_only_and_distinct_from_future_label(model: Anatomi
     fake_read, fake_source = static_oracle_read(fake_bank, fake.events[fake.bridge_index])
     assert torch.equal(read, fake_read)
     assert torch.equal(source, fake_source)
+    altered_future = ContinuousEvent.create(
+        kind=Stage13EventKind.EVIDENCE,
+        key_id=torch.zeros(8, dtype=torch.long),
+        value_id=torch.full((8,), 23, dtype=torch.long), write=False,
+    )
+    changed_events = world.events[:-1] + (altered_future,)
+    _, changed_bank = build_historical_bank(model, changed_events, history_length=4)
+    changed_read, _ = static_oracle_read(changed_bank, world.events[world.bridge_index])
+    assert torch.equal(read, changed_read)
 
 
 def test_closed_loop_oracle_recomputes_from_current_h(model: AnatomicalETRCM) -> None:
