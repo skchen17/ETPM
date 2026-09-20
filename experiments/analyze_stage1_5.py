@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 import numpy as np
@@ -105,6 +106,12 @@ def main() -> None:
             frames[(experiment, variant)] = pd.concat(parts, ignore_index=True)
     if checked != 160:
         raise ValueError(f"formal evaluation incomplete: {checked}/160")
+    changed = subprocess.run(
+        ["git", "diff", "--name-status", config["protocol"]["prior_revision"], "HEAD"],
+        cwd=ROOT, capture_output=True, text=True, check=True,
+    ).stdout.splitlines()
+    if any(not line.startswith("A\t") for line in changed):
+        raise ValueError("a tracked pre-Stage-1.5 artifact was modified or removed")
 
     stability = frames[("stability", "B5_separate")]
     perturbation = frames[("perturbation", "B5_separate")]
@@ -307,6 +314,8 @@ def main() -> None:
         "adjudication_sha256": digest(processed / "adjudication.json"),
         "precision_sha256": digest(processed / "precision.parquet"),
         "all_shard_hashes_valid": True,
+        "prior_revision": config["protocol"]["prior_revision"],
+        "prior_tracked_artifacts_unchanged": True,
     }
     (processed / "integrity.json").write_text(json.dumps(integrity, indent=2), encoding="utf-8")
     print(json.dumps(adjudication, sort_keys=True))
