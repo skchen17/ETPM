@@ -128,7 +128,13 @@ def main() -> None:
     )
 
     capacity_rows = []
+    capacity_sizes = []
     for variant, cell in metrics["capacity"].items():
+        first_capacity_row = records("capacity", variant).iloc[0]
+        capacity_sizes.append((variant, int(first_capacity_row.hidden_dim),
+                               int(first_capacity_row.memory_dim),
+                               int(first_capacity_row.state_bytes),
+                               int(first_capacity_row.parameter_count)))
         for n in (0, 128, 2048, 8192):
             one = cell[str(n)]
             capacity_rows.append((variant, n, one["prediction_CE"]["mean"],
@@ -146,8 +152,10 @@ def main() -> None:
         "Selected points (all intermediate N/item cells remain machine-readable):\n\n" + table(
             ("Variant", "Distractors", "Future CE", "Accuracy", "M-only cosine", "128-item top1"),
             capacity_rows,
-        ) + "\n\nModel bytes/parameters and approximate cell operations are recorded "
-        "for every shard and capacity condition.",
+        ) + "\n\nPersistent bytes and trainable parameters:\n\n" + table(
+            ("Variant", "d_H", "d_M", "State bytes", "Parameters"), capacity_sizes
+        ) + "\n\nApproximate cell operations and event counts are recorded for every "
+        "capacity condition; these are not wall-clock benchmarks.",
         "The sparse grid couples H and memory dimensions except at H=256, so "
         "their separate causal scaling effects are not identified. Synthetic "
         "cell accuracy is a mechanistic storage benchmark, not world prediction; "
