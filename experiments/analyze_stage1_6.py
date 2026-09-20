@@ -231,9 +231,11 @@ def main() -> None:
     if legacy_path.exists():
         legacy=json.loads(legacy_path.read_text())
         old_effect=legacy["mean_effect_3000_minus_160"]
-        old_answer=("On the original four-family objective's 128-distractor long-gap slice, "
-                    f"the exploratory 3000-minus-160 oracle-vs-no-read CE effect was {old_effect['oracle_vs_no_read']:.5f}; "
-                    "the separate report gives seed replication. This is a limited old-objective check, not the full Stage 1.5 grid.")
+        old_replication=legacy["oracle_benefit_seeds_at_least_0.01_by_checkpoint"]["3000"]
+        old_answer=("No evidence that simply extending the original objective solves read use: on its 128-distractor long-gap slice, "
+                    f"held-out CE fell by {-old_effect['learned']:.3f} from 160 to 3000 steps, "
+                    f"but oracle-vs-no-read benefit changed by {old_effect['oracle_vs_no_read']:.5f} and cleared .01 in only {old_replication}/8 seeds at 3000. "
+                    "This is exploratory and narrower than the full Stage 1.5 grid.")
         legacy_section=("\n## Original-objective exploratory scaling\n\n"
                         "See `reports/TRAINING_LENGTH_SCALING_ORIGINAL_OBJECTIVE_STAGE1_6.md`. "
                         +old_answer+"\n")
@@ -242,26 +244,37 @@ def main() -> None:
         legacy_section=""
     REPORTS.joinpath("TRAINING_VS_ARCHITECTURE_ADJUDICATION_STAGE1_6.md").write_text(
         "# Training vs architecture adjudication\n\n"+gate_table+"\n\n"+adjudication+"\n\n"+effect_table+"\n")
+    terminal=paired.loc[paired.training_step.eq(final_step) & paired.condition.eq("learned")]
+    terminal_grad=terminal.set_index("training_arm").groupby(level=0).memory_gradient.mean().to_dict()
+    terminal_gate=terminal.set_index("training_arm").groupby(level=0).gate.mean().to_dict()
+    diag_path=PROCESSED/"jacobian_gate_diagnostics.parquet"
+    jvp_terminal=(pd.read_parquet(diag_path).query("step == @final_step").groupby("arm")
+                  [["JVP_memory_to_H_norm","recurrent_gate_saturated_fraction"]].mean().to_dict("index")
+                  if diag_path.exists() else {})
+    no_memory_ce=float(no_memory3000.learned.mean())
+    learned_ce=float(learned3000.learned.mean())
+    oracle_ce=float(oracle3000.oracle.mean())
+    oracle_zero_ce=float(oracle3000.zero.mean())
     answers=[
         old_answer,
-        f"G34={gates['G34']}; paired D_R/D_M step-3000 minus step-160 effects above.",
-        f"G35={gates['G35']}; supplied historical-read capacity is evaluated causally.",
-        "Oracle vs zero/random/shuffled paired CE margins and seed replication are in the effect table.",
-        "The observed oracle-training result bounds tested capacity at this scale/training budget; it cannot establish an absolute mathematical ceiling.",
-        f"G36={gates['G36']}; lesions start immediately after H scrub, before memory can repopulate H.",
-        "No-memory recurrent baseline final CE is shown in the condition table; compare paired per-seed G36 effect.",
-        "M-lesion paired CE effect and replication are shown in G36.",
-        "The earliest checkpoint with ≥.01 finite benefit in ≥6/8 seeds is "+str(onset)+"; training loss is not used for this conclusion.",
-        "Within the curriculum arm, oracle-benefit onset is "+str(onset["curriculum_D_O_at_least_0.01_in_6_seeds"])+" and learned-benefit onset is "+str(onset["curriculum_D_R_at_least_0.01_in_6_seeds"])+". This is a preregistered-checkpoint descriptive order, not a new gate.",
-        "Memory-branch gradient norms are in the checkpoint diagnostic table; compare them with finite benefits before interpreting starvation.",
-        "Slow read and recurrent gate values are in the diagnostic tables; saturation is not by itself proof of failed causal use.",
-        "H scrub eliminates a direct H-history shortcut on the new task; it does not retroactively prove the old-world shortcut caused Stage 1.5 failure.",
+        f"Not reliably in ordinary learned-read training: G34={gates['G34']}; D_R and D_M gains from 160 to 3000 averaged {g34_r['mean']:.3f}/{g34_m['mean']:.3f} CE but crossed .01 in only {g34_r['positive_seeds']}/{g34_m['positive_seeds']} of 8 seeds.",
+        f"Yes, for supplied past-only read on this toy: G35={gates['G35']}; oracle-trained oracle CE={oracle_ce:.3f} versus zero CE={oracle_zero_ce:.3f}, with all three registered contrasts clearing margin in 8/8 seeds.",
+        f"Yes under registered margins: oracle-vs-zero/random/shuffled CE advantages were {g35_zero['mean']:.3f}/{g35_random['mean']:.3f}/{g35_shuffle['mean']:.3f}, each 8/8 seeds.",
+        "The existing integration operator demonstrably has capacity to use a correct historical read on this task; no absolute architecture ceiling is established. This does not imply learned routing or persistent M use.",
+        f"Not reproducibly with the ordinary full model: G36={gates['G36']}; full-vs-no-memory and M-lesion effects cleared thresholds in only {g36_baseline['positive_seeds']}/{g36_m['positive_seeds']} seeds. The curriculum did induce F-sensitive computation, not replicated M necessity.",
+        f"The no-memory baseline remained near chance (CE={no_memory_ce:.3f}, 8-class chance ≈2.079) after H scrub; ordinary full CE={learned_ce:.3f}, but the paired advantage crossed .05 in only {g36_baseline['positive_seeds']}/8 seeds.",
+        f"Not robustly: ordinary M lesion crossed .02 CE harm in {g36_m['positive_seeds']}/8 seeds; curriculum M lesion did so in {curriculum_slow['positive_seeds']}/8 versus F lesion in {curriculum_fast['positive_seeds']}/8 (the latter two are post-formal descriptive checks).",
+        f"Replicated oracle benefit first appeared at step {onset['oracle_D_O_at_least_0.01_in_6_seeds']}; ordinary learned benefit never reached 6/8 at any checkpoint, while curriculum learned benefit did so at {onset['curriculum_D_R_at_least_0.01_in_6_seeds']}.",
+        f"No within-curriculum oracle-first sequence was established: its oracle benefit never crossed .01 in 6/8 seeds, whereas learned benefit did at step {onset['curriculum_D_R_at_least_0.01_in_6_seeds']}. Cross-arm oracle training succeeded earlier, but that is not a within-model learning order.",
+        f"No complete gradient starvation: at step 3000 the learned/oracle memory-branch gradient norms averaged {terminal_grad.get('learned',float('nan')):.4f}/{terminal_grad.get('oracle',float('nan')):.4f}; finite interventions, not gradient magnitude, establish use. Relative optimization weakness remains possible.",
+        f"No universal gate collapse: step-3000 slow-read gate means were {terminal_gate.get('learned',float('nan')):.3f}/{terminal_gate.get('oracle',float('nan')):.3f} for learned/oracle arms; recurrent gate saturation fractions were {jvp_terminal.get('learned',{}).get('recurrent_gate_saturated_fraction',float('nan')):.3f}/{jvp_terminal.get('oracle',{}).get('recurrent_gate_saturated_fraction',float('nan')):.3f}. Some saturation warrants study but is not a causal verdict.",
+        "H scrub removes direct historical H information on the new task, and no-memory chance behavior confirms that shortcut is blocked there. The original Stage 1.5 world's shortcut was not itself isolated, but its CE improvement without read benefit is consistent with objective bypass.",
         f"G37={gates['G37']}; ratio requires a positive oracle-benefit denominator. Separate auxiliary F trigger={auxiliary_F_triggered}, with {learned_read_success_seeds}/8 learned-arm seeds clearing D_R≥.01. " +
         (f"Triggered F subsequently cleared learned D_R≥.025 in {auxiliary['effects']['aux_D_R']['seeds_above_0.025']}/8 seeds, without revising G37."
          if auxiliary is not None else "The registered B3 curriculum always ran; a further F curriculum is conditional."),
         adjudication,
-        "Stage 1.7 operator changes are justified as a future test only if G35 fails; otherwise first address routing or persistent-state use.",
-        "Retain the present operator for further toy tests only if oracle integration and persistent M use clear their respective gates.",
+        "No integration-operator redesign is currently justified by G35: the existing gated residual can use supplied read. A future Stage 1.7 should prioritize retrieval training and slow-state necessity; separate long-NULL instability remains unresolved.",
+        "Retain the gated-residual operator as the next toy-test baseline because G35 passed, but do not treat current F/M persistence or ordinary learned retrieval as validated; G34/G36/G37 failed.",
         "No. Stage 1.5's G27/G28/G31 failures and the narrow toy scope preclude sequence/LM prototype authorization.",
     ]
     final_report=("# ET-RCM Stage 1.6 Final Report\n\n"+QUESTION+
