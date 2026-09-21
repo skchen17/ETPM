@@ -1,0 +1,69 @@
+stage: ET-RCM Stage 2C.3
+protocol_status: frozen_before_formal_training
+prior_git_commit: c3091c6a5dea14eded0fbc336aecc4fcd0842b72
+development_training_seeds: [7601, 7602]
+formal_training_seeds: [7701, 7702, 7703, 7704, 7705, 7706, 7707, 7708]
+formal_arm_priority: [A0, A2, A1, A3]
+arms:
+  A0: observed consequence CE, scratch joint
+  A1: COUNTERFACTUAL_TRAINING, both candidate consequence distributions from same state
+  A2: oracle-state evaluator pretrain, then bit-exact frozen head and observed CE
+  A3: A2 through step 500, then gradual head unfreeze at 0.1 upstream LR
+training:
+  unchanged_architecture: Stage2C1 LifetimeModel
+  unchanged_F_M_law: true
+  matched_initial_core_per_seed: true
+  matched_simulator_stream_per_seed: true
+  endogenous_steps: 1000
+  evaluator_pretrain_steps_A2_A3: 1000
+  batch_size: 16
+  lifetime_lengths: [4, 8, 16]
+  optimizer: AdamW
+  upstream_lr: 0.001
+  H_square_penalty: 0.001
+  grad_clip: 1.0
+  checkpoint_steps: [0, 25, 50, 100, 200, 300, 500, 1000]
+  no_policy_or_memory_supervision: true
+evaluation:
+  gate_endpoint: separate_frozen_four_replicate_N16
+  checkpoint_curve_replicates: 2
+  heldout_CE_replicates: 4
+  heldout_outcome_draws_per_z_action_replicate: 256
+  exposure_counts: [0, 1, 2, 4, 8, 16, 32]
+  persistence_delays: [0, 10, 50, 100, 500, 1000]
+  generalization_splits: [seen, novel, hard_ood]
+  revision_opposing_exposures: [0, 1, 2, 4, 8, 16, 32]
+  final_interventions: [swap_H, swap_F, swap_M, swap_FM, swap_HFM,
+                        clamp_F, clamp_M, clamp_FM]
+  formation_window_interventions: [formation_clamp_F, formation_clamp_M,
+                                   formation_clamp_FM]
+  post_start_exploratory_not_gate_eligible: [formation_zero_F,
+                                             formation_zero_M,
+                                             formation_zero_FM]
+  probe_states: [H, F, M, FM]
+  entropy_policy_temperature: 0.35
+gates:
+  required_formal_seeds: 6
+  tau_tv: 0.2
+  tau_interaction: 0.3
+  delta_cfa: 0.1
+  tau_bs: 0.1
+  tau_exposure_delta: 0.1
+  tau_peripheral_change: 0.05
+  g57_arms: [A1, A2, A3]
+  g57_same_seed_joint_criteria: [action_TV, positive_interaction, CFA]
+  g58_absolute_BS_at_N16: true
+  g59_criterion: mean_abs_BS_N16_N32_minus_mean_abs_BS_N0_N1
+  g60_same_intervention_across_seeds: true
+  g60_eligible: [swap_F, swap_M, swap_FM, clamp_F, clamp_M, clamp_FM,
+                 formation_clamp_F, formation_clamp_M, formation_clamp_FM]
+  g61_arms: [A2, A3]
+  final_lifetime_oracle_probability: 0.0
+threshold_rationale: >-
+  Frozen after both development seeds and their independent frozen evaluations.
+  A0 TV was below 0.012, interaction and CFA near zero; functioning A1/A2/A3
+  generally had TV above 0.8, interaction above 1.3, CFA above 0.4 and BS
+  above 0.55. Thresholds mark effects far above A0 noise without selecting
+  a best development seed. Formation-window read clamps were documented before
+  formal training. Formation state-zero was added only as POST_START_EXPLORATORY
+  after the first formal A2 training completed and is excluded from G60.

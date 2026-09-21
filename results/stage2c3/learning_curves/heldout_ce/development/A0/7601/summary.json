@@ -1,0 +1,102 @@
+{
+  "arm": "A0",
+  "seed": 7601,
+  "rows": [
+    {
+      "step": 0,
+      "heldout_observed_CE": 1.3168750628829002,
+      "counterfactual_exact_CE": 1.3188030421733856,
+      "marginal_CE": 1.242453324894,
+      "CFA_heldout": -0.07442173798890028,
+      "parameter_sha256_before": "aeeb7ea982d2ab3db0512ee2d8691c9dda5e9418ca56ab66a1502fe823e35805",
+      "parameter_sha256_after": "aeeb7ea982d2ab3db0512ee2d8691c9dda5e9418ca56ab66a1502fe823e35805",
+      "independent_outcome_samples_per_z_action_replicate": 256,
+      "paired_state_replicates": 4,
+      "surface_split": "novel"
+    },
+    {
+      "step": 25,
+      "heldout_observed_CE": 1.2555713504552841,
+      "counterfactual_exact_CE": 1.2586990892887115,
+      "marginal_CE": 1.242453324894,
+      "CFA_heldout": -0.013118025561284163,
+      "parameter_sha256_before": "628ce8e17d8b5fd37bdc05f4f384506cbec24f8ca749125f89abc34b3ca8ce2c",
+      "parameter_sha256_after": "628ce8e17d8b5fd37bdc05f4f384506cbec24f8ca749125f89abc34b3ca8ce2c",
+      "independent_outcome_samples_per_z_action_replicate": 256,
+      "paired_state_replicates": 4,
+      "surface_split": "novel"
+    },
+    {
+      "step": 50,
+      "heldout_observed_CE": 1.2481578588485718,
+      "counterfactual_exact_CE": 1.2476743757724762,
+      "marginal_CE": 1.242453324894,
+      "CFA_heldout": -0.005704533954571822,
+      "parameter_sha256_before": "e21606a2bc7b706c766faf95353b566f0c451a1dd580e24c68f8abe5b8720039",
+      "parameter_sha256_after": "e21606a2bc7b706c766faf95353b566f0c451a1dd580e24c68f8abe5b8720039",
+      "independent_outcome_samples_per_z_action_replicate": 256,
+      "paired_state_replicates": 4,
+      "surface_split": "novel"
+    },
+    {
+      "step": 100,
+      "heldout_observed_CE": 1.248661532998085,
+      "counterfactual_exact_CE": 1.248737633228302,
+      "marginal_CE": 1.242453324894,
+      "CFA_heldout": -0.006208208104085067,
+      "parameter_sha256_before": "6c1ee297ecd78714f290482ba01058ab4969a22f29c6cd57748e597e5ee1d59e",
+      "parameter_sha256_after": "6c1ee297ecd78714f290482ba01058ab4969a22f29c6cd57748e597e5ee1d59e",
+      "independent_outcome_samples_per_z_action_replicate": 256,
+      "paired_state_replicates": 4,
+      "surface_split": "novel"
+    },
+    {
+      "step": 200,
+      "heldout_observed_CE": 1.269685309380293,
+      "counterfactual_exact_CE": 1.270109087228775,
+      "marginal_CE": 1.242453324894,
+      "CFA_heldout": -0.027231984486292937,
+      "parameter_sha256_before": "103940ebd34dd6aa34120561d509fffe63cbaef4abc3f9f4f231e88ade80711c",
+      "parameter_sha256_after": "103940ebd34dd6aa34120561d509fffe63cbaef4abc3f9f4f231e88ade80711c",
+      "independent_outcome_samples_per_z_action_replicate": 256,
+      "paired_state_replicates": 4,
+      "surface_split": "novel"
+    },
+    {
+      "step": 300,
+      "heldout_observed_CE": 1.2447689399123192,
+      "counterfactual_exact_CE": 1.2452720701694489,
+      "marginal_CE": 1.242453324894,
+      "CFA_heldout": -0.002315615018319228,
+      "parameter_sha256_before": "589bd36f6fa52e980b498e1c05efd52d074af2d6cdeca59a2a1eac4bc27b6120",
+      "parameter_sha256_after": "589bd36f6fa52e980b498e1c05efd52d074af2d6cdeca59a2a1eac4bc27b6120",
+      "independent_outcome_samples_per_z_action_replicate": 256,
+      "paired_state_replicates": 4,
+      "surface_split": "novel"
+    },
+    {
+      "step": 500,
+      "heldout_observed_CE": 1.2433013506233692,
+      "counterfactual_exact_CE": 1.2434070408344269,
+      "marginal_CE": 1.242453324894,
+      "CFA_heldout": -0.0008480257293692617,
+      "parameter_sha256_before": "cf677f63836b25e3daa40654c296bbc463d041770f6e3455ba435b468ad7b96b",
+      "parameter_sha256_after": "cf677f63836b25e3daa40654c296bbc463d041770f6e3455ba435b468ad7b96b",
+      "independent_outcome_samples_per_z_action_replicate": 256,
+      "paired_state_replicates": 4,
+      "surface_split": "novel"
+    },
+    {
+      "step": 1000,
+      "heldout_observed_CE": 1.2440295033156872,
+      "counterfactual_exact_CE": 1.2443554103374481,
+      "marginal_CE": 1.242453324894,
+      "CFA_heldout": -0.0015761784216872243,
+      "parameter_sha256_before": "be724aeeaaa9e6d8f3bf6a6589a00cf29304dd582e0dd77aa525aee9cd5460c0",
+      "parameter_sha256_after": "be724aeeaaa9e6d8f3bf6a6589a00cf29304dd582e0dd77aa525aee9cd5460c0",
+      "independent_outcome_samples_per_z_action_replicate": 256,
+      "paired_state_replicates": 4,
+      "surface_split": "novel"
+    }
+  ]
+}

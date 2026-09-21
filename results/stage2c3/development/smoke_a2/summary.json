@@ -1,0 +1,179 @@
+{
+  "arm": "A2",
+  "seed": 7601,
+  "steps": 1,
+  "initial_model_sha256": "aeeb7ea982d2ab3db0512ee2d8691c9dda5e9418ca56ab66a1502fe823e35805",
+  "protected_evaluator_sha256": "32bd5b2ec73a2f3789b75c8e483cba7d53f7c34eebb9d1939e93ffb71e0fcafe",
+  "pretrain": {
+    "steps": 20,
+    "oracle_evaluator_metrics": {
+      "prob": [
+        [
+          [
+            0.6517301797866821,
+            0.10449110716581345,
+            0.12350846081972122,
+            0.12027029693126678
+          ],
+          [
+            0.5434911251068115,
+            0.1465807855129242,
+            0.14324073493480682,
+            0.16668735444545746
+          ]
+        ],
+        [
+          [
+            0.5101829171180725,
+            0.14139539003372192,
+            0.19191591441631317,
+            0.15650574862957
+          ],
+          [
+            0.5539835095405579,
+            0.14040231704711914,
+            0.17487215995788574,
+            0.13074201345443726
+          ]
+        ]
+      ],
+      "tv_action": [
+        0.10823902487754822,
+        0.04380057752132416
+      ],
+      "tv_history": [
+        0.14154721796512604,
+        0.042123809456825256
+      ],
+      "kl_action_01": [
+        0.02543816715478897,
+        0.004973782226443291
+      ],
+      "kl_action_10": [
+        0.026540391147136688,
+        0.00486002117395401
+      ],
+      "js_action": [
+        0.006476779468357563,
+        0.0012282533571124077
+      ],
+      "entropy_difference_a0_minus_a1": [
+        -0.1617666482925415,
+        0.05324256420135498
+      ],
+      "p0_difference_a0_minus_a1": [
+        0.1082390546798706,
+        -0.04380059242248535
+      ],
+      "delta_q_a": 0.1082390546798706,
+      "delta_q_b": 0.04380059242248535,
+      "interaction_y0": 0.15203964710235596,
+      "interaction_vector": [
+        0.15203964710235596,
+        -0.04308275133371353,
+        -0.03677602857351303,
+        -0.07218079268932343
+      ],
+      "entropy_policy": [
+        [
+          0.6135337352752686,
+          0.38646626472473145
+        ],
+        [
+          0.46204280853271484,
+          0.5379572510719299
+        ]
+      ],
+      "q_policy": [
+        [
+          0.5767033100128174,
+          0.4232966899871826
+        ],
+        [
+          0.4687546193599701,
+          0.5312454104423523
+        ]
+      ],
+      "entropy_correct_mean": 0.5757454633712769,
+      "q_correct_mean": 0.5539743900299072,
+      "behavioral_separation_entropy": 0.1514909267425537,
+      "behavioral_separation_q": 0.10794869065284729
+    },
+    "transferred_head_hash": "32bd5b2ec73a2f3789b75c8e483cba7d53f7c34eebb9d1939e93ffb71e0fcafe",
+    "privileged_pretraining": "oracle z enters only pretraining evaluator; no oracle input in lifetime"
+  },
+  "snapshots": [
+    {
+      "step": 0,
+      "metrics": {
+        "action_TV": 0.012559318915009499,
+        "history_TV": 0.0023743975907564163,
+        "interaction_y0": -0.00040441006422042847,
+        "BS": 0.00022661685943603516,
+        "conditional_CE": 1.5798578262329102,
+        "CFA": -0.3374045013389102,
+        "H_norm": 71.46640014648438,
+        "F_norm": 0.7859760224819183,
+        "M_norm": 0.9181800484657288,
+        "q_F_norm": 1.0,
+        "q_M_norm": 1.0,
+        "r_F_norm": 0.11122222244739532,
+        "r_M_norm": 0.17469146102666855,
+        "r_M_difference": 0.03761208429932594,
+        "H_difference": 1.8853146433830261
+      },
+      "replicates": [
+        {
+          "action_TV": 0.012562833726406097,
+          "history_TV": 0.0027756914496421814,
+          "interaction_y0": -0.0005503296852111816,
+          "BS": 0.0002626180648803711,
+          "conditional_CE": 1.5794157981872559,
+          "CFA": -0.3369624732932559,
+          "H_norm": 71.67022705078125,
+          "F_norm": 0.8102370500564575,
+          "M_norm": 0.9178264737129211,
+          "q_F_norm": 1.0,
+          "q_M_norm": 1.0,
+          "r_F_norm": 0.1204281896352768,
+          "r_M_norm": 0.17337024211883545,
+          "r_M_difference": 0.03758924826979637,
+          "H_difference": 2.437377691268921
+        },
+        {
+          "action_TV": 0.0125558041036129,
+          "history_TV": 0.0019731037318706512,
+          "interaction_y0": -0.0002584904432296753,
+          "BS": 0.00019061565399169922,
+          "conditional_CE": 1.5802998542785645,
+          "CFA": -0.3378465293845645,
+          "H_norm": 71.2625732421875,
+          "F_norm": 0.7617149949073792,
+          "M_norm": 0.9185336232185364,
+          "q_F_norm": 1.0,
+          "q_M_norm": 1.0,
+          "r_F_norm": 0.10201625525951385,
+          "r_M_norm": 0.17601267993450165,
+          "r_M_difference": 0.037634920328855515,
+          "H_difference": 1.3332515954971313
+        }
+      ],
+      "trace": {
+        "consolidation_magnitude": 0.024482006207108498,
+        "external_write_magnitude": 0.6000000834465027
+      },
+      "marginal_CE": 1.242453324894,
+      "parameter_sha256_before": "0d64531c43d4558eea72b34d32b1d4416c4b917f974095ed8284cf2e509bf197",
+      "parameter_sha256_after": "0d64531c43d4558eea72b34d32b1d4416c4b917f974095ed8284cf2e509bf197",
+      "phase": "frozen_evaluator",
+      "head_hash": "32bd5b2ec73a2f3789b75c8e483cba7d53f7c34eebb9d1939e93ffb71e0fcafe",
+      "preceding_update": null,
+      "elapsed_s": 1.1548512857407331
+    }
+  ],
+  "elapsed_s": 2.3061749823391438,
+  "architecture": "Stage2C1 LifetimeModel unchanged",
+  "training_objective": "observed consequence CE",
+  "privileged_signal_only_in_training": true,
+  "no_policy_or_memory_supervision": true
+}

@@ -1,0 +1,20 @@
+{
+  "configs/stage2c3_formal.yaml": "f95b8ccadbaf8080b4e15efab31ab308853431bf9c5f623ddd3e72c8f01cb213",
+  "docs/STAGE2C3_PROTOCOL.md": "8f184a87f2cb40b80c5076167f36bd7c0b7b57893465c4f5548e6c21d040be91",
+  "experiments/stage2c3_analyze.py": "0139e32d45e40392dbc5133900124a2f654e55b67b43b8d4454a9dd8b8601801",
+  "experiments/stage2c3_ce_matrix.py": "fa045558d0bfcadd799fceec032db94b79e22bdd6ed016c55b6dc5e7c61f33d2",
+  "experiments/stage2c3_checkpoint_audit.py": "832a0c4afca87fdf50b4121186c18c632334baa6cde01fc10bf0afc7236274fc",
+  "experiments/stage2c3_eval_matrix.py": "df6f9b9fb65060818e0806a52ed8b224625ca64cdbbc6eaafae8dc304371b442",
+  "experiments/stage2c3_evaluate.py": "2fe8f71cd0127f3f645b7cbefc7a1be967a656457fe8eeb63face9d9fe72e3be",
+  "experiments/stage2c3_integrity.py": "492e7778ad97422e06af54f87917c4f9024662db1dfcb7fd180f6285634c5ee7",
+  "experiments/stage2c3_oracle_curve.py": "dc359701f85aa543ef5eb48e559811d02726a6e22db8c5f68d80e64ff4447de6",
+  "experiments/stage2c3_oracle_matrix.py": "2834048ec541b2bc07eb2f7d0d22a3cb986b02378b7a719d74756090a4f1673c",
+  "experiments/stage2c3_postprocess.py": "86b9e4d57d048927e9aee004fdf4aeb0ead7dc12d9268b903178b08340eb6300",
+  "experiments/stage2c3_run_matrix.py": "bbb44fd347b76688e1ad8daadd02eb3d0552a9880f1120de746853041541a70c",
+  "experiments/stage2c3_run_parallel.py": "2674dee5051ded631514b99306c5373cd225b9bebadeac212956a63f1e8fe460",
+  "experiments/stage2c3_train.py": "66d089b18c775d6ea0303a0cc878bde66823aa7c3d8fd36c84573725aa10edb6",
+  "src/etrcm/stage2c3/__init__.py": "07dcb4819bccda2f03479fc7a6572722c7bc4330b9a76469449990806562f864",
+  "src/etrcm/stage2c3/controls.py": "8cf4916c996976b8a01648483acb7371d703903cd908461948391794e2b5df1c",
+  "src/etrcm/stage2c3/protocol.py": "9250aa650d4b4a9ca9dc4d88bb4a47a3e11ed9fb08d055e61a04da82e231bc36",
+  "tests/test_stage2c3.py": "fa7baae99752c2b6cf0e3cda7f153e5084a2cfb89e7f44ac2c678250506976ca"
+}
