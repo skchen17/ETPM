@@ -25,3 +25,7 @@ results/processed/*.parquet
 /results/stage2d1/checkpoints/
 /results/stage2d1/curricula/**/*.pt
 /results/stage2d1/curricula/**/*.log
+# Stage 2D.2 confirmatory checkpoints and process logs are reproducible from
+# tracked seeds/protocols; finite response matrices and summaries stay tracked.
+/results/stage2d2/confirmatory_basin/checkpoints/
+/results/stage2d2/**/*.log

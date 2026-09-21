@@ -1,0 +1,712 @@
+{
+  "cohort_A": {
+    "0": {
+      "A_hist": {
+        "healthy_mean": 0.12337617785669863,
+        "failed_mean": 0.10439966176636517,
+        "AUROC": 0.515625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_F": {
+        "healthy_mean": 0.14853890798985958,
+        "failed_mean": 0.1623361650854349,
+        "AUROC": 0.578125,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_M": {
+        "healthy_mean": 0.1294994978234172,
+        "failed_mean": 0.162318111397326,
+        "AUROC": 0.578125,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_FM": {
+        "healthy_mean": 0.147783643566072,
+        "failed_mean": 0.18301389645785093,
+        "AUROC": 0.609375,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      }
+    },
+    "25": {
+      "A_hist": {
+        "healthy_mean": 0.09605396166443825,
+        "failed_mean": 0.0763362196739763,
+        "AUROC": 0.61328125,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_F": {
+        "healthy_mean": 0.11045880289748311,
+        "failed_mean": 0.11075592995621264,
+        "AUROC": 0.5078125,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_M": {
+        "healthy_mean": 0.12109567248262465,
+        "failed_mean": 0.09853634878527373,
+        "AUROC": 0.66015625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_FM": {
+        "healthy_mean": 0.11798507394269109,
+        "failed_mean": 0.11230167001485825,
+        "AUROC": 0.59765625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      }
+    },
+    "50": {
+      "A_hist": {
+        "healthy_mean": 0.06787455274024978,
+        "failed_mean": 0.10420548648107797,
+        "AUROC": 0.6484375,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_F": {
+        "healthy_mean": 0.12030013534240425,
+        "failed_mean": 0.12001007236540318,
+        "AUROC": 0.54296875,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_M": {
+        "healthy_mean": 0.12285986193455756,
+        "failed_mean": 0.11927017127163708,
+        "AUROC": 0.50390625,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_FM": {
+        "healthy_mean": 0.11832290142774582,
+        "failed_mean": 0.119624899700284,
+        "AUROC": 0.50390625,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      }
+    },
+    "100": {
+      "A_hist": {
+        "healthy_mean": 0.09228164935484529,
+        "failed_mean": 0.09897373302374035,
+        "AUROC": 0.53515625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_F": {
+        "healthy_mean": 0.07838388241361827,
+        "failed_mean": 0.0947344726882875,
+        "AUROC": 0.609375,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_M": {
+        "healthy_mean": 0.07667916244827211,
+        "failed_mean": 0.08008684334345162,
+        "AUROC": 0.515625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_FM": {
+        "healthy_mean": 0.07953294459730387,
+        "failed_mean": 0.10244527575559914,
+        "AUROC": 0.69140625,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      }
+    },
+    "200": {
+      "A_hist": {
+        "healthy_mean": 0.10729879233986139,
+        "failed_mean": 0.09944463876308873,
+        "AUROC": 0.52734375,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_F": {
+        "healthy_mean": 0.15491407248191535,
+        "failed_mean": 0.1106271839234978,
+        "AUROC": 0.7265625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_M": {
+        "healthy_mean": 0.1138982551638037,
+        "failed_mean": 0.09263026807457209,
+        "AUROC": 0.51953125,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_FM": {
+        "healthy_mean": 0.14395545260049403,
+        "failed_mean": 0.1143799927085638,
+        "AUROC": 0.69140625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      }
+    },
+    "300": {
+      "A_hist": {
+        "healthy_mean": 0.11657658108742908,
+        "failed_mean": 0.12475995597196743,
+        "AUROC": 0.51953125,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_F": {
+        "healthy_mean": 0.17416533781215549,
+        "failed_mean": 0.19841826800256968,
+        "AUROC": 0.625,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_M": {
+        "healthy_mean": 0.1079308558255434,
+        "failed_mean": 0.12223510385956615,
+        "AUROC": 0.5859375,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_FM": {
+        "healthy_mean": 0.16446026833727956,
+        "failed_mean": 0.19068246707320213,
+        "AUROC": 0.62109375,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      }
+    },
+    "500": {
+      "A_hist": {
+        "healthy_mean": 0.288016433827579,
+        "failed_mean": 0.1610774799482897,
+        "AUROC": 0.69140625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_F": {
+        "healthy_mean": 0.25612995820119977,
+        "failed_mean": 0.18129125889390707,
+        "AUROC": 0.73046875,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_M": {
+        "healthy_mean": 0.1946173266042024,
+        "failed_mean": 0.15593999880366027,
+        "AUROC": 0.5546875,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_FM": {
+        "healthy_mean": 0.23809417057782412,
+        "failed_mean": 0.18145618308335543,
+        "AUROC": 0.6953125,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      }
+    },
+    "750": {
+      "A_hist": {
+        "healthy_mean": 0.20635616639629006,
+        "failed_mean": 0.14524861180689186,
+        "AUROC": 0.6171875,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_F": {
+        "healthy_mean": 0.2052693422883749,
+        "failed_mean": 0.19266204303130507,
+        "AUROC": 0.53515625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_M": {
+        "healthy_mean": 0.20781406573951244,
+        "failed_mean": 0.18242503586225212,
+        "AUROC": 0.62890625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_FM": {
+        "healthy_mean": 0.2118850436527282,
+        "failed_mean": 0.19717716798186302,
+        "AUROC": 0.56640625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      }
+    },
+    "1000": {
+      "A_hist": {
+        "healthy_mean": 0.21093589486554265,
+        "failed_mean": 0.12431829023989849,
+        "AUROC": 0.765625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_F": {
+        "healthy_mean": 0.20103796874172986,
+        "failed_mean": 0.18139654933474958,
+        "AUROC": 0.52734375,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_M": {
+        "healthy_mean": 0.2009467389434576,
+        "failed_mean": 0.18069794867187738,
+        "AUROC": 0.5078125,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_FM": {
+        "healthy_mean": 0.20141953183338046,
+        "failed_mean": 0.19712615059688687,
+        "AUROC": 0.515625,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      }
+    },
+    "1500": {
+      "A_hist": {
+        "healthy_mean": 0.280251735355705,
+        "failed_mean": 0.12271339469589293,
+        "AUROC": 0.83984375,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_F": {
+        "healthy_mean": 0.18840541294775903,
+        "failed_mean": 0.19808224914595485,
+        "AUROC": 0.5234375,
+        "direction": -1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_M": {
+        "healthy_mean": 0.19426818517968059,
+        "failed_mean": 0.1479794322513044,
+        "AUROC": 0.65234375,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      },
+      "A_FM": {
+        "healthy_mean": 0.18972208490595222,
+        "failed_mean": 0.18467536009848118,
+        "AUROC": 0.53515625,
+        "direction": 1,
+        "healthy_n": 16,
+        "failed_n": 16
+      }
+    }
+  },
+  "cohort_B": {
+    "0": {
+      "A_hist": {
+        "healthy_mean": 0.08704195882786404,
+        "failed_mean": 0.08802133798599243,
+        "AUROC": 0.5104895104895104,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_F": {
+        "healthy_mean": 0.10199500484900041,
+        "failed_mean": 0.15301992113773638,
+        "AUROC": 0.7412587412587412,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_M": {
+        "healthy_mean": 0.20311655578288165,
+        "failed_mean": 0.08216608745547441,
+        "AUROC": 0.951048951048951,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_FM": {
+        "healthy_mean": 0.16920861500230702,
+        "failed_mean": 0.08259484286491688,
+        "AUROC": 0.9090909090909091,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      }
+    },
+    "25": {
+      "A_hist": {
+        "healthy_mean": 0.0843779905275865,
+        "failed_mean": 0.12956349895550653,
+        "AUROC": 0.6363636363636364,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_F": {
+        "healthy_mean": 0.12096861241893335,
+        "failed_mean": 0.13246809232693452,
+        "AUROC": 0.6293706293706294,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_M": {
+        "healthy_mean": 0.11985402495007623,
+        "failed_mean": 0.10652005299925804,
+        "AUROC": 0.5174825174825175,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_FM": {
+        "healthy_mean": 0.12854029576886783,
+        "failed_mean": 0.1258590748676887,
+        "AUROC": 0.5174825174825175,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      }
+    },
+    "50": {
+      "A_hist": {
+        "healthy_mean": 0.1267963834953579,
+        "failed_mean": 0.075581819893649,
+        "AUROC": 0.6083916083916084,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_F": {
+        "healthy_mean": 0.10260213437405499,
+        "failed_mean": 0.11302507353516725,
+        "AUROC": 0.5594405594405594,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_M": {
+        "healthy_mean": 0.12410107525912198,
+        "failed_mean": 0.12878151868398374,
+        "AUROC": 0.5244755244755245,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_FM": {
+        "healthy_mean": 0.11251399869268591,
+        "failed_mean": 0.11255035864619109,
+        "AUROC": 0.5034965034965035,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      }
+    },
+    "100": {
+      "A_hist": {
+        "healthy_mean": 0.1186641791666096,
+        "failed_mean": 0.15204877950824225,
+        "AUROC": 0.6293706293706294,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_F": {
+        "healthy_mean": 0.12216912650249222,
+        "failed_mean": 0.12050138442562176,
+        "AUROC": 0.5594405594405595,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_M": {
+        "healthy_mean": 0.13139089281586083,
+        "failed_mean": 0.10151756769762589,
+        "AUROC": 0.6153846153846154,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_FM": {
+        "healthy_mean": 0.11899853938005188,
+        "failed_mean": 0.12304905916635807,
+        "AUROC": 0.5034965034965035,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      }
+    },
+    "200": {
+      "A_hist": {
+        "healthy_mean": 0.10408101738853888,
+        "failed_mean": 0.114965381530615,
+        "AUROC": 0.5384615384615384,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_F": {
+        "healthy_mean": 0.14977586100047285,
+        "failed_mean": 0.1592164205817076,
+        "AUROC": 0.5104895104895104,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_M": {
+        "healthy_mean": 0.059125115925615486,
+        "failed_mean": 0.1289333594031632,
+        "AUROC": 0.6853146853146853,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_FM": {
+        "healthy_mean": 0.1030522534115748,
+        "failed_mean": 0.16682433795470458,
+        "AUROC": 0.7412587412587412,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      }
+    },
+    "300": {
+      "A_hist": {
+        "healthy_mean": 0.2094064402309331,
+        "failed_mean": 0.20437115258895433,
+        "AUROC": 0.5314685314685315,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_F": {
+        "healthy_mean": 0.20911427316340533,
+        "failed_mean": 0.1372224036604166,
+        "AUROC": 0.7272727272727273,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_M": {
+        "healthy_mean": 0.19034590030258353,
+        "failed_mean": 0.10152011164105855,
+        "AUROC": 0.7412587412587412,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_FM": {
+        "healthy_mean": 0.20407474718310617,
+        "failed_mean": 0.13236994597201163,
+        "AUROC": 0.7342657342657343,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      }
+    },
+    "500": {
+      "A_hist": {
+        "healthy_mean": 0.26982078091664746,
+        "failed_mean": 0.18209201025848204,
+        "AUROC": 0.6153846153846154,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_F": {
+        "healthy_mean": 0.2938733053478328,
+        "failed_mean": 0.29428226271500957,
+        "AUROC": 0.5384615384615384,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_M": {
+        "healthy_mean": 0.2439317058094523,
+        "failed_mean": 0.2088331296466864,
+        "AUROC": 0.5944055944055944,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_FM": {
+        "healthy_mean": 0.2939883707599206,
+        "failed_mean": 0.27448527342998064,
+        "AUROC": 0.5314685314685315,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      }
+    },
+    "750": {
+      "A_hist": {
+        "healthy_mean": 0.26515129750425165,
+        "failed_mean": 0.23662902500766975,
+        "AUROC": 0.5314685314685315,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_F": {
+        "healthy_mean": 0.1674289574677294,
+        "failed_mean": 0.3066793382167816,
+        "AUROC": 0.8251748251748252,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_M": {
+        "healthy_mean": 0.14152488552711226,
+        "failed_mean": 0.21690310251254302,
+        "AUROC": 0.6783216783216783,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_FM": {
+        "healthy_mean": 0.1548847806724635,
+        "failed_mean": 0.30044472160247654,
+        "AUROC": 0.8391608391608392,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      }
+    },
+    "1000": {
+      "A_hist": {
+        "healthy_mean": 0.2738921356133439,
+        "failed_mean": 0.2668477388528677,
+        "AUROC": 0.5034965034965035,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_F": {
+        "healthy_mean": 0.17309437759897925,
+        "failed_mean": 0.25072910006229693,
+        "AUROC": 0.6503496503496504,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_M": {
+        "healthy_mean": 0.17095078392462296,
+        "failed_mean": 0.1928444103552745,
+        "AUROC": 0.5804195804195804,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_FM": {
+        "healthy_mean": 0.1846159493381327,
+        "failed_mean": 0.2550964309619023,
+        "AUROC": 0.6573426573426573,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      }
+    },
+    "1500": {
+      "A_hist": {
+        "healthy_mean": 0.28437282399020414,
+        "failed_mean": 0.17698534492116708,
+        "AUROC": 0.7132867132867133,
+        "direction": 1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_F": {
+        "healthy_mean": 0.13414910266345198,
+        "failed_mean": 0.19835104735998008,
+        "AUROC": 0.7062937062937062,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_M": {
+        "healthy_mean": 0.12607505680485206,
+        "failed_mean": 0.16341685962218505,
+        "AUROC": 0.6363636363636364,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      },
+      "A_FM": {
+        "healthy_mean": 0.12192271988500249,
+        "failed_mean": 0.19914601571284807,
+        "AUROC": 0.7552447552447552,
+        "direction": -1,
+        "healthy_n": 11,
+        "failed_n": 13
+      }
+    }
+  },
+  "rank_energy": {
+    "0": {
+      "1": 0.90233264118433,
+      "2": 0.974196694791317,
+      "4": 0.9999877884984016,
+      "8": 0.9999999925494194
+    },
+    "100": {
+      "1": 0.9934922102838755,
+      "2": 0.9998883176594973,
+      "4": 0.9999794699251652,
+      "8": 1.0000000055879354
+    },
+    "500": {
+      "1": 0.9880106020718813,
+      "2": 0.9988458640873432,
+      "4": 0.9999220296740532,
+      "8": 0.99999975040555
+    },
+    "1500": {
+      "1": 0.9775356836616993,
+      "2": 0.9978292006999254,
+      "4": 0.9997671581804752,
+      "8": 0.9999992586672306
+    }
+  }
+}

@@ -321,3 +321,21 @@ The protocol is in `docs/STAGE2D1_PROTOCOL.md`; the full experimental details,
 26 required answers, negative results, and machine-readable evidence map are in
 `reports/STAGE2D1_TRAINING_BASIN_RESULTS.md`. This remains synthetic-world
 diagnostic evidence, not a claim of human-like or unrestricted causal memory.
+
+## Stage 2D.2 state-to-behavior alignment (2026-09-21)
+
+> **Do successful ET-RCM initializations enter the noisy behavioral-memory basin because history- and memory-induced active-state changes align with downstream behaviorally useful directions?**
+
+Stage 2D.2 froze the architecture and used finite H interventions to estimate
+the protected evaluator's useful subspace across the 32 existing runs and a
+new 8×3 confirmatory cohort. The response was strongly low rank, and late
+history alignment was higher in healthy runs. Memory-induced alignment was not
+stable across cohorts, however: frozen useful-subspace rescue passed only 1/8,
+healthy destruction 5/8, and a development AUROC .766 early controllability
+metric fell to .469 in confirmation.
+
+G73–G75 failed. The preregistered stopping rule therefore prohibited alignment
+warmup, so G76–G78 are `NOT_RUN_BY_PROTOCOL`. The outcome is **D — no useful
+alignment explanation**. This does not justify changing the F/M law or reopening
+formal handoff. See `docs/STAGE2D2_PROTOCOL.md` and
+`reports/STAGE2D2_STATE_BEHAVIOR_ALIGNMENT_RESULTS.md`.

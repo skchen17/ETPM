@@ -1,0 +1,15 @@
+stage: stage2d2
+architecture: frozen_stage2d
+cohort_a: {initializations: 8, streams: 4, runs: 32}
+cohort_b: {initializations: 8, streams: 3, runs: 24}
+checkpoints: [0, 25, 50, 100, 200, 300, 500, 750, 1000, 1500]
+finite_probe_directions: 128
+epsilon_native_scale: [0.05, 0.10, 0.25, 0.50]
+ranks: [1, 2, 4, 8]
+primary_rank: 4
+primary_epsilon: 0.10
+gates:
+  G73: {required: 6, total: 8, norm_cap: 1.25}
+  G74: {required: 6, total: 8}
+  G75: {overall_AUROC_min: 0.75, stream_AUROC_min: 0.70, streams_required: 2}
+  G76: {required: 6, total: 8}

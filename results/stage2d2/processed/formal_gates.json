@@ -1,0 +1,31 @@
+{
+  "G73": {
+    "counts": {
+      "useful_only": 1,
+      "rotate_0.25": 1,
+      "rotate_0.5": 1,
+      "rotate_0.75": 1,
+      "rotate_1.0": 1
+    },
+    "best": "useful_only",
+    "count": 1,
+    "pass": false
+  },
+  "G74": {
+    "count": 5,
+    "denominator": 8,
+    "pass": false
+  },
+  "G75": {
+    "pass": false
+  },
+  "G76": {
+    "status": "NOT_RUN_BY_PROTOCOL"
+  },
+  "G77": {
+    "status": "NOT_RUN_BY_PROTOCOL"
+  },
+  "G78": {
+    "status": "NOT_RUN_BY_PROTOCOL"
+  }
+}

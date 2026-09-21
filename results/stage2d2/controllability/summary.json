@@ -1,0 +1,106 @@
+{
+  "development": [
+    {
+      "step": 0,
+      "feature": "external",
+      "healthy_mean": 0.12554091028869152,
+      "failed_mean": 0.09296691324561834,
+      "AUROC": 0.765625,
+      "direction": 1,
+      "healthy_n": 16,
+      "failed_n": 16
+    },
+    {
+      "step": 0,
+      "feature": "F",
+      "healthy_mean": 0.1467160931788385,
+      "failed_mean": 0.15521921822801232,
+      "AUROC": 0.5625,
+      "direction": -1,
+      "healthy_n": 16,
+      "failed_n": 16
+    },
+    {
+      "step": 0,
+      "feature": "M",
+      "healthy_mean": 0.13901174860075116,
+      "failed_mean": 0.1840886096470058,
+      "AUROC": 0.625,
+      "direction": -1,
+      "healthy_n": 16,
+      "failed_n": 16
+    },
+    {
+      "step": 0,
+      "feature": "combined",
+      "healthy_mean": 0.13376203086227179,
+      "failed_mean": 0.17571516428142786,
+      "AUROC": 0.671875,
+      "direction": -1,
+      "healthy_n": 16,
+      "failed_n": 16
+    },
+    {
+      "step": 25,
+      "feature": "external",
+      "healthy_mean": 0.08678752882406116,
+      "failed_mean": 0.08584120264276862,
+      "AUROC": 0.52734375,
+      "direction": 1,
+      "healthy_n": 16,
+      "failed_n": 16
+    },
+    {
+      "step": 25,
+      "feature": "F",
+      "healthy_mean": 0.1177913686260581,
+      "failed_mean": 0.09793394827283919,
+      "AUROC": 0.6640625,
+      "direction": 1,
+      "healthy_n": 16,
+      "failed_n": 16
+    },
+    {
+      "step": 25,
+      "feature": "M",
+      "healthy_mean": 0.10639034816995263,
+      "failed_mean": 0.09614199306815863,
+      "AUROC": 0.5859375,
+      "direction": 1,
+      "healthy_n": 16,
+      "failed_n": 16
+    },
+    {
+      "step": 25,
+      "feature": "combined",
+      "healthy_mean": 0.1148508065380156,
+      "failed_mean": 0.10088499379344285,
+      "AUROC": 0.65625,
+      "direction": 1,
+      "healthy_n": 16,
+      "failed_n": 16
+    }
+  ],
+  "frozen": {
+    "step": 0,
+    "feature": "external",
+    "healthy_mean": 0.12554091028869152,
+    "failed_mean": 0.09296691324561834,
+    "AUROC": 0.765625,
+    "direction": 1,
+    "healthy_n": 16,
+    "failed_n": 16
+  },
+  "confirmatory": {
+    "AUROC": 0.46853146853146854,
+    "by_stream": {
+      "12401": 0.6,
+      "12402": 0.375,
+      "12403": 0.4166666666666667
+    },
+    "streams_passing": 0
+  },
+  "G75": {
+    "pass": false
+  }
+}
