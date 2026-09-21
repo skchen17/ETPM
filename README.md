@@ -298,3 +298,26 @@ in [`docs/STAGE2D_PROTOCOL.md`](docs/STAGE2D_PROTOCOL.md) and
 The Stage 2D report must be read as synthetic-world evidence only. Gradual
 behavior, persistence, or NULL-time benefit is not described as human-like
 memory, consciousness, unlimited capacity, or unrestricted causal memory.
+
+## Stage 2D.1 training-basin audit (2026-09-21)
+
+> **Why do only a minority of identically specified ET-RCM training runs enter the noisy behavioral-memory regime, and is the successful basin caused by slow-memory routing, by earlier conditional-binding dynamics, or by their interaction?**
+
+Stage 2D.1 froze the Stage 2D architecture and memory laws, crossed eight
+initializations with four data streams, audited 14 training checkpoints, and
+applied parameter-frozen F/M routing interventions. The baseline produced
+16/32 healthy, 1/32 partial, and 15/32 shortcut runs. Initialization and
+init×stream/residual effects dominated; the pure stream main effect was small.
+
+High M routing was associated with successful runs but was not sufficient:
+the best single frozen intervention improved only 4/8 failed checkpoints.
+The development-selected 50-step temporary M-gate floor produced 4/8 healthy
+formal runs after the constraint was removed. G68–G72 all failed (4/8, 4/8,
+3/8, 2/8, and 5/8 respectively). The outcome is **D — basin not explained**.
+No F/M-law redesign or new formal handoff stage is authorized because robust
+conditional binding has not yet been guaranteed.
+
+The protocol is in `docs/STAGE2D1_PROTOCOL.md`; the full experimental details,
+26 required answers, negative results, and machine-readable evidence map are in
+`reports/STAGE2D1_TRAINING_BASIN_RESULTS.md`. This remains synthetic-world
+diagnostic evidence, not a claim of human-like or unrestricted causal memory.

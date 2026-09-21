@@ -1,0 +1,142 @@
+{
+  "init_seed": 9301,
+  "data_seed": 12301,
+  "eval_seed": 15501,
+  "pre_initial_hash": "37b024a2842a31c9b511dda5c2b328ddd179048f34cd37561b50a2020eea9a77",
+  "initialized_hash": "0812702d94b2a1237465e7291844ef46b902e6bdf7a99f7db51d78d4fe5d1cb4",
+  "final_hash": "adba3eb6c4b412e866ca49dfd3503dfb184e7f6e676b49d192ff6c9e177aff44",
+  "evaluator_pretraining": {
+    "steps": 1000,
+    "oracle_evaluator_metrics": {
+      "prob": [
+        [
+          [
+            0.999595582485199,
+            0.00015688335406593978,
+            0.00011767884279834107,
+            0.00012976648577023298
+          ],
+          [
+            0.0005081167328171432,
+            0.2978365123271942,
+            0.31526392698287964,
+            0.38639137148857117
+          ]
+        ],
+        [
+          [
+            0.0006273550097830594,
+            0.37937867641448975,
+            0.2932155132293701,
+            0.32677850127220154
+          ],
+          [
+            0.9999043941497803,
+            3.1284162105293944e-05,
+            3.630937135312706e-05,
+            2.7993375624646433e-05
+          ]
+        ]
+      ],
+      "tv_action": [
+        0.9990874528884888,
+        0.9992771148681641
+      ],
+      "tv_history": [
+        0.9989683032035828,
+        0.9993962645530701
+      ],
+      "kl_action_01": [
+        7.578176021575928,
+        9.260981559753418
+      ],
+      "kl_action_10": [
+        7.823591232299805,
+        7.372314453125
+      ],
+      "js_action": [
+        0.6891883015632629,
+        0.6900310516357422
+      ],
+      "entropy_difference_a0_minus_a1": [
+        -1.091936707496643,
+        1.0964664220809937
+      ],
+      "p0_difference_a0_minus_a1": [
+        0.9990874528884888,
+        -0.9992770552635193
+      ],
+      "delta_q_a": 0.9990874528884888,
+      "delta_q_b": 0.9992770552635193,
+      "interaction_y0": 1.9983644485473633,
+      "interaction_vector": [
+        1.9983644485473633,
+        -0.6770269870758057,
+        -0.6083254814147949,
+        -0.7130120992660522
+      ],
+      "entropy_policy": [
+        [
+          0.9577029347419739,
+          0.04229709133505821
+        ],
+        [
+          0.041775938123464584,
+          0.9582241177558899
+        ]
+      ],
+      "q_policy": [
+        [
+          0.9455525875091553,
+          0.05444733425974846
+        ],
+        [
+          0.05441945791244507,
+          0.9455805420875549
+        ]
+      ],
+      "entropy_correct_mean": 0.9579635262489319,
+      "q_correct_mean": 0.9455665349960327,
+      "behavioral_separation_entropy": 0.915926992893219,
+      "behavioral_separation_q": 0.8911331295967102
+    },
+    "transferred_head_hash": "59ed84c76459a23a91c8277a019fc961466df6f095bee45ca6d749e48cb1c996",
+    "oracle_z_scope": "evaluator pretraining only; absent from lifetime input"
+  },
+  "evaluator_hash_unchanged": true,
+  "seeds_strictly_separated": true,
+  "architecture_change": "none",
+  "memory_law_change": "none",
+  "privileged_lifetime_inputs": [],
+  "curriculum": "C2",
+  "gate_warmup_removed_before_final_evaluation": true,
+  "checkpoint_steps": [
+    0,
+    1500
+  ],
+  "training_log": [
+    {
+      "step": 1500,
+      "CE": 1.2481189966201782,
+      "objective": 1.2482354640960693,
+      "H_norm": 1.8126611709594727,
+      "F_norm": 0.39849236607551575,
+      "M_norm": 1.087142825126648,
+      "gradients_preclip": {
+        "all": 4590.788189835008,
+        "H_core": 3215.916520283088,
+        "q_F": 254.38629428243576,
+        "q_M": 505.259215650739,
+        "read_gate": 83.75596192048995,
+        "external_write": 2115.520890856065,
+        "access_consolidation": 12.848458557037427,
+        "action_branch": 0.0,
+        "evaluator": 0.0
+      },
+      "p": 0.7,
+      "gate_floor_m": null,
+      "elapsed_s": 1312.5134217180312
+    }
+  ],
+  "elapsed_s": 1312.5139479767531
+}

@@ -19,3 +19,9 @@ results/processed/*.parquet
 /results/stage2c/**/trajectory.jsonl
 /results/stage2c/trajectories/full/*/windows.jsonl
 /results/stage2c/trajectories/full/*/window_states.pt
+# Stage 2D.1 high-resolution and curriculum checkpoints/logs are reproducible
+# from the tracked seeds, schedules, summaries, and scripts. Keep compact JSON
+# audits and adjudication results in Git, but not binary training artifacts.
+/results/stage2d1/checkpoints/
+/results/stage2d1/curricula/**/*.pt
+/results/stage2d1/curricula/**/*.log

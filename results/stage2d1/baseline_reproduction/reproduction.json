@@ -1,0 +1,8 @@
+{
+  "protocol": "Stage2D A2 exact architecture/objective with separated seeds",
+  "runs": 32,
+  "healthy": 16,
+  "transition_equivalence_test": "tests/test_stage2d1.py::test_exact_baseline_transition_reproduction",
+  "architecture_change": "none",
+  "memory_law_change": "none"
+}

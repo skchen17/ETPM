@@ -1,0 +1,18 @@
+stage: stage2d1
+architecture: frozen_stage2d_full
+arm: A2
+gamma: 0.50
+rho_fast: 0.97
+rho_slow: 0.9995
+baseline_train_p: 0.70
+steps: 1500
+batch: 16
+lengths: [16, 32, 64]
+checkpoint_steps: [0, 10, 25, 50, 75, 100, 150, 200, 300, 500, 750, 1000, 1250, 1500]
+init_seeds: [9101, 9102, 9103, 9104, 9105, 9106, 9107, 9108]
+data_seeds: [12101, 12102, 12103, 12104]
+eval_seed: 15101
+classification:
+  healthy: {action_TV_min: 0.10, interaction_abs_min: 0.10, BS_abs_min: 0.10}
+  partial: "at least one, but not all, healthy criteria"
+  shortcut: "none of the healthy criteria"
