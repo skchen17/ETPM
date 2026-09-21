@@ -1,0 +1,261 @@
+{
+  "runs": {
+    "A": [
+      {
+        "run": "i9101_d12101",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.5625,
+        "H_probe": 0.4375,
+        "state_main": 0.3515060842037201,
+        "incoming_interaction": 0.014432006515562534,
+        "fusion_post_interaction": 0.1731778234243393
+      },
+      {
+        "run": "i9101_d12104",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.5625,
+        "H_probe": 0.5625,
+        "state_main": 0.7048423290252686,
+        "incoming_interaction": 0.09055858850479126,
+        "fusion_post_interaction": 0.3525334894657135
+      },
+      {
+        "run": "i9103_d12101",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.5625,
+        "H_probe": 0.4375,
+        "state_main": 0.5011820793151855,
+        "incoming_interaction": 0.009818860329687595,
+        "fusion_post_interaction": 0.169472336769104
+      },
+      {
+        "run": "i9103_d12104",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.625,
+        "H_probe": 0.6875,
+        "state_main": 0.5740929245948792,
+        "incoming_interaction": 0.03241383284330368,
+        "fusion_post_interaction": 0.2743910253047943
+      },
+      {
+        "run": "i9104_d12101",
+        "taxonomy": "F2_stored_but_unused",
+        "M_probe": 0.75,
+        "H_probe": 0.6875,
+        "state_main": 0.3622167408466339,
+        "incoming_interaction": 0.007057506591081619,
+        "fusion_post_interaction": 0.14006641507148743
+      },
+      {
+        "run": "i9104_d12102",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.625,
+        "H_probe": 0.5,
+        "state_main": 0.1558447927236557,
+        "incoming_interaction": 0.005613349378108978,
+        "fusion_post_interaction": 0.07078418135643005
+      },
+      {
+        "run": "i9104_d12103",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.625,
+        "H_probe": 0.5,
+        "state_main": 0.22517770528793335,
+        "incoming_interaction": 0.0031960399355739355,
+        "fusion_post_interaction": 0.1107834130525589
+      },
+      {
+        "run": "i9104_d12104",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.6875,
+        "H_probe": 0.5625,
+        "state_main": 0.3217291533946991,
+        "incoming_interaction": 0.01755661517381668,
+        "fusion_post_interaction": 0.1479390263557434
+      },
+      {
+        "run": "i9106_d12101",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.625,
+        "H_probe": 0.4375,
+        "state_main": 0.5748650431632996,
+        "incoming_interaction": 0.01510536391288042,
+        "fusion_post_interaction": 0.23893100023269653
+      },
+      {
+        "run": "i9106_d12102",
+        "taxonomy": "F2_stored_but_unused",
+        "M_probe": 0.6875,
+        "H_probe": 0.75,
+        "state_main": 0.5551522374153137,
+        "incoming_interaction": 0.008671916089951992,
+        "fusion_post_interaction": 0.23909153044223785
+      },
+      {
+        "run": "i9106_d12103",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.6875,
+        "H_probe": 0.5,
+        "state_main": 0.3616998493671417,
+        "incoming_interaction": 0.0060548302717506886,
+        "fusion_post_interaction": 0.1015351191163063
+      },
+      {
+        "run": "i9106_d12104",
+        "taxonomy": "F2_stored_but_unused",
+        "M_probe": 0.5625,
+        "H_probe": 0.5625,
+        "state_main": 0.8589582443237305,
+        "incoming_interaction": 0.020235879346728325,
+        "fusion_post_interaction": 0.3908335268497467
+      },
+      {
+        "run": "i9107_d12102",
+        "taxonomy": "F2_stored_but_unused",
+        "M_probe": 0.4375,
+        "H_probe": 0.5625,
+        "state_main": 0.33221492171287537,
+        "incoming_interaction": 0.014511816203594208,
+        "fusion_post_interaction": 0.1480768620967865
+      },
+      {
+        "run": "i9107_d12104",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.5625,
+        "H_probe": 0.5,
+        "state_main": 0.46531805396080017,
+        "incoming_interaction": 0.012521867640316486,
+        "fusion_post_interaction": 0.18536190688610077
+      },
+      {
+        "run": "i9108_d12103",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.625,
+        "H_probe": 0.4375,
+        "state_main": 0.28152838349342346,
+        "incoming_interaction": 0.004464856814593077,
+        "fusion_post_interaction": 0.10628300160169601
+      }
+    ],
+    "B": [
+      {
+        "run": "i9501_d12502",
+        "taxonomy": "F2_stored_but_unused",
+        "M_probe": 0.625,
+        "H_probe": 0.75,
+        "state_main": 0.6482689380645752,
+        "incoming_interaction": 0.017767397686839104,
+        "fusion_post_interaction": 0.2664670944213867
+      },
+      {
+        "run": "i9502_d12502",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.5,
+        "H_probe": 0.4375,
+        "state_main": 0.4266389012336731,
+        "incoming_interaction": 0.009016207419335842,
+        "fusion_post_interaction": 0.28094053268432617
+      },
+      {
+        "run": "i9502_d12503",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.4375,
+        "H_probe": 0.5,
+        "state_main": 0.30838796496391296,
+        "incoming_interaction": 0.0031463054474443197,
+        "fusion_post_interaction": 0.0900016501545906
+      },
+      {
+        "run": "i9505_d12501",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.5625,
+        "H_probe": 0.5625,
+        "state_main": 0.3987656831741333,
+        "incoming_interaction": 0.058750446885824203,
+        "fusion_post_interaction": 0.1855064481496811
+      },
+      {
+        "run": "i9505_d12503",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.6875,
+        "H_probe": 0.625,
+        "state_main": 0.3558204174041748,
+        "incoming_interaction": 0.02314576506614685,
+        "fusion_post_interaction": 0.14123082160949707
+      },
+      {
+        "run": "i9506_d12501",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.6875,
+        "H_probe": 0.5625,
+        "state_main": 0.6542139649391174,
+        "incoming_interaction": 0.18501980602741241,
+        "fusion_post_interaction": 0.31832289695739746
+      },
+      {
+        "run": "i9506_d12502",
+        "taxonomy": "F2_stored_but_unused",
+        "M_probe": 0.625,
+        "H_probe": 0.8125,
+        "state_main": 0.7600991129875183,
+        "incoming_interaction": 0.17710284888744354,
+        "fusion_post_interaction": 0.3181827962398529
+      },
+      {
+        "run": "i9507_d12501",
+        "taxonomy": "F1_state_formation_failure",
+        "M_probe": 0.5625,
+        "H_probe": 0.5,
+        "state_main": 0.2982308268547058,
+        "incoming_interaction": 0.004901357926428318,
+        "fusion_post_interaction": 0.09301217645406723
+      },
+      {
+        "run": "i9507_d12502",
+        "taxonomy": "F2_stored_but_unused",
+        "M_probe": 0.75,
+        "H_probe": 0.5,
+        "state_main": 0.2775885760784149,
+        "incoming_interaction": 0.00397444237023592,
+        "fusion_post_interaction": 0.11444178968667984
+      },
+      {
+        "run": "i9507_d12503",
+        "taxonomy": "F2_stored_but_unused",
+        "M_probe": 0.6875,
+        "H_probe": 0.8125,
+        "state_main": 0.34552016854286194,
+        "incoming_interaction": 0.015382030047476292,
+        "fusion_post_interaction": 0.10005747526884079
+      },
+      {
+        "run": "i9508_d12501",
+        "taxonomy": "F2_stored_but_unused",
+        "M_probe": 0.75,
+        "H_probe": 0.5,
+        "state_main": 0.320416122674942,
+        "incoming_interaction": 0.0434105284512043,
+        "fusion_post_interaction": 0.12114423513412476
+      },
+      {
+        "run": "i9508_d12503",
+        "taxonomy": "F2_stored_but_unused",
+        "M_probe": 0.625,
+        "H_probe": 0.75,
+        "state_main": 0.5455484986305237,
+        "incoming_interaction": 0.02228996716439724,
+        "fusion_post_interaction": 0.19064317643642426
+      }
+    ]
+  },
+  "counts": {
+    "A": {
+      "F1_state_formation_failure": 11,
+      "F2_stored_but_unused": 4
+    },
+    "B": {
+      "F2_stored_but_unused": 6,
+      "F1_state_formation_failure": 6
+    }
+  }
+}

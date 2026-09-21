@@ -1,0 +1,34 @@
+stage: stage2d3
+architecture: frozen_stage2d
+memory: {gamma: 0.50, rho_fast: 0.97, rho_slow: 0.9995}
+cohort_a: {source: stage2d1_factorial, runs: 32, minimum_healthy: 8, minimum_shortcut: 8}
+cohort_b: {initializations: [9501, 9502, 9503, 9504, 9505, 9506, 9507, 9508], streams: [12501, 12502, 12503], runs: 24}
+eval_seed: 15501
+checkpoints: [0, 25, 50, 100, 200, 300, 500, 750, 1000, 1500]
+factorial:
+  histories: 2
+  actions: 2
+  preregistered_causal_layer: fusion_post
+  epsilon: 1.0e-12
+cross_interaction:
+  H_directions: 64
+  H_native_scales: [0.10, 0.25]
+  action_direction: real_action_embedding_contrast
+activation_intervention:
+  lambdas: [0.25, 0.50, 1.0]
+  norm_cap: 1.25
+curriculum:
+  development_windows: [50, 100, 200, 300]
+  formal_seeds: 8
+  minimum_original_objective_fraction: 0.80
+gates:
+  G79: {matched_direction_required: 6, denominator: 8, cohorts_required: 2}
+  G80: {cohorts_required: 2}
+  G81: {required: 6, denominator: 8}
+  G82: {required: 6, denominator: 8}
+  G83: {cohorts_required: 2}
+  G84: {required: 6, denominator: 8}
+  G85: {required: 6, denominator: 8}
+  G86: {required: 6, denominator: 8}
+  G87: {required: 6, denominator: 8}
+stopping_rule: run_training_rescue_only_if_G81_or_G82_passes

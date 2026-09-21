@@ -1,0 +1,3857 @@
+{
+  "cohorts": {
+    "A": {
+      "classes": {
+        "shortcut": 15,
+        "healthy": 16,
+        "partial": 1
+      },
+      "steps": {
+        "0": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.06094329571351409,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.07320607403914134,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.060576468240469694,
+                "action_norm": 0.004270630772225559,
+                "interaction_norm": 3.075230142712826e-05,
+                "normalized_interaction": 0.0006070744855802523
+              },
+              "shortcut": {
+                "state_norm": 0.07250283161799113,
+                "action_norm": 0.0035887223357955614,
+                "interaction_norm": 3.6904508791243035e-05,
+                "normalized_interaction": 0.0005260457977698501
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.060576468240469694,
+                "action_norm": 0.004270630772225559,
+                "interaction_norm": 3.075230142712826e-05,
+                "normalized_interaction": 0.0006070744855802523
+              },
+              "shortcut": {
+                "state_norm": 0.07250283161799113,
+                "action_norm": 0.0035887223357955614,
+                "interaction_norm": 3.6904508791243035e-05,
+                "normalized_interaction": 0.0005260457977698501
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 4.50572694838047,
+                "interaction_norm": 1.4017618621409156e-07,
+                "normalized_interaction": 3.151321164225251e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 5.03397339185079,
+                "interaction_norm": 1.738763122223948e-07,
+                "normalized_interaction": 3.479224393845376e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.060576468240469694,
+                "action_norm": 4.505729168653488,
+                "interaction_norm": 3.0752694783586776e-05,
+                "normalized_interaction": 6.5955081741171345e-06
+              },
+              "shortcut": {
+                "state_norm": 0.07250283161799113,
+                "action_norm": 5.033974679311116,
+                "interaction_norm": 3.690505109261721e-05,
+                "normalized_interaction": 7.271554229478612e-06
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.047943678218871355,
+                "action_norm": 15.439774572849274,
+                "interaction_norm": 2.692324301278859e-05,
+                "normalized_interaction": 1.7031518976780384e-06
+              },
+              "shortcut": {
+                "state_norm": 0.06716050878167153,
+                "action_norm": 15.994264475504558,
+                "interaction_norm": 2.9506221956883867e-05,
+                "normalized_interaction": 1.8306267554486256e-06
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.02445010293740779,
+                "action_norm": 8.00377869606018,
+                "interaction_norm": 0.04209429200273007,
+                "normalized_interaction": 0.005228430330398624
+              },
+              "shortcut": {
+                "state_norm": 0.03368589008847873,
+                "action_norm": 8.198422813415528,
+                "interaction_norm": 0.06292092750469844,
+                "normalized_interaction": 0.007740310097299785
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.02445010293740779,
+                "action_norm": 8.00377869606018,
+                "interaction_norm": 0.04209429200273007,
+                "normalized_interaction": 0.005228430330398624
+              },
+              "shortcut": {
+                "state_norm": 0.03368589008847873,
+                "action_norm": 8.198422813415528,
+                "interaction_norm": 0.06292092750469844,
+                "normalized_interaction": 0.007740310097299785
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.011052875430323184,
+                "action_norm": 5.264430528506637,
+                "interaction_norm": 0.054127615760080516,
+                "normalized_interaction": 0.16922685913478736
+              },
+              "shortcut": {
+                "state_norm": 0.012919822769860426,
+                "action_norm": 2.0409376521905265,
+                "interaction_norm": 0.10584323822210233,
+                "normalized_interaction": 0.21610818118804292
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.00169433706014388,
+                "action_norm": 0.8011507294140756,
+                "interaction_norm": 0.011619730834354414,
+                "normalized_interaction": 0.18856332041787646
+              },
+              "shortcut": {
+                "state_norm": 0.0030749038172264895,
+                "action_norm": 0.33221354832251865,
+                "interaction_norm": 0.025097107825179894,
+                "normalized_interaction": 0.25338523765714255
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.005024515092372894,
+                "action_norm": 2.0587086379528046,
+                "interaction_norm": 0.024479047395288944,
+                "normalized_interaction": 0.4741073423818013
+              },
+              "shortcut": {
+                "state_norm": 0.01611466407775879,
+                "action_norm": 0.9647831281026205,
+                "interaction_norm": 0.05795780022939046,
+                "normalized_interaction": 0.5554027408367187
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.010008535929955542,
+              "BS": 0.008535660803318024,
+              "I_dist_norm": 0.011619730834354414
+            },
+            "shortcut": {
+              "I_HA": 0.021682789797584215,
+              "BS": 0.020226319630940754,
+              "I_dist_norm": 0.025097107825179894
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.51953125,
+              "F": 0.69921875,
+              "M": 0.5703125,
+              "FM": 0.671875
+            },
+            "shortcut": {
+              "H": 0.49166666666666664,
+              "F": 0.6583333333333333,
+              "M": 0.625,
+              "FM": 0.6875
+            }
+          }
+        },
+        "25": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.13517474243417382,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.1898285135626793,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.1343682671431452,
+                "action_norm": 0.009860651509370655,
+                "interaction_norm": 0.0001214725270983763,
+                "normalized_interaction": 0.0008265071952702225
+              },
+              "shortcut": {
+                "state_norm": 0.18888819168011348,
+                "action_norm": 0.009296511330952247,
+                "interaction_norm": 0.00015428974948008544,
+                "normalized_interaction": 0.0008040256350913561
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.1343682671431452,
+                "action_norm": 0.009860651509370655,
+                "interaction_norm": 0.0001214725270983763,
+                "normalized_interaction": 0.0008265071952702225
+              },
+              "shortcut": {
+                "state_norm": 0.18888819168011348,
+                "action_norm": 0.009296511330952247,
+                "interaction_norm": 0.00015428974948008544,
+                "normalized_interaction": 0.0008040256350913561
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 4.50572694838047,
+                "interaction_norm": 1.4017618621409156e-07,
+                "normalized_interaction": 3.151321164225251e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 5.03397339185079,
+                "interaction_norm": 1.738763122223948e-07,
+                "normalized_interaction": 3.479224393845376e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.1343682671431452,
+                "action_norm": 4.505738228559494,
+                "interaction_norm": 0.0001214726410125877,
+                "normalized_interaction": 2.5809688163625995e-05
+              },
+              "shortcut": {
+                "state_norm": 0.18888819168011348,
+                "action_norm": 5.033982102076212,
+                "interaction_norm": 0.0001542898877232801,
+                "normalized_interaction": 3.0466704535091118e-05
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.07819052739068866,
+                "action_norm": 15.439981162548065,
+                "interaction_norm": 8.448401115401794e-05,
+                "normalized_interaction": 5.4019441285458745e-06
+              },
+              "shortcut": {
+                "state_norm": 0.10688794938226541,
+                "action_norm": 15.994223403930665,
+                "interaction_norm": 9.956122291138551e-05,
+                "normalized_interaction": 6.242226158763865e-06
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.03674784756731242,
+                "action_norm": 7.22459551692009,
+                "interaction_norm": 0.0642194680403918,
+                "normalized_interaction": 0.009272806715117468
+              },
+              "shortcut": {
+                "state_norm": 0.05037900681296984,
+                "action_norm": 7.08237886428833,
+                "interaction_norm": 0.09265868266423544,
+                "normalized_interaction": 0.013472948467156728
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.03674784756731242,
+                "action_norm": 7.22459551692009,
+                "interaction_norm": 0.0642194680403918,
+                "normalized_interaction": 0.009272806715117468
+              },
+              "shortcut": {
+                "state_norm": 0.05037900681296984,
+                "action_norm": 7.08237886428833,
+                "interaction_norm": 0.09265868266423544,
+                "normalized_interaction": 0.013472948467156728
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.010392552423581947,
+                "action_norm": 1.0157653726637363,
+                "interaction_norm": 0.06560303243168164,
+                "normalized_interaction": 0.08549653593461734
+              },
+              "shortcut": {
+                "state_norm": 0.01850105340903004,
+                "action_norm": 1.1602659324804943,
+                "interaction_norm": 0.0670625447606047,
+                "normalized_interaction": 0.0726102572367249
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.0027862103042934905,
+                "action_norm": 0.21867481782101095,
+                "interaction_norm": 0.020735370890179183,
+                "normalized_interaction": 0.15959836811232628
+              },
+              "shortcut": {
+                "state_norm": 0.0051846099008495605,
+                "action_norm": 0.2935677275061607,
+                "interaction_norm": 0.019353572558611632,
+                "normalized_interaction": 0.10111327813400887
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.01256956160068512,
+                "action_norm": 0.5916249454021454,
+                "interaction_norm": 0.05725766718387604,
+                "normalized_interaction": 0.4535138019094954
+              },
+              "shortcut": {
+                "state_norm": 0.022106742858886717,
+                "action_norm": 0.7802963256835938,
+                "interaction_norm": 0.06352372169494629,
+                "normalized_interaction": 0.178317136480329
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.017918989062309265,
+              "BS": 0.020277272909879684,
+              "I_dist_norm": 0.020735370890179183
+            },
+            "shortcut": {
+              "I_HA": 0.01668391227722168,
+              "BS": 0.021246675650278726,
+              "I_dist_norm": 0.019353572558611632
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.5390625,
+              "F": 0.69140625,
+              "M": 0.5859375,
+              "FM": 0.6875
+            },
+            "shortcut": {
+              "H": 0.3958333333333333,
+              "F": 0.6916666666666667,
+              "M": 0.5625,
+              "FM": 0.675
+            }
+          }
+        },
+        "50": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.19269260950386524,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.2252250999212265,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.19137362577021122,
+                "action_norm": 0.015047040302306414,
+                "interaction_norm": 0.00029298236177055514,
+                "normalized_interaction": 0.001464294246508729
+              },
+              "shortcut": {
+                "state_norm": 0.22405125300089518,
+                "action_norm": 0.012384481417636076,
+                "interaction_norm": 0.00022415918501792476,
+                "normalized_interaction": 0.0009133003065455219
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.19137362577021122,
+                "action_norm": 0.015047040302306414,
+                "interaction_norm": 0.00029298236177055514,
+                "normalized_interaction": 0.001464294246508729
+              },
+              "shortcut": {
+                "state_norm": 0.22405125300089518,
+                "action_norm": 0.012384481417636076,
+                "interaction_norm": 0.00022415918501792476,
+                "normalized_interaction": 0.0009133003065455219
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 4.50572694838047,
+                "interaction_norm": 1.4017618621409156e-07,
+                "normalized_interaction": 3.151321164225251e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 5.03397339185079,
+                "interaction_norm": 1.738763122223948e-07,
+                "normalized_interaction": 3.479224393845376e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.19137362577021122,
+                "action_norm": 4.505754217505455,
+                "interaction_norm": 0.000292982409519027,
+                "normalized_interaction": 6.235141030177429e-05
+              },
+              "shortcut": {
+                "state_norm": 0.22405125300089518,
+                "action_norm": 5.033988952636719,
+                "interaction_norm": 0.00022415929609754433,
+                "normalized_interaction": 4.37367710231603e-05
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.1075011040084064,
+                "action_norm": 15.44030499458313,
+                "interaction_norm": 0.0001870398141363694,
+                "normalized_interaction": 1.205244643696889e-05
+              },
+              "shortcut": {
+                "state_norm": 0.12144016275803247,
+                "action_norm": 15.994366709391276,
+                "interaction_norm": 0.0001224596388055943,
+                "normalized_interaction": 7.653124795294847e-06
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.051192256272770464,
+                "action_norm": 7.384728401899338,
+                "interaction_norm": 0.08873952948488295,
+                "normalized_interaction": 0.012000351793709275
+              },
+              "shortcut": {
+                "state_norm": 0.05507467513283094,
+                "action_norm": 6.765742397308349,
+                "interaction_norm": 0.10652871429920197,
+                "normalized_interaction": 0.016205562351401553
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.051192256272770464,
+                "action_norm": 7.384728401899338,
+                "interaction_norm": 0.08873952948488295,
+                "normalized_interaction": 0.012000351793709275
+              },
+              "shortcut": {
+                "state_norm": 0.05507467513283094,
+                "action_norm": 6.765742397308349,
+                "interaction_norm": 0.10652871429920197,
+                "normalized_interaction": 0.016205562351401553
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.012968565191840753,
+                "action_norm": 0.8923760894685984,
+                "interaction_norm": 0.06160964467562735,
+                "normalized_interaction": 0.07337386464742612
+              },
+              "shortcut": {
+                "state_norm": 0.016540949450184902,
+                "action_norm": 0.8858448942502339,
+                "interaction_norm": 0.07976076367000738,
+                "normalized_interaction": 0.12626009342223765
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.003706987494297209,
+                "action_norm": 0.15542327717412263,
+                "interaction_norm": 0.0186307607073104,
+                "normalized_interaction": 0.21414867989424255
+              },
+              "shortcut": {
+                "state_norm": 0.004513743349040548,
+                "action_norm": 0.22005899424354236,
+                "interaction_norm": 0.02483060982388755,
+                "normalized_interaction": 0.17022350139071044
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.007801279425621033,
+                "action_norm": 0.3802655041217804,
+                "interaction_norm": 0.04538276791572571,
+                "normalized_interaction": 0.3594414093991649
+              },
+              "shortcut": {
+                "state_norm": 0.019560702641805015,
+                "action_norm": 0.5951507568359375,
+                "interaction_norm": 0.0784821351369222,
+                "normalized_interaction": 0.20093247048422277
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.01605861447751522,
+              "BS": 0.015511639416217804,
+              "I_dist_norm": 0.0186307607073104
+            },
+            "shortcut": {
+              "I_HA": 0.021457453568776447,
+              "BS": 0.027476994196573894,
+              "I_dist_norm": 0.02483060982388755
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.48828125,
+              "F": 0.6796875,
+              "M": 0.546875,
+              "FM": 0.6875
+            },
+            "shortcut": {
+              "H": 0.425,
+              "F": 0.6791666666666667,
+              "M": 0.6,
+              "FM": 0.6583333333333333
+            }
+          }
+        },
+        "100": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.23873210325837135,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.27673710882663727,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.2378166802227497,
+                "action_norm": 0.021903937275055796,
+                "interaction_norm": 0.0006746101589669706,
+                "normalized_interaction": 0.0027606880725368067
+              },
+              "shortcut": {
+                "state_norm": 0.27600889603296913,
+                "action_norm": 0.01607526062677304,
+                "interaction_norm": 0.0003066698923551788,
+                "normalized_interaction": 0.001059199760376226
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.2378166802227497,
+                "action_norm": 0.021903937275055796,
+                "interaction_norm": 0.0006746101589669706,
+                "normalized_interaction": 0.0027606880725368067
+              },
+              "shortcut": {
+                "state_norm": 0.27600889603296913,
+                "action_norm": 0.01607526062677304,
+                "interaction_norm": 0.0003066698923551788,
+                "normalized_interaction": 0.001059199760376226
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 4.50572694838047,
+                "interaction_norm": 1.4017618621409156e-07,
+                "normalized_interaction": 3.151321164225251e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 5.03397339185079,
+                "interaction_norm": 1.738763122223948e-07,
+                "normalized_interaction": 3.479224393845376e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.2378166802227497,
+                "action_norm": 4.505786165595055,
+                "interaction_norm": 0.0006746101789758541,
+                "normalized_interaction": 0.00014503785363569437
+              },
+              "shortcut": {
+                "state_norm": 0.27600889603296913,
+                "action_norm": 5.034000142415365,
+                "interaction_norm": 0.00030666995783879735,
+                "normalized_interaction": 5.809516757803624e-05
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.13009749399498105,
+                "action_norm": 15.44046151638031,
+                "interaction_norm": 0.00042009098797279876,
+                "normalized_interaction": 2.71735411036654e-05
+              },
+              "shortcut": {
+                "state_norm": 0.16128117243448895,
+                "action_norm": 15.994334411621093,
+                "interaction_norm": 0.00019534765257655333,
+                "normalized_interaction": 1.2121203552993339e-05
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.062240028055384755,
+                "action_norm": 7.137876480817795,
+                "interaction_norm": 0.10403227573260665,
+                "normalized_interaction": 0.014600017190029251
+              },
+              "shortcut": {
+                "state_norm": 0.07257026707132658,
+                "action_norm": 6.572397486368815,
+                "interaction_norm": 0.1383182259897391,
+                "normalized_interaction": 0.021632623004650034
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.062240028055384755,
+                "action_norm": 7.137876480817795,
+                "interaction_norm": 0.10403227573260665,
+                "normalized_interaction": 0.014600017190029251
+              },
+              "shortcut": {
+                "state_norm": 0.07257026707132658,
+                "action_norm": 6.572397486368815,
+                "interaction_norm": 0.1383182259897391,
+                "normalized_interaction": 0.021632623004650034
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.018168763475841843,
+                "action_norm": 1.0452454052865505,
+                "interaction_norm": 0.04860305364127271,
+                "normalized_interaction": 0.04858205751207835
+              },
+              "shortcut": {
+                "state_norm": 0.025448796184112627,
+                "action_norm": 0.7719424943129222,
+                "interaction_norm": 0.08350684052954117,
+                "normalized_interaction": 0.1467351553210829
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.0051733462714764755,
+                "action_norm": 0.2292219172231853,
+                "interaction_norm": 0.014673218203824945,
+                "normalized_interaction": 0.08396318588742199
+              },
+              "shortcut": {
+                "state_norm": 0.005981079993459085,
+                "action_norm": 0.19193814682463806,
+                "interaction_norm": 0.025609400014703472,
+                "normalized_interaction": 0.19035611598047952
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.013439461588859558,
+                "action_norm": 0.6039648950099945,
+                "interaction_norm": 0.03553768992424011,
+                "normalized_interaction": 0.0804648660259575
+              },
+              "shortcut": {
+                "state_norm": 0.01983440717061361,
+                "action_norm": 0.49539804458618164,
+                "interaction_norm": 0.06877250671386718,
+                "normalized_interaction": 0.25563285443762446
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.012664541602134705,
+              "BS": 0.012650959193706512,
+              "I_dist_norm": 0.014673218203824945
+            },
+            "shortcut": {
+              "I_HA": 0.02211397091547648,
+              "BS": 0.023782730102539062,
+              "I_dist_norm": 0.025609400014703472
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.5078125,
+              "F": 0.69140625,
+              "M": 0.5625,
+              "FM": 0.68359375
+            },
+            "shortcut": {
+              "H": 0.4041666666666667,
+              "F": 0.6875,
+              "M": 0.5541666666666667,
+              "FM": 0.6458333333333334
+            }
+          }
+        },
+        "200": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.3084869207814336,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.4152749051650365,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.30816249269992113,
+                "action_norm": 0.03144846891518682,
+                "interaction_norm": 0.0015445971703229588,
+                "normalized_interaction": 0.005160829617711092
+              },
+              "shortcut": {
+                "state_norm": 0.41492148538430534,
+                "action_norm": 0.026275724669297538,
+                "interaction_norm": 0.0012694758139938738,
+                "normalized_interaction": 0.0027159413366891305
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.30816249269992113,
+                "action_norm": 0.03144846891518682,
+                "interaction_norm": 0.0015445971703229588,
+                "normalized_interaction": 0.005160829617711092
+              },
+              "shortcut": {
+                "state_norm": 0.41492148538430534,
+                "action_norm": 0.026275724669297538,
+                "interaction_norm": 0.0012694758139938738,
+                "normalized_interaction": 0.0027159413366891305
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 4.50572694838047,
+                "interaction_norm": 1.4017618621409156e-07,
+                "normalized_interaction": 3.151321164225251e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 5.03397339185079,
+                "interaction_norm": 1.738763122223948e-07,
+                "normalized_interaction": 3.479224393845376e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.30816249269992113,
+                "action_norm": 4.505850329995155,
+                "interaction_norm": 0.0015445971862391161,
+                "normalized_interaction": 0.00032245613057177273
+              },
+              "shortcut": {
+                "state_norm": 0.41492148538430534,
+                "action_norm": 5.03404590288798,
+                "interaction_norm": 0.0012694758236951504,
+                "normalized_interaction": 0.0002370245718562923
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.16833353973925114,
+                "action_norm": 15.44020938873291,
+                "interaction_norm": 0.0009893062942865072,
+                "normalized_interaction": 6.36140793636508e-05
+              },
+              "shortcut": {
+                "state_norm": 0.23820694585641225,
+                "action_norm": 15.994232940673829,
+                "interaction_norm": 0.0007623634679475799,
+                "normalized_interaction": 4.740718034789536e-05
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.07778377586510032,
+                "action_norm": 6.900817900896072,
+                "interaction_norm": 0.1373345733154565,
+                "normalized_interaction": 0.020266523792637058
+              },
+              "shortcut": {
+                "state_norm": 0.10393562614917755,
+                "action_norm": 5.952415339152018,
+                "interaction_norm": 0.19125114878018698,
+                "normalized_interaction": 0.03323306599852135
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.07778377586510032,
+                "action_norm": 6.900817900896072,
+                "interaction_norm": 0.1373345733154565,
+                "normalized_interaction": 0.020266523792637058
+              },
+              "shortcut": {
+                "state_norm": 0.10393562614917755,
+                "action_norm": 5.952415339152018,
+                "interaction_norm": 0.19125114878018698,
+                "normalized_interaction": 0.03323306599852135
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.030816885642707348,
+                "action_norm": 0.8976168781518936,
+                "interaction_norm": 0.06493651762139052,
+                "normalized_interaction": 0.0861731238626064
+              },
+              "shortcut": {
+                "state_norm": 0.03152943194533388,
+                "action_norm": 0.7052557945251465,
+                "interaction_norm": 0.06822182492663463,
+                "normalized_interaction": 0.13367778925743246
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.00904405455730739,
+                "action_norm": 0.20031571085564792,
+                "interaction_norm": 0.0201179987489013,
+                "normalized_interaction": 0.12259004689836119
+              },
+              "shortcut": {
+                "state_norm": 0.008206337942586591,
+                "action_norm": 0.16253758892416953,
+                "interaction_norm": 0.02013729348157843,
+                "normalized_interaction": 0.1963518894884018
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.02982977032661438,
+                "action_norm": 0.5181210786104202,
+                "interaction_norm": 0.06322112679481506,
+                "normalized_interaction": 0.13398281344884597
+              },
+              "shortcut": {
+                "state_norm": 0.025739129384358725,
+                "action_norm": 0.4503035545349121,
+                "interaction_norm": 0.05543265342712402,
+                "normalized_interaction": 0.23455016552919797
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.017274081707000732,
+              "BS": 0.022299692034721375,
+              "I_dist_norm": 0.0201179987489013
+            },
+            "shortcut": {
+              "I_HA": 0.01728957494099935,
+              "BS": 0.019745333989461263,
+              "I_dist_norm": 0.02013729348157843
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.546875,
+              "F": 0.671875,
+              "M": 0.5078125,
+              "FM": 0.6796875
+            },
+            "shortcut": {
+              "H": 0.5,
+              "F": 0.6875,
+              "M": 0.5375,
+              "FM": 0.6875
+            }
+          }
+        },
+        "300": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.43246946204453707,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.5502857228120168,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.43251426331698895,
+                "action_norm": 0.053007650072686374,
+                "interaction_norm": 0.0048847889938770095,
+                "normalized_interaction": 0.009590889224861737
+              },
+              "shortcut": {
+                "state_norm": 0.5475600699583689,
+                "action_norm": 0.04448415078222752,
+                "interaction_norm": 0.004012520283383007,
+                "normalized_interaction": 0.005974654372041588
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.43251426331698895,
+                "action_norm": 0.053007650072686374,
+                "interaction_norm": 0.0048847889938770095,
+                "normalized_interaction": 0.009590889224861737
+              },
+              "shortcut": {
+                "state_norm": 0.5475600699583689,
+                "action_norm": 0.04448415078222752,
+                "interaction_norm": 0.004012520283383007,
+                "normalized_interaction": 0.005974654372041588
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 4.50572694838047,
+                "interaction_norm": 1.4017618621409156e-07,
+                "normalized_interaction": 3.151321164225251e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 5.03397339185079,
+                "interaction_norm": 1.738763122223948e-07,
+                "normalized_interaction": 3.479224393845376e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.43251426331698895,
+                "action_norm": 4.50610063970089,
+                "interaction_norm": 0.0048847890029719565,
+                "normalized_interaction": 0.0009966676936405214
+              },
+              "shortcut": {
+                "state_norm": 0.5475600699583689,
+                "action_norm": 5.034211572011312,
+                "interaction_norm": 0.004012520306666071,
+                "normalized_interaction": 0.0007364871328417607
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.2553332797251642,
+                "action_norm": 15.44119119644165,
+                "interaction_norm": 0.003117838050457067,
+                "normalized_interaction": 0.00019992572245098144
+              },
+              "shortcut": {
+                "state_norm": 0.3126839538415273,
+                "action_norm": 15.99363644917806,
+                "interaction_norm": 0.002502055357520779,
+                "normalized_interaction": 0.0001542844855600077
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.12044685217551887,
+                "action_norm": 6.717925697565079,
+                "interaction_norm": 0.20757740968838334,
+                "normalized_interaction": 0.03066145546566979
+              },
+              "shortcut": {
+                "state_norm": 0.1365216406683127,
+                "action_norm": 5.771836694081625,
+                "interaction_norm": 0.24249095221360525,
+                "normalized_interaction": 0.04402214295807179
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.12044685217551887,
+                "action_norm": 6.717925697565079,
+                "interaction_norm": 0.20757740968838334,
+                "normalized_interaction": 0.03066145546566979
+              },
+              "shortcut": {
+                "state_norm": 0.1365216406683127,
+                "action_norm": 5.771836694081625,
+                "interaction_norm": 0.24249095221360525,
+                "normalized_interaction": 0.04402214295807179
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.06683867123501841,
+                "action_norm": 0.7588716885074973,
+                "interaction_norm": 0.05888410081388429,
+                "normalized_interaction": 0.11816886955323205
+              },
+              "shortcut": {
+                "state_norm": 0.07340992720176777,
+                "action_norm": 0.6107378711303075,
+                "interaction_norm": 0.09471576338013013,
+                "normalized_interaction": 0.16142862083506512
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.021294886701070936,
+                "action_norm": 0.1373935118317604,
+                "interaction_norm": 0.016948566466453485,
+                "normalized_interaction": 0.1529582364270113
+              },
+              "shortcut": {
+                "state_norm": 0.022896242327988148,
+                "action_norm": 0.12292451870938143,
+                "interaction_norm": 0.024911146238446237,
+                "normalized_interaction": 0.24468133103322165
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.05577029287815094,
+                "action_norm": 0.36601850390434265,
+                "interaction_norm": 0.04817572236061096,
+                "normalized_interaction": 0.16772212400955427
+              },
+              "shortcut": {
+                "state_norm": 0.06116954485575358,
+                "action_norm": 0.31620680491129555,
+                "interaction_norm": 0.06563191413879395,
+                "normalized_interaction": 0.2618952651110264
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.014486635103821754,
+              "BS": 0.01714373379945755,
+              "I_dist_norm": 0.016948566466453485
+            },
+            "shortcut": {
+              "I_HA": 0.021354647477467854,
+              "BS": 0.023007949193318684,
+              "I_dist_norm": 0.024911146238446237
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.58984375,
+              "F": 0.671875,
+              "M": 0.5546875,
+              "FM": 0.6875
+            },
+            "shortcut": {
+              "H": 0.5583333333333333,
+              "F": 0.6875,
+              "M": 0.6041666666666666,
+              "FM": 0.6875
+            }
+          }
+        },
+        "500": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 1.1330858170986176,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.6513400584459305,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 1.1232309807091951,
+                "action_norm": 0.31320730433799326,
+                "interaction_norm": 0.07294760888908058,
+                "normalized_interaction": 0.040224130639816044
+              },
+              "shortcut": {
+                "state_norm": 0.6581147243579228,
+                "action_norm": 0.13514295630156994,
+                "interaction_norm": 0.028658298829880854,
+                "normalized_interaction": 0.02221903266081526
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 1.1232309807091951,
+                "action_norm": 0.31320730433799326,
+                "interaction_norm": 0.07294760888908058,
+                "normalized_interaction": 0.040224130639816044
+              },
+              "shortcut": {
+                "state_norm": 0.6581147243579228,
+                "action_norm": 0.13514295630156994,
+                "interaction_norm": 0.028658298829880854,
+                "normalized_interaction": 0.02221903266081526
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 4.50572694838047,
+                "interaction_norm": 1.4017618621409156e-07,
+                "normalized_interaction": 3.151321164225251e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 5.03397339185079,
+                "interaction_norm": 1.738763122223948e-07,
+                "normalized_interaction": 3.479224393845376e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 1.1232309807091951,
+                "action_norm": 4.528407454490662,
+                "interaction_norm": 0.07294760888908058,
+                "normalized_interaction": 0.01232055982820075
+              },
+              "shortcut": {
+                "state_norm": 0.6581147243579228,
+                "action_norm": 5.039034859339396,
+                "interaction_norm": 0.028658298829880854,
+                "normalized_interaction": 0.005015075276048932
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.7412058375775814,
+                "action_norm": 15.453566074371338,
+                "interaction_norm": 0.045674679004150676,
+                "normalized_interaction": 0.002801505324583622
+              },
+              "shortcut": {
+                "state_norm": 0.3619292050600052,
+                "action_norm": 15.98274923960368,
+                "interaction_norm": 0.017911498504690825,
+                "normalized_interaction": 0.0011165796888205932
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.35657284408807755,
+                "action_norm": 7.028967499732971,
+                "interaction_norm": 0.654842909425497,
+                "normalized_interaction": 0.08713839659239733
+              },
+              "shortcut": {
+                "state_norm": 0.16249443590641022,
+                "action_norm": 6.15743662516276,
+                "interaction_norm": 0.2979715531071027,
+                "normalized_interaction": 0.04726051493326402
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.35657284408807755,
+                "action_norm": 7.028967499732971,
+                "interaction_norm": 0.654842909425497,
+                "normalized_interaction": 0.08713839659239733
+              },
+              "shortcut": {
+                "state_norm": 0.16249443590641022,
+                "action_norm": 6.15743662516276,
+                "interaction_norm": 0.2979715531071027,
+                "normalized_interaction": 0.04726051493326402
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.09606200095731765,
+                "action_norm": 0.7720765098929405,
+                "interaction_norm": 0.7991693845251575,
+                "normalized_interaction": 1.084698888220725
+              },
+              "shortcut": {
+                "state_norm": 0.08216842779268821,
+                "action_norm": 0.5484895577033361,
+                "interaction_norm": 0.11495959560076395,
+                "normalized_interaction": 0.20908753586119666
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.024357610032893717,
+                "action_norm": 0.13148967630695552,
+                "interaction_norm": 0.24024699980509467,
+                "normalized_interaction": 2.1634651285786766
+              },
+              "shortcut": {
+                "state_norm": 0.02453856609451274,
+                "action_norm": 0.0729113094508648,
+                "interaction_norm": 0.03329984536394477,
+                "normalized_interaction": 0.3321132604169031
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.12024979293346405,
+                "action_norm": 0.34388136863708496,
+                "interaction_norm": 0.618485614657402,
+                "normalized_interaction": 2.114392620400048
+              },
+              "shortcut": {
+                "state_norm": 0.0727934201558431,
+                "action_norm": 0.18531312942504882,
+                "interaction_norm": 0.0908815860748291,
+                "normalized_interaction": 0.36403941885975233
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.20796740055084229,
+              "BS": 0.21920164301991463,
+              "I_dist_norm": 0.24024699980509467
+            },
+            "shortcut": {
+              "I_HA": 0.028636459509531656,
+              "BS": 0.026668779055277505,
+              "I_dist_norm": 0.03329984536394477
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.77734375,
+              "F": 0.69140625,
+              "M": 0.71484375,
+              "FM": 0.71484375
+            },
+            "shortcut": {
+              "H": 0.5875,
+              "F": 0.6916666666666667,
+              "M": 0.55,
+              "FM": 0.675
+            }
+          }
+        },
+        "750": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 1.793899241834879,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.6718054831027984,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 1.7730043791234493,
+                "action_norm": 0.6857971441932023,
+                "interaction_norm": 0.19485964745399542,
+                "normalized_interaction": 0.06121721109401445
+              },
+              "shortcut": {
+                "state_norm": 0.6652758131424586,
+                "action_norm": 0.22362736550470194,
+                "interaction_norm": 0.02340511017634223,
+                "normalized_interaction": 0.02511253738669769
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 1.7730043791234493,
+                "action_norm": 0.6857971441932023,
+                "interaction_norm": 0.19485964745399542,
+                "normalized_interaction": 0.06121721109401445
+              },
+              "shortcut": {
+                "state_norm": 0.6652758131424586,
+                "action_norm": 0.22362736550470194,
+                "interaction_norm": 0.02340511017634223,
+                "normalized_interaction": 0.02511253738669769
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 4.50572694838047,
+                "interaction_norm": 1.4017618621409156e-07,
+                "normalized_interaction": 3.151321164225251e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 5.03397339185079,
+                "interaction_norm": 1.738763122223948e-07,
+                "normalized_interaction": 3.479224393845376e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 1.7730043791234493,
+                "action_norm": 4.6006422489881516,
+                "interaction_norm": 0.19485964745399542,
+                "normalized_interaction": 0.026745817164465648
+              },
+              "shortcut": {
+                "state_norm": 0.6652758131424586,
+                "action_norm": 5.042586787541707,
+                "interaction_norm": 0.02340511017634223,
+                "normalized_interaction": 0.004105555437816186
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 1.2060373853892088,
+                "action_norm": 15.469615399837494,
+                "interaction_norm": 0.1117965550001827,
+                "normalized_interaction": 0.006447073725848699
+              },
+              "shortcut": {
+                "state_norm": 0.3637942150235176,
+                "action_norm": 15.986829566955567,
+                "interaction_norm": 0.014810523708971839,
+                "normalized_interaction": 0.0009028085575008432
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.5706487009301782,
+                "action_norm": 6.80899578332901,
+                "interaction_norm": 1.0926405992358923,
+                "normalized_interaction": 0.14541881103379864
+              },
+              "shortcut": {
+                "state_norm": 0.17426056216160457,
+                "action_norm": 6.51399351755778,
+                "interaction_norm": 0.30920744240283965,
+                "normalized_interaction": 0.04741665020957172
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.5706487009301782,
+                "action_norm": 6.80899578332901,
+                "interaction_norm": 1.0926405992358923,
+                "normalized_interaction": 0.14541881103379864
+              },
+              "shortcut": {
+                "state_norm": 0.17426056216160457,
+                "action_norm": 6.51399351755778,
+                "interaction_norm": 0.30920744240283965,
+                "normalized_interaction": 0.04741665020957172
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.11458922387100756,
+                "action_norm": 0.855662515386939,
+                "interaction_norm": 1.5660379957407713,
+                "normalized_interaction": 2.026257411267161
+              },
+              "shortcut": {
+                "state_norm": 0.1001363392919302,
+                "action_norm": 0.6185713787873586,
+                "interaction_norm": 0.10272847103575865,
+                "normalized_interaction": 0.15249217316349767
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.025417861354071647,
+                "action_norm": 0.1097183715319261,
+                "interaction_norm": 0.4814517421182245,
+                "normalized_interaction": 5.193276009408436
+              },
+              "shortcut": {
+                "state_norm": 0.03185970783233642,
+                "action_norm": 0.06161776818335056,
+                "interaction_norm": 0.029544093646109104,
+                "normalized_interaction": 0.33218002022429954
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.11384913325309753,
+                "action_norm": 0.2921747863292694,
+                "interaction_norm": 1.3024672269821167,
+                "normalized_interaction": 11.54128496832756
+              },
+              "shortcut": {
+                "state_norm": 0.08222700754801432,
+                "action_norm": 0.14877514839172362,
+                "interaction_norm": 0.07750355402628581,
+                "normalized_interaction": 0.3321963087575772
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.41683244332671165,
+              "BS": 0.45748546719551086,
+              "I_dist_norm": 0.4814517421182245
+            },
+            "shortcut": {
+              "I_HA": 0.02521583835283915,
+              "BS": 0.028616873423258464,
+              "I_dist_norm": 0.029544093646109104
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.828125,
+              "F": 0.67578125,
+              "M": 0.75390625,
+              "FM": 0.7578125
+            },
+            "shortcut": {
+              "H": 0.5833333333333334,
+              "F": 0.6916666666666667,
+              "M": 0.5833333333333334,
+              "FM": 0.6916666666666667
+            }
+          }
+        },
+        "1000": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 2.548765778541565,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.6316846589247386,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 2.485678428784013,
+                "action_norm": 1.3784531471319497,
+                "interaction_norm": 0.4600677326088771,
+                "normalized_interaction": 0.10043851456551181
+              },
+              "shortcut": {
+                "state_norm": 0.6008359769980113,
+                "action_norm": 0.2712857169409593,
+                "interaction_norm": 0.05541610310125786,
+                "normalized_interaction": 0.04774165299711494
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 2.485678428784013,
+                "action_norm": 1.3784531471319497,
+                "interaction_norm": 0.4600677326088771,
+                "normalized_interaction": 0.10043851456551181
+              },
+              "shortcut": {
+                "state_norm": 0.6008359769980113,
+                "action_norm": 0.2712857169409593,
+                "interaction_norm": 0.05541610310125786,
+                "normalized_interaction": 0.04774165299711494
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 4.50572694838047,
+                "interaction_norm": 1.4017618621409156e-07,
+                "normalized_interaction": 3.151321164225251e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 5.03397339185079,
+                "interaction_norm": 1.738763122223948e-07,
+                "normalized_interaction": 3.479224393845376e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 2.485678428784013,
+                "action_norm": 4.79168276488781,
+                "interaction_norm": 0.4600677326088771,
+                "normalized_interaction": 0.05670599653821738
+              },
+              "shortcut": {
+                "state_norm": 0.6008359769980113,
+                "action_norm": 5.048912239074707,
+                "interaction_norm": 0.05541610310319811,
+                "normalized_interaction": 0.010298677135244304
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 1.5859832419082522,
+                "action_norm": 15.47456830739975,
+                "interaction_norm": 0.26387340197106823,
+                "normalized_interaction": 0.014940015369085536
+              },
+              "shortcut": {
+                "state_norm": 0.34163900663455327,
+                "action_norm": 15.99731019337972,
+                "interaction_norm": 0.030498247169695483,
+                "normalized_interaction": 0.0018985264508008198
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.7438145237974823,
+                "action_norm": 6.66366571187973,
+                "interaction_norm": 1.4306661859154701,
+                "normalized_interaction": 0.18714613445349051
+              },
+              "shortcut": {
+                "state_norm": 0.153455043087403,
+                "action_norm": 6.671945794423421,
+                "interaction_norm": 0.30112740099430085,
+                "normalized_interaction": 0.04551771012244929
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.7438145237974823,
+                "action_norm": 6.66366571187973,
+                "interaction_norm": 1.4306661859154701,
+                "normalized_interaction": 0.18714613445349051
+              },
+              "shortcut": {
+                "state_norm": 0.153455043087403,
+                "action_norm": 6.671945794423421,
+                "interaction_norm": 0.30112740099430085,
+                "normalized_interaction": 0.04551771012244929
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.12479606934357435,
+                "action_norm": 0.7114861579611897,
+                "interaction_norm": 1.9648532327264547,
+                "normalized_interaction": 2.8830310823141545
+              },
+              "shortcut": {
+                "state_norm": 0.06790836012611787,
+                "action_norm": 0.5813184450070064,
+                "interaction_norm": 0.0699096217751503,
+                "normalized_interaction": 0.14988124942246725
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.020388258883031085,
+                "action_norm": 0.05334022972965613,
+                "interaction_norm": 0.6107337040593848,
+                "normalized_interaction": 9.498259483615612
+              },
+              "shortcut": {
+                "state_norm": 0.018881058739498257,
+                "action_norm": 0.0769801742086808,
+                "interaction_norm": 0.016857844466964405,
+                "normalized_interaction": 0.1999521450434383
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.08600601553916931,
+                "action_norm": 0.12219783663749695,
+                "interaction_norm": 1.651472419500351,
+                "normalized_interaction": 10.634534666284553
+              },
+              "shortcut": {
+                "state_norm": 0.05460047721862793,
+                "action_norm": 0.2044218063354492,
+                "interaction_norm": 0.0596099853515625,
+                "normalized_interaction": 0.2676025355501128
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.5287555884569883,
+              "BS": 0.5767703838646412,
+              "I_dist_norm": 0.6107337040593848
+            },
+            "shortcut": {
+              "I_HA": 0.014256795247395834,
+              "BS": 0.017769900957743327,
+              "I_dist_norm": 0.016857844466964405
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.90625,
+              "F": 0.68359375,
+              "M": 0.84375,
+              "FM": 0.83984375
+            },
+            "shortcut": {
+              "H": 0.6125,
+              "F": 0.6916666666666667,
+              "M": 0.575,
+              "FM": 0.6833333333333333
+            }
+          }
+        },
+        "1500": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 3.586584188044071,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.44175523618857065,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 3.395130977034569,
+                "action_norm": 2.433742769062519,
+                "interaction_norm": 0.6673105065710843,
+                "normalized_interaction": 0.10880230060669797
+              },
+              "shortcut": {
+                "state_norm": 0.4063918982942899,
+                "action_norm": 0.2041435400644938,
+                "interaction_norm": 0.017480888636782765,
+                "normalized_interaction": 0.02446763800116458
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 3.395130977034569,
+                "action_norm": 2.433742769062519,
+                "interaction_norm": 0.6673105065710843,
+                "normalized_interaction": 0.10880230060669797
+              },
+              "shortcut": {
+                "state_norm": 0.4063918982942899,
+                "action_norm": 0.2041435400644938,
+                "interaction_norm": 0.017480888636782765,
+                "normalized_interaction": 0.02446763800116458
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 4.50572694838047,
+                "interaction_norm": 1.4017618621409156e-07,
+                "normalized_interaction": 3.151321164225251e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 5.03397339185079,
+                "interaction_norm": 1.738763122223948e-07,
+                "normalized_interaction": 3.479224393845376e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 3.395130977034569,
+                "action_norm": 5.238092720508575,
+                "interaction_norm": 0.6673105065710843,
+                "normalized_interaction": 0.07423007379396587
+              },
+              "shortcut": {
+                "state_norm": 0.4063918982942899,
+                "action_norm": 5.039185841878255,
+                "interaction_norm": 0.017480888636782765,
+                "normalized_interaction": 0.0032300462421907816
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 2.1780035831034184,
+                "action_norm": 15.573485374450684,
+                "interaction_norm": 0.3684245250187814,
+                "normalized_interaction": 0.020574555009669836
+              },
+              "shortcut": {
+                "state_norm": 0.23062745183706285,
+                "action_norm": 15.981995073954264,
+                "interaction_norm": 0.010510978459691008,
+                "normalized_interaction": 0.0006467457149946346
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 1.009112512692809,
+                "action_norm": 6.425547808408737,
+                "interaction_norm": 1.9887134954333305,
+                "normalized_interaction": 0.26764375401467505
+              },
+              "shortcut": {
+                "state_norm": 0.10643486678600311,
+                "action_norm": 6.475951512654622,
+                "interaction_norm": 0.18995071053504944,
+                "normalized_interaction": 0.02879878336110651
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 1.009112512692809,
+                "action_norm": 6.425547808408737,
+                "interaction_norm": 1.9887134954333305,
+                "normalized_interaction": 0.26764375401467505
+              },
+              "shortcut": {
+                "state_norm": 0.10643486678600311,
+                "action_norm": 6.475951512654622,
+                "interaction_norm": 0.18995071053504944,
+                "normalized_interaction": 0.02879878336110651
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.1611744617111981,
+                "action_norm": 0.6981262075714767,
+                "interaction_norm": 2.772926189005375,
+                "normalized_interaction": 3.499192176255752
+              },
+              "shortcut": {
+                "state_norm": 0.04743546051904559,
+                "action_norm": 0.5262598618865013,
+                "interaction_norm": 0.0490424773345391,
+                "normalized_interaction": 0.12988437315456675
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.020874757203273475,
+                "action_norm": 0.05238329089479521,
+                "interaction_norm": 0.8507689367979765,
+                "normalized_interaction": 17.462218188881693
+              },
+              "shortcut": {
+                "state_norm": 0.013982760851892333,
+                "action_norm": 0.031165014828244846,
+                "interaction_norm": 0.010957445840661724,
+                "normalized_interaction": 0.26633553398127274
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.1077476292848587,
+                "action_norm": 0.13550768792629242,
+                "interaction_norm": 2.2806556969881058,
+                "normalized_interaction": 27.720559660407115
+              },
+              "shortcut": {
+                "state_norm": 0.04167718887329101,
+                "action_norm": 0.09403522809346516,
+                "interaction_norm": 0.03485596974690755,
+                "normalized_interaction": 0.35874604126983134
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.7366241905838251,
+              "BS": 0.7935387715697289,
+              "I_dist_norm": 0.8507689367979765
+            },
+            "shortcut": {
+              "I_HA": 0.009110589822133383,
+              "BS": 0.010546048482259115,
+              "I_dist_norm": 0.010957445840661724
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.98046875,
+              "F": 0.75,
+              "M": 0.94921875,
+              "FM": 0.9140625
+            },
+            "shortcut": {
+              "H": 0.5416666666666666,
+              "F": 0.6958333333333333,
+              "M": 0.6125,
+              "FM": 0.7041666666666667
+            }
+          }
+        }
+      },
+      "main_effect_adjusted": {
+        "incoming_H": {
+          "healthy": -0.0180928016410239,
+          "shortcut": 0.019298988417092103,
+          "difference": -0.037391790058116006
+        },
+        "fusion_pre": {
+          "healthy": 0.012085601832476792,
+          "shortcut": -0.012891308621308668,
+          "difference": 0.02497691045378546
+        },
+        "fusion_post": {
+          "healthy": 0.05275226411048548,
+          "shortcut": -0.05626908171785108,
+          "difference": 0.10902134582833656
+        }
+      },
+      "cross_interaction": {
+        "0.1": {
+          "healthy": {
+            "cross_norm": 3.08171609044075,
+            "state_response_norm": 1.6314607039093971,
+            "cross_to_state": 1.8973369002342224,
+            "rank1_energy": 0.9990441724658012,
+            "rank2_energy": 0.9997618161141872,
+            "rank4_energy": 0.999974500387907,
+            "effective_rank": 1.008307360112667
+          },
+          "shortcut": {
+            "cross_norm": 3.4586705048878987,
+            "state_response_norm": 1.8115842660268149,
+            "cross_to_state": 1.909290353457133,
+            "rank1_energy": 0.9998125195503235,
+            "rank2_energy": 0.9999465346336365,
+            "rank4_energy": 0.9999999880790711,
+            "effective_rank": 1.0019085963567098
+          }
+        },
+        "0.25": {
+          "healthy": {
+            "cross_norm": 3.0767247080802917,
+            "state_response_norm": 1.6278353109955788,
+            "cross_to_state": 1.8981061428785324,
+            "rank1_energy": 0.9972719699144363,
+            "rank2_energy": 0.9997495152056217,
+            "rank4_energy": 0.9999737739562988,
+            "effective_rank": 1.0197475254535675
+          },
+          "shortcut": {
+            "cross_norm": 3.447669204076131,
+            "state_response_norm": 1.805537462234497,
+            "cross_to_state": 1.9095691204071046,
+            "rank1_energy": 0.9998089472452799,
+            "rank2_energy": 0.9999447464942932,
+            "rank4_energy": 0.9999999443689982,
+            "effective_rank": 1.00194464524587
+          }
+        }
+      }
+    },
+    "B": {
+      "classes": {
+        "healthy": 12,
+        "shortcut": 12
+      },
+      "steps": {
+        "0": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.06343790035073955,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.061256165305773415,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.06307147070765495,
+                "action_norm": 0.003832079761195928,
+                "interaction_norm": 5.32572108416692e-05,
+                "normalized_interaction": 0.0010804613514997865
+              },
+              "shortcut": {
+                "state_norm": 0.060924286022782326,
+                "action_norm": 0.002577209088485688,
+                "interaction_norm": 2.1542445135006954e-05,
+                "normalized_interaction": 0.00035736488118871774
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.06307147070765495,
+                "action_norm": 0.003832079761195928,
+                "interaction_norm": 5.32572108416692e-05,
+                "normalized_interaction": 0.0010804613514997865
+              },
+              "shortcut": {
+                "state_norm": 0.060924286022782326,
+                "action_norm": 0.002577209088485688,
+                "interaction_norm": 2.1542445135006954e-05,
+                "normalized_interaction": 0.00035736488118871774
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 5.249056935310364,
+                "interaction_norm": 2.1896472842305079e-07,
+                "normalized_interaction": 4.216962845613887e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 4.76857852935791,
+                "interaction_norm": 1.5294757342113977e-07,
+                "normalized_interaction": 3.208060251171115e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.06307147070765495,
+                "action_norm": 5.249058365821838,
+                "interaction_norm": 5.3257711139546395e-05,
+                "normalized_interaction": 1.038844865538932e-05
+              },
+              "shortcut": {
+                "state_norm": 0.060924286022782326,
+                "action_norm": 4.768579363822937,
+                "interaction_norm": 2.1543132864583942e-05,
+                "normalized_interaction": 4.345883570877033e-06
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.03749463714969655,
+                "action_norm": 15.80678129196167,
+                "interaction_norm": 4.2125988329644315e-05,
+                "normalized_interaction": 2.682899934682994e-06
+              },
+              "shortcut": {
+                "state_norm": 0.03906714698920647,
+                "action_norm": 15.341369867324829,
+                "interaction_norm": 2.159111068067432e-05,
+                "normalized_interaction": 1.4136552555661654e-06
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.019894631773543853,
+                "action_norm": 8.811263799667358,
+                "interaction_norm": 0.02843498717993498,
+                "normalized_interaction": 0.003604299675525762
+              },
+              "shortcut": {
+                "state_norm": 0.019779419681678217,
+                "action_norm": 7.736867666244507,
+                "interaction_norm": 0.031131630297750235,
+                "normalized_interaction": 0.004097170033450072
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.019894631773543853,
+                "action_norm": 8.811263799667358,
+                "interaction_norm": 0.02843498717993498,
+                "normalized_interaction": 0.003604299675525762
+              },
+              "shortcut": {
+                "state_norm": 0.019779419681678217,
+                "action_norm": 7.736867666244507,
+                "interaction_norm": 0.031131630297750235,
+                "normalized_interaction": 0.004097170033450072
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.008126628012784446,
+                "action_norm": 8.278609037399292,
+                "interaction_norm": 0.016943497389244538,
+                "normalized_interaction": 0.0019890933753513133
+              },
+              "shortcut": {
+                "state_norm": 0.006000626793441673,
+                "action_norm": 6.443606495857239,
+                "interaction_norm": 0.029102915975575645,
+                "normalized_interaction": 0.004690657807589657
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.0009319838845840422,
+                "action_norm": 1.0313128729661305,
+                "interaction_norm": 0.0017667369368912962,
+                "normalized_interaction": 0.002821667937706958
+              },
+              "shortcut": {
+                "state_norm": 0.0008387483976548538,
+                "action_norm": 1.0085312227408092,
+                "interaction_norm": 0.0024618520352911824,
+                "normalized_interaction": 0.0031068215193672945
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.0024174253145853677,
+                "action_norm": 2.648152490456899,
+                "interaction_norm": 0.005568181979469955,
+                "normalized_interaction": 0.01646795705319158
+              },
+              "shortcut": {
+                "state_norm": 0.0054862697919209795,
+                "action_norm": 2.6905704538027444,
+                "interaction_norm": 0.008247047662734985,
+                "normalized_interaction": 0.01090056713518529
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.0013679713010787964,
+              "BS": 0.001972357432047526,
+              "I_dist_norm": 0.0017667369368912962
+            },
+            "shortcut": {
+              "I_HA": 0.001967424526810646,
+              "BS": 0.00290048619111379,
+              "I_dist_norm": 0.0024618520352911824
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.6354166666666666,
+              "F": 0.6458333333333334,
+              "M": 0.6145833333333334,
+              "FM": 0.6666666666666666
+            },
+            "shortcut": {
+              "H": 0.5364583333333334,
+              "F": 0.6354166666666666,
+              "M": 0.6354166666666666,
+              "FM": 0.6770833333333334
+            }
+          }
+        },
+        "25": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.1604526974260807,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.1324389005700747,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.15975585021078587,
+                "action_norm": 0.008528763932796815,
+                "interaction_norm": 0.00017932120044861222,
+                "normalized_interaction": 0.001019565122394989
+              },
+              "shortcut": {
+                "state_norm": 0.13132798299193382,
+                "action_norm": 0.0062862650762933,
+                "interaction_norm": 6.950473395287797e-05,
+                "normalized_interaction": 0.0005376588869907396
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.15975585021078587,
+                "action_norm": 0.008528763932796815,
+                "interaction_norm": 0.00017932120044861222,
+                "normalized_interaction": 0.001019565122394989
+              },
+              "shortcut": {
+                "state_norm": 0.13132798299193382,
+                "action_norm": 0.0062862650762933,
+                "interaction_norm": 6.950473395287797e-05,
+                "normalized_interaction": 0.0005376588869907396
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 5.249056935310364,
+                "interaction_norm": 2.1896472842305079e-07,
+                "normalized_interaction": 4.216962845613887e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 4.76857852935791,
+                "interaction_norm": 1.5294757342113977e-07,
+                "normalized_interaction": 3.208060251171115e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.15975585021078587,
+                "action_norm": 5.249064127604167,
+                "interaction_norm": 0.00017932141812101085,
+                "normalized_interaction": 3.2119333300430524e-05
+              },
+              "shortcut": {
+                "state_norm": 0.13132798299193382,
+                "action_norm": 4.768583257993062,
+                "interaction_norm": 6.950494768413289e-05,
+                "normalized_interaction": 1.4174816321257937e-05
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.08177870480964582,
+                "action_norm": 15.80672518412272,
+                "interaction_norm": 0.000105134200869846,
+                "normalized_interaction": 6.5823420223665245e-06
+              },
+              "shortcut": {
+                "state_norm": 0.07658127136528492,
+                "action_norm": 15.341565211613974,
+                "interaction_norm": 4.885033248077283e-05,
+                "normalized_interaction": 3.2061063164302e-06
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.037845043620715536,
+                "action_norm": 7.7218892176946,
+                "interaction_norm": 0.06743194721639156,
+                "normalized_interaction": 0.009496943491646356
+              },
+              "shortcut": {
+                "state_norm": 0.035656202118843794,
+                "action_norm": 7.185758511225383,
+                "interaction_norm": 0.06747293736164768,
+                "normalized_interaction": 0.010099560141867614
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.037845043620715536,
+                "action_norm": 7.7218892176946,
+                "interaction_norm": 0.06743194721639156,
+                "normalized_interaction": 0.009496943491646356
+              },
+              "shortcut": {
+                "state_norm": 0.035656202118843794,
+                "action_norm": 7.185758511225383,
+                "interaction_norm": 0.06747293736164768,
+                "normalized_interaction": 0.010099560141867614
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.010207209231642386,
+                "action_norm": 1.2428073287010193,
+                "interaction_norm": 0.050283923357104264,
+                "normalized_interaction": 0.04413320331591889
+              },
+              "shortcut": {
+                "state_norm": 0.009587390542340776,
+                "action_norm": 1.0681902716557186,
+                "interaction_norm": 0.06897819950245321,
+                "normalized_interaction": 0.07984395372808639
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.002758285409072414,
+                "action_norm": 0.29826299908260506,
+                "interaction_norm": 0.01466938770803002,
+                "normalized_interaction": 0.058576626901815226
+              },
+              "shortcut": {
+                "state_norm": 0.0022619284403238757,
+                "action_norm": 0.21347136702388525,
+                "interaction_norm": 0.021405866408410173,
+                "normalized_interaction": 0.12528963136429913
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.016127149264017742,
+                "action_norm": 0.8419347008069357,
+                "interaction_norm": 0.04428654909133911,
+                "normalized_interaction": 0.06430333186864891
+              },
+              "shortcut": {
+                "state_norm": 0.0059032440185546875,
+                "action_norm": 0.5541970729827881,
+                "interaction_norm": 0.05287696917851766,
+                "normalized_interaction": 0.18637667427469468
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.012681422134240469,
+              "BS": 0.01564537485440572,
+              "I_dist_norm": 0.01466938770803002
+            },
+            "shortcut": {
+              "I_HA": 0.018512286245822906,
+              "BS": 0.018091728289922077,
+              "I_dist_norm": 0.021405866408410173
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.5,
+              "F": 0.65625,
+              "M": 0.5833333333333334,
+              "FM": 0.6458333333333334
+            },
+            "shortcut": {
+              "H": 0.5364583333333334,
+              "F": 0.6354166666666666,
+              "M": 0.5416666666666666,
+              "FM": 0.6458333333333334
+            }
+          }
+        },
+        "50": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.20991763782997927,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.20940720724562803,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.20897740436096987,
+                "action_norm": 0.013215182077450057,
+                "interaction_norm": 0.00022554619499715045,
+                "normalized_interaction": 0.0009148805085092963
+              },
+              "shortcut": {
+                "state_norm": 0.20857124278942743,
+                "action_norm": 0.009639670529092351,
+                "interaction_norm": 0.00019683350380243306,
+                "normalized_interaction": 0.000818599562805192
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.20897740436096987,
+                "action_norm": 0.013215182077450057,
+                "interaction_norm": 0.00022554619499715045,
+                "normalized_interaction": 0.0009148805085092963
+              },
+              "shortcut": {
+                "state_norm": 0.20857124278942743,
+                "action_norm": 0.009639670529092351,
+                "interaction_norm": 0.00019683350380243306,
+                "normalized_interaction": 0.000818599562805192
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 5.249056935310364,
+                "interaction_norm": 2.1896472842305079e-07,
+                "normalized_interaction": 4.216962845613887e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 4.76857852935791,
+                "interaction_norm": 1.5294757342113977e-07,
+                "normalized_interaction": 3.208060251171115e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.20897740436096987,
+                "action_norm": 5.249074339866638,
+                "interaction_norm": 0.00022554636052518617,
+                "normalized_interaction": 3.816676251053858e-05
+              },
+              "shortcut": {
+                "state_norm": 0.20857124278942743,
+                "action_norm": 4.768589576085408,
+                "interaction_norm": 0.0001968336256747231,
+                "normalized_interaction": 3.855846736046425e-05
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.11452983847508828,
+                "action_norm": 15.806542555491129,
+                "interaction_norm": 0.0001244367798184006,
+                "normalized_interaction": 7.642318006440568e-06
+              },
+              "shortcut": {
+                "state_norm": 0.1225944518422087,
+                "action_norm": 15.341693003972372,
+                "interaction_norm": 0.00011688428488317489,
+                "normalized_interaction": 7.594703240112393e-06
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.05172901879996061,
+                "action_norm": 7.385325352350871,
+                "interaction_norm": 0.09603925297657649,
+                "normalized_interaction": 0.01342563046155814
+              },
+              "shortcut": {
+                "state_norm": 0.05767199583351612,
+                "action_norm": 6.950655738512675,
+                "interaction_norm": 0.10927837435156107,
+                "normalized_interaction": 0.016266892224259817
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.05172901879996061,
+                "action_norm": 7.385325352350871,
+                "interaction_norm": 0.09603925297657649,
+                "normalized_interaction": 0.01342563046155814
+              },
+              "shortcut": {
+                "state_norm": 0.05767199583351612,
+                "action_norm": 6.950655738512675,
+                "interaction_norm": 0.10927837435156107,
+                "normalized_interaction": 0.016266892224259817
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.017039846124437947,
+                "action_norm": 0.9530824000636736,
+                "interaction_norm": 0.063770238077268,
+                "normalized_interaction": 0.07275666668925039
+              },
+              "shortcut": {
+                "state_norm": 0.01239596811744074,
+                "action_norm": 1.244112305343151,
+                "interaction_norm": 0.07847718506430586,
+                "normalized_interaction": 0.07160985313746927
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.0044116076023783535,
+                "action_norm": 0.20425675064325333,
+                "interaction_norm": 0.01859630216495134,
+                "normalized_interaction": 0.09039601372791461
+              },
+              "shortcut": {
+                "state_norm": 0.0027258215219868966,
+                "action_norm": 0.28052020507554215,
+                "interaction_norm": 0.022641230141744018,
+                "normalized_interaction": 0.09283462512160973
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.018033742904663086,
+                "action_norm": 0.4694852630297343,
+                "interaction_norm": 0.048409839471181236,
+                "normalized_interaction": 0.10565721359998942
+              },
+              "shortcut": {
+                "state_norm": 0.020859837532043457,
+                "action_norm": 0.7473074595133463,
+                "interaction_norm": 0.06202340126037598,
+                "normalized_interaction": 0.0979672232979218
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.016033674279848736,
+              "BS": 0.016990164915720623,
+              "I_dist_norm": 0.01859630216495134
+            },
+            "shortcut": {
+              "I_HA": 0.019532715280850727,
+              "BS": 0.021965444087982178,
+              "I_dist_norm": 0.022641230141744018
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.4322916666666667,
+              "F": 0.6302083333333334,
+              "M": 0.6041666666666666,
+              "FM": 0.6666666666666666
+            },
+            "shortcut": {
+              "H": 0.4583333333333333,
+              "F": 0.6458333333333334,
+              "M": 0.5520833333333334,
+              "FM": 0.6510416666666666
+            }
+          }
+        },
+        "100": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.259551202878356,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.20615389632682005,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.2589855069915454,
+                "action_norm": 0.018669650424271822,
+                "interaction_norm": 0.0005236378486491352,
+                "normalized_interaction": 0.0017780177867012157
+              },
+              "shortcut": {
+                "state_norm": 0.20511707415183386,
+                "action_norm": 0.011124403254749874,
+                "interaction_norm": 0.0002551670901690765,
+                "normalized_interaction": 0.0012284292124913174
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.2589855069915454,
+                "action_norm": 0.018669650424271822,
+                "interaction_norm": 0.0005236378486491352,
+                "normalized_interaction": 0.0017780177867012157
+              },
+              "shortcut": {
+                "state_norm": 0.20511707415183386,
+                "action_norm": 0.011124403254749874,
+                "interaction_norm": 0.0002551670901690765,
+                "normalized_interaction": 0.0012284292124913174
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 5.249056935310364,
+                "interaction_norm": 2.1896472842305079e-07,
+                "normalized_interaction": 4.216962845613887e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 4.76857852935791,
+                "interaction_norm": 1.5294757342113977e-07,
+                "normalized_interaction": 3.208060251171115e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.2589855069915454,
+                "action_norm": 5.249094605445862,
+                "interaction_norm": 0.0005236379298973285,
+                "normalized_interaction": 9.015147500493332e-05
+              },
+              "shortcut": {
+                "state_norm": 0.20511707415183386,
+                "action_norm": 4.7685941855112715,
+                "interaction_norm": 0.0002551671841501957,
+                "normalized_interaction": 5.154848006655885e-05
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.14309894479811192,
+                "action_norm": 15.806269566218058,
+                "interaction_norm": 0.0003141092614290149,
+                "normalized_interaction": 1.9407897573884157e-05
+              },
+              "shortcut": {
+                "state_norm": 0.11354759087165196,
+                "action_norm": 15.341368198394775,
+                "interaction_norm": 0.0001623356112456046,
+                "normalized_interaction": 1.0484054738527692e-05
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.06673917174339294,
+                "action_norm": 7.225011229515076,
+                "interaction_norm": 0.11437326141943534,
+                "normalized_interaction": 0.015825927163885305
+              },
+              "shortcut": {
+                "state_norm": 0.054329495411366224,
+                "action_norm": 6.965014497439067,
+                "interaction_norm": 0.09626617344717185,
+                "normalized_interaction": 0.014000809936315358
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.06673917174339294,
+                "action_norm": 7.225011229515076,
+                "interaction_norm": 0.11437326141943534,
+                "normalized_interaction": 0.015825927163885305
+              },
+              "shortcut": {
+                "state_norm": 0.054329495411366224,
+                "action_norm": 6.965014497439067,
+                "interaction_norm": 0.09626617344717185,
+                "normalized_interaction": 0.014000809936315358
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.023472945186464738,
+                "action_norm": 1.029852954049905,
+                "interaction_norm": 0.09026350841547053,
+                "normalized_interaction": 0.11874647021943753
+              },
+              "shortcut": {
+                "state_norm": 0.014878593385219574,
+                "action_norm": 1.2682720770438511,
+                "interaction_norm": 0.05680642932808647,
+                "normalized_interaction": 0.06696407557386849
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.006641901772430477,
+                "action_norm": 0.20041629454741874,
+                "interaction_norm": 0.027049931910975527,
+                "normalized_interaction": 0.22854016794212473
+              },
+              "shortcut": {
+                "state_norm": 0.003803738751836742,
+                "action_norm": 0.2517771686737736,
+                "interaction_norm": 0.017857130495637346,
+                "normalized_interaction": 0.1924691940348423
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.021519561608632404,
+                "action_norm": 0.5167518456776937,
+                "interaction_norm": 0.07252778609593709,
+                "normalized_interaction": 0.341584189021816
+              },
+              "shortcut": {
+                "state_norm": 0.013215164343516031,
+                "action_norm": 0.6808541019757589,
+                "interaction_norm": 0.052291293938954674,
+                "normalized_interaction": 0.22679044402622145
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.023360590140024822,
+              "BS": 0.02536594867706299,
+              "I_dist_norm": 0.027049931910975527
+            },
+            "shortcut": {
+              "I_HA": 0.015374171237150827,
+              "BS": 0.018340185284614563,
+              "I_dist_norm": 0.017857130495637346
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.5520833333333334,
+              "F": 0.6458333333333334,
+              "M": 0.6458333333333334,
+              "FM": 0.6666666666666666
+            },
+            "shortcut": {
+              "H": 0.5364583333333334,
+              "F": 0.6510416666666666,
+              "M": 0.625,
+              "FM": 0.6614583333333334
+            }
+          }
+        },
+        "200": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.39957157770792645,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.37682121495405835,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.3989141533772151,
+                "action_norm": 0.029793616927539308,
+                "interaction_norm": 0.0014481054386124015,
+                "normalized_interaction": 0.0037253113225592313
+              },
+              "shortcut": {
+                "state_norm": 0.37637260121603805,
+                "action_norm": 0.016541031189262867,
+                "interaction_norm": 0.0009416863595106406,
+                "normalized_interaction": 0.0025798549386041865
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.3989141533772151,
+                "action_norm": 0.029793616927539308,
+                "interaction_norm": 0.0014481054386124015,
+                "normalized_interaction": 0.0037253113225592313
+              },
+              "shortcut": {
+                "state_norm": 0.37637260121603805,
+                "action_norm": 0.016541031189262867,
+                "interaction_norm": 0.0009416863595106406,
+                "normalized_interaction": 0.0025798549386041865
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 5.249056935310364,
+                "interaction_norm": 2.1896472842305079e-07,
+                "normalized_interaction": 4.216962845613887e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 4.76857852935791,
+                "interaction_norm": 1.5294757342113977e-07,
+                "normalized_interaction": 3.208060251171115e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.3989141533772151,
+                "action_norm": 5.249167561531067,
+                "interaction_norm": 0.0014481054701415512,
+                "normalized_interaction": 0.0002451743393382256
+              },
+              "shortcut": {
+                "state_norm": 0.37637260121603805,
+                "action_norm": 4.76861294110616,
+                "interaction_norm": 0.0009416863977094181,
+                "normalized_interaction": 0.00017593142393149065
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.2174396092693011,
+                "action_norm": 15.806121349334717,
+                "interaction_norm": 0.0009156229680229444,
+                "normalized_interaction": 5.605756147997397e-05
+              },
+              "shortcut": {
+                "state_norm": 0.20606644451618195,
+                "action_norm": 15.341522932052612,
+                "interaction_norm": 0.0005321985842480595,
+                "normalized_interaction": 3.417857347037384e-05
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.10730538082619508,
+                "action_norm": 7.057905872662862,
+                "interaction_norm": 0.17301587263743082,
+                "normalized_interaction": 0.024526531096661496
+              },
+              "shortcut": {
+                "state_norm": 0.09932005545124412,
+                "action_norm": 6.501692811648051,
+                "interaction_norm": 0.1766876451050242,
+                "normalized_interaction": 0.02670926339604526
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.10730538082619508,
+                "action_norm": 7.057905872662862,
+                "interaction_norm": 0.17301587263743082,
+                "normalized_interaction": 0.024526531096661496
+              },
+              "shortcut": {
+                "state_norm": 0.09932005545124412,
+                "action_norm": 6.501692811648051,
+                "interaction_norm": 0.1766876451050242,
+                "normalized_interaction": 0.02670926339604526
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.04125190192523102,
+                "action_norm": 1.0096367945273717,
+                "interaction_norm": 0.12446689621234934,
+                "normalized_interaction": 0.12485146068987306
+              },
+              "shortcut": {
+                "state_norm": 0.030332438570136826,
+                "action_norm": 0.908736489713192,
+                "interaction_norm": 0.08011067666423817,
+                "normalized_interaction": 0.10404860666116887
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.012407343921950087,
+                "action_norm": 0.1931898551993072,
+                "interaction_norm": 0.03714938261449182,
+                "normalized_interaction": 0.30960771081525734
+              },
+              "shortcut": {
+                "state_norm": 0.008874262518171841,
+                "action_norm": 0.1694459238400062,
+                "interaction_norm": 0.023564692703075707,
+                "normalized_interaction": 0.2913722715120642
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.04195886850357056,
+                "action_norm": 0.5387919743855795,
+                "interaction_norm": 0.11610710620880127,
+                "normalized_interaction": 0.48058681582933416
+              },
+              "shortcut": {
+                "state_norm": 0.02449194590250651,
+                "action_norm": 0.4498552282651265,
+                "interaction_norm": 0.0650456150372823,
+                "normalized_interaction": 0.3965722640987677
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.032027634481589,
+              "BS": 0.038951377073923744,
+              "I_dist_norm": 0.03714938261449182
+            },
+            "shortcut": {
+              "I_HA": 0.020165460805098217,
+              "BS": 0.022678852081298828,
+              "I_dist_norm": 0.023564692703075707
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.5625,
+              "F": 0.6666666666666666,
+              "M": 0.6666666666666666,
+              "FM": 0.6875
+            },
+            "shortcut": {
+              "H": 0.5260416666666666,
+              "F": 0.6458333333333334,
+              "M": 0.640625,
+              "FM": 0.6666666666666666
+            }
+          }
+        },
+        "300": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.4401513673365116,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.4911641652385394,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.44056540355086327,
+                "action_norm": 0.0407351003959775,
+                "interaction_norm": 0.0022923782817088068,
+                "normalized_interaction": 0.005480618946612187
+              },
+              "shortcut": {
+                "state_norm": 0.49072452013691265,
+                "action_norm": 0.027239047805778682,
+                "interaction_norm": 0.0021586889767301423,
+                "normalized_interaction": 0.00399748193796349
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.44056540355086327,
+                "action_norm": 0.0407351003959775,
+                "interaction_norm": 0.0022923782817088068,
+                "normalized_interaction": 0.005480618946612187
+              },
+              "shortcut": {
+                "state_norm": 0.49072452013691265,
+                "action_norm": 0.027239047805778682,
+                "interaction_norm": 0.0021586889767301423,
+                "normalized_interaction": 0.00399748193796349
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 5.249056935310364,
+                "interaction_norm": 2.1896472842305079e-07,
+                "normalized_interaction": 4.216962845613887e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 4.76857852935791,
+                "interaction_norm": 1.5294757342113977e-07,
+                "normalized_interaction": 3.208060251171115e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.44056540355086327,
+                "action_norm": 5.249249776204427,
+                "interaction_norm": 0.0022923782914100834,
+                "normalized_interaction": 0.0003995676357999098
+              },
+              "shortcut": {
+                "state_norm": 0.49072452013691265,
+                "action_norm": 4.768669009208679,
+                "interaction_norm": 0.0021586889864314194,
+                "normalized_interaction": 0.0004117350136052759
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.2421276637663444,
+                "action_norm": 15.806272665659586,
+                "interaction_norm": 0.0013919128784133743,
+                "normalized_interaction": 8.649039470067772e-05
+              },
+              "shortcut": {
+                "state_norm": 0.27918965369462967,
+                "action_norm": 15.342075824737549,
+                "interaction_norm": 0.0011795146510849008,
+                "normalized_interaction": 7.543138035232153e-05
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.11871576448902488,
+                "action_norm": 7.08717695871989,
+                "interaction_norm": 0.19723825777570406,
+                "normalized_interaction": 0.027584665340400095
+              },
+              "shortcut": {
+                "state_norm": 0.13508503573636213,
+                "action_norm": 6.191882689793904,
+                "interaction_norm": 0.22615068467954794,
+                "normalized_interaction": 0.0373976229223668
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.11871576448902488,
+                "action_norm": 7.08717695871989,
+                "interaction_norm": 0.19723825777570406,
+                "normalized_interaction": 0.027584665340400095
+              },
+              "shortcut": {
+                "state_norm": 0.13508503573636213,
+                "action_norm": 6.191882689793904,
+                "interaction_norm": 0.22615068467954794,
+                "normalized_interaction": 0.0373976229223668
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.06659845223960777,
+                "action_norm": 0.8550875907142957,
+                "interaction_norm": 0.10117048517956088,
+                "normalized_interaction": 0.15262306935756761
+              },
+              "shortcut": {
+                "state_norm": 0.06109228117081026,
+                "action_norm": 0.9024286481241385,
+                "interaction_norm": 0.09317564467589061,
+                "normalized_interaction": 0.13128610428351273
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.020967817050404847,
+                "action_norm": 0.1326104151085019,
+                "interaction_norm": 0.030412645952310413,
+                "normalized_interaction": 0.2692706334018269
+              },
+              "shortcut": {
+                "state_norm": 0.018821967979116987,
+                "action_norm": 0.12258754794796307,
+                "interaction_norm": 0.026098903113355238,
+                "normalized_interaction": 0.2710624447392838
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.054268976052602134,
+                "action_norm": 0.328314741452535,
+                "interaction_norm": 0.07910672823588054,
+                "normalized_interaction": 0.3769910105807324
+              },
+              "shortcut": {
+                "state_norm": 0.054973443349202476,
+                "action_norm": 0.32819998264312744,
+                "interaction_norm": 0.0768711765607198,
+                "normalized_interaction": 0.37280980839130745
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.026032385726769764,
+              "BS": 0.027523110310236614,
+              "I_dist_norm": 0.030412645952310413
+            },
+            "shortcut": {
+              "I_HA": 0.022163257002830505,
+              "BS": 0.027076711257298786,
+              "I_dist_norm": 0.026098903113355238
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.640625,
+              "F": 0.6510416666666666,
+              "M": 0.6302083333333334,
+              "FM": 0.6458333333333334
+            },
+            "shortcut": {
+              "H": 0.65625,
+              "F": 0.6458333333333334,
+              "M": 0.6197916666666666,
+              "FM": 0.6614583333333334
+            }
+          }
+        },
+        "500": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 0.7857867106795311,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.5974898089965185,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 0.785037100315094,
+                "action_norm": 0.23165315731118122,
+                "interaction_norm": 0.04205279576126486,
+                "normalized_interaction": 0.034310068913794824
+              },
+              "shortcut": {
+                "state_norm": 0.5835688014825186,
+                "action_norm": 0.062118128718187414,
+                "interaction_norm": 0.006998183186321209,
+                "normalized_interaction": 0.010052745459813871
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 0.785037100315094,
+                "action_norm": 0.23165315731118122,
+                "interaction_norm": 0.04205279576126486,
+                "normalized_interaction": 0.034310068913794824
+              },
+              "shortcut": {
+                "state_norm": 0.5835688014825186,
+                "action_norm": 0.062118128718187414,
+                "interaction_norm": 0.006998183186321209,
+                "normalized_interaction": 0.010052745459813871
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 5.249056935310364,
+                "interaction_norm": 2.1896472842305079e-07,
+                "normalized_interaction": 4.216962845613887e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 4.76857852935791,
+                "interaction_norm": 1.5294757342113977e-07,
+                "normalized_interaction": 3.208060251171115e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 0.785037100315094,
+                "action_norm": 5.260355035463969,
+                "interaction_norm": 0.042052795770966135,
+                "normalized_interaction": 0.006779847513791385
+              },
+              "shortcut": {
+                "state_norm": 0.5835688014825186,
+                "action_norm": 4.769150217374166,
+                "interaction_norm": 0.006998183186321209,
+                "normalized_interaction": 0.0012459853038474574
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.45834683378537494,
+                "action_norm": 15.80675713221232,
+                "interaction_norm": 0.024843731390622754,
+                "normalized_interaction": 0.0015103007147151128
+              },
+              "shortcut": {
+                "state_norm": 0.32870297009746235,
+                "action_norm": 15.341981490453085,
+                "interaction_norm": 0.003875541219410176,
+                "normalized_interaction": 0.00024243427085050452
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.22652969509363174,
+                "action_norm": 7.161550283432007,
+                "interaction_norm": 0.3911944441497326,
+                "normalized_interaction": 0.052078642822631395
+              },
+              "shortcut": {
+                "state_norm": 0.15104258432984352,
+                "action_norm": 6.486892978350322,
+                "interaction_norm": 0.2752584144473076,
+                "normalized_interaction": 0.04286879755919109
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.22652969509363174,
+                "action_norm": 7.161550283432007,
+                "interaction_norm": 0.3911944441497326,
+                "normalized_interaction": 0.052078642822631395
+              },
+              "shortcut": {
+                "state_norm": 0.15104258432984352,
+                "action_norm": 6.486892978350322,
+                "interaction_norm": 0.2752584144473076,
+                "normalized_interaction": 0.04286879755919109
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.08544051057348649,
+                "action_norm": 0.7971266930301985,
+                "interaction_norm": 0.31436009984463453,
+                "normalized_interaction": 0.38140321275986877
+              },
+              "shortcut": {
+                "state_norm": 0.0962850134819746,
+                "action_norm": 0.8337388137976328,
+                "interaction_norm": 0.09037433696600299,
+                "normalized_interaction": 0.10834850626014168
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.025848128464228164,
+                "action_norm": 0.09211810422129929,
+                "interaction_norm": 0.09666807825366656,
+                "normalized_interaction": 1.8475160115000526
+              },
+              "shortcut": {
+                "state_norm": 0.030715465797887493,
+                "action_norm": 0.1227502819771568,
+                "interaction_norm": 0.024321664687401306,
+                "normalized_interaction": 0.18341995085999258
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.06408546368281047,
+                "action_norm": 0.21702231963475546,
+                "interaction_norm": 0.2557847897211711,
+                "normalized_interaction": 1.9257972713611238
+              },
+              "shortcut": {
+                "state_norm": 0.08075451850891113,
+                "action_norm": 0.3131512403488159,
+                "interaction_norm": 0.06001293659210205,
+                "normalized_interaction": 0.21085020064108573
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.08307412763436635,
+              "BS": 0.08764239152272542,
+              "I_dist_norm": 0.09666807825366656
+            },
+            "shortcut": {
+              "I_HA": 0.02034146587053935,
+              "BS": 0.02213164170583089,
+              "I_dist_norm": 0.024321664687401306
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.7447916666666666,
+              "F": 0.6770833333333334,
+              "M": 0.6458333333333334,
+              "FM": 0.671875
+            },
+            "shortcut": {
+              "H": 0.6510416666666666,
+              "F": 0.671875,
+              "M": 0.6354166666666666,
+              "FM": 0.6666666666666666
+            }
+          }
+        },
+        "750": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 1.3441450173656146,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.8030668795108795,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 1.3102707838018735,
+                "action_norm": 0.7699646055698395,
+                "interaction_norm": 0.1800441330318184,
+                "normalized_interaction": 0.06212507085205353
+              },
+              "shortcut": {
+                "state_norm": 0.7925822883844376,
+                "action_norm": 0.19482966985863945,
+                "interaction_norm": 0.03968404145174039,
+                "normalized_interaction": 0.03936618923786426
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 1.3102707838018735,
+                "action_norm": 0.7699646055698395,
+                "interaction_norm": 0.1800441330318184,
+                "normalized_interaction": 0.06212507085205353
+              },
+              "shortcut": {
+                "state_norm": 0.7925822883844376,
+                "action_norm": 0.19482966985863945,
+                "interaction_norm": 0.03968404145174039,
+                "normalized_interaction": 0.03936618923786426
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 5.249056935310364,
+                "interaction_norm": 2.1896472842305079e-07,
+                "normalized_interaction": 4.216962845613887e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 4.76857852935791,
+                "interaction_norm": 1.5294757342113977e-07,
+                "normalized_interaction": 3.208060251171115e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 1.3102707838018735,
+                "action_norm": 5.371007641156514,
+                "interaction_norm": 0.18004413304151967,
+                "normalized_interaction": 0.024473970774665548
+              },
+              "shortcut": {
+                "state_norm": 0.7925822883844376,
+                "action_norm": 4.774360656738281,
+                "interaction_norm": 0.03968404145174039,
+                "normalized_interaction": 0.0070994185560146125
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 0.9172395480175813,
+                "action_norm": 15.785549084345499,
+                "interaction_norm": 0.10530437726993114,
+                "normalized_interaction": 0.006071166346890649
+              },
+              "shortcut": {
+                "state_norm": 0.43704677869876224,
+                "action_norm": 15.337764501571655,
+                "interaction_norm": 0.022452838258080494,
+                "normalized_interaction": 0.0014085037122784725
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.42413177465399104,
+                "action_norm": 7.001849929491679,
+                "interaction_norm": 0.8259745935599009,
+                "normalized_interaction": 0.10862541418839758
+              },
+              "shortcut": {
+                "state_norm": 0.2087402610729138,
+                "action_norm": 6.553382555643718,
+                "interaction_norm": 0.3606390058994293,
+                "normalized_interaction": 0.05367002543474813
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.42413177465399104,
+                "action_norm": 7.001849929491679,
+                "interaction_norm": 0.8259745935599009,
+                "normalized_interaction": 0.10862541418839758
+              },
+              "shortcut": {
+                "state_norm": 0.2087402610729138,
+                "action_norm": 6.553382555643718,
+                "interaction_norm": 0.3606390058994293,
+                "normalized_interaction": 0.05367002543474813
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.09745286342998345,
+                "action_norm": 0.6882429098089536,
+                "interaction_norm": 1.1489975408961375,
+                "normalized_interaction": 1.7485031382490017
+              },
+              "shortcut": {
+                "state_norm": 0.07653764185185234,
+                "action_norm": 0.7145879057546457,
+                "interaction_norm": 0.11638420820236206,
+                "normalized_interaction": 0.25271572025391714
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.02542428895443057,
+                "action_norm": 0.08313473872840405,
+                "interaction_norm": 0.3535918335740765,
+                "normalized_interaction": 4.170175726616117
+              },
+              "shortcut": {
+                "state_norm": 0.023459052220763017,
+                "action_norm": 0.06551785006498297,
+                "interaction_norm": 0.02996429098614802,
+                "normalized_interaction": 0.5644646755608442
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.11621437470118205,
+                "action_norm": 0.2199665904045105,
+                "interaction_norm": 1.0124751925468445,
+                "normalized_interaction": 3.7899784184874057
+              },
+              "shortcut": {
+                "state_norm": 0.0710905392964681,
+                "action_norm": 0.14584136009216309,
+                "interaction_norm": 0.09256140391031902,
+                "normalized_interaction": 0.7407409185953456
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.3060552378495534,
+              "BS": 0.3537700225909551,
+              "I_dist_norm": 0.3535918335740765
+            },
+            "shortcut": {
+              "I_HA": 0.02557930847009023,
+              "BS": 0.03271327416102091,
+              "I_dist_norm": 0.02996429098614802
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.8177083333333334,
+              "F": 0.6770833333333334,
+              "M": 0.7552083333333334,
+              "FM": 0.7708333333333334
+            },
+            "shortcut": {
+              "H": 0.59375,
+              "F": 0.671875,
+              "M": 0.5572916666666666,
+              "FM": 0.6614583333333334
+            }
+          }
+        },
+        "1000": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 2.4776921421289444,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.783457800745964,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 2.4373390773932138,
+                "action_norm": 1.2325012733538945,
+                "interaction_norm": 0.5492388238199055,
+                "normalized_interaction": 0.12913079640651765
+              },
+              "shortcut": {
+                "state_norm": 0.7647221113244692,
+                "action_norm": 0.2697606338188052,
+                "interaction_norm": 0.05024853115901351,
+                "normalized_interaction": 0.04014368487366291
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 2.4373390773932138,
+                "action_norm": 1.2325012733538945,
+                "interaction_norm": 0.5492388238199055,
+                "normalized_interaction": 0.12913079640651765
+              },
+              "shortcut": {
+                "state_norm": 0.7647221113244692,
+                "action_norm": 0.2697606338188052,
+                "interaction_norm": 0.05024853115901351,
+                "normalized_interaction": 0.04014368487366291
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 5.249056935310364,
+                "interaction_norm": 2.1896472842305079e-07,
+                "normalized_interaction": 4.216962845613887e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 4.76857852935791,
+                "interaction_norm": 1.5294757342113977e-07,
+                "normalized_interaction": 3.208060251171115e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 2.4373390773932138,
+                "action_norm": 5.441608786582947,
+                "interaction_norm": 0.5492388238199055,
+                "normalized_interaction": 0.06466860775193052
+              },
+              "shortcut": {
+                "state_norm": 0.7647221113244692,
+                "action_norm": 4.782308220863342,
+                "interaction_norm": 0.05024853115901351,
+                "normalized_interaction": 0.008592570563953893
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 1.5397786249717076,
+                "action_norm": 15.733122825622559,
+                "interaction_norm": 0.33101751872648794,
+                "normalized_interaction": 0.01906802520358052
+              },
+              "shortcut": {
+                "state_norm": 0.3928105942904949,
+                "action_norm": 15.339708725611368,
+                "interaction_norm": 0.03278821460359419,
+                "normalized_interaction": 0.002010999612917372
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.7027597439785799,
+                "action_norm": 6.818635622660319,
+                "interaction_norm": 1.35029852638642,
+                "normalized_interaction": 0.18282972399064218
+              },
+              "shortcut": {
+                "state_norm": 0.1838638416181008,
+                "action_norm": 6.187294324239095,
+                "interaction_norm": 0.33649474134047824,
+                "normalized_interaction": 0.05203884263394593
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.7027597439785799,
+                "action_norm": 6.818635622660319,
+                "interaction_norm": 1.35029852638642,
+                "normalized_interaction": 0.18282972399064218
+              },
+              "shortcut": {
+                "state_norm": 0.1838638416181008,
+                "action_norm": 6.187294324239095,
+                "interaction_norm": 0.33649474134047824,
+                "normalized_interaction": 0.05203884263394593
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.09687580742562811,
+                "action_norm": 0.6898976961771647,
+                "interaction_norm": 1.8184533724561334,
+                "normalized_interaction": 2.5832821936853656
+              },
+              "shortcut": {
+                "state_norm": 0.08277367303768794,
+                "action_norm": 0.7180564651886622,
+                "interaction_norm": 0.08286171942017972,
+                "normalized_interaction": 0.12076486274225931
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.020062666619196534,
+                "action_norm": 0.06578939648655553,
+                "interaction_norm": 0.5644646375440061,
+                "normalized_interaction": 8.923460373993763
+              },
+              "shortcut": {
+                "state_norm": 0.024441572255454957,
+                "action_norm": 0.0544622540473938,
+                "interaction_norm": 0.022346805111737922,
+                "normalized_interaction": 0.28261811712792656
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.08331787586212158,
+                "action_norm": 0.18440353870391846,
+                "interaction_norm": 1.532092849413554,
+                "normalized_interaction": 8.931654040339975
+              },
+              "shortcut": {
+                "state_norm": 0.07523445288340251,
+                "action_norm": 0.13838903109232584,
+                "interaction_norm": 0.07429530223210652,
+                "normalized_interaction": 0.36445514036388493
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.4886710122227669,
+              "BS": 0.5333594232797623,
+              "I_dist_norm": 0.5644646375440061
+            },
+            "shortcut": {
+              "I_HA": 0.01902679105599721,
+              "BS": 0.021745771169662476,
+              "I_dist_norm": 0.022346805111737922
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.8854166666666666,
+              "F": 0.7083333333333334,
+              "M": 0.9114583333333334,
+              "FM": 0.890625
+            },
+            "shortcut": {
+              "H": 0.6197916666666666,
+              "F": 0.6770833333333334,
+              "M": 0.5989583333333334,
+              "FM": 0.671875
+            }
+          }
+        },
+        "1500": {
+          "layers": {
+            "pre_action_H": {
+              "healthy": {
+                "state_norm": 3.6534579694271088,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              },
+              "shortcut": {
+                "state_norm": 0.44495826462904614,
+                "action_norm": 0.0,
+                "interaction_norm": 0.0,
+                "normalized_interaction": 0.0
+              }
+            },
+            "incoming_H": {
+              "healthy": {
+                "state_norm": 3.473897337913513,
+                "action_norm": 2.6050569663445153,
+                "interaction_norm": 0.8674828261137009,
+                "normalized_interaction": 0.13688082519054934
+              },
+              "shortcut": {
+                "state_norm": 0.4083586148917675,
+                "action_norm": 0.3119939751923084,
+                "interaction_norm": 0.04699225861501569,
+                "normalized_interaction": 0.049903821642211826
+              }
+            },
+            "projected_H": {
+              "healthy": {
+                "state_norm": 3.473897337913513,
+                "action_norm": 2.6050569663445153,
+                "interaction_norm": 0.8674828261137009,
+                "normalized_interaction": 0.13688082519054934
+              },
+              "shortcut": {
+                "state_norm": 0.4083586148917675,
+                "action_norm": 0.3119939751923084,
+                "interaction_norm": 0.04699225861501569,
+                "normalized_interaction": 0.049903821642211826
+              }
+            },
+            "action_embedding": {
+              "healthy": {
+                "state_norm": 0.0,
+                "action_norm": 5.249056935310364,
+                "interaction_norm": 2.1896472842305079e-07,
+                "normalized_interaction": 4.216962845613887e-08
+              },
+              "shortcut": {
+                "state_norm": 0.0,
+                "action_norm": 4.76857852935791,
+                "interaction_norm": 1.5294757342113977e-07,
+                "normalized_interaction": 3.208060251171115e-08
+              }
+            },
+            "fusion_input": {
+              "healthy": {
+                "state_norm": 3.473897337913513,
+                "action_norm": 5.965571920077006,
+                "interaction_norm": 0.8674828261137009,
+                "normalized_interaction": 0.09101512884381527
+              },
+              "shortcut": {
+                "state_norm": 0.4083586148917675,
+                "action_norm": 4.786270062128703,
+                "interaction_norm": 0.04699225861501569,
+                "normalized_interaction": 0.00895710319829313
+              }
+            },
+            "fusion_pre": {
+              "healthy": {
+                "state_norm": 2.263630618651708,
+                "action_norm": 15.630627950032553,
+                "interaction_norm": 0.4689043325682481,
+                "normalized_interaction": 0.0264550266228304
+              },
+              "shortcut": {
+                "state_norm": 0.22309060022234917,
+                "action_norm": 15.341102043787638,
+                "interaction_norm": 0.02877073860145174,
+                "normalized_interaction": 0.0018584542389742374
+              }
+            },
+            "fusion_post": {
+              "healthy": {
+                "state_norm": 0.9891455893715223,
+                "action_norm": 6.286668260892232,
+                "interaction_norm": 1.9466597984234493,
+                "normalized_interaction": 0.2685392048290143
+              },
+              "shortcut": {
+                "state_norm": 0.10319018550217152,
+                "action_norm": 6.0215944449106855,
+                "interaction_norm": 0.18499592443307242,
+                "normalized_interaction": 0.030928621537969898
+              }
+            },
+            "pre_logit": {
+              "healthy": {
+                "state_norm": 0.9891455893715223,
+                "action_norm": 6.286668260892232,
+                "interaction_norm": 1.9466597984234493,
+                "normalized_interaction": 0.2685392048290143
+              },
+              "shortcut": {
+                "state_norm": 0.10319018550217152,
+                "action_norm": 6.0215944449106855,
+                "interaction_norm": 0.18499592443307242,
+                "normalized_interaction": 0.030928621537969898
+              }
+            },
+            "logits": {
+              "healthy": {
+                "state_norm": 0.1288337397078673,
+                "action_norm": 0.6083619159956773,
+                "interaction_norm": 2.637444719672203,
+                "normalized_interaction": 4.5461762974345294
+              },
+              "shortcut": {
+                "state_norm": 0.020617267466150224,
+                "action_norm": 0.5819160218040148,
+                "interaction_norm": 0.056817511756283544,
+                "normalized_interaction": 0.1394908350580789
+              }
+            },
+            "probabilities": {
+              "healthy": {
+                "state_norm": 0.016120327947040398,
+                "action_norm": 0.0298224709307154,
+                "interaction_norm": 0.8175825799504916,
+                "normalized_interaction": 18.593130074376706
+              },
+              "shortcut": {
+                "state_norm": 0.005092560750199482,
+                "action_norm": 0.03761015483178198,
+                "interaction_norm": 0.016123374633025378,
+                "normalized_interaction": 0.36300705256455135
+              }
+            },
+            "entropy_policy_score": {
+              "healthy": {
+                "state_norm": 0.05423496166865031,
+                "action_norm": 0.06973906358083089,
+                "interaction_norm": 2.240578055381775,
+                "normalized_interaction": 26.259135483232647
+              },
+              "shortcut": {
+                "state_norm": 0.022665162881215412,
+                "action_norm": 0.09415749708811443,
+                "interaction_norm": 0.05671058098475138,
+                "normalized_interaction": 0.436602893686673
+              }
+            }
+          },
+          "output": {
+            "healthy": {
+              "I_HA": 0.707916888097922,
+              "BS": 0.7850048144658407,
+              "I_dist_norm": 0.8175825799504916
+            },
+            "shortcut": {
+              "I_HA": 0.013713916142781576,
+              "BS": 0.015336215496063232,
+              "I_dist_norm": 0.016123374633025378
+            }
+          },
+          "probes": {
+            "healthy": {
+              "H": 0.9739583333333334,
+              "F": 0.7864583333333334,
+              "M": 0.9583333333333334,
+              "FM": 0.9427083333333334
+            },
+            "shortcut": {
+              "H": 0.609375,
+              "F": 0.6822916666666666,
+              "M": 0.625,
+              "FM": 0.7135416666666666
+            }
+          }
+        }
+      },
+      "main_effect_adjusted": {
+        "incoming_H": {
+          "healthy": -0.004098817706474717,
+          "shortcut": 0.00409881770647479,
+          "difference": -0.008197635412949506
+        },
+        "fusion_pre": {
+          "healthy": 0.04267693429586968,
+          "shortcut": -0.042676934295870404,
+          "difference": 0.08535386859174009
+        },
+        "fusion_post": {
+          "healthy": 0.031001588161906134,
+          "shortcut": -0.03100158816190669,
+          "difference": 0.062003176323812824
+        }
+      },
+      "cross_interaction": {
+        "0.1": {
+          "healthy": {
+            "cross_norm": 2.9302678306897483,
+            "state_response_norm": 1.5070565044879913,
+            "cross_to_state": 1.957149714231491,
+            "rank1_energy": 0.9989689588546753,
+            "rank2_energy": 0.9996371567249298,
+            "rank4_energy": 0.9999683896700541,
+            "effective_rank": 1.009037007888158
+          },
+          "shortcut": {
+            "cross_norm": 3.127630670865377,
+            "state_response_norm": 1.6749343872070312,
+            "cross_to_state": 1.8735506137212117,
+            "rank1_energy": 0.99972536166509,
+            "rank2_energy": 0.9999047815799713,
+            "rank4_energy": 0.9999999652306238,
+            "effective_rank": 1.0026872555414836
+          }
+        },
+        "0.25": {
+          "healthy": {
+            "cross_norm": 2.9260807037353516,
+            "state_response_norm": 1.5047761301199596,
+            "cross_to_state": 1.9572558303674061,
+            "rank1_energy": 0.9978197664022446,
+            "rank2_energy": 0.9995875507593155,
+            "rank4_energy": 0.9999676744143168,
+            "effective_rank": 1.0168821811676025
+          },
+          "shortcut": {
+            "cross_norm": 3.1164310574531555,
+            "state_response_norm": 1.6689543028672535,
+            "cross_to_state": 1.8735401233037312,
+            "rank1_energy": 0.9997197985649109,
+            "rank2_energy": 0.9999018907546997,
+            "rank4_energy": 0.9999999354283015,
+            "effective_rank": 1.0027414162953694
+          }
+        }
+      }
+    }
+  },
+  "G79": {
+    "layer": "fusion_post",
+    "cohorts": {
+      "A": {
+        "healthy_mean": 0.26764375401467505,
+        "shortcut_mean": 0.02879878336110651,
+        "matched_direction_count": 8,
+        "denominator": 8
+      },
+      "B": {
+        "healthy_mean": 0.2685392048290143,
+        "shortcut_mean": 0.030928621537969898,
+        "matched_direction_count": 8,
+        "denominator": 8
+      }
+    },
+    "main_effect_adjusted": {
+      "A": {
+        "healthy": 0.05275226411048548,
+        "shortcut": -0.05626908171785108,
+        "difference": 0.10902134582833656
+      },
+      "B": {
+        "healthy": 0.031001588161906134,
+        "shortcut": -0.03100158816190669,
+        "difference": 0.062003176323812824
+      }
+    },
+    "pass": true
+  },
+  "G80": {
+    "layer": "fusion_post",
+    "first_divergent_step": {
+      "A": 750,
+      "B": 1000
+    },
+    "pass": true
+  }
+}

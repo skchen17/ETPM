@@ -1,0 +1,135 @@
+{
+  "gates": {
+    "G79": {
+      "layer": "fusion_post",
+      "cohorts": {
+        "A": {
+          "healthy_mean": 0.26764375401467505,
+          "shortcut_mean": 0.02879878336110651,
+          "matched_direction_count": 8,
+          "denominator": 8
+        },
+        "B": {
+          "healthy_mean": 0.2685392048290143,
+          "shortcut_mean": 0.030928621537969898,
+          "matched_direction_count": 8,
+          "denominator": 8
+        }
+      },
+      "main_effect_adjusted": {
+        "A": {
+          "healthy": 0.05275226411048548,
+          "shortcut": -0.05626908171785108,
+          "difference": 0.10902134582833656
+        },
+        "B": {
+          "healthy": 0.031001588161906134,
+          "shortcut": -0.03100158816190669,
+          "difference": 0.062003176323812824
+        }
+      },
+      "pass": true
+    },
+    "G80": {
+      "layer": "fusion_post",
+      "first_divergent_step": {
+        "A": 750,
+        "B": 1000
+      },
+      "pass": true
+    },
+    "G81": {
+      "pass": true,
+      "cohort_A": {
+        "counts": {
+          "0.25": 8,
+          "0.5": 8,
+          "1.0": 8
+        },
+        "best_lambda": "0.25",
+        "count": 8,
+        "denominator": 8,
+        "pass": true
+      },
+      "cohort_B": {
+        "counts": {
+          "0.25": 8,
+          "0.5": 8,
+          "1.0": 8
+        },
+        "best_lambda": "0.25",
+        "count": 8,
+        "denominator": 8,
+        "pass": true
+      }
+    },
+    "G82": {
+      "pass": true,
+      "cohort_A": {
+        "removal_count": 8,
+        "reversal_count": 8,
+        "denominator": 8,
+        "pass": true
+      },
+      "cohort_B": {
+        "removal_count": 8,
+        "reversal_count": 8,
+        "denominator": 8,
+        "pass": true
+      }
+    },
+    "G83": {
+      "metric": "cross_to_state@0.1",
+      "cohorts": {
+        "A": {
+          "healthy_mean": 1.8973369002342224,
+          "shortcut_mean": 1.909290353457133,
+          "matched_direction_count": 4,
+          "denominator": 8
+        },
+        "B": {
+          "healthy_mean": 1.957149714231491,
+          "shortcut_mean": 1.8735506137212117,
+          "matched_direction_count": 4,
+          "denominator": 8
+        }
+      },
+      "pass": false
+    },
+    "G84": {
+      "pass": false,
+      "required": 6,
+      "counts": {
+        "C0": 2,
+        "C1": 4,
+        "C2": 1,
+        "C3": 2
+      },
+      "control_requirement": "C1 strictly exceeds C0/C2/C3"
+    },
+    "G85": {
+      "pass": null,
+      "status": "NOT_RUN_BY_PROTOCOL",
+      "reason": "G84 did not establish a successful curriculum",
+      "diagnostic_count": 4,
+      "required": 6,
+      "layer": "fusion_post"
+    },
+    "G86": {
+      "gate": "G86",
+      "status": "NOT_RUN_BY_PROTOCOL",
+      "pass": null,
+      "reason": "G84 did not pass; reduced dynamics, mediation and continuous diagnostics were prohibited"
+    },
+    "G87": {
+      "gate": "G87",
+      "status": "NOT_RUN_BY_PROTOCOL",
+      "pass": null,
+      "reason": "G84 did not pass; reduced dynamics, mediation and continuous diagnostics were prohibited"
+    }
+  },
+  "outcome": "Outcome B* \u2014 causal conditional interaction is identified, but no predefined A\u2013D category is exactly satisfied because G83 and/or the training/dynamics chain failed",
+  "reopen_F_to_M_handoff": false,
+  "F_M_law_redesign_justified": false,
+  "selected_warmup": 50
+}

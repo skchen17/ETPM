@@ -1,0 +1,106 @@
+{
+  "cohorts": {
+    "A": {
+      "0.1": {
+        "healthy": {
+          "cross_norm": 3.08171609044075,
+          "state_response_norm": 1.6314607039093971,
+          "cross_to_state": 1.8973369002342224,
+          "rank1_energy": 0.9990441724658012,
+          "rank2_energy": 0.9997618161141872,
+          "rank4_energy": 0.999974500387907,
+          "effective_rank": 1.008307360112667
+        },
+        "shortcut": {
+          "cross_norm": 3.4586705048878987,
+          "state_response_norm": 1.8115842660268149,
+          "cross_to_state": 1.909290353457133,
+          "rank1_energy": 0.9998125195503235,
+          "rank2_energy": 0.9999465346336365,
+          "rank4_energy": 0.9999999880790711,
+          "effective_rank": 1.0019085963567098
+        }
+      },
+      "0.25": {
+        "healthy": {
+          "cross_norm": 3.0767247080802917,
+          "state_response_norm": 1.6278353109955788,
+          "cross_to_state": 1.8981061428785324,
+          "rank1_energy": 0.9972719699144363,
+          "rank2_energy": 0.9997495152056217,
+          "rank4_energy": 0.9999737739562988,
+          "effective_rank": 1.0197475254535675
+        },
+        "shortcut": {
+          "cross_norm": 3.447669204076131,
+          "state_response_norm": 1.805537462234497,
+          "cross_to_state": 1.9095691204071046,
+          "rank1_energy": 0.9998089472452799,
+          "rank2_energy": 0.9999447464942932,
+          "rank4_energy": 0.9999999443689982,
+          "effective_rank": 1.00194464524587
+        }
+      }
+    },
+    "B": {
+      "0.1": {
+        "healthy": {
+          "cross_norm": 2.9302678306897483,
+          "state_response_norm": 1.5070565044879913,
+          "cross_to_state": 1.957149714231491,
+          "rank1_energy": 0.9989689588546753,
+          "rank2_energy": 0.9996371567249298,
+          "rank4_energy": 0.9999683896700541,
+          "effective_rank": 1.009037007888158
+        },
+        "shortcut": {
+          "cross_norm": 3.127630670865377,
+          "state_response_norm": 1.6749343872070312,
+          "cross_to_state": 1.8735506137212117,
+          "rank1_energy": 0.99972536166509,
+          "rank2_energy": 0.9999047815799713,
+          "rank4_energy": 0.9999999652306238,
+          "effective_rank": 1.0026872555414836
+        }
+      },
+      "0.25": {
+        "healthy": {
+          "cross_norm": 2.9260807037353516,
+          "state_response_norm": 1.5047761301199596,
+          "cross_to_state": 1.9572558303674061,
+          "rank1_energy": 0.9978197664022446,
+          "rank2_energy": 0.9995875507593155,
+          "rank4_energy": 0.9999676744143168,
+          "effective_rank": 1.0168821811676025
+        },
+        "shortcut": {
+          "cross_norm": 3.1164310574531555,
+          "state_response_norm": 1.6689543028672535,
+          "cross_to_state": 1.8735401233037312,
+          "rank1_energy": 0.9997197985649109,
+          "rank2_energy": 0.9999018907546997,
+          "rank4_energy": 0.9999999354283015,
+          "effective_rank": 1.0027414162953694
+        }
+      }
+    }
+  },
+  "G83": {
+    "metric": "cross_to_state@0.1",
+    "cohorts": {
+      "A": {
+        "healthy_mean": 1.8973369002342224,
+        "shortcut_mean": 1.909290353457133,
+        "matched_direction_count": 4,
+        "denominator": 8
+      },
+      "B": {
+        "healthy_mean": 1.957149714231491,
+        "shortcut_mean": 1.8735506137212117,
+        "matched_direction_count": 4,
+        "denominator": 8
+      }
+    },
+    "pass": false
+  }
+}

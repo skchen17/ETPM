@@ -339,3 +339,27 @@ warmup, so G76–G78 are `NOT_RUN_BY_PROTOCOL`. The outcome is **D — no useful
 alignment explanation**. This does not justify changing the F/M law or reopening
 formal handoff. See `docs/STAGE2D2_PROTOCOL.md` and
 `reports/STAGE2D2_STATE_BEHAVIOR_ALIGNMENT_RESULTS.md`.
+
+## Stage 2D.3 conditional interaction anatomy (2026-09-21)
+
+> **Where does genuine history/state × candidate-action interaction first emerge in successful ET-RCM computations, where does it fail in shortcut runs, and can restoring that specific interaction causally recover behavioral memory?**
+
+Stage 2D.3 keeps the architecture and F/M laws frozen and separates history
+main effects, action main effects, and their exact 2×2 factorial interaction at
+every protected-evaluator computation boundary. It uses the existing 32-run
+factorial cohort, a new 24-run confirmatory cohort, finite H×action probes,
+norm-bounded activation restoration/destruction, and—only after the causal
+stopping rule permits it—a temporary paired-action observational curriculum.
+
+The complete protocol is in `docs/STAGE2D3_PROTOCOL.md`; all gate decisions,
+experimental details, negative controls, failure taxonomy and the 31 required
+answers are in `reports/STAGE2D3_CONDITIONAL_INTERACTION_RESULTS.md`.
+
+The layerwise breakpoint and frozen causal intervention replicated (G79–G82
+PASS), while generic finite cross-sensitivity did not (G83 FAIL). The selected
+50-step paired-action scaffold improved the formal healthy count from 2/8 to
+4/8, versus 1/8 shuffled and 2/8 duplicate-compute, but missed the fixed 6/8
+gate (G84 FAIL). G85–G87 are therefore `NOT_RUN_BY_PROTOCOL`. The conservative
+outcome is **B\***: conditional interaction is behaviorally causal, but the
+training basin is not stabilized and no preregistered A–D category is exactly
+satisfied. F/M-law redesign and formal handoff remain unauthorized.

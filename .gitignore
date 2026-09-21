@@ -29,3 +29,8 @@ results/processed/*.parquet
 # tracked seeds/protocols; finite response matrices and summaries stay tracked.
 /results/stage2d2/confirmatory_basin/checkpoints/
 /results/stage2d2/**/*.log
+# Stage 2D.3 baseline/curriculum checkpoints and process logs are reproducible
+# from the tracked protocol, seeds and training scripts. Compact run-level
+# anatomy, causal, gate and dynamics summaries remain versioned.
+/results/stage2d3/**/checkpoints/
+/results/stage2d3/**/*.log
