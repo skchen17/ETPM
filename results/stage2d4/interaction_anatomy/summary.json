@@ -1,0 +1,47 @@
+{
+  "layers": {
+    "A0": {
+      "incoming_H": 0.003175835539776955,
+      "candidate_read": 0.013268912435135543,
+      "temporary_H": 0.00739582398364241,
+      "fusion_input": 0.0005883630463148268,
+      "fusion_post": 0.027557572371855608,
+      "logits": 0.3972442531789837,
+      "probabilities": 0.6709237436945218
+    },
+    "A1": {
+      "incoming_H": 0.006095059985612347,
+      "candidate_read": 0.1672505619019422,
+      "temporary_H": 0.03613365908084965,
+      "fusion_input": 0.0032567432216247163,
+      "fusion_post": 0.03917392190856452,
+      "logits": 0.574872490949303,
+      "probabilities": 1.501391759477419
+    }
+  },
+  "G93": {
+    "pass": false,
+    "upstream_descriptive_shift": true,
+    "finite_query_causal_support": false,
+    "layer_means": {
+      "A0": {
+        "incoming_H": 0.003175835539776955,
+        "candidate_read": 0.013268912435135543,
+        "temporary_H": 0.00739582398364241,
+        "fusion_input": 0.0005883630463148268,
+        "fusion_post": 0.027557572371855608,
+        "logits": 0.3972442531789837,
+        "probabilities": 0.6709237436945218
+      },
+      "A1": {
+        "incoming_H": 0.006095059985612347,
+        "candidate_read": 0.1672505619019422,
+        "temporary_H": 0.03613365908084965,
+        "fusion_input": 0.0032567432216247163,
+        "fusion_post": 0.03917392190856452,
+        "logits": 0.574872490949303,
+        "probabilities": 1.501391759477419
+      }
+    }
+  }
+}

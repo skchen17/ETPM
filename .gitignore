@@ -34,3 +34,8 @@ results/processed/*.parquet
 # anatomy, causal, gate and dynamics summaries remain versioned.
 /results/stage2d3/**/checkpoints/
 /results/stage2d3/**/*.log
+# Stage 2D.4 checkpoints, per-run audit payloads, and process logs are
+# reproducible from tracked seeds/scripts. Compact adjudication JSON remains.
+/results/stage2d4/checkpoints/
+/results/stage2d4/audits/
+/results/stage2d4/logs/

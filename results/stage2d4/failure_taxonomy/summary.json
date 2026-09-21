@@ -1,0 +1,29 @@
+{
+  "counts": {
+    "A0": {
+      "F1_state_formation_failure": 6,
+      "healthy": 1,
+      "F2_stored_but_unused": 1
+    },
+    "A1": {
+      "healthy": 2,
+      "F1_state_formation_failure": 4,
+      "F2_stored_but_unused": 2
+    }
+  },
+  "G92": {
+    "pass": false,
+    "taxonomy": {
+      "A0": {
+        "F1_state_formation_failure": 6,
+        "healthy": 1,
+        "F2_stored_but_unused": 1
+      },
+      "A1": {
+        "healthy": 2,
+        "F1_state_formation_failure": 4,
+        "F2_stored_but_unused": 2
+      }
+    }
+  }
+}

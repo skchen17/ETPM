@@ -363,3 +363,24 @@ gate (G84 FAIL). G85–G87 are therefore `NOT_RUN_BY_PROTOCOL`. The conservative
 outcome is **B\***: conditional interaction is behaviorally causal, but the
 training basin is not stabilized and no preregistered A–D category is exactly
 satisfied. F/M-law redesign and formal handoff remain unauthorized.
+
+## Stage 2D.4 action-conditioned memory access (2026-09-22)
+
+> **When a model considers different candidate actions, should it query the same persistent past differently—and does that bias stabilize conditional behavioral memory?**
+
+Stage 2D.4 adds only an ephemeral action-to-query term during candidate
+evaluation. Candidate branches remain read-only: they do not write, consolidate,
+decay, advance clocks, or commit H/F/M. The persistent transition and F/M law
+remain frozen. Five arms compare legacy access, action-conditioned queries,
+action-conditioned gates, an exactly parameter-matched downstream capacity
+control, and the prior 50-step paired warmup.
+
+Formal healthy counts were A0 **1/8**, A1 **2/8**, A2 **2/8**, A3 **2/8**,
+and A4 **3/8**. A1 learned strong action-specific query/read geometry and
+passed the descriptive memory-read interaction gate G90, but query swap and
+neutralization changed IHA by only about `0.002` or less and G91 failed.
+Accordingly G88, G91–G93 failed; G89 and G94–G96 were not run by their
+stopping rules. The outcome is **B — helps but does not stabilize**. A1 is kept
+only as an experimental branch, F→M handoff remains closed, and no memory-law
+redesign is justified. See `docs/STAGE2D4_PROTOCOL.md` and
+`reports/STAGE2D4_ACTION_CONDITIONED_MEMORY_RESULTS.md`.

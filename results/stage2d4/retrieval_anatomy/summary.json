@@ -1,0 +1,27 @@
+{
+  "retrieval": {
+    "A0_Ir_mean": 0.0010648137770772337,
+    "A1_Ir_mean": 0.10931015282403678,
+    "A1_healthy_Ir_mean": 0.1660311622545123,
+    "A1_nonhealthy_Ir_mean": 0.09040314968054493,
+    "A1_greater_than_matched_A0_count": 8,
+    "denominator": 8,
+    "A1_q_F_action_distance_mean": 0.9039533585309982,
+    "A1_q_M_action_distance_mean": 0.8715190105140209,
+    "A1_r_F_action_distance_mean": 0.2624946739524603,
+    "A1_r_M_action_distance_mean": 0.3894322756677866
+  },
+  "G90": {
+    "pass": true,
+    "A0_Ir_mean": 0.0010648137770772337,
+    "A1_Ir_mean": 0.10931015282403678,
+    "A1_healthy_Ir_mean": 0.1660311622545123,
+    "A1_nonhealthy_Ir_mean": 0.09040314968054493,
+    "A1_greater_than_matched_A0_count": 8,
+    "denominator": 8,
+    "A1_q_F_action_distance_mean": 0.9039533585309982,
+    "A1_q_M_action_distance_mean": 0.8715190105140209,
+    "A1_r_F_action_distance_mean": 0.2624946739524603,
+    "A1_r_M_action_distance_mean": 0.3894322756677866
+  }
+}

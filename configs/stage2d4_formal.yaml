@@ -1,0 +1,17 @@
+stage: 2D.4
+gamma: 0.50
+rho_fast: 0.97
+rho_slow: 0.9995
+arms: [A0, A1, A2, A3, A4]
+development_runs_per_arm: 2
+formal_runs_per_arm: 8
+steps: 1500
+checkpoints: [0, 25, 50, 100, 200, 300, 500, 750, 1000, 1500]
+batch: 16
+train_p: 0.70
+A4_paired_warmup_steps: 50
+healthy:
+  action_TV: 0.10
+  abs_I_HA: 0.10
+  abs_BS: 0.10
+  CFA_positive: true

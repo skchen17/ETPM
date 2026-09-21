@@ -1,0 +1,46 @@
+{
+  "development": {
+    "n": 2,
+    "classes": {
+      "shortcut": 1,
+      "healthy": 1
+    },
+    "healthy_rate": 0.5,
+    "means": {
+      "action_TV": 0.09338891878724098,
+      "history_TV": 0.06638530641794205,
+      "I_HA": 0.1327706277370453,
+      "BS": 0.09776552021503448,
+      "CFA": 0.014345991710711603,
+      "conditional_CE": 1.2281073331832886
+    }
+  },
+  "formal": {
+    "n": 8,
+    "classes": {
+      "healthy": 2,
+      "partial": 6
+    },
+    "healthy_rate": 0.25,
+    "means": {
+      "action_TV": 0.12733997264876962,
+      "history_TV": 0.06366148078814149,
+      "I_HA": 0.12473180517554283,
+      "BS": 0.0970727987587452,
+      "CFA": 0.0072654367485534,
+      "conditional_CE": 1.2351878881454468
+    }
+  },
+  "parameters_and_compute": {
+    "parameters_total": 27945,
+    "parameters_trainable_after_protection": 26485,
+    "architecture_added_parameters": 128,
+    "candidate_forward_profiler_accounted_FLOPs_batch1": 29409,
+    "training_iteration_profiler_accounted_FLOPs_batch16_length6": 54563302,
+    "core_training_1500_steps_estimated_FLOPs": 81844953000,
+    "protected_evaluator_1000_steps_estimated_FLOPs": 540672000,
+    "total_training_estimated_FLOPs": 82385625000,
+    "memory_matvec_read_FLOPs_per_candidate": 256,
+    "A1_query_projection_extra_FLOPs_per_candidate": 256
+  }
+}
