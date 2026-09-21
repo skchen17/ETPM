@@ -1,0 +1,406 @@
+{
+  "seed": 7802,
+  "steps": 1500,
+  "arm": "A2",
+  "variant": "no_memory",
+  "gamma": 0.12,
+  "rho_fast": 0.97,
+  "rho_slow": 0.9995,
+  "train_p": 0.7,
+  "protected_evaluator_hash": "bf9977d351a76fa56463e2a50d41aa7b9551ff1188a3426a1e97487b38ace7ed",
+  "initial_model_hash": "0100be2964d85d50de3f1adb9f9ee1090113152a350f2cc44edb6cda42e6894a",
+  "final_model_hash": "338dd9ac14723905a87f5ae3946f43ef6fc4820fae6e98fd2960e6edf37d1a32",
+  "evaluator_pretraining": {
+    "steps": 1000,
+    "oracle_evaluator_metrics": {
+      "prob": [
+        [
+          [
+            0.999903678894043,
+            3.401682624826208e-05,
+            3.3097767300205305e-05,
+            2.924786531366408e-05
+          ],
+          [
+            0.0008766798418946564,
+            0.33771321177482605,
+            0.321697860956192,
+            0.3397122919559479
+          ]
+        ],
+        [
+          [
+            0.0004763219621963799,
+            0.29951170086860657,
+            0.31457215547561646,
+            0.38543984293937683
+          ],
+          [
+            0.9998599290847778,
+            4.692894435720518e-05,
+            4.506695768213831e-05,
+            4.805443313671276e-05
+          ]
+        ]
+      ],
+      "tv_action": [
+        0.9990270137786865,
+        0.9993836283683777
+      ],
+      "tv_history": [
+        0.9994274377822876,
+        0.9989832639694214
+      ],
+      "kl_action_01": [
+        7.037703514099121,
+        8.869711875915527
+      ],
+      "kl_action_10": [
+        9.235357284545898,
+        7.646962642669678
+      ],
+      "js_action": [
+        0.6891295909881592,
+        0.6903961300849915
+      ],
+      "entropy_difference_a0_minus_a1": [
+        -1.1033093929290771,
+        1.0944814682006836
+      ],
+      "p0_difference_a0_minus_a1": [
+        0.9990270137786865,
+        -0.9993836283683777
+      ],
+      "delta_q_a": 0.9990270137786865,
+      "delta_q_b": 0.9993836283683777,
+      "interaction_y0": 1.998410701751709,
+      "interaction_vector": [
+        1.998410701751709,
+        -0.6371439695358276,
+        -0.6361918449401855,
+        -0.7250748872756958
+      ],
+      "entropy_policy": [
+        [
+          0.9589998126029968,
+          0.041000258177518845
+        ],
+        [
+          0.04200354963541031,
+          0.9579964876174927
+        ]
+      ],
+      "q_policy": [
+        [
+          0.9455437660217285,
+          0.05445622652769089
+        ],
+        [
+          0.054403793066740036,
+          0.9455962181091309
+        ]
+      ],
+      "entropy_correct_mean": 0.9584981203079224,
+      "q_correct_mean": 0.9455699920654297,
+      "behavioral_separation_entropy": 0.9169962406158447,
+      "behavioral_separation_q": 0.8911399841308594
+    },
+    "transferred_head_hash": "bf9977d351a76fa56463e2a50d41aa7b9551ff1188a3426a1e97487b38ace7ed",
+    "oracle_z_scope": "evaluator pretraining only; absent from lifetime input"
+  },
+  "evaluator_frozen": true,
+  "evaluator_hash_final": "bf9977d351a76fa56463e2a50d41aa7b9551ff1188a3426a1e97487b38ace7ed",
+  "evaluator_hash_unchanged": true,
+  "latent_z_lifetime_input": false,
+  "correct_action_label_used": false,
+  "objective": "observed consequence CE + 0.001 H penalty",
+  "architecture_change": "none; existing Stage2C.3 transition selected by variant",
+  "training_lengths": [
+    16,
+    32,
+    64
+  ],
+  "last_gradients_preclip": {
+    "all": 0.3548880281774723,
+    "H_core": 0.2194344440084778,
+    "q_F": 0.0,
+    "q_M": 0.0,
+    "read_gate": 0.0,
+    "action_head": 0.0
+  },
+  "training_log": [
+    {
+      "step": 1,
+      "CE": 1.5100133419036865,
+      "objective": 2.294381856918335,
+      "H_norm": 270.7594299316406,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 9.923950877079871,
+        "H_core": 6.692384341328957,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 0.7806705627590418
+    },
+    {
+      "step": 100,
+      "CE": 1.250644564628601,
+      "objective": 1.3010987043380737,
+      "H_norm": 66.40607452392578,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 3.82391084451513,
+        "H_core": 2.332421466434132,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 52.77597211301327
+    },
+    {
+      "step": 200,
+      "CE": 1.2464094161987305,
+      "objective": 1.2482407093048096,
+      "H_norm": 11.925886154174805,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 3.5232480947942904,
+        "H_core": 2.191911417530029,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 120.8177749030292
+    },
+    {
+      "step": 300,
+      "CE": 1.2470623254776,
+      "objective": 1.248307466506958,
+      "H_norm": 10.51533031463623,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 1.905363271725771,
+        "H_core": 1.2779277622439273,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 194.6615334264934
+    },
+    {
+      "step": 400,
+      "CE": 1.2439466714859009,
+      "objective": 1.2460540533065796,
+      "H_norm": 12.845052719116211,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 0.9997916755820486,
+        "H_core": 0.6542247625278491,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 268.217445300892
+    },
+    {
+      "step": 500,
+      "CE": 1.2372342348098755,
+      "objective": 1.2377985715866089,
+      "H_norm": 6.703498840332031,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 0.6095878336212623,
+        "H_core": 0.41863511434337947,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 321.8274743426591
+    },
+    {
+      "step": 600,
+      "CE": 1.2544409036636353,
+      "objective": 1.2551931142807007,
+      "H_norm": 7.475496292114258,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 0.6951742094063892,
+        "H_core": 0.4400109368671063,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 384.0783323869109
+    },
+    {
+      "step": 700,
+      "CE": 1.2330995798110962,
+      "objective": 1.2331339120864868,
+      "H_norm": 0.9803580641746521,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 32.401194809036284,
+        "H_core": 24.20145088350835,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 443.27658807858825
+    },
+    {
+      "step": 800,
+      "CE": 1.2277500629425049,
+      "objective": 1.227800726890564,
+      "H_norm": 1.3285059928894043,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 0.6845493503159761,
+        "H_core": 0.5641924451590369,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 511.0916755627841
+    },
+    {
+      "step": 900,
+      "CE": 1.228788137435913,
+      "objective": 1.2288302183151245,
+      "H_norm": 1.1611472368240356,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 3.6252782646433506,
+        "H_core": 2.313654015503705,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 567.1192332580686
+    },
+    {
+      "step": 1000,
+      "CE": 1.1895945072174072,
+      "objective": 1.18965744972229,
+      "H_norm": 1.4287546873092651,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 2.6933985704687866,
+        "H_core": 1.4599018683811629,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 627.4551034905016
+    },
+    {
+      "step": 1100,
+      "CE": 1.2111085653305054,
+      "objective": 1.211161494255066,
+      "H_norm": 1.3355941772460938,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 0.7088744841304957,
+        "H_core": 0.5201477024349047,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 681.9501603338867
+    },
+    {
+      "step": 1200,
+      "CE": 1.1973888874053955,
+      "objective": 1.197447419166565,
+      "H_norm": 1.3607052564620972,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 0.5223816521120057,
+        "H_core": 0.45193184358912286,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 732.9677041433752
+    },
+    {
+      "step": 1300,
+      "CE": 1.1402033567428589,
+      "objective": 1.1402876377105713,
+      "H_norm": 1.668522596359253,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 0.6410633210353763,
+        "H_core": 0.42911833172752395,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 784.4154106918722
+    },
+    {
+      "step": 1400,
+      "CE": 1.235316514968872,
+      "objective": 1.235374927520752,
+      "H_norm": 1.462048053741455,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 0.9393158637922879,
+        "H_core": 0.5523664956568185,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 859.1535421740264
+    },
+    {
+      "step": 1500,
+      "CE": 1.1920992136001587,
+      "objective": 1.1921815872192383,
+      "H_norm": 1.6765185594558716,
+      "F_norm": 0.0,
+      "M_norm": 0.0,
+      "gradients_preclip": {
+        "all": 0.3548880281774723,
+        "H_core": 0.2194344440084778,
+        "q_F": 0.0,
+        "q_M": 0.0,
+        "read_gate": 0.0,
+        "action_head": 0.0
+      },
+      "elapsed_s": 944.4679807815701
+    }
+  ],
+  "elapsed_s": 944.4738148115575
+}

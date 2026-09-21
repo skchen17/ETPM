@@ -1,0 +1,9 @@
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/shortlist/g050_f0970_m09995/7801.json"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/shortlist/g050_f0970_m09995/7806.json"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/shortlist/g050_f0970_m09995/7805.json"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/shortlist/g050_f0970_m09995/7808.json"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/shortlist/g050_f0970_m09995/7802.json"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/shortlist/g050_f0970_m09995/7804.json"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/shortlist/g050_f0970_m09995/7803.json"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/shortlist/g050_f0970_m09995/7807.json"}
+{"phase": "shortlist-eval", "jobs": 8, "done": 8, "skipped": 0}

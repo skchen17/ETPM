@@ -1,0 +1,6 @@
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/controls/f_only_g050/7801.json"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/controls/f_only_g050/7803.json"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/controls/f_only_g050/7802.json"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/controls/f_only_g050/7805.json"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/processed/formal/controls/f_only_g050/7804.json"}
+{"phase": "shortlist-control-eval", "jobs": 5, "done": 5, "skipped": 0}

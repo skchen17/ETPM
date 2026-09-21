@@ -1,0 +1,14 @@
+{
+  "gates": {
+    "G62": "FAIL",
+    "G63": "FAIL",
+    "G64": "FAIL",
+    "G65": "FAIL",
+    "G66": "FAIL",
+    "G67": "FAIL"
+  },
+  "outcome": "D \u2014 Plastic but fragile (or formation not replicated)",
+  "report": "/data/CSK/ETPM/et-rcm/reports/STAGE2D_MEMORY_DYNAMICS_RESULTS.md",
+  "historical_unchanged": 1684
+}
+RESULT_FILE=/data/CSK/ETPM/et-rcm/reports/STAGE2D_MEMORY_DYNAMICS_RESULTS.md

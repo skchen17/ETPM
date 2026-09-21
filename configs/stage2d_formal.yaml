@@ -1,0 +1,51 @@
+stage: "2D"
+protocol_status: "FROZEN_BEFORE_FORMAL_TRAINING"
+core_architecture: "Stage2C.3 AnatomicalETRCM B5_separate; unchanged"
+primary_arm: "A2 protected evaluator"
+comparison_arms:
+  - "A0 scratch joint"
+  - "A2 trained gamma=0"
+  - "A2 F-only / slow-read-disabled"
+  - "A2 F-only matched to selected gamma=0.50"
+  - "A2 no-memory recurrent"
+  - "A2 GRU"
+training:
+  evidence_p: 0.70
+  steps: 1500
+  evaluator_pretrain_steps: 1000
+  batch: 16
+  episode_lengths: [16, 32, 64]
+development_seeds: [7601, 7602, 7611, 7612]
+formal_primary_seeds: [7801, 7802, 7803, 7804, 7805, 7806, 7807, 7808]
+formal_control_seeds: [7801, 7802, 7803, 7804, 7805]
+shortlist_rule: "both development seeds pass noisy-world health and acquire by N64"
+selected_shortlist:
+  name: "g050_f0970_m09995"
+  gamma: 0.50
+  rho_fast: 0.97
+  rho_slow: 0.9995
+  formal_seeds: [7801, 7802, 7803, 7804, 7805, 7806, 7807, 7808]
+evaluation:
+  replicates_per_seed: 32
+  evidence_p: [0.55, 0.60, 0.65, 0.70]
+  primary_evidence_p: [0.60, 0.70]
+  formation_N: [0, 1, 2, 4, 8, 16, 32, 64]
+  persistence_D: [0, 10, 50, 100, 250, 500, 1000, 2000, 5000]
+  reversal_R: [0, 1, 2, 4, 8, 16, 32, 64, 128]
+  oppose_fraction: [0.0, 0.10, 0.25, 0.50, 0.75, 1.0]
+  null_K: [0, 1, 2, 4, 8, 16, 32, 64]
+  continuous_ticks: [100, 500, 1000, 5000, 10000]
+gates:
+  seed_rule: "at least 6/8 primary seeds"
+  acquisition_threshold: 0.10
+  formed_threshold: 0.10
+  persistence_delay: 500
+  persistence_ratio_min: 0.20
+  selectivity_margin: 0.05
+  consolidation_retention_margin: 0.03
+  health_action_tv_min: 0.10
+  health_interaction_min: 0.10
+  reversal_max: 128
+notes:
+  - "Thresholds, including noisy-world health ceilings, were frozen after two failed short-course development seeds and two long-course development seeds; development observations are excluded from formal gates."
+  - "No post-formal architecture, memory-law, H-scale, or gate-threshold changes are allowed."

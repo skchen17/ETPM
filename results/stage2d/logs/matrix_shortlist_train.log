@@ -1,0 +1,9 @@
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/shortlist/g050_f0970_m09995/7807/checkpoint.pt"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/shortlist/g050_f0970_m09995/7801/checkpoint.pt"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/shortlist/g050_f0970_m09995/7805/checkpoint.pt"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/shortlist/g050_f0970_m09995/7808/checkpoint.pt"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/shortlist/g050_f0970_m09995/7803/checkpoint.pt"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/shortlist/g050_f0970_m09995/7804/checkpoint.pt"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/shortlist/g050_f0970_m09995/7802/checkpoint.pt"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/shortlist/g050_f0970_m09995/7806/checkpoint.pt"}
+{"phase": "shortlist-train", "jobs": 8, "done": 8, "skipped": 0}

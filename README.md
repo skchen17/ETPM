@@ -285,3 +285,16 @@ PYTHONPATH=src:. .venv/bin/pytest -q
 - `results/`: machine-readable outputs
 - `reports/`: Stage-1 through Stage-1.3 protocols, amendments, topic reports,
   negative results, integrity-aware final reports, and Stage-2 go/no-go decisions
+# Stage 2D noisy-evidence memory dynamics
+
+Stage 2D asks whether uncertain experience produces a gradual, persistent but
+revisable behavioral disposition and whether finite behavioral causal control
+passes from F to M. It introduces no new memory law or architecture. The formal
+protocol, all negative development runs, independently trained baselines,
+gamma/rho sweep, NULL analysis and 10k continuous-state diagnostic are recorded
+in [`docs/STAGE2D_PROTOCOL.md`](docs/STAGE2D_PROTOCOL.md) and
+[`reports/STAGE2D_MEMORY_DYNAMICS_RESULTS.md`](reports/STAGE2D_MEMORY_DYNAMICS_RESULTS.md).
+
+The Stage 2D report must be read as synthetic-world evidence only. Gradual
+behavior, persistence, or NULL-time benefit is not described as human-like
+memory, consciousness, unlimited capacity, or unrestricted causal memory.

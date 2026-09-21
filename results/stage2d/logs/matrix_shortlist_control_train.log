@@ -1,0 +1,6 @@
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/controls/f_only_g050/7804/checkpoint.pt"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/controls/f_only_g050/7802/checkpoint.pt"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/controls/f_only_g050/7801/checkpoint.pt"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/controls/f_only_g050/7805/checkpoint.pt"}
+{"status": "DONE", "expected": "/data/CSK/ETPM/et-rcm/results/stage2d/checkpoints/formal/controls/f_only_g050/7803/checkpoint.pt"}
+{"phase": "shortlist-control-train", "jobs": 5, "done": 5, "skipped": 0}

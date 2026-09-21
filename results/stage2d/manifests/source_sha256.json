@@ -1,0 +1,15 @@
+{
+  "README.md": "5e1346cd9c435a2c3dda44aadfa0f2439e8737e8c342fb6298efe412de366969",
+  "configs/stage2d_formal.yaml": "2b730ff83071d0cd5d4fbd48a3f7a861bb60e3731fe3863575522b46c4654190",
+  "docs/STAGE2D_PROTOCOL.md": "3cac32f8a58fb0bcd6fa5ff8a99850173e44263fc0eb890554733e6bb351359a",
+  "tests/test_stage2d.py": "b53c64a3d7474257562a1c85e316743225cdf0648d3264fce6741f0aae4c96a4",
+  "src/etrcm/stage2d/__init__.py": "676a49245637fb48e345158d38dd7c426f182cd7033af3941b49d732bc464b44",
+  "src/etrcm/stage2d/model.py": "9cdaddc238fafc7a0c65096ae90424e2935bbc951583ea9b51e5c47cc57c5777",
+  "src/etrcm/stage2d/protocol.py": "826bfe3343dd9ee68f21105734cc93c9f87080513dfb10699838fc5d316a2d2c",
+  "src/etrcm/stage2d/world.py": "d1d4e89468382068e73ef206ad4d838b805174163f6f42880e06d0e0cce91be5",
+  "experiments/stage2d_analyze.py": "ddfcf5dc5561eeb0bca41af85a144d966e99099b872fe11985ba08cc0a50e60a",
+  "experiments/stage2d_evaluate.py": "eed273313e0359d4ec6e8b3d239e68f0bc8319bea209ae433da48da64cb9fefc",
+  "experiments/stage2d_integrity.py": "ad997bba59f21fdd07389b59b3f3575ad25a1b3c8cc79ded791525ed078d5dd5",
+  "experiments/stage2d_run_matrix.py": "597cb8156bc369a0e1c3f7ffa621aac3f5a35af1c6354682301fe07dd87ad0a1",
+  "experiments/stage2d_train.py": "9865075363f8cb673ee2b2450acd27b2dbe5c923bb6d3a0d36b388e986d57359"
+}
