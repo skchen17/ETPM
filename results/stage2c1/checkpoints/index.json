@@ -1,0 +1,53 @@
+{
+  "note": "Checkpoint binaries live beside each seed's summary; no symlinks or duplicate overwrites",
+  "L0_late_concat": {
+    "7201": "results/stage2c1/oracle_latent/formal/late_concat/7201/checkpoint.pt",
+    "7202": "results/stage2c1/oracle_latent/formal/late_concat/7202/checkpoint.pt",
+    "7203": "results/stage2c1/oracle_latent/formal/late_concat/7203/checkpoint.pt",
+    "7204": "results/stage2c1/oracle_latent/formal/late_concat/7204/checkpoint.pt",
+    "7205": "results/stage2c1/oracle_latent/formal/late_concat/7205/checkpoint.pt",
+    "7206": "results/stage2c1/oracle_latent/formal/late_concat/7206/checkpoint.pt",
+    "7207": "results/stage2c1/oracle_latent/formal/late_concat/7207/checkpoint.pt",
+    "7208": "results/stage2c1/oracle_latent/formal/late_concat/7208/checkpoint.pt"
+  },
+  "L0_modulation": {
+    "7201": "results/stage2c1/oracle_latent/formal/modulation/7201/checkpoint.pt",
+    "7202": "results/stage2c1/oracle_latent/formal/modulation/7202/checkpoint.pt",
+    "7203": "results/stage2c1/oracle_latent/formal/modulation/7203/checkpoint.pt",
+    "7204": "results/stage2c1/oracle_latent/formal/modulation/7204/checkpoint.pt",
+    "7205": "results/stage2c1/oracle_latent/formal/modulation/7205/checkpoint.pt",
+    "7206": "results/stage2c1/oracle_latent/formal/modulation/7206/checkpoint.pt",
+    "7207": "results/stage2c1/oracle_latent/formal/modulation/7207/checkpoint.pt",
+    "7208": "results/stage2c1/oracle_latent/formal/modulation/7208/checkpoint.pt"
+  },
+  "L1": {
+    "7201": "results/stage2c1/oracle_memory/formal/7201/checkpoint.pt",
+    "7202": "results/stage2c1/oracle_memory/formal/7202/checkpoint.pt",
+    "7203": "results/stage2c1/oracle_memory/formal/7203/checkpoint.pt",
+    "7204": "results/stage2c1/oracle_memory/formal/7204/checkpoint.pt",
+    "7205": "results/stage2c1/oracle_memory/formal/7205/checkpoint.pt",
+    "7206": "results/stage2c1/oracle_memory/formal/7206/checkpoint.pt",
+    "7207": "results/stage2c1/oracle_memory/formal/7207/checkpoint.pt",
+    "7208": "results/stage2c1/oracle_memory/formal/7208/checkpoint.pt"
+  },
+  "L2": {
+    "7201": "results/stage2c1/history_encoder/formal/7201/checkpoint.pt",
+    "7202": "results/stage2c1/history_encoder/formal/7202/checkpoint.pt",
+    "7203": "results/stage2c1/history_encoder/formal/7203/checkpoint.pt",
+    "7204": "results/stage2c1/history_encoder/formal/7204/checkpoint.pt",
+    "7205": "results/stage2c1/history_encoder/formal/7205/checkpoint.pt",
+    "7206": "results/stage2c1/history_encoder/formal/7206/checkpoint.pt",
+    "7207": "results/stage2c1/history_encoder/formal/7207/checkpoint.pt",
+    "7208": "results/stage2c1/history_encoder/formal/7208/checkpoint.pt"
+  },
+  "L3": {
+    "7201": "results/stage2c1/raw/lifetime/7201/checkpoint.pt",
+    "7202": "results/stage2c1/raw/lifetime/7202/checkpoint.pt",
+    "7203": "results/stage2c1/raw/lifetime/7203/checkpoint.pt",
+    "7204": "results/stage2c1/raw/lifetime/7204/checkpoint.pt",
+    "7205": "results/stage2c1/raw/lifetime/7205/checkpoint.pt",
+    "7206": "results/stage2c1/raw/lifetime/7206/checkpoint.pt",
+    "7207": "results/stage2c1/raw/lifetime/7207/checkpoint.pt",
+    "7208": "results/stage2c1/raw/lifetime/7208/checkpoint.pt"
+  }
+}

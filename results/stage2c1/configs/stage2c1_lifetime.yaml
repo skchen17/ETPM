@@ -1,0 +1,24 @@
+stage: Stage 2C.1 L3 full-lifetime diagnostic
+protocol_status: frozen_before_L3_formal
+prerequisites: [G48_PASS, G49_PASS, G50_PASS]
+formal_training_seeds: [7201, 7202, 7203, 7204, 7205, 7206, 7207, 7208]
+model: "Original Stage 2C B5_separate core and F/M law; direct late-concat candidate-action consequence head"
+training:
+  steps: 500
+  batch: 16
+  lifetime_lengths: [4, 8, 16]
+  optimizer: AdamW
+  learning_rate: 0.001
+  state_magnitude_penalty: 0.001
+  parameter_gradient_clip: 1.0
+  objective: observed_consequence_cross_entropy_only
+evaluation:
+  paired_lifetimes_per_seed: 4
+  formation_exposures: [0, 1, 2, 4, 8, 16, 32]
+  persistence_delays: [0, 10, 100, 500]
+  generalization_splits: [seen, novel, hard_ood]
+  revision_exposures: [0, 1, 2, 4, 8, 16, 32]
+  swaps: [F, M, FM]
+  policy: "Stage 2C entropy policy at temperature 0.35"
+  parameter_updates_per_evaluation_lifetime: 0
+interpretation: "Exploratory L3 diagnostic; does not revise frozen Stage 2C G42-G47"

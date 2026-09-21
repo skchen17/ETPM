@@ -1,0 +1,39 @@
+stage: Stage 2C.1 Action-Outcome Binding Diagnostic
+protocol_status: frozen_after_two_development_seeds_before_formal
+historical_stage2c_commit: a6540c50faa07dcf8c690dc40c1bffa40ab58d7b
+development_seeds: [7101, 7102]
+formal_training_seeds: [7201, 7202, 7203, 7204, 7205, 7206, 7207, 7208]
+world: stage2c_same_latent_action_outcome_rule
+training:
+  objective: observed_consequence_cross_entropy_only
+  balanced_four_latent_action_cells: true
+  batch: 64
+  optimizer: AdamW
+  learning_rate: 0.003
+  L0_steps: 3000
+  L0_snapshots: [0, 100, 500, 1000, 3000]
+  L0_heads: [late_concat, modulation]
+  selected_downstream_head: late_concat
+  L1_steps: 1000
+  L2_steps: 1200
+  entropy_policy_temperature: 0.35
+  q_policy_temperature: 0.35
+  no_action_label_supervision: true
+  no_memory_law_change: true
+gates:
+  minimum_independent_seeds: 6
+  G48: "Both oracle-latent action TV >= 0.50 and delta_Q_A,delta_Q_B > 0 at 3000 steps in >=6/8 late-concat seeds"
+  G49: "Only if G48 PASS: oracle M action TV both >=0.50, entropy-policy BS >=0.30, and exact M swap reverses preference in >=6/8 seeds"
+  G50: "Only if G48,G49 PASS: legal-past-only history encoder on novel probes has action TV both >=0.50, entropy-policy BS >=0.30 and positive history-action interaction in >=6/8 seeds"
+stop_rule: "If an upstream gate FAILS, downstream is NOT_RUN_BY_GATE and no downstream failure attribution"
+oracle_m:
+  source: fixed_qr_seed_271828
+  shapes: [2, 8, 8]
+  equal_frobenius_norm: true
+  same_H0_and_present: true
+  M_only_through_inherited_read_H: true
+history:
+  past_fields: [color, shape, nuisance, observed_action, observed_outcome]
+  length: 8
+  no_future_consequence: true
+  no_latent_label_to_encoder: true

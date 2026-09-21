@@ -1,0 +1,11 @@
+{
+  "configs/stage2c1_formal.yaml": "3eff910d4420b420b13c522707133a07b482fd4aff8a267e88b45d094e37da0b",
+  "configs/stage2c1_lifetime.yaml": "d1be05eeea8b61ba2a612bb7aff7f9a56d4cefe82cdede6ac37519a00841578b",
+  "experiments/stage2c1_train.py": "989d3c671a4ba9743af6a3b97441db7daf1522deb077af0d9efca994689ad7d6",
+  "experiments/stage2c1_lifetime.py": "4cca8db2bc63d9a559522b6065a861424aed0150565909d072f784088b86b5a2",
+  "experiments/stage2c1_analyze.py": "869e93ade04ced3aae142335a6ae03282993621dc661b805cf4797378b6435e1",
+  "experiments/stage2c1_integrity.py": "719c14a3b83d63f7413fca3a3953c73f4840b2dcb941b612dfc89f860b0203fd",
+  "src/etrcm/stage2c1/diagnostic.py": "a89ef33090d01a3c632e3b6f5bd0d9d02e36602b69df17a3ed5152272670ad95",
+  "tests/test_stage2c1.py": "d20accb765ef134256ef48681c9ca72480d5cad8dc248346ae50a7d199eead47",
+  "docs/STAGE2C1_PROTOCOL.md": "c273ba4de099dc780a1180809108c081172105d9bf3de31231df8d1e479f283a"
+}
