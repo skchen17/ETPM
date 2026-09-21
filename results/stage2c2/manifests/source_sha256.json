@@ -1,0 +1,12 @@
+{
+  "configs/stage2c2_formal.yaml": "6c02edc66a9f3cbd7f01ab8c1bd2881a038cfbc597b4466d6d84afb842539d5b",
+  "configs/stage2c2_joint_curve.yaml": "b02df495bc650ba2d0302d83d5a0fa3ad8508ff5d904f2ec935f281bb74d7155",
+  "experiments/stage2c2_pathway.py": "1cb722e7d5e19a37b5c5b7b402d136c6f12b746ffd238101853b93e3ea5746df",
+  "experiments/stage2c2_probes.py": "fafb3a2595e209d070a807274995813bd2f2d04bc1d2d50ff3709ae360680e43",
+  "experiments/stage2c2_curve.py": "440e046b18246511fd55dc8e9b9b637f148d020dfbe03198b3771e52abc75a28",
+  "experiments/stage2c2_analyze.py": "d7af97e9c80da09c0405d025efa2494fbd5e845fb50f905736822df106e10bf7",
+  "experiments/stage2c2_integrity.py": "49a30a7b0afd070ecd970c489aee1a2412d63415f95885f0aab036cf744c690c",
+  "src/etrcm/stage2c2/protocol.py": "7bc73dff8fb3d2c88b0f81e2267e3562746a5dbd2d3eac225792f6920407dee9",
+  "tests/test_stage2c2.py": "d56837d129a3845511703697e48212e9f7146cc4e63559f73ec528e8cd5bffee",
+  "docs/STAGE2C2_PROTOCOL.md": "66f36102de498f8845108cb5405e87c8d149e84716522bc8bcf682f193b01995"
+}

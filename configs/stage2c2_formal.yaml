@@ -1,0 +1,42 @@
+stage: ET-RCM Stage 2C.2 Frozen-L3 Pathway Audit
+protocol_status: frozen_after_development_7301_7302_before_formal_7201_7208
+historical_head: 9826ca6670cc87b8a0305a5fc11c93d3d394d3bd
+development_l3_seeds: [7301, 7302]
+formal_frozen_l3_seeds: [7201, 7202, 7203, 7204, 7205, 7206, 7207, 7208]
+native_baseline:
+  exposures: 16
+  paired_lifetimes_per_seed: 4
+  norms: [H, F, M, r_M]
+  eval_parameter_updates: 0
+oracle_h:
+  fit_only: [H_A, H_B]
+  steps: 1000
+  restarts: 4
+  batch: 128
+  optimizer: Adam
+  learning_rate: 0.03
+  target: observed_consequence_CE_only
+  exact_norm: native_H_N16_median_per_checkpoint
+  heldout_outcomes: 4096
+  no_model_weight_updates: true
+gates:
+  independent_seed_minimum: 6
+  G51: "Both latent-specific action TV >= 0.10, I_HA(y0) >= 0.15, and entropy BS >= 0.10 on held-out evaluation in >=6/8 frozen-L3 checkpoints"
+  G52: "Only if G51 PASS: both action TV >= 0.10, I_HA(y0) >= 0.15, entropy BS >= 0.10; read swap reverses preference in >=6/8"
+  G53: "Only if G52 PASS: both action TV >= 0.10, I_HA(y0) >= 0.15, entropy BS >= 0.10; M swap reverses preference and read clamp removes >=80% BS in >=6/8"
+  G54: "Only if G53 PASS: legal-history adapter both action TV >= 0.10, I_HA(y0) >= 0.15, entropy BS >= 0.10 on held-out parity-novel histories in >=6/8"
+  G55: "Only if G51-G54 PASS: after assistance probability reaches exactly zero, action TV >= 0.10, I_HA(y0) >= 0.15, BS >= 0.05 and exposure BS16-BS0 >= 0.03 in >=6/8 for at least one prespecified curriculum arm"
+  G56: "Only if G55 PASS: at least one F/M/FM swap or read clamp changes BS by >=0.02 in a consistent direction in >=6/8"
+stop_rule: "No downstream memory attribution after first failed gate; downstream gates and curriculum NOT_RUN_BY_GATE"
+native_probe:
+  train_episode_pairs: 128
+  test_episode_pairs: 128
+  train_surface: parity_even
+  test_surface: heldout_parity_odd
+  heads: [linear, small_mlp]
+  representations: [H, F, M, FM]
+  decodable_M_condition: "M test accuracy >= 0.70 in >=6/8 seeds"
+joint_curve:
+  checkpoints: [0, 25, 50, 100, 200, 300, 500]
+  gradient_diagnostic_only: true
+  no_memory_law_change: true

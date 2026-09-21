@@ -1,0 +1,62 @@
+{
+  "seed": 7203,
+  "checkpoint": "/data/CSK/ETPM/et-rcm/results/stage2c1/raw/lifetime/7203/checkpoint.pt",
+  "train_pairs": 128,
+  "test_pairs": 128,
+  "train_surface_split": "train parity-even",
+  "test_surface_split": "novel parity-odd",
+  "episode_sets_disjoint": true,
+  "latent_labels_probe_only": true,
+  "L3_parameter_sha256_before": "e198c04b0ac92f20f5f2cc8c43b53c29a5926000740bf3511c2de6dcb3f58178",
+  "L3_parameter_sha256_after": "e198c04b0ac92f20f5f2cc8c43b53c29a5926000740bf3511c2de6dcb3f58178",
+  "results": {
+    "H": {
+      "linear": {
+        "train_accuracy": 0.62890625,
+        "test_accuracy": 0.515625,
+        "test_CE": 0.7447096705436707
+      },
+      "small_mlp": {
+        "train_accuracy": 1.0,
+        "test_accuracy": 0.56640625,
+        "test_CE": 2.2180614471435547
+      }
+    },
+    "F": {
+      "linear": {
+        "train_accuracy": 0.671875,
+        "test_accuracy": 0.5546875,
+        "test_CE": 0.7368777990341187
+      },
+      "small_mlp": {
+        "train_accuracy": 1.0,
+        "test_accuracy": 0.5,
+        "test_CE": 2.2444047927856445
+      }
+    },
+    "M": {
+      "linear": {
+        "train_accuracy": 0.828125,
+        "test_accuracy": 0.7109375,
+        "test_CE": 0.5749813914299011
+      },
+      "small_mlp": {
+        "train_accuracy": 1.0,
+        "test_accuracy": 0.69921875,
+        "test_CE": 1.4967972040176392
+      }
+    },
+    "FM": {
+      "linear": {
+        "train_accuracy": 0.85546875,
+        "test_accuracy": 0.71875,
+        "test_CE": 0.6020609140396118
+      },
+      "small_mlp": {
+        "train_accuracy": 1.0,
+        "test_accuracy": 0.65625,
+        "test_CE": 1.3569822311401367
+      }
+    }
+  }
+}

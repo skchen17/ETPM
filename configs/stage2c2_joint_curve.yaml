@@ -1,0 +1,26 @@
+stage: Stage 2C.2 joint-training learning-curve diagnostic
+protocol_status: frozen_before_joint_curve_development_and_formal
+development_training_seeds: [7351, 7352]
+formal_training_seeds: [7401, 7402, 7403, 7404, 7405, 7406, 7407, 7408]
+checkpoint_steps: [0, 25, 50, 100, 200, 300, 500]
+training:
+  inherited_from: Stage2C1_L3
+  steps: 500
+  batch: 16
+  lifetime_lengths: [4, 8, 16]
+  optimizer: AdamW
+  learning_rate: 0.001
+  H_square_penalty: 0.001
+  gradient_clip: 1.0
+  consequence_CE_only: true
+  F_M_law_unchanged: true
+evaluation:
+  paired_lifetimes_per_checkpoint: 4
+  exposures: 16
+  M_probe_train_pairs: 64
+  M_probe_test_pairs: 64
+  M_probe_test_surface: novel_parity_odd
+  M_probe_type: standardized_ridge_linear
+  gradient_groups: [action_branch, consequence_head, q_M, read_gate, event_encoder, H_core]
+  gradient_is_diagnostic_not_causal: true
+  no_parameter_updates_during_snapshot: true

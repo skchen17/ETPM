@@ -1,0 +1,34 @@
+{
+  "7201": {
+    "path": "/data/CSK/ETPM/et-rcm/results/stage2c1/raw/lifetime/7201/checkpoint.pt",
+    "sha256": "c17c719a64e4ce9c0d41dc9940726d4338a44b70d3dea3208a13d57dc7db39ee"
+  },
+  "7202": {
+    "path": "/data/CSK/ETPM/et-rcm/results/stage2c1/raw/lifetime/7202/checkpoint.pt",
+    "sha256": "87eaa60c5657ede682343acd7dee22439c8fbce355bc35de31bf60f38ceee742"
+  },
+  "7203": {
+    "path": "/data/CSK/ETPM/et-rcm/results/stage2c1/raw/lifetime/7203/checkpoint.pt",
+    "sha256": "5adce536b70533a337280b68f003564bbdd832df09ea38a4c95f4c75335d3055"
+  },
+  "7204": {
+    "path": "/data/CSK/ETPM/et-rcm/results/stage2c1/raw/lifetime/7204/checkpoint.pt",
+    "sha256": "d997b0fc81d24b2fac046f237d3e393d7cc9d36b1c62d9bb84dadb1a4203f361"
+  },
+  "7205": {
+    "path": "/data/CSK/ETPM/et-rcm/results/stage2c1/raw/lifetime/7205/checkpoint.pt",
+    "sha256": "05a91b9e98dd5432d707393b321a307ec61791d93df7be112a756cb968e01306"
+  },
+  "7206": {
+    "path": "/data/CSK/ETPM/et-rcm/results/stage2c1/raw/lifetime/7206/checkpoint.pt",
+    "sha256": "c641afef673f273be5d91d6bfb6245b32ffeb4c012e75e3cf91a00eb9bc8cf75"
+  },
+  "7207": {
+    "path": "/data/CSK/ETPM/et-rcm/results/stage2c1/raw/lifetime/7207/checkpoint.pt",
+    "sha256": "9e651b72bed0f6ac3621dbee26a4c63857b73db8e4399189d8f5817646db71cd"
+  },
+  "7208": {
+    "path": "/data/CSK/ETPM/et-rcm/results/stage2c1/raw/lifetime/7208/checkpoint.pt",
+    "sha256": "118953bab58b212adfa2ce5989e24daf34b3d2354c26a0de46f2b646dc62e2c8"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "seed": 7201,
+  "development": false,
+  "checkpoint": "/data/CSK/ETPM/et-rcm/results/stage2c1/raw/lifetime/7201/checkpoint.pt",
+  "checkpoint_sha256": "c17c719a64e4ce9c0d41dc9940726d4338a44b70d3dea3208a13d57dc7db39ee",
+  "parameter_sha256_before": "bcf863bb4e912094db29bb37108fb54d6d51de4060a5b4a8b187a4df68d03b2a",
+  "parameter_sha256_after": "bcf863bb4e912094db29bb37108fb54d6d51de4060a5b4a8b187a4df68d03b2a",
+  "weights_frozen": true,
+  "only_fit_variables": "two norm-matched H state tensors",
+  "fit_split_seed": 831603,
+  "restart_selection_split_seed_base": 1001603,
+  "formal_heldout_split_seed": 1061603
+}

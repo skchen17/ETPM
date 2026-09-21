@@ -1,0 +1,7 @@
+{
+  "stage": "C1-C3",
+  "gate": "G55-G56",
+  "status": "NOT_RUN_BY_GATE",
+  "reason": "G51 FAIL; frozen L3 downstream head capacity did not replicate",
+  "no_checkpoint_weights_changed": true
+}
