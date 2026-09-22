@@ -1,0 +1,5 @@
+{
+  "status": "NOT_RUN_BY_PROTOCOL",
+  "reason": "G114/G115/G116 did not supply two passing causal/temporal gates; stopping rule forbids training modification",
+  "regularizer_enabled": false
+}

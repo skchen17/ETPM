@@ -1,0 +1,135 @@
+{
+  "development_primary_healthy": [
+    {
+      "run": "i9501_d12501",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9501_d12501/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9501_d12503",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9501_d12503/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9502_d12501",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9502_d12501/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9503_d12501",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9503_d12501/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9503_d12502",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9503_d12502/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9503_d12503",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9503_d12503/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9504_d12501",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9504_d12501/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9504_d12502",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9504_d12502/checkpoint_1500.pt"
+    }
+  ],
+  "development_primary_shortcut": [
+    {
+      "run": "i9501_d12502",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9501_d12502/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9502_d12502",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9502_d12502/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9502_d12503",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9502_d12503/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9505_d12501",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9505_d12501/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9505_d12503",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9505_d12503/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9506_d12501",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9506_d12501/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9506_d12502",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9506_d12502/checkpoint_1500.pt"
+    },
+    {
+      "run": "i9507_d12501",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9507_d12501/checkpoint_1500.pt"
+    }
+  ],
+  "confirmatory_primary_healthy": [
+    {
+      "run": "i21101_d22101",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21101_d22101/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21101_d22102",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21101_d22102/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21102_d22101",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21102_d22101/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21102_d22103",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21102_d22103/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21108_d22101",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21108_d22101/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21108_d22102",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21108_d22102/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21108_d22103",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21108_d22103/checkpoint_1500.pt"
+    }
+  ],
+  "confirmatory_primary_shortcut": [
+    {
+      "run": "i21101_d22103",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21101_d22103/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21102_d22102",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21102_d22102/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21103_d22101",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21103_d22101/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21103_d22102",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21103_d22102/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21103_d22103",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21103_d22103/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21104_d22101",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21104_d22101/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21104_d22102",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21104_d22102/checkpoint_1500.pt"
+    },
+    {
+      "run": "i21104_d22103",
+      "checkpoint": "results/stage2d6/confirmatory/checkpoints/i21104_d22103/checkpoint_1500.pt"
+    }
+  ],
+  "rule": "development IDs frozen sorted; confirmatory first eight per frozen behavioral class sorted by run ID; no fusion-based selection"
+}

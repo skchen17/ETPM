@@ -1,0 +1,26 @@
+{
+  "historical": {
+    "overlap_AUC": 1.0,
+    "comparators": {
+      "overlap": 1.0,
+      "state_main_norm": 1.0,
+      "action_main_norm": 0.71875,
+      "mean_abs_curvature": 0.75,
+      "fusion_norm": 0.5625,
+      "Q1": 1.0,
+      "post_I": 1.0
+    }
+  },
+  "confirmatory": {
+    "overlap_AUC": 1.0,
+    "comparators": {
+      "overlap": 1.0,
+      "state_main_norm": 1.0,
+      "action_main_norm": 0.2857142857142857,
+      "mean_abs_curvature": 0.8571428571428571,
+      "fusion_norm": 0.32142857142857145,
+      "Q1": 1.0,
+      "post_I": 1.0
+    }
+  }
+}

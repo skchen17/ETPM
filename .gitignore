@@ -44,3 +44,7 @@ results/processed/*.parquet
 /results/stage2d5/confirmatory/checkpoints/
 /results/stage2d5/confirmatory/logs/
 /results/stage2d5/path_restoration/*.log
+# Stage 2D.6 confirmatory C0 checkpoints and process logs are reproducible
+# from the tracked frozen training protocol, seeds and summaries.
+/results/stage2d6/confirmatory/checkpoints/
+/results/stage2d6/**/*.log

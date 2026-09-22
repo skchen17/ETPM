@@ -1,0 +1,100 @@
+{
+  "development_cohort": "historical_legacy",
+  "primary_healthy": [
+    "i9501_d12501",
+    "i9501_d12503",
+    "i9502_d12501",
+    "i9503_d12501",
+    "i9503_d12502",
+    "i9503_d12503",
+    "i9504_d12501",
+    "i9504_d12502"
+  ],
+  "primary_shortcut": [
+    "i9501_d12502",
+    "i9502_d12502",
+    "i9502_d12503",
+    "i9505_d12501",
+    "i9505_d12503",
+    "i9506_d12501",
+    "i9506_d12502",
+    "i9507_d12501"
+  ],
+  "primary_unit_rule": "within-run descending finite IHA loss, deterministic tie-break",
+  "unit_k": 8,
+  "unit_k_options": [
+    {
+      "k": 1,
+      "pass_count": 0,
+      "mean_excess_loss": 0.08821808220818639
+    },
+    {
+      "k": 2,
+      "pass_count": 0,
+      "mean_excess_loss": 0.16693931724876165
+    },
+    {
+      "k": 4,
+      "pass_count": 4,
+      "mean_excess_loss": 0.2836552008520812
+    },
+    {
+      "k": 8,
+      "pass_count": 8,
+      "mean_excess_loss": 0.42835492570884526
+    },
+    {
+      "k": 16,
+      "pass_count": 8,
+      "mean_excess_loss": 0.27780343196354806
+    }
+  ],
+  "offset_rule": "same signed global scale times native preactivation SD on selected units; no per-run search",
+  "offset_scale": 0.25,
+  "offset_grid": [
+    {
+      "scale": -1.0,
+      "mean_IHA_improvement": -0.008760537952184677,
+      "positive_count": 0
+    },
+    {
+      "scale": -0.5,
+      "mean_IHA_improvement": -0.006447995081543922,
+      "positive_count": 0
+    },
+    {
+      "scale": -0.25,
+      "mean_IHA_improvement": -0.002649553120136261,
+      "positive_count": 0
+    },
+    {
+      "scale": 0.0,
+      "mean_IHA_improvement": 0.0,
+      "positive_count": 0
+    },
+    {
+      "scale": 0.25,
+      "mean_IHA_improvement": 0.0003646165132522583,
+      "positive_count": 0
+    },
+    {
+      "scale": 0.5,
+      "mean_IHA_improvement": -0.0017318502068519592,
+      "positive_count": 0
+    },
+    {
+      "scale": 1.0,
+      "mean_IHA_improvement": -0.0072988346219062805,
+      "positive_count": 0
+    }
+  ],
+  "formal_success": "TV>=.10, IHA>=.10, abs(BS)>=.10 and IHA/abs(BS) each improve >=.025; post_I improves >=.025",
+  "G110_threshold": "post_I-pre_I >=.10 in >=6/8 healthy per cohort",
+  "G111_threshold": "rank-1 Q healthy exceeds shortcut by >=.10 in >=6/8 sorted independent pairs per cohort",
+  "G112_threshold": "O healthy exceeds shortcut in >=6/8 pairs and AUROC(O) exceeds each single-component AUROC in both cohorts",
+  "G113_threshold": "top-k IHA loss >=.05 and >=50% native and >=.025 more than matched random mean in >=6/8 healthy per cohort",
+  "G115_threshold": "low-curvature shift causes post_I >=25% fall and IHA and abs(BS) >=50% fall, exceeding matched-shift loss by >=.025 in >=6/8 healthy per cohort",
+  "G116_threshold": "O crosses 50% endpoint increase no later than IHA crosses .10 in >=6/8 healthy per cohort, failed lacks same pattern",
+  "statistics_unit": "independent trained run; neuron/history measurements aggregated within run",
+  "confirmatory_sealed_at_freeze": true
+}

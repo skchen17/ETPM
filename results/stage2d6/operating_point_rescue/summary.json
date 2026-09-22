@@ -1,0 +1,10 @@
+{
+  "historical": {
+    "count": 0,
+    "failed_n": 8
+  },
+  "confirmatory": {
+    "count": 0,
+    "failed_n": 8
+  }
+}
