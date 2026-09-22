@@ -1,0 +1,155 @@
+{
+  "primary_failed": [
+    "i19101_d20101",
+    "i19102_d20102",
+    "i19103_d20103",
+    "i19104_d20104",
+    "i19105_d20105",
+    "i19106_d20106",
+    "i19109_d20109",
+    "i19110_d20110"
+  ],
+  "counts": {
+    "q_F": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "q_M": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "r_F": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "r_M": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "normalized_F": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "normalized_M": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "gated_read": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "read_projection": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "core_preactivation": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "gate_activation": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "candidate_update": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "temporary_H": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "evaluator_H_input": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "fusion_input": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "fusion_pre": {
+      "interaction": 0,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    },
+    "fusion_post": {
+      "interaction": 8,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    }
+  },
+  "G100": {
+    "pass": true,
+    "earliest_rescue": "fusion_post",
+    "primary_failed_n": 8,
+    "counts": {
+      "interaction": 8,
+      "state": 0,
+      "action": 0,
+      "random_interaction": 0,
+      "shuffled": 0,
+      "generic": 0
+    }
+  }
+}

@@ -1,0 +1,512 @@
+{
+  "cohorts": {
+    "original_query": {
+      "healthy": {
+        "q_F->r_F": {
+          "absolute_median": 10.18755759265841,
+          "normalized_median": 28.427570699499825
+        },
+        "r_F->normalized_F": {
+          "absolute_median": 18.732225126152954,
+          "normalized_median": 1.265296406471072
+        },
+        "normalized_F->gated_read": {
+          "absolute_median": 0.9087647614727528,
+          "normalized_median": 1.0579558095214139
+        },
+        "gated_read->read_projection": {
+          "absolute_median": 0.4201985208349631,
+          "normalized_median": 0.7741801726899489
+        },
+        "read_projection->core_preactivation": {
+          "absolute_median": 0.9998301163211548,
+          "normalized_median": 0.540148585998983
+        },
+        "core_preactivation->core_nonlinearity": {
+          "absolute_median": 0.4819809816181173,
+          "normalized_median": 1.017788843125151
+        },
+        "core_nonlinearity->candidate_update": {
+          "absolute_median": 0.29239055912870393,
+          "normalized_median": 0.8561631189791208
+        },
+        "candidate_update->temporary_H": {
+          "absolute_median": 1.00004081857734,
+          "normalized_median": 0.14502884715752218
+        },
+        "temporary_H->evaluator_H_input": {
+          "absolute_median": 0.18018443300717274,
+          "normalized_median": 1.64329528506638
+        },
+        "evaluator_H_input->fusion_input": {
+          "absolute_median": 0.9999999998367637,
+          "normalized_median": 0.11292365628662053
+        },
+        "fusion_input->fusion_pre": {
+          "absolute_median": 0.9087785787400455,
+          "normalized_median": 0.31784716787719997
+        },
+        "fusion_pre->fusion_post": {
+          "absolute_median": 56.76095241075595,
+          "normalized_median": 125.39260618334507
+        },
+        "fusion_post->logits": {
+          "absolute_median": 1.9442919140907793,
+          "normalized_median": 12.307438439657759
+        },
+        "logits->probabilities": {
+          "absolute_median": 0.3267122605385899,
+          "normalized_median": 6.1384348301621365
+        },
+        "probabilities->policy_score": {
+          "absolute_median": 2.8919814436948874,
+          "normalized_median": 0.9755309950933513
+        }
+      },
+      "nonhealthy": {
+        "q_F->r_F": {
+          "absolute_median": 4.039443617370243,
+          "normalized_median": 18.216079040112668
+        },
+        "r_F->normalized_F": {
+          "absolute_median": 13.023284004632831,
+          "normalized_median": 0.7855097076304125
+        },
+        "normalized_F->gated_read": {
+          "absolute_median": 0.9269633318919442,
+          "normalized_median": 1.009984690437052
+        },
+        "gated_read->read_projection": {
+          "absolute_median": 0.5419742881655782,
+          "normalized_median": 0.963272109014097
+        },
+        "read_projection->core_preactivation": {
+          "absolute_median": 0.9998554536144484,
+          "normalized_median": 0.6758871996129912
+        },
+        "core_preactivation->core_nonlinearity": {
+          "absolute_median": 0.5493636620446404,
+          "normalized_median": 1.0475804058068987
+        },
+        "core_nonlinearity->candidate_update": {
+          "absolute_median": 0.47136347438266224,
+          "normalized_median": 0.8307912106895273
+        },
+        "candidate_update->temporary_H": {
+          "absolute_median": 1.0000026543824507,
+          "normalized_median": 0.17245602260386733
+        },
+        "temporary_H->evaluator_H_input": {
+          "absolute_median": 0.15965192169560688,
+          "normalized_median": 1.128460615439495
+        },
+        "evaluator_H_input->fusion_input": {
+          "absolute_median": 0.9999999998878932,
+          "normalized_median": 0.08610532552815121
+        },
+        "fusion_input->fusion_pre": {
+          "absolute_median": 0.5995459311277522,
+          "normalized_median": 0.22871825074443852
+        },
+        "fusion_pre->fusion_post": {
+          "absolute_median": 43.10838360007689,
+          "normalized_median": 103.15612789375527
+        },
+        "fusion_post->logits": {
+          "absolute_median": 1.5064510619432359,
+          "normalized_median": 11.85100019202088
+        },
+        "logits->probabilities": {
+          "absolute_median": 0.32031620118431947,
+          "normalized_median": 1.5899766249493437
+        },
+        "probabilities->policy_score": {
+          "absolute_median": 2.6207029839764924,
+          "normalized_median": 0.9130003458376575
+        }
+      }
+    },
+    "confirmatory_query": {
+      "healthy": {
+        "q_F->r_F": {
+          "absolute_median": 2.6968337141492196,
+          "normalized_median": 14.155355614858639
+        },
+        "r_F->normalized_F": {
+          "absolute_median": 35.828160696306306,
+          "normalized_median": 1.2201704434435423
+        },
+        "normalized_F->gated_read": {
+          "absolute_median": 0.9645213670438989,
+          "normalized_median": 1.0412087545407338
+        },
+        "gated_read->read_projection": {
+          "absolute_median": 0.459814496421477,
+          "normalized_median": 0.8207142770029929
+        },
+        "read_projection->core_preactivation": {
+          "absolute_median": 0.9999915600010212,
+          "normalized_median": 0.41606958444023906
+        },
+        "core_preactivation->core_nonlinearity": {
+          "absolute_median": 0.6706434412778818,
+          "normalized_median": 1.2010410324004166
+        },
+        "core_nonlinearity->candidate_update": {
+          "absolute_median": 0.31343139515741436,
+          "normalized_median": 0.7708587049182933
+        },
+        "candidate_update->temporary_H": {
+          "absolute_median": 0.999995050878346,
+          "normalized_median": 0.22058557217100722
+        },
+        "temporary_H->evaluator_H_input": {
+          "absolute_median": 0.1342673121660749,
+          "normalized_median": 1.091553796710223
+        },
+        "evaluator_H_input->fusion_input": {
+          "absolute_median": 0.9999999997737432,
+          "normalized_median": 0.1151780473537604
+        },
+        "fusion_input->fusion_pre": {
+          "absolute_median": 0.8130413428084724,
+          "normalized_median": 0.2991255663881929
+        },
+        "fusion_pre->fusion_post": {
+          "absolute_median": 112.44548836694662,
+          "normalized_median": 309.1857442076765
+        },
+        "fusion_post->logits": {
+          "absolute_median": 1.8806190188626721,
+          "normalized_median": 26.1176343425941
+        },
+        "logits->probabilities": {
+          "absolute_median": 0.32448066748397364,
+          "normalized_median": 1.3098491569088262
+        },
+        "probabilities->policy_score": {
+          "absolute_median": 2.894883149327085,
+          "normalized_median": 0.8822352181574777
+        }
+      },
+      "nonhealthy": {
+        "q_F->r_F": {
+          "absolute_median": 4.888892371428248,
+          "normalized_median": 18.622962633221384
+        },
+        "r_F->normalized_F": {
+          "absolute_median": 19.04855785543588,
+          "normalized_median": 0.9865257842784834
+        },
+        "normalized_F->gated_read": {
+          "absolute_median": 0.8987060788348528,
+          "normalized_median": 1.0057685433881973
+        },
+        "gated_read->read_projection": {
+          "absolute_median": 0.5167920364516226,
+          "normalized_median": 0.7592240270290053
+        },
+        "read_projection->core_preactivation": {
+          "absolute_median": 1.0000755427858925,
+          "normalized_median": 0.9030779501096055
+        },
+        "core_preactivation->core_nonlinearity": {
+          "absolute_median": 0.5337363450161385,
+          "normalized_median": 1.0364543160260915
+        },
+        "core_nonlinearity->candidate_update": {
+          "absolute_median": 0.4233960092324561,
+          "normalized_median": 0.7729378093740258
+        },
+        "candidate_update->temporary_H": {
+          "absolute_median": 0.9999973813616126,
+          "normalized_median": 0.2547218120502688
+        },
+        "temporary_H->evaluator_H_input": {
+          "absolute_median": 0.1481429733574523,
+          "normalized_median": 1.1353926787973356
+        },
+        "evaluator_H_input->fusion_input": {
+          "absolute_median": 0.9999999999062132,
+          "normalized_median": 0.06848117296718963
+        },
+        "fusion_input->fusion_pre": {
+          "absolute_median": 0.6706048065309851,
+          "normalized_median": 0.23211354831963113
+        },
+        "fusion_pre->fusion_post": {
+          "absolute_median": 20.07440118400884,
+          "normalized_median": 55.58078677491618
+        },
+        "fusion_post->logits": {
+          "absolute_median": 0.746691243416688,
+          "normalized_median": 6.6496836624111415
+        },
+        "logits->probabilities": {
+          "absolute_median": 0.3189661425145615,
+          "normalized_median": 2.325797230018121
+        },
+        "probabilities->policy_score": {
+          "absolute_median": 2.7100034238064383,
+          "normalized_median": 1.0519000598972057
+        }
+      }
+    },
+    "matched_legacy": {
+      "healthy": {
+        "q_F->r_F": {
+          "absolute_median": 3.614212482983869,
+          "normalized_median": 31.5182629605128
+        },
+        "r_F->normalized_F": {
+          "absolute_median": 256.91118298710086,
+          "normalized_median": 0.8413730644876988
+        },
+        "normalized_F->gated_read": {
+          "absolute_median": 0.7752952538040153,
+          "normalized_median": 1.051398724690806
+        },
+        "gated_read->read_projection": {
+          "absolute_median": 0.46408942458724317,
+          "normalized_median": 0.876158211697285
+        },
+        "read_projection->core_preactivation": {
+          "absolute_median": 1.000134427551674,
+          "normalized_median": 0.17679977039065667
+        },
+        "core_preactivation->core_nonlinearity": {
+          "absolute_median": 0.5513256723041735,
+          "normalized_median": 1.1407744933034347
+        },
+        "core_nonlinearity->candidate_update": {
+          "absolute_median": 0.5221471265055159,
+          "normalized_median": 0.8465196766325234
+        },
+        "candidate_update->temporary_H": {
+          "absolute_median": 0.9999973879313615,
+          "normalized_median": 0.1852247317646361
+        },
+        "temporary_H->evaluator_H_input": {
+          "absolute_median": 0.19422840267308322,
+          "normalized_median": 1.8615589049071901
+        },
+        "evaluator_H_input->fusion_input": {
+          "absolute_median": 0.9999999999435933,
+          "normalized_median": 0.16411044497148836
+        },
+        "fusion_input->fusion_pre": {
+          "absolute_median": 0.6228920000375703,
+          "normalized_median": 0.21103787013005174
+        },
+        "fusion_pre->fusion_post": {
+          "absolute_median": 53.34180391758487,
+          "normalized_median": 127.1385345835479
+        },
+        "fusion_post->logits": {
+          "absolute_median": 1.754331369331028,
+          "normalized_median": 29.689065825049667
+        },
+        "logits->probabilities": {
+          "absolute_median": 0.32382716018019475,
+          "normalized_median": 1.1860364884527494
+        },
+        "probabilities->policy_score": {
+          "absolute_median": 2.566395717770287,
+          "normalized_median": 0.760624960480498
+        }
+      },
+      "nonhealthy": {
+        "q_F->r_F": {
+          "absolute_median": 1.1240137795193659,
+          "normalized_median": 8.442014688280903
+        },
+        "r_F->normalized_F": {
+          "absolute_median": 247.27285163882803,
+          "normalized_median": 1.4217236927219807
+        },
+        "normalized_F->gated_read": {
+          "absolute_median": 0.9239546741190309,
+          "normalized_median": 1.0301035273015173
+        },
+        "gated_read->read_projection": {
+          "absolute_median": 0.5687712215532474,
+          "normalized_median": 1.0225879369480015
+        },
+        "read_projection->core_preactivation": {
+          "absolute_median": 0.9980276576220111,
+          "normalized_median": 0.6823823696158802
+        },
+        "core_preactivation->core_nonlinearity": {
+          "absolute_median": 0.8080772659763045,
+          "normalized_median": 1.6302570479102025
+        },
+        "core_nonlinearity->candidate_update": {
+          "absolute_median": 0.5456142868410166,
+          "normalized_median": 0.7375250217239357
+        },
+        "candidate_update->temporary_H": {
+          "absolute_median": 0.9999876400905733,
+          "normalized_median": 0.15357212791449365
+        },
+        "temporary_H->evaluator_H_input": {
+          "absolute_median": 0.159862425823815,
+          "normalized_median": 1.2257151616046331
+        },
+        "evaluator_H_input->fusion_input": {
+          "absolute_median": 0.9999999995790321,
+          "normalized_median": 0.04168506827526059
+        },
+        "fusion_input->fusion_pre": {
+          "absolute_median": 0.6517308482683064,
+          "normalized_median": 0.25694574284014937
+        },
+        "fusion_pre->fusion_post": {
+          "absolute_median": 140.69988440235602,
+          "normalized_median": 327.80906577900083
+        },
+        "fusion_post->logits": {
+          "absolute_median": 0.21947248668189578,
+          "normalized_median": 2.358454121895277
+        },
+        "logits->probabilities": {
+          "absolute_median": 0.31198235498609816,
+          "normalized_median": 2.352552574582627
+        },
+        "probabilities->policy_score": {
+          "absolute_median": 2.6209487050449765,
+          "normalized_median": 0.9484555156994781
+        }
+      }
+    },
+    "historical_legacy": {
+      "healthy": {
+        "q_F->r_F": {
+          "absolute_median": 0.45527186371395206,
+          "normalized_median": 11.501981906988075
+        },
+        "r_F->normalized_F": {
+          "absolute_median": 65.56596248300016,
+          "normalized_median": 1.0164294103155251
+        },
+        "normalized_F->gated_read": {
+          "absolute_median": 0.6612016473708013,
+          "normalized_median": 0.524063008202578
+        },
+        "gated_read->read_projection": {
+          "absolute_median": 0.6117527337589433,
+          "normalized_median": 1.030957351764766
+        },
+        "read_projection->core_preactivation": {
+          "absolute_median": 1.0482945741606107,
+          "normalized_median": 0.5450548115619565
+        },
+        "core_preactivation->core_nonlinearity": {
+          "absolute_median": 0.5499203590623671,
+          "normalized_median": 1.0687211886291603
+        },
+        "core_nonlinearity->candidate_update": {
+          "absolute_median": 0.3925757907037579,
+          "normalized_median": 1.2269345695314802
+        },
+        "candidate_update->temporary_H": {
+          "absolute_median": 0.9999998797763651,
+          "normalized_median": 0.16132756385768443
+        },
+        "temporary_H->evaluator_H_input": {
+          "absolute_median": 2.3203339142771373,
+          "normalized_median": 1.5477001092941263
+        },
+        "evaluator_H_input->fusion_input": {
+          "absolute_median": 0.9999999999987721,
+          "normalized_median": 0.6791973139999119
+        },
+        "fusion_input->fusion_pre": {
+          "absolute_median": 0.5381763679615288,
+          "normalized_median": 0.28931726534426394
+        },
+        "fusion_pre->fusion_post": {
+          "absolute_median": 5.5217508563146644,
+          "normalized_median": 13.39800841996753
+        },
+        "fusion_post->logits": {
+          "absolute_median": 1.402371791234214,
+          "normalized_median": 15.139829466722684
+        },
+        "logits->probabilities": {
+          "absolute_median": 0.31213092051884544,
+          "normalized_median": 5.654188787026543
+        },
+        "probabilities->policy_score": {
+          "absolute_median": 2.7346605223229483,
+          "normalized_median": 1.0796783440199726
+        }
+      },
+      "nonhealthy": {
+        "q_F->r_F": {
+          "absolute_median": 1.10276901910112,
+          "normalized_median": 6.618840397466442
+        },
+        "r_F->normalized_F": {
+          "absolute_median": 59.440802330069936,
+          "normalized_median": 0.8356602546922245
+        },
+        "normalized_F->gated_read": {
+          "absolute_median": 0.7893958327758568,
+          "normalized_median": 0.9651637274058633
+        },
+        "gated_read->read_projection": {
+          "absolute_median": 0.5508511476428911,
+          "normalized_median": 0.9949046348056181
+        },
+        "read_projection->core_preactivation": {
+          "absolute_median": 1.0154450452172707,
+          "normalized_median": 0.5292590923533425
+        },
+        "core_preactivation->core_nonlinearity": {
+          "absolute_median": 0.5432841076272193,
+          "normalized_median": 1.0325354890630054
+        },
+        "core_nonlinearity->candidate_update": {
+          "absolute_median": 0.37710630777090437,
+          "normalized_median": 1.0278934459818132
+        },
+        "candidate_update->temporary_H": {
+          "absolute_median": 0.9999995970897778,
+          "normalized_median": 0.3229455171430159
+        },
+        "temporary_H->evaluator_H_input": {
+          "absolute_median": 2.952849398379647,
+          "normalized_median": 1.8179022262099225
+        },
+        "evaluator_H_input->fusion_input": {
+          "absolute_median": 0.9999999999494269,
+          "normalized_median": 0.12836712848584841
+        },
+        "fusion_input->fusion_pre": {
+          "absolute_median": 0.6489790522543557,
+          "normalized_median": 0.20382142852057017
+        },
+        "fusion_pre->fusion_post": {
+          "absolute_median": 15.843836129810171,
+          "normalized_median": 33.696378473236564
+        },
+        "fusion_post->logits": {
+          "absolute_median": 0.3282424478617908,
+          "normalized_median": 2.0536482988551836
+        },
+        "logits->probabilities": {
+          "absolute_median": 0.273388087019601,
+          "normalized_median": 2.314837126091802
+        },
+        "probabilities->policy_score": {
+          "absolute_median": 3.99176017195961,
+          "normalized_median": 1.226596381926037
+        }
+      }
+    }
+  },
+  "G97": {
+    "pass": false,
+    "reason": "only 2 healthy A1 per independent cohort; no >=6/8 within-architecture edge replication"
+  }
+}

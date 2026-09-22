@@ -1,0 +1,160 @@
+{
+  "nodes": {
+    "original_query": {
+      "healthy": {
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.006743510952219367,
+          "normalized_mean": 0.010977252444396873
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.006743510952219367,
+          "normalized_mean": 0.0012411300330078525
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.00587240606546402,
+          "normalized_mean": 0.0003669953219800528
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.3075026124715805,
+          "normalized_mean": 0.04231686163222412
+        }
+      },
+      "nonhealthy": {
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.026094031636603177,
+          "normalized_mean": 0.04451910607879315
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.026094031636603177,
+          "normalized_mean": 0.003928613195576702
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.01713849580846727,
+          "normalized_mean": 0.0009940398993898906
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.26081910356879234,
+          "normalized_mean": 0.03812627222373323
+        }
+      }
+    },
+    "confirmatory_query": {
+      "healthy": {
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.004880120046436787,
+          "normalized_mean": 0.006730892304990683
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.004880120046436787,
+          "normalized_mean": 0.0007867586944214338
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.003960042260587215,
+          "normalized_mean": 0.00023803443606322584
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.4079793840646744,
+          "normalized_mean": 0.07283551488022605
+        }
+      },
+      "nonhealthy": {
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.011913797177840024,
+          "normalized_mean": 0.03488242457756525
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.011913797177840024,
+          "normalized_mean": 0.002213487507602858
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.008260643957847995,
+          "normalized_mean": 0.0005148361641671856
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.1301479052220072,
+          "normalized_mean": 0.021901852050810803
+        }
+      }
+    },
+    "matched_legacy": {
+      "healthy": {
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.017728375270962715,
+          "normalized_mean": 0.018317766974642585
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.017728375270962715,
+          "normalized_mean": 0.003006136889256739
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.011042863130569458,
+          "normalized_mean": 0.0006344087266391593
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.5890462398529053,
+          "normalized_mean": 0.08065779595905587
+        }
+      },
+      "nonhealthy": {
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.0014865557230742915,
+          "normalized_mean": 0.00583554152730985
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.0014865557397050516,
+          "normalized_mean": 0.00024296628395530567
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.0010951198824581557,
+          "normalized_mean": 6.627260141453752e-05
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.1326149521129472,
+          "normalized_mean": 0.019971814826624346
+        }
+      }
+    },
+    "historical_legacy": {
+      "healthy": {
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.8674827801684538,
+          "normalized_mean": 0.1368808154094886
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.8674827801684538,
+          "normalized_mean": 0.09101512336082182
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.46890432946383953,
+          "normalized_mean": 0.02645502663089883
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 1.9466597537199657,
+          "normalized_mean": 0.26853920342005616
+        }
+      },
+      "nonhealthy": {
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.04699222114868462,
+          "normalized_mean": 0.04990376156347167
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.04699222114868462,
+          "normalized_mean": 0.008957096240864815
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.028770762980760384,
+          "normalized_mean": 0.001858455848434203
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.18499593126277128,
+          "normalized_mean": 0.030928621959684877
+        }
+      }
+    }
+  },
+  "G103": {
+    "pass": false,
+    "reason": "fusion_post restoration works, but pre-fusion interaction was not stably transmitted or causally rescued; no proven fusion transmission loss"
+  }
+}

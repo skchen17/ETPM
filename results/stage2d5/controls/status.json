@@ -1,0 +1,5 @@
+{
+  "pass": null,
+  "status": "NOT_RUN_BY_PROTOCOL",
+  "reason": "architecture modification requires G100 and G102 or G103"
+}

@@ -1,0 +1,17 @@
+{
+  "F2": {
+    "n": 9,
+    "by_cohort": {
+      "confirmatory_query": 3,
+      "historical_legacy": 6
+    },
+    "read_I_mean": 0.2661078119029601,
+    "fusion_post_I_mean": 0.1953931823372841,
+    "fusion_post_restorable_count": 9,
+    "upstream_restorable_count": 0
+  },
+  "G104": {
+    "pass": false,
+    "reason": "F2 patterns differ across architectures and no upstream-node restoration replicated"
+  }
+}

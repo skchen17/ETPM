@@ -384,3 +384,24 @@ stopping rules. The outcome is **B — helps but does not stabilize**. A1 is kep
 only as an experimental branch, F→M handoff remains closed, and no memory-law
 redesign is justified. See `docs/STAGE2D4_PROTOCOL.md` and
 `reports/STAGE2D4_ACTION_CONDITIONED_MEMORY_RESULTS.md`.
+
+## Stage 2D.5 conditional interaction transmission (2026-09-22)
+
+Stage 2D.5 kept Stage 2D.4 architecture and the F/M memory law frozen while
+tracing 2×2 history×candidate-action interaction through raw/normalized F/M
+reads, gate mixing, read→H integration, temporary H, fusion and output.
+Sixteen new A1 confirmatory models yielded 2 healthy, 4 partial and 10
+shortcut runs; with the original A1 cohort, only 4/24 were healthy.
+
+The read interaction remained largely behaviorally inert. F/M mixing did not
+systematically cancel it, and finite residual scaling did not rescue failed
+runs. Interaction-only restoration at `fusion_post` rescued 8/8 selected
+failed A1 runs; removal there destroyed 8/8 healthy legacy runs. Earlier-node
+restoration rescued 0/8. Thus G100/G101 passed, but G97–G99 and G102–G104
+failed: the known downstream causal node was reproduced, while no repairable
+read→H or fusion transmission edge was localized. G105–G109 were not run by
+protocol. The outcome is **D — upstream interaction is mostly epiphenomenal**.
+No architecture rescue or F/M-law redesign was authorized, and formal F→M
+handoff remains closed. See `docs/STAGE2D5_PROTOCOL.md` and
+`reports/STAGE2D5_INTERACTION_TRANSMISSION_RESULTS.md` for the full methods,
+controls, negative results and 34 required answers.

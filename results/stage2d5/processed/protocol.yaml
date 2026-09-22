@@ -1,0 +1,19 @@
+stage: 2D.5
+frozen_source: stage2d4
+arms: [A0, A1]
+confirmatory_A1_runs: 16
+confirmatory_training_steps: 1500
+reps_per_history: 16
+gamma: 0.50
+rho_fast: 0.97
+rho_slow: 0.9995
+residual_alpha: [0, 0.25, 0.5, 1, 1.5, 2]
+restoration_lambda: [0.25, 0.5, 1]
+restoration_norm_cap_multiple: 1.25
+primary_failed_runs: 8
+primary_healthy_runs: 8
+rescue_phenotype:
+  action_TV_min: 0.10
+  abs_IHA_min: 0.10
+  abs_BS_min: 0.10
+destruction_fraction_max: 0.50

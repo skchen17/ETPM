@@ -1,0 +1,88 @@
+{
+  "primary_healthy": [
+    "i9501_d12501",
+    "i9501_d12503",
+    "i9502_d12501",
+    "i9503_d12501",
+    "i9503_d12502",
+    "i9503_d12503",
+    "i9504_d12501",
+    "i9504_d12502"
+  ],
+  "counts": {
+    "q_F": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "q_M": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "r_F": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "r_M": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "normalized_F": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "normalized_M": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "gated_read": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "read_projection": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "core_preactivation": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "gate_activation": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "candidate_update": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "temporary_H": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "evaluator_H_input": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "fusion_input": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "fusion_pre": {
+      "primary_healthy_legacy": 0,
+      "A1_healthy": 0
+    },
+    "fusion_post": {
+      "primary_healthy_legacy": 8,
+      "A1_healthy": 4
+    }
+  },
+  "G101": {
+    "pass": true,
+    "earliest_necessary": "fusion_post",
+    "primary_healthy_legacy_n": 8,
+    "A1_healthy_n": 4,
+    "counts": {
+      "primary_healthy_legacy": 8,
+      "A1_healthy": 4
+    }
+  }
+}

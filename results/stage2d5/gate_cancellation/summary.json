@@ -1,0 +1,19 @@
+{
+  "pass": false,
+  "mixing": {
+    "original_query": {
+      "n": 8,
+      "F_M_cosine_mean": 0.4496957045048475,
+      "negative_cosine_count": 2,
+      "native_less_than_both_F_and_M_count": 1,
+      "alternative_behavior_rescue_count": 1
+    },
+    "confirmatory_query": {
+      "n": 16,
+      "F_M_cosine_mean": 0.18472266988828778,
+      "negative_cosine_count": 6,
+      "native_less_than_both_F_and_M_count": 1,
+      "alternative_behavior_rescue_count": 0
+    }
+  }
+}

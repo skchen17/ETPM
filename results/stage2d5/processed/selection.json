@@ -1,0 +1,224 @@
+{
+  "primary_failed_confirmatory_A1": [
+    "i19101_d20101",
+    "i19102_d20102",
+    "i19103_d20103",
+    "i19104_d20104",
+    "i19105_d20105",
+    "i19106_d20106",
+    "i19109_d20109",
+    "i19110_d20110"
+  ],
+  "primary_healthy_historical_A0": [
+    "i9501_d12501",
+    "i9501_d12503",
+    "i9502_d12501",
+    "i9503_d12501",
+    "i9503_d12502",
+    "i9503_d12503",
+    "i9504_d12501",
+    "i9504_d12502"
+  ],
+  "secondary_failed_original_A1": [
+    "i17102_d18102",
+    "i17103_d18103",
+    "i17105_d18105",
+    "i17106_d18106",
+    "i17107_d18107",
+    "i17108_d18108"
+  ],
+  "A1_healthy_all": [
+    "i17101_d18101",
+    "i17104_d18104",
+    "i19107_d20107",
+    "i19108_d20108"
+  ],
+  "A1_healthy_count": 4,
+  "A1_healthy_insufficient_for_eight_model_same_architecture_necessity": true,
+  "selected": [
+    {
+      "cohort": "confirmatory_query",
+      "run": "i19101_d20101",
+      "arm": "A1",
+      "class": "partial",
+      "checkpoint": "results/stage2d5/confirmatory/checkpoints/i19101_d20101/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "confirmatory_query",
+      "run": "i19102_d20102",
+      "arm": "A1",
+      "class": "partial",
+      "checkpoint": "results/stage2d5/confirmatory/checkpoints/i19102_d20102/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "confirmatory_query",
+      "run": "i19103_d20103",
+      "arm": "A1",
+      "class": "shortcut",
+      "checkpoint": "results/stage2d5/confirmatory/checkpoints/i19103_d20103/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "confirmatory_query",
+      "run": "i19104_d20104",
+      "arm": "A1",
+      "class": "shortcut",
+      "checkpoint": "results/stage2d5/confirmatory/checkpoints/i19104_d20104/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "confirmatory_query",
+      "run": "i19105_d20105",
+      "arm": "A1",
+      "class": "shortcut",
+      "checkpoint": "results/stage2d5/confirmatory/checkpoints/i19105_d20105/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "confirmatory_query",
+      "run": "i19106_d20106",
+      "arm": "A1",
+      "class": "shortcut",
+      "checkpoint": "results/stage2d5/confirmatory/checkpoints/i19106_d20106/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "confirmatory_query",
+      "run": "i19109_d20109",
+      "arm": "A1",
+      "class": "shortcut",
+      "checkpoint": "results/stage2d5/confirmatory/checkpoints/i19109_d20109/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "confirmatory_query",
+      "run": "i19110_d20110",
+      "arm": "A1",
+      "class": "shortcut",
+      "checkpoint": "results/stage2d5/confirmatory/checkpoints/i19110_d20110/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "historical_legacy",
+      "run": "i9501_d12501",
+      "arm": "A0",
+      "class": "healthy",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9501_d12501/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "historical_legacy",
+      "run": "i9501_d12503",
+      "arm": "A0",
+      "class": "healthy",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9501_d12503/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "historical_legacy",
+      "run": "i9502_d12501",
+      "arm": "A0",
+      "class": "healthy",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9502_d12501/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "historical_legacy",
+      "run": "i9503_d12501",
+      "arm": "A0",
+      "class": "healthy",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9503_d12501/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "historical_legacy",
+      "run": "i9503_d12502",
+      "arm": "A0",
+      "class": "healthy",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9503_d12502/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "historical_legacy",
+      "run": "i9503_d12503",
+      "arm": "A0",
+      "class": "healthy",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9503_d12503/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "historical_legacy",
+      "run": "i9504_d12501",
+      "arm": "A0",
+      "class": "healthy",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9504_d12501/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "historical_legacy",
+      "run": "i9504_d12502",
+      "arm": "A0",
+      "class": "healthy",
+      "checkpoint": "results/stage2d3/confirmatory_baseline/checkpoints/i9504_d12502/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "original_query",
+      "run": "i17102_d18102",
+      "arm": "A1",
+      "class": "partial",
+      "checkpoint": "results/stage2d4/checkpoints/formal/A1/i17102_d18102/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "original_query",
+      "run": "i17103_d18103",
+      "arm": "A1",
+      "class": "partial",
+      "checkpoint": "results/stage2d4/checkpoints/formal/A1/i17103_d18103/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "original_query",
+      "run": "i17105_d18105",
+      "arm": "A1",
+      "class": "partial",
+      "checkpoint": "results/stage2d4/checkpoints/formal/A1/i17105_d18105/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "original_query",
+      "run": "i17106_d18106",
+      "arm": "A1",
+      "class": "partial",
+      "checkpoint": "results/stage2d4/checkpoints/formal/A1/i17106_d18106/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "original_query",
+      "run": "i17107_d18107",
+      "arm": "A1",
+      "class": "partial",
+      "checkpoint": "results/stage2d4/checkpoints/formal/A1/i17107_d18107/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "original_query",
+      "run": "i17108_d18108",
+      "arm": "A1",
+      "class": "partial",
+      "checkpoint": "results/stage2d4/checkpoints/formal/A1/i17108_d18108/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "original_query",
+      "run": "i17101_d18101",
+      "arm": "A1",
+      "class": "healthy",
+      "checkpoint": "results/stage2d4/checkpoints/formal/A1/i17101_d18101/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "original_query",
+      "run": "i17104_d18104",
+      "arm": "A1",
+      "class": "healthy",
+      "checkpoint": "results/stage2d4/checkpoints/formal/A1/i17104_d18104/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "confirmatory_query",
+      "run": "i19107_d20107",
+      "arm": "A1",
+      "class": "healthy",
+      "checkpoint": "results/stage2d5/confirmatory/checkpoints/i19107_d20107/checkpoint_1500.pt"
+    },
+    {
+      "cohort": "confirmatory_query",
+      "run": "i19108_d20108",
+      "arm": "A1",
+      "class": "healthy",
+      "checkpoint": "results/stage2d5/confirmatory/checkpoints/i19108_d20108/checkpoint_1500.pt"
+    }
+  ],
+  "selection_rule": "sorted run names; no outcome-based selection beyond preregistered phenotype",
+  "healthy_norm_reference": "within architecture median of all healthy endpoints; factorial interaction norm"
+}

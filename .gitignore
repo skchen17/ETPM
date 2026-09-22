@@ -39,3 +39,8 @@ results/processed/*.parquet
 /results/stage2d4/checkpoints/
 /results/stage2d4/audits/
 /results/stage2d4/logs/
+# Stage 2D.5 reproducible confirmatory checkpoints and process logs remain
+# on the research server. Run-level JSON, pilot and final reports are tracked.
+/results/stage2d5/confirmatory/checkpoints/
+/results/stage2d5/confirmatory/logs/
+/results/stage2d5/path_restoration/*.log

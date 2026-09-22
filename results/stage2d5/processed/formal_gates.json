@@ -1,0 +1,132 @@
+{
+  "gates": {
+    "G97": {
+      "pass": false,
+      "reason": "only 2 healthy A1 per independent cohort; no >=6/8 within-architecture edge replication"
+    },
+    "G98": {
+      "pass": false,
+      "mixing": {
+        "original_query": {
+          "n": 8,
+          "F_M_cosine_mean": 0.4496957045048475,
+          "negative_cosine_count": 2,
+          "native_less_than_both_F_and_M_count": 1,
+          "alternative_behavior_rescue_count": 1
+        },
+        "confirmatory_query": {
+          "n": 16,
+          "F_M_cosine_mean": 0.18472266988828778,
+          "negative_cosine_count": 6,
+          "native_less_than_both_F_and_M_count": 1,
+          "alternative_behavior_rescue_count": 0
+        }
+      }
+    },
+    "G99": {
+      "pass": false,
+      "residual": {
+        "original_query": {
+          "n_failed": 6,
+          "native_IHA_mean": 0.1098766674598058,
+          "alpha2_IHA_mean": 0.1102669487396876,
+          "finite_rescue_count": 1
+        },
+        "confirmatory_query": {
+          "n_failed": 14,
+          "native_IHA_mean": 0.03897533246449062,
+          "alpha2_IHA_mean": 0.03910490444728306,
+          "finite_rescue_count": 0
+        }
+      }
+    },
+    "G100": {
+      "pass": true,
+      "earliest_rescue": "fusion_post",
+      "primary_failed_n": 8,
+      "counts": {
+        "interaction": 8,
+        "state": 0,
+        "action": 0,
+        "random_interaction": 0,
+        "shuffled": 0,
+        "generic": 0
+      }
+    },
+    "G101": {
+      "pass": true,
+      "earliest_necessary": "fusion_post",
+      "primary_healthy_legacy_n": 8,
+      "A1_healthy_n": 4,
+      "counts": {
+        "primary_healthy_legacy": 8,
+        "A1_healthy": 4
+      }
+    },
+    "G102": {
+      "pass": false,
+      "reason": "read/integration-node restoration did not rescue 6/8; no causal operator edge"
+    },
+    "G103": {
+      "pass": false,
+      "reason": "fusion_post restoration works, but pre-fusion interaction was not stably transmitted or causally rescued; no proven fusion transmission loss"
+    },
+    "G104": {
+      "pass": false,
+      "reason": "F2 patterns differ across architectures and no upstream-node restoration replicated"
+    },
+    "G105": {
+      "pass": null,
+      "status": "NOT_RUN_BY_PROTOCOL",
+      "reason": "architecture modification requires G100 and G102 or G103"
+    },
+    "G106": {
+      "pass": null,
+      "status": "NOT_RUN_BY_PROTOCOL",
+      "reason": "requires authorized architecture and G105 success"
+    },
+    "G107": {
+      "pass": null,
+      "status": "NOT_RUN_BY_PROTOCOL",
+      "reason": "requires G105 and G106"
+    },
+    "G108": {
+      "pass": null,
+      "status": "NOT_RUN_BY_PROTOCOL",
+      "reason": "requires G107"
+    },
+    "G109": {
+      "pass": null,
+      "status": "NOT_RUN_BY_PROTOCOL",
+      "reason": "requires successful architecture"
+    }
+  },
+  "outcome": "Outcome D \u2014 Upstream Interaction Is Mostly Epiphenomenal",
+  "architecture_rescue_authorized": false,
+  "memory_law_redesign_justified": false,
+  "formal_F_to_M_handoff_reopened": false,
+  "cohorts": {
+    "original_query": {
+      "healthy": 2,
+      "partial": 6
+    },
+    "confirmatory_query": {
+      "partial": 4,
+      "shortcut": 10,
+      "healthy": 2
+    },
+    "matched_legacy": {
+      "shortcut": 3,
+      "healthy": 1,
+      "partial": 4
+    },
+    "historical_legacy": {
+      "healthy": 12,
+      "shortcut": 12
+    }
+  },
+  "earliest_rescue": "fusion_post",
+  "earliest_necessary": "fusion_post",
+  "first_descriptive_attenuation_edge": "gated_read->read_projection (absolute ~0.4-0.5), followed by temporary_H->evaluator_H_input (~0.13-0.18); neither is a replicated causal collapse",
+  "fusion_input_R_drop_is_denominator_effect": true
+}

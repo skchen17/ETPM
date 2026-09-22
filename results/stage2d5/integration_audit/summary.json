@@ -1,0 +1,128 @@
+{
+  "nodes": {
+    "original_query": {
+      "healthy": {
+        "read_projection": {
+          "interaction_norm_mean": 0.2690478265285492,
+          "normalized_mean": 0.11115421821752922
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.03706255741417408,
+          "normalized_mean": 0.05962354845288794
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.037063829600811005,
+          "normalized_mean": 0.007716622222266543
+        }
+      },
+      "nonhealthy": {
+        "read_projection": {
+          "interaction_norm_mean": 0.36289740229646367,
+          "normalized_mean": 0.19498128699826164
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.14820305972049633,
+          "normalized_mean": 0.20209044059397155
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.14820310939103365,
+          "normalized_mean": 0.038303777154183226
+        }
+      }
+    },
+    "confirmatory_query": {
+      "healthy": {
+        "read_projection": {
+          "interaction_norm_mean": 0.17189529538154602,
+          "normalized_mean": 0.07796860303900813
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.036705042235553265,
+          "normalized_mean": 0.03086355942168629
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.03670498263090849,
+          "normalized_mean": 0.006140665925680366
+        }
+      },
+      "nonhealthy": {
+        "read_projection": {
+          "interaction_norm_mean": 0.3382659291050264,
+          "normalized_mean": 0.15529974952393477
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.08800836629234254,
+          "normalized_mean": 0.1165356759931365
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.08800803966421102,
+          "normalized_mean": 0.030855983193209945
+        }
+      }
+    },
+    "matched_legacy": {
+      "healthy": {
+        "read_projection": {
+          "interaction_norm_mean": 0.3170281648635864,
+          "normalized_mean": 0.31115602593729025
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.091276153922081,
+          "normalized_mean": 0.05312473446308985
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.09127591550350189,
+          "normalized_mean": 0.009840014691178562
+        }
+      },
+      "nonhealthy": {
+        "read_projection": {
+          "interaction_norm_mean": 0.04311547825844692,
+          "normalized_mean": 0.04048852726057315
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.009857537956642253,
+          "normalized_mean": 0.022051239181943936
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.009857725584879518,
+          "normalized_mean": 0.004693355504801322
+        }
+      }
+    },
+    "historical_legacy": {
+      "healthy": {
+        "read_projection": {
+          "interaction_norm_mean": 1.7281654501954715,
+          "normalized_mean": 1.008008757790001
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.38554716172317666,
+          "normalized_mean": 0.5092497394430738
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.3855471120526393,
+          "normalized_mean": 0.0844371316748142
+        }
+      },
+      "nonhealthy": {
+        "read_projection": {
+          "interaction_norm_mean": 0.0987949500946949,
+          "normalized_mean": 0.17078025466188243
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.021147901386333007,
+          "normalized_mean": 0.09913632047884217
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.02114790452469606,
+          "normalized_mean": 0.03533903889610905
+        }
+      }
+    }
+  },
+  "G102": {
+    "pass": false,
+    "reason": "read/integration-node restoration did not rescue 6/8; no causal operator edge"
+  }
+}

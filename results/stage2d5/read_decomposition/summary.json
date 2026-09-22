@@ -1,0 +1,588 @@
+{
+  "F_M_raw_interaction_cosine": {
+    "original_query": {
+      "n": 8,
+      "F_M_cosine_mean": 0.4496957045048475,
+      "negative_cosine_count": 2,
+      "native_less_than_both_F_and_M_count": 1,
+      "alternative_behavior_rescue_count": 1
+    },
+    "confirmatory_query": {
+      "n": 16,
+      "F_M_cosine_mean": 0.18472266988828778,
+      "negative_cosine_count": 6,
+      "native_less_than_both_F_and_M_count": 1,
+      "alternative_behavior_rescue_count": 0
+    }
+  },
+  "flow": {
+    "original_query": {
+      "healthy": {
+        "q_F": {
+          "interaction_norm_mean": 0.004104747669771314,
+          "normalized_mean": 0.0040832080718474625
+        },
+        "q_M": {
+          "interaction_norm_mean": 0.012398774037137628,
+          "normalized_mean": 0.01010450096002527
+        },
+        "r_F": {
+          "interaction_norm_mean": 0.0433797026053071,
+          "normalized_mean": 0.11897648206473165
+        },
+        "r_M": {
+          "interaction_norm_mean": 0.12265145964920521,
+          "normalized_mean": 0.2458779377191872
+        },
+        "normalized_F": {
+          "interaction_norm_mean": 0.7108876407146454,
+          "normalized_mean": 0.13686970409989332
+        },
+        "normalized_M": {
+          "interaction_norm_mean": 0.3589329496026039,
+          "normalized_mean": 0.46007393463712026
+        },
+        "gated_read": {
+          "interaction_norm_mean": 0.6478893160820007,
+          "normalized_mean": 0.14488497940211503
+        },
+        "read_projection": {
+          "interaction_norm_mean": 0.2690478265285492,
+          "normalized_mean": 0.11115421821752922
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.03706255741417408,
+          "normalized_mean": 0.05962354845288794
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.037063829600811005,
+          "normalized_mean": 0.007716622222266543
+        },
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.006743510952219367,
+          "normalized_mean": 0.010977252444396873
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.006743510952219367,
+          "normalized_mean": 0.0012411300330078525
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.00587240606546402,
+          "normalized_mean": 0.0003669953219800528
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.3075026124715805,
+          "normalized_mean": 0.04231686163222412
+        },
+        "logits": {
+          "interaction_norm_mean": 0.5973161160945892,
+          "normalized_mean": 0.48211598547811607
+        },
+        "probabilities": {
+          "interaction_norm_mean": 0.19548821449279785,
+          "normalized_mean": 2.943223704605618
+        },
+        "policy_score": {
+          "interaction_norm_mean": 0.5530315637588501,
+          "normalized_mean": 2.984844255052237
+        }
+      },
+      "nonhealthy": {
+        "q_F": {
+          "interaction_norm_mean": 0.011049713473767042,
+          "normalized_mean": 0.01273523923608234
+        },
+        "q_M": {
+          "interaction_norm_mean": 0.011826486481974522,
+          "normalized_mean": 0.01601851551612472
+        },
+        "r_F": {
+          "interaction_norm_mean": 0.04300944972783327,
+          "normalized_mean": 0.23829307474074995
+        },
+        "r_M": {
+          "interaction_norm_mean": 0.047393699952711664,
+          "normalized_mean": 0.2191937673919096
+        },
+        "normalized_F": {
+          "interaction_norm_mean": 0.6320508643984795,
+          "normalized_mean": 0.18292506267285263
+        },
+        "normalized_M": {
+          "interaction_norm_mean": 0.18901138628522554,
+          "normalized_mean": 0.3843584377475215
+        },
+        "gated_read": {
+          "interaction_norm_mean": 0.5829411173860232,
+          "normalized_mean": 0.18331853456356154
+        },
+        "read_projection": {
+          "interaction_norm_mean": 0.36289740229646367,
+          "normalized_mean": 0.19498128699826164
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.14820305972049633,
+          "normalized_mean": 0.20209044059397155
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.14820310939103365,
+          "normalized_mean": 0.038303777154183226
+        },
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.026094031636603177,
+          "normalized_mean": 0.04451910607879315
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.026094031636603177,
+          "normalized_mean": 0.003928613195576702
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.01713849580846727,
+          "normalized_mean": 0.0009940398993898906
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.26081910356879234,
+          "normalized_mean": 0.03812627222373323
+        },
+        "logits": {
+          "interaction_norm_mean": 0.39570575517912704,
+          "normalized_mean": 0.6057913190827408
+        },
+        "probabilities": {
+          "interaction_norm_mean": 0.1269249889689187,
+          "normalized_mean": 1.0207825799131303
+        },
+        "policy_score": {
+          "interaction_norm_mean": 0.3528757492701213,
+          "normalized_mean": 0.9334046615591481
+        }
+      }
+    },
+    "confirmatory_query": {
+      "healthy": {
+        "q_F": {
+          "interaction_norm_mean": 0.005369544727727771,
+          "normalized_mean": 0.0067646343982338784
+        },
+        "q_M": {
+          "interaction_norm_mean": 0.014022032264620066,
+          "normalized_mean": 0.023848703778722464
+        },
+        "r_F": {
+          "interaction_norm_mean": 0.0150769860483706,
+          "normalized_mean": 0.10074230062239542
+        },
+        "r_M": {
+          "interaction_norm_mean": 0.08464283077046275,
+          "normalized_mean": 0.16140383645592998
+        },
+        "normalized_F": {
+          "interaction_norm_mean": 0.38881412148475647,
+          "normalized_mean": 0.09238451962947448
+        },
+        "normalized_M": {
+          "interaction_norm_mean": 0.5405467646196485,
+          "normalized_mean": 0.6881101164662542
+        },
+        "gated_read": {
+          "interaction_norm_mean": 0.37376999855041504,
+          "normalized_mean": 0.0964870549792082
+        },
+        "read_projection": {
+          "interaction_norm_mean": 0.17189529538154602,
+          "normalized_mean": 0.07796860303900813
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.036705042235553265,
+          "normalized_mean": 0.03086355942168629
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.03670498263090849,
+          "normalized_mean": 0.006140665925680366
+        },
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.004880120046436787,
+          "normalized_mean": 0.006730892304990683
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.004880120046436787,
+          "normalized_mean": 0.0007867586944214338
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.003960042260587215,
+          "normalized_mean": 0.00023803443606322584
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.4079793840646744,
+          "normalized_mean": 0.07283551488022605
+        },
+        "logits": {
+          "interaction_norm_mean": 0.7666530907154083,
+          "normalized_mean": 2.0300065879476383
+        },
+        "probabilities": {
+          "interaction_norm_mean": 0.24874237924814224,
+          "normalized_mean": 2.772266873042355
+        },
+        "policy_score": {
+          "interaction_norm_mean": 0.7196599245071411,
+          "normalized_mean": 2.47700013140332
+        }
+      },
+      "nonhealthy": {
+        "q_F": {
+          "interaction_norm_mean": 0.007039449252520821,
+          "normalized_mean": 0.009030941964044683
+        },
+        "q_M": {
+          "interaction_norm_mean": 0.0065082256707163265,
+          "normalized_mean": 0.011289330406554299
+        },
+        "r_F": {
+          "interaction_norm_mean": 0.03434637767661895,
+          "normalized_mean": 0.17385086531034435
+        },
+        "r_M": {
+          "interaction_norm_mean": 0.03497870628988104,
+          "normalized_mean": 0.08202223110179008
+        },
+        "normalized_F": {
+          "interaction_norm_mean": 0.6719478751931872,
+          "normalized_mean": 0.18640112893258673
+        },
+        "normalized_M": {
+          "interaction_norm_mean": 0.28072409172143253,
+          "normalized_mean": 0.23341897152887894
+        },
+        "gated_read": {
+          "interaction_norm_mean": 0.6096120471400874,
+          "normalized_mean": 0.19064554954410615
+        },
+        "read_projection": {
+          "interaction_norm_mean": 0.3382659291050264,
+          "normalized_mean": 0.15529974952393477
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.08800836629234254,
+          "normalized_mean": 0.1165356759931365
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.08800803966421102,
+          "normalized_mean": 0.030855983193209945
+        },
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.011913797177840024,
+          "normalized_mean": 0.03488242457756525
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.011913797177840024,
+          "normalized_mean": 0.002213487507602858
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.008260643957847995,
+          "normalized_mean": 0.0005148361641671856
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.1301479052220072,
+          "normalized_mean": 0.021901852050810803
+        },
+        "logits": {
+          "interaction_norm_mean": 0.14110644098504313,
+          "normalized_mean": 0.2727446047077622
+        },
+        "probabilities": {
+          "interaction_norm_mean": 0.045060691490237205,
+          "normalized_mean": 0.5960054789199191
+        },
+        "policy_score": {
+          "interaction_norm_mean": 0.11688150678362165,
+          "normalized_mean": 0.6587542617512074
+        }
+      }
+    },
+    "matched_legacy": {
+      "healthy": {
+        "q_F": {
+          "interaction_norm_mean": 0.0009489260264672339,
+          "normalized_mean": 0.012737299341730821
+        },
+        "q_M": {
+          "interaction_norm_mean": 0.000650187605060637,
+          "normalized_mean": 0.009797635934766631
+        },
+        "r_F": {
+          "interaction_norm_mean": 0.0034296202939003706,
+          "normalized_mean": 0.4014575500909569
+        },
+        "r_M": {
+          "interaction_norm_mean": 0.0013113003224134445,
+          "normalized_mean": 0.02492737865696191
+        },
+        "normalized_F": {
+          "interaction_norm_mean": 0.8811078071594238,
+          "normalized_mean": 0.3377755691825936
+        },
+        "normalized_M": {
+          "interaction_norm_mean": 0.003513371106237173,
+          "normalized_mean": 0.03104821510595855
+        },
+        "gated_read": {
+          "interaction_norm_mean": 0.6831187009811401,
+          "normalized_mean": 0.35513680267134146
+        },
+        "read_projection": {
+          "interaction_norm_mean": 0.3170281648635864,
+          "normalized_mean": 0.31115602593729025
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.091276153922081,
+          "normalized_mean": 0.05312473446308985
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.09127591550350189,
+          "normalized_mean": 0.009840014691178562
+        },
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.017728375270962715,
+          "normalized_mean": 0.018317766974642585
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.017728375270962715,
+          "normalized_mean": 0.003006136889256739
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.011042863130569458,
+          "normalized_mean": 0.0006344087266391593
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.5890462398529053,
+          "normalized_mean": 0.08065779595905587
+        },
+        "logits": {
+          "interaction_norm_mean": 1.0333822965621948,
+          "normalized_mean": 2.394654613561524
+        },
+        "probabilities": {
+          "interaction_norm_mean": 0.33463725447654724,
+          "normalized_mean": 2.8401477489268716
+        },
+        "policy_score": {
+          "interaction_norm_mean": 0.858811616897583,
+          "normalized_mean": 2.160287269287038
+        }
+      },
+      "nonhealthy": {
+        "q_F": {
+          "interaction_norm_mean": 7.369202912091819e-05,
+          "normalized_mean": 0.0021621153730998015
+        },
+        "q_M": {
+          "interaction_norm_mean": 0.00016469599969631027,
+          "normalized_mean": 0.0038781885355876574
+        },
+        "r_F": {
+          "interaction_norm_mean": 0.00024173566875366044,
+          "normalized_mean": 0.031144382789324472
+        },
+        "r_M": {
+          "interaction_norm_mean": 0.000297919988432633,
+          "normalized_mean": 0.00485127140679515
+        },
+        "normalized_F": {
+          "interaction_norm_mean": 0.08788919096280422,
+          "normalized_mean": 0.03929669272786961
+        },
+        "normalized_M": {
+          "interaction_norm_mean": 0.0006629462615299937,
+          "normalized_mean": 0.002864026959181472
+        },
+        "gated_read": {
+          "interaction_norm_mean": 0.07737377665970209,
+          "normalized_mean": 0.03997039000628239
+        },
+        "read_projection": {
+          "interaction_norm_mean": 0.04311547825844692,
+          "normalized_mean": 0.04048852726057315
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.009857537956642253,
+          "normalized_mean": 0.022051239181943936
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.009857725584879518,
+          "normalized_mean": 0.004693355504801322
+        },
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.0014865557230742915,
+          "normalized_mean": 0.00583554152730985
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.0014865557397050516,
+          "normalized_mean": 0.00024296628395530567
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.0010951198824581557,
+          "normalized_mean": 6.627260141453752e-05
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.1326149521129472,
+          "normalized_mean": 0.019971814826624346
+        },
+        "logits": {
+          "interaction_norm_mean": 0.12256985324035798,
+          "normalized_mean": 0.11190010160532296
+        },
+        "probabilities": {
+          "interaction_norm_mean": 0.03974368784110993,
+          "normalized_mean": 0.3610342477868239
+        },
+        "policy_score": {
+          "interaction_norm_mean": 0.11481687000819615,
+          "normalized_mean": 0.34462961517206603
+        }
+      }
+    },
+    "historical_legacy": {
+      "healthy": {
+        "q_F": {
+          "interaction_norm_mean": 0.14475464688924453,
+          "normalized_mean": 0.12850721390500597
+        },
+        "q_M": {
+          "interaction_norm_mean": 0.09925310212808351,
+          "normalized_mean": 0.127279223347159
+        },
+        "r_F": {
+          "interaction_norm_mean": 0.06307883653789759,
+          "normalized_mean": 2.0406909023975706
+        },
+        "r_M": {
+          "interaction_norm_mean": 0.08288771183773254,
+          "normalized_mean": 0.13120092838854977
+        },
+        "normalized_F": {
+          "interaction_norm_mean": 4.122138415773709,
+          "normalized_mean": 2.4393303681732506
+        },
+        "normalized_M": {
+          "interaction_norm_mean": 0.8888621692894958,
+          "normalized_mean": 0.20841739268993445
+        },
+        "gated_read": {
+          "interaction_norm_mean": 2.758636216322581,
+          "normalized_mean": 0.9116566179630494
+        },
+        "read_projection": {
+          "interaction_norm_mean": 1.7281654501954715,
+          "normalized_mean": 1.008008757790001
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.38554716172317666,
+          "normalized_mean": 0.5092497394430738
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.3855471120526393,
+          "normalized_mean": 0.0844371316748142
+        },
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.8674827801684538,
+          "normalized_mean": 0.1368808154094886
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.8674827801684538,
+          "normalized_mean": 0.09101512336082182
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.46890432946383953,
+          "normalized_mean": 0.02645502663089883
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 1.9466597537199657,
+          "normalized_mean": 0.26853920342005616
+        },
+        "logits": {
+          "interaction_norm_mean": 2.6374447445074716,
+          "normalized_mean": 4.546176563909034
+        },
+        "probabilities": {
+          "interaction_norm_mean": 0.8175826234122118,
+          "normalized_mean": 18.593116298618757
+        },
+        "policy_score": {
+          "interaction_norm_mean": 2.2405778964360556,
+          "normalized_mean": 26.25911910035951
+        }
+      },
+      "nonhealthy": {
+        "q_F": {
+          "interaction_norm_mean": 0.001511870671796108,
+          "normalized_mean": 0.018342492294413912
+        },
+        "q_M": {
+          "interaction_norm_mean": 0.002778091381818134,
+          "normalized_mean": 0.019676965868105085
+        },
+        "r_F": {
+          "interaction_norm_mean": 0.0019206623037462123,
+          "normalized_mean": 0.1733416026008166
+        },
+        "r_M": {
+          "interaction_norm_mean": 0.002596025493403431,
+          "normalized_mean": 0.030832186906510076
+        },
+        "normalized_F": {
+          "interaction_norm_mean": 0.19768415034438172,
+          "normalized_mean": 0.1634241893777021
+        },
+        "normalized_M": {
+          "interaction_norm_mean": 0.008602910721189497,
+          "normalized_mean": 0.02804852590307436
+        },
+        "gated_read": {
+          "interaction_norm_mean": 0.15555580014673373,
+          "normalized_mean": 0.16138942010444257
+        },
+        "read_projection": {
+          "interaction_norm_mean": 0.0987949500946949,
+          "normalized_mean": 0.17078025466188243
+        },
+        "candidate_update": {
+          "interaction_norm_mean": 0.021147901386333007,
+          "normalized_mean": 0.09913632047884217
+        },
+        "temporary_H": {
+          "interaction_norm_mean": 0.02114790452469606,
+          "normalized_mean": 0.03533903889610905
+        },
+        "evaluator_H_input": {
+          "interaction_norm_mean": 0.04699222114868462,
+          "normalized_mean": 0.04990376156347167
+        },
+        "fusion_input": {
+          "interaction_norm_mean": 0.04699222114868462,
+          "normalized_mean": 0.008957096240864815
+        },
+        "fusion_pre": {
+          "interaction_norm_mean": 0.028770762980760384,
+          "normalized_mean": 0.001858455848434203
+        },
+        "fusion_post": {
+          "interaction_norm_mean": 0.18499593126277128,
+          "normalized_mean": 0.030928621959684877
+        },
+        "logits": {
+          "interaction_norm_mean": 0.056817634186396994,
+          "normalized_mean": 0.13949097553740397
+        },
+        "probabilities": {
+          "interaction_norm_mean": 0.01612337690797479,
+          "normalized_mean": 0.3630071956296593
+        },
+        "policy_score": {
+          "interaction_norm_mean": 0.056710501511891685,
+          "normalized_mean": 0.43660188110428766
+        }
+      }
+    }
+  }
+}

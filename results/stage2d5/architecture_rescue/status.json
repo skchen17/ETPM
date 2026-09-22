@@ -1,0 +1,7 @@
+{
+  "status": "NOT_AUTHORIZED_BY_PROTOCOL",
+  "G100_pass": true,
+  "G102_pass": false,
+  "G103_pass": false,
+  "reason": "G102/G103 did not causally localize a repairable transmission edge"
+}

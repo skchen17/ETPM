@@ -1,0 +1,17 @@
+{
+  "pass": false,
+  "residual": {
+    "original_query": {
+      "n_failed": 6,
+      "native_IHA_mean": 0.1098766674598058,
+      "alpha2_IHA_mean": 0.1102669487396876,
+      "finite_rescue_count": 1
+    },
+    "confirmatory_query": {
+      "n_failed": 14,
+      "native_IHA_mean": 0.03897533246449062,
+      "alpha2_IHA_mean": 0.03910490444728306,
+      "finite_rescue_count": 0
+    }
+  }
+}
