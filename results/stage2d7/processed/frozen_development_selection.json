@@ -1,0 +1,178 @@
+{
+  "selected": "C1_r4_lr0.01_freeze300",
+  "selection_basis": "no two-of-two; highest development healthy count, then IHA/BS",
+  "frozen_rule": "2/2 healthy -> simplest C1 then C2 then C3; else 1/2 best; else stop",
+  "configurations": {
+    "C0_r4_lr0.1_freeze300": {
+      "healthy": 0,
+      "mean_IHA": 0.07068420946598053,
+      "mean_abs_BS": 0.051172465085983276,
+      "classes": [
+        "partial",
+        "shortcut"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C1_r4_lr0.01_freeze300": {
+      "healthy": 1,
+      "mean_IHA": 0.10811452567577362,
+      "mean_abs_BS": 0.07191966474056244,
+      "classes": [
+        "healthy",
+        "shortcut"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C1_r4_lr0.1_freeze300": {
+      "healthy": 0,
+      "mean_IHA": 0.007362008094787598,
+      "mean_abs_BS": 0.004332125186920166,
+      "classes": [
+        "shortcut",
+        "shortcut"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C1_r4_lr0.25_freeze300": {
+      "healthy": 0,
+      "mean_IHA": 0.012792468070983887,
+      "mean_abs_BS": 0.0112389475107193,
+      "classes": [
+        "partial",
+        "partial"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C2_r4_lr0.1_freeze100": {
+      "healthy": 1,
+      "mean_IHA": 0.07310354709625244,
+      "mean_abs_BS": 0.052562445402145386,
+      "classes": [
+        "healthy",
+        "shortcut"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C2_r4_lr0.1_freeze300": {
+      "healthy": 0,
+      "mean_IHA": 0.056437939405441284,
+      "mean_abs_BS": 0.041931793093681335,
+      "classes": [
+        "partial",
+        "shortcut"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C2_r4_lr0.1_freeze500": {
+      "healthy": 0,
+      "mean_IHA": 0.07665415108203888,
+      "mean_abs_BS": 0.057123541831970215,
+      "classes": [
+        "partial",
+        "shortcut"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C3_r2_lr0.1_freeze300": {
+      "healthy": 0,
+      "mean_IHA": 0.07454703748226166,
+      "mean_abs_BS": 0.058928877115249634,
+      "classes": [
+        "partial",
+        "shortcut"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C3_r4_lr0.1_freeze300": {
+      "healthy": 0,
+      "mean_IHA": 0.00859774649143219,
+      "mean_abs_BS": 0.006287664175033569,
+      "classes": [
+        "shortcut",
+        "shortcut"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C4_r0_lr0.1_freeze300": {
+      "healthy": 0,
+      "mean_IHA": 0.004377007484436035,
+      "mean_abs_BS": 0.004773959517478943,
+      "classes": [
+        "shortcut",
+        "shortcut"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C4_r2_lr0.1_freeze300": {
+      "healthy": 0,
+      "mean_IHA": 0.03389333188533783,
+      "mean_abs_BS": 0.02652987837791443,
+      "classes": [
+        "partial",
+        "partial"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C4_r4_lr0.1_freeze300": {
+      "healthy": 0,
+      "mean_IHA": 0.021535605192184448,
+      "mean_abs_BS": 0.015555262565612793,
+      "classes": [
+        "partial",
+        "shortcut"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    },
+    "C5_r4_lr0.1_freeze300": {
+      "healthy": 0,
+      "mean_IHA": 0.062108173966407776,
+      "mean_abs_BS": 0.04522721469402313,
+      "classes": [
+        "partial",
+        "shortcut"
+      ],
+      "runs": [
+        "i26101_d27101",
+        "i26102_d27102"
+      ]
+    }
+  },
+  "state_specific_only": true,
+  "same_fixed_seeds_per_configuration": true
+}

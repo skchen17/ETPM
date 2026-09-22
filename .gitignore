@@ -48,3 +48,10 @@ results/processed/*.parquet
 # from the tracked frozen training protocol, seeds and summaries.
 /results/stage2d6/confirmatory/checkpoints/
 /results/stage2d6/**/*.log
+# Stage 2D.7 binaries and process logs are reproducible from the tracked
+# seeds/protocols. Keep model-level JSON diagnostics, manifests and reports.
+/results/stage2d7/**/*.pt
+/results/stage2d7/**/*.log
+/results/stage2d7/smoke/
+/results/stage2d7/processed/partial_summary_stdout.json
+/results/stage2d7/processed/*_stdout.json

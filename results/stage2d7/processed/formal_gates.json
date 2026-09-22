@@ -1,0 +1,182 @@
+{
+  "gates": {
+    "G123": {
+      "status": "FAIL",
+      "evidence": {
+        "gain_direction_first8": {
+          "historical": 6,
+          "stage2d6": 6,
+          "stage2d7": 4
+        },
+        "healthy_counts": {
+          "historical_legacy": 12,
+          "stage2d6_confirmatory": 7,
+          "stage2d7_confirmatory": 7
+        },
+        "reason": "no two fully powered independent cohorts and no stable F2 gain deficit"
+      }
+    },
+    "G124": {
+      "status": "FAIL",
+      "evidence": {
+        "top8_direction_first8": {
+          "historical": 6,
+          "stage2d6": 2,
+          "stage2d7": 4
+        }
+      }
+    },
+    "G125": {
+      "status": "PASS",
+      "evidence": {
+        "run_level_pass_first8": {
+          "historical": 8,
+          "stage2d6": 8,
+          "stage2d7": 8
+        }
+      }
+    },
+    "G126": {
+      "status": "PASS_LIMITED",
+      "evidence": {
+        "run_level_pass_first8": {
+          "historical": 8,
+          "stage2d6": 7,
+          "stage2d7": 7
+        },
+        "new_healthy_count": 7
+      }
+    },
+    "G127": {
+      "status": "NOT_RUN",
+      "evidence": "G123 and G124 did not jointly support H-space rotation"
+    },
+    "G128": {
+      "status": "FAIL",
+      "evidence": {
+        "R1_vs_R0_R2_R3_R4": {
+          "historical_legacy": 0,
+          "stage2d6_confirmatory": 0,
+          "stage2d7_confirmatory": 0
+        }
+      }
+    },
+    "G129": {
+      "status": "FAIL",
+      "evidence": {
+        "historical_legacy": {
+          "healthy_count": 12,
+          "D_S_before_or_at_IHA": 8,
+          "G_proj_before_or_at_IHA": 10
+        },
+        "stage2d6_confirmatory": {
+          "healthy_count": 7,
+          "D_S_before_or_at_IHA": 3,
+          "G_proj_before_or_at_IHA": 5
+        },
+        "stage2d7_confirmatory": {
+          "healthy_count": 7,
+          "D_S_before_or_at_IHA": 4,
+          "G_proj_before_or_at_IHA": 6
+        }
+      }
+    },
+    "G130": {
+      "status": "FAIL",
+      "evidence": {
+        "selected": "C1_r4_lr0.01_freeze300",
+        "selected_healthy": 1,
+        "formal_n": 8,
+        "controls_healthy": {
+          "C0": 1,
+          "C4": 1,
+          "C5": 1
+        }
+      }
+    },
+    "G131": {
+      "status": "NOT_RUN",
+      "evidence": "G130 failed; expanded 24-run crossing not authorized"
+    },
+    "G132": {
+      "status": "NOT_RUN",
+      "evidence": "G130 failed; no stabilized selected model for mechanism preservation"
+    },
+    "G133": {
+      "status": "NOT_RUN",
+      "evidence": "G130/G132 not both passed"
+    },
+    "G134": {
+      "status": "NOT_RUN",
+      "evidence": "G133 did not pass; no formal F/M mediation rerun"
+    },
+    "G135": {
+      "status": "NOT_RUN",
+      "evidence": "no selected stabilized model for 10k continuous diagnostic"
+    }
+  },
+  "training_rescue_authorized": true,
+  "development_selected": "C1_r4_lr0.01_freeze300",
+  "formal_class_counts": {
+    "C0": {
+      "partial": 3,
+      "shortcut": 4,
+      "healthy": 1
+    },
+    "C1": {
+      "partial": 2,
+      "shortcut": 5,
+      "healthy": 1
+    },
+    "C4": {
+      "shortcut": 6,
+      "healthy": 1,
+      "partial": 1
+    },
+    "C5": {
+      "partial": 2,
+      "shortcut": 5,
+      "healthy": 1
+    }
+  },
+  "formal_healthy_rate": {
+    "C0": 0.125,
+    "C1": 0.125,
+    "C4": 0.125,
+    "C5": 0.125
+  },
+  "formal_metric_means": {
+    "C0": {
+      "action_TV": 0.12129994481801987,
+      "I_HA": 0.09147566184401512,
+      "BS_abs": 0.06927595473825932,
+      "CFA": -0.0014711885652054502
+    },
+    "C1": {
+      "action_TV": 0.07004243182018399,
+      "I_HA": 0.0871182344853878,
+      "BS_abs": 0.06991250440478325,
+      "CFA": 0.007763403753329401
+    },
+    "C4": {
+      "action_TV": 0.05496922414749861,
+      "I_HA": 0.038221731781959534,
+      "BS_abs": 0.0327734537422657,
+      "CFA": -0.00012081553549658786
+    },
+    "C5": {
+      "action_TV": 0.05843056086450815,
+      "I_HA": 0.06425924599170685,
+      "BS_abs": 0.0480484776198864,
+      "CFA": 0.00534949014573205
+    }
+  },
+  "expanded_replication_run": false,
+  "dynamics_recheck_run": false,
+  "memory_mediation_run": false,
+  "continuous_runs_run": false,
+  "outcome": "C \u2014 state formation dominates; finite state-interface sensitivity is not a replicated frozen-coordinate bottleneck",
+  "fusion_redesign_justified": false,
+  "memory_law_redesign_justified": false,
+  "formal_F_to_M_handoff_reopened": false
+}

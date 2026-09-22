@@ -1,0 +1,220 @@
+{
+  "init_seed": 24103,
+  "data_seed": 25103,
+  "eval_seed": 26601,
+  "arm": "C0",
+  "warmup_steps": 100,
+  "pre_initial_hash": "70db0c94a432fb19d73915dbf0567d1d3b1cb8659c1b55df90c2d471f30bf02e",
+  "final_hash": "bba3039ca0e0dbc1ba753ebfc1d846b3faff604ab31e63e485b80a03b89f66b8",
+  "evaluator_pretraining": {
+    "steps": 1000,
+    "oracle_evaluator_metrics": {
+      "prob": [
+        [
+          [
+            0.9999110698699951,
+            3.435935650486499e-05,
+            2.9750235626124777e-05,
+            2.4819588361424394e-05
+          ],
+          [
+            0.0006242480012588203,
+            0.3753781020641327,
+            0.3411847949028015,
+            0.2828128933906555
+          ]
+        ],
+        [
+          [
+            0.0008614237303845584,
+            0.3221134543418884,
+            0.35379642248153687,
+            0.32322871685028076
+          ],
+          [
+            0.9999372959136963,
+            2.0519462850643322e-05,
+            2.4366581783397123e-05,
+            1.7881458916235715e-05
+          ]
+        ]
+      ],
+      "tv_action": [
+        0.9992868304252625,
+        0.9990758299827576
+      ],
+      "tv_history": [
+        0.9990496635437012,
+        0.9993129968643188
+      ],
+      "kl_action_01": [
+        7.3773884773254395,
+        9.664876937866211
+      ],
+      "kl_action_10": [
+        9.316865921020508,
+        7.055810928344727
+      ],
+      "js_action": [
+        0.6900726556777954,
+        0.6893419623374939
+      ],
+      "entropy_difference_a0_minus_a1": [
+        -1.0954653024673462,
+        1.102906584739685
+      ],
+      "p0_difference_a0_minus_a1": [
+        0.9992868304252625,
+        -0.9990758895874023
+      ],
+      "delta_q_a": 0.9992868304252625,
+      "delta_q_b": 0.9990758895874023,
+      "interaction_y0": 1.9983627796173096,
+      "interaction_vector": [
+        1.9983627796173096,
+        -0.6974366903305054,
+        -0.6949270963668823,
+        -0.6059988737106323
+      ],
+      "entropy_policy": [
+        [
+          0.9581093788146973,
+          0.04189059138298035
+        ],
+        [
+          0.04104553163051605,
+          0.9589545130729675
+        ]
+      ],
+      "q_policy": [
+        [
+          0.9455820322036743,
+          0.05441802740097046
+        ],
+        [
+          0.05444904416799545,
+          0.9455509185791016
+        ]
+      ],
+      "entropy_correct_mean": 0.9585319757461548,
+      "q_correct_mean": 0.9455664753913879,
+      "behavioral_separation_entropy": 0.91706383228302,
+      "behavioral_separation_q": 0.8911330103874207
+    },
+    "transferred_head_hash": "e827c13b9e093c6aa9fea2371fc6a4cbe3bfca2de9d3e0fb161de161512b2596",
+    "oracle_z_scope": "evaluator pretraining only; absent from lifetime input"
+  },
+  "evaluator_hash_unchanged": true,
+  "architecture_change": "none",
+  "memory_law_change": "none",
+  "model_inputs_added": [],
+  "correct_action_labels": false,
+  "memory_labels": false,
+  "paired_observational_scaffold": false,
+  "scaffold_generation": "two legal simulator consequence samples; simulator latent never enters model",
+  "auxiliary_exactly_zero_after_warmup": true,
+  "evaluation_scaffold": false,
+  "original_objective_fraction": 1.0,
+  "training_log": [
+    {
+      "step": 25,
+      "CE": 1.2672359943389893,
+      "pair_CE": 0.0,
+      "objective": 1.4134217500686646,
+      "auxiliary_weight": 0.0,
+      "H_norm": 118.78096008300781,
+      "F_norm": 0.8278036117553711,
+      "M_norm": 1.4340012073516846,
+      "elapsed_s": 22.08070215396583
+    },
+    {
+      "step": 50,
+      "CE": 1.2640860080718994,
+      "pair_CE": 0.0,
+      "objective": 1.270552158355713,
+      "auxiliary_weight": 0.0,
+      "H_norm": 23.397052764892578,
+      "F_norm": 0.8026294708251953,
+      "M_norm": 0.8893356323242188,
+      "elapsed_s": 43.195737801492214
+    },
+    {
+      "step": 100,
+      "CE": 1.283062219619751,
+      "pair_CE": 0.0,
+      "objective": 1.3236690759658813,
+      "auxiliary_weight": 0.0,
+      "H_norm": 62.220523834228516,
+      "F_norm": 0.8605910539627075,
+      "M_norm": 1.2217059135437012,
+      "elapsed_s": 86.87396310456097
+    },
+    {
+      "step": 200,
+      "CE": 1.2667723894119263,
+      "pair_CE": 0.0,
+      "objective": 1.2682017087936401,
+      "auxiliary_weight": 0.0,
+      "H_norm": 10.323091506958008,
+      "F_norm": 0.8755037784576416,
+      "M_norm": 0.779087483882904,
+      "elapsed_s": 173.37294212542474
+    },
+    {
+      "step": 300,
+      "CE": 1.2407026290893555,
+      "pair_CE": 0.0,
+      "objective": 1.2427829504013062,
+      "auxiliary_weight": 0.0,
+      "H_norm": 13.293190002441406,
+      "F_norm": 0.8767406940460205,
+      "M_norm": 0.955958366394043,
+      "elapsed_s": 260.355353070423
+    },
+    {
+      "step": 500,
+      "CE": 1.216280221939087,
+      "pair_CE": 0.0,
+      "objective": 1.2163242101669312,
+      "auxiliary_weight": 0.0,
+      "H_norm": 1.1402677297592163,
+      "F_norm": 0.5681704878807068,
+      "M_norm": 1.0165729522705078,
+      "elapsed_s": 436.67016289010644
+    },
+    {
+      "step": 750,
+      "CE": 1.23283052444458,
+      "pair_CE": 0.0,
+      "objective": 1.232922911643982,
+      "auxiliary_weight": 0.0,
+      "H_norm": 1.8277027606964111,
+      "F_norm": 0.3262566328048706,
+      "M_norm": 1.4471955299377441,
+      "elapsed_s": 654.7570174504071
+    },
+    {
+      "step": 1000,
+      "CE": 1.2195396423339844,
+      "pair_CE": 0.0,
+      "objective": 1.219687819480896,
+      "auxiliary_weight": 0.0,
+      "H_norm": 2.031153917312622,
+      "F_norm": 0.20593634247779846,
+      "M_norm": 1.7425727844238281,
+      "elapsed_s": 873.0384347457439
+    },
+    {
+      "step": 1500,
+      "CE": 1.1278574466705322,
+      "pair_CE": 0.0,
+      "objective": 1.128046989440918,
+      "auxiliary_weight": 0.0,
+      "H_norm": 2.484417200088501,
+      "F_norm": 0.43236827850341797,
+      "M_norm": 1.4208892583847046,
+      "elapsed_s": 1318.3297012262046
+    }
+  ],
+  "elapsed_s": 1318.3302054498345
+}

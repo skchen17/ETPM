@@ -1,0 +1,11 @@
+{
+  "run": "i24104_d25101",
+  "cohort": "stage2d7_confirmatory",
+  "class": "partial",
+  "phenotype": "F1_state_formation",
+  "D_H": 0.6861920356750488,
+  "D_S": 0.3911275565624237,
+  "G_proj": 0.569997251033783,
+  "probe_H": 0.3125,
+  "probe_M": 0.375
+}

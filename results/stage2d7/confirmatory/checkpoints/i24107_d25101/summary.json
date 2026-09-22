@@ -1,0 +1,220 @@
+{
+  "init_seed": 24107,
+  "data_seed": 25101,
+  "eval_seed": 26601,
+  "arm": "C0",
+  "warmup_steps": 100,
+  "pre_initial_hash": "d0c926607f809330b628a53cacc62326a6201a5b924f42f19db060e7a184599c",
+  "final_hash": "d322678416ab9e21d04cb1bd1f76eac17d82bc50889f07d6d9d68ba437792f2a",
+  "evaluator_pretraining": {
+    "steps": 1000,
+    "oracle_evaluator_metrics": {
+      "prob": [
+        [
+          [
+            0.9998180270195007,
+            5.593737660092302e-05,
+            7.615990762133151e-05,
+            4.993812399334274e-05
+          ],
+          [
+            0.0006705737323500216,
+            0.28045186400413513,
+            0.34491607546806335,
+            0.373961478471756
+          ]
+        ],
+        [
+          [
+            0.0006347538437694311,
+            0.3549897074699402,
+            0.3122951090335846,
+            0.3320803940296173
+          ],
+          [
+            0.9999158382415771,
+            3.094095518463291e-05,
+            3.344373180880211e-05,
+            1.970034463738557e-05
+          ]
+        ]
+      ],
+      "tv_action": [
+        0.9991474151611328,
+        0.9992811679840088
+      ],
+      "tv_history": [
+        0.999183177947998,
+        0.999245285987854
+      ],
+      "kl_action_01": [
+        7.304301738739014,
+        9.400609970092773
+      ],
+      "kl_action_10": [
+        8.624265670776367,
+        7.360782623291016
+      ],
+      "js_action": [
+        0.6894891262054443,
+        0.690057635307312
+      ],
+      "entropy_difference_a0_minus_a1": [
+        -1.0944838523864746,
+        1.1008899211883545
+      ],
+      "p0_difference_a0_minus_a1": [
+        0.9991474747657776,
+        -0.999281108379364
+      ],
+      "delta_q_a": 0.9991474747657776,
+      "delta_q_b": 0.999281108379364,
+      "interaction_y0": 1.9984285831451416,
+      "interaction_vector": [
+        1.9984285831451416,
+        -0.6353546977043152,
+        -0.657101571559906,
+        -0.7059721946716309
+      ],
+      "entropy_policy": [
+        [
+          0.957996666431427,
+          0.04200327768921852
+        ],
+        [
+          0.04127292335033417,
+          0.9587271213531494
+        ]
+      ],
+      "q_policy": [
+        [
+          0.9455614686012268,
+          0.054438516497612
+        ],
+        [
+          0.05441887676715851,
+          0.9455811977386475
+        ]
+      ],
+      "entropy_correct_mean": 0.9583618640899658,
+      "q_correct_mean": 0.9455713033676147,
+      "behavioral_separation_entropy": 0.9167237281799316,
+      "behavioral_separation_q": 0.8911426067352295
+    },
+    "transferred_head_hash": "47f6632e3f5dcaf598a52df575aed1a53bc5b6678d437e7638d8c8f12207db52",
+    "oracle_z_scope": "evaluator pretraining only; absent from lifetime input"
+  },
+  "evaluator_hash_unchanged": true,
+  "architecture_change": "none",
+  "memory_law_change": "none",
+  "model_inputs_added": [],
+  "correct_action_labels": false,
+  "memory_labels": false,
+  "paired_observational_scaffold": false,
+  "scaffold_generation": "two legal simulator consequence samples; simulator latent never enters model",
+  "auxiliary_exactly_zero_after_warmup": true,
+  "evaluation_scaffold": false,
+  "original_objective_fraction": 1.0,
+  "training_log": [
+    {
+      "step": 25,
+      "CE": 1.28957200050354,
+      "pair_CE": 0.0,
+      "objective": 1.3004200458526611,
+      "auxiliary_weight": 0.0,
+      "H_norm": 30.46036720275879,
+      "F_norm": 0.8433330655097961,
+      "M_norm": 0.97465980052948,
+      "elapsed_s": 22.325274726375937
+    },
+    {
+      "step": 50,
+      "CE": 1.2411516904830933,
+      "pair_CE": 0.0,
+      "objective": 1.2594141960144043,
+      "auxiliary_weight": 0.0,
+      "H_norm": 40.30978012084961,
+      "F_norm": 0.8837664127349854,
+      "M_norm": 1.0954277515411377,
+      "elapsed_s": 45.046611942350864
+    },
+    {
+      "step": 100,
+      "CE": 1.2390737533569336,
+      "pair_CE": 0.0,
+      "objective": 1.2426196336746216,
+      "auxiliary_weight": 0.0,
+      "H_norm": 16.77178192138672,
+      "F_norm": 0.7961938977241516,
+      "M_norm": 0.9542030692100525,
+      "elapsed_s": 91.36025718227029
+    },
+    {
+      "step": 200,
+      "CE": 1.2469966411590576,
+      "pair_CE": 0.0,
+      "objective": 1.2521041631698608,
+      "auxiliary_weight": 0.0,
+      "H_norm": 19.96026611328125,
+      "F_norm": 0.8405579924583435,
+      "M_norm": 1.112006425857544,
+      "elapsed_s": 182.42535324022174
+    },
+    {
+      "step": 300,
+      "CE": 1.2507869005203247,
+      "pair_CE": 0.0,
+      "objective": 1.2590818405151367,
+      "auxiliary_weight": 0.0,
+      "H_norm": 25.620546340942383,
+      "F_norm": 0.7459205985069275,
+      "M_norm": 1.2354910373687744,
+      "elapsed_s": 271.46557594276965
+    },
+    {
+      "step": 500,
+      "CE": 1.2528830766677856,
+      "pair_CE": 0.0,
+      "objective": 1.2534655332565308,
+      "auxiliary_weight": 0.0,
+      "H_norm": 5.293414115905762,
+      "F_norm": 0.7007832527160645,
+      "M_norm": 1.127288579940796,
+      "elapsed_s": 447.1495857927948
+    },
+    {
+      "step": 750,
+      "CE": 1.2308770418167114,
+      "pair_CE": 0.0,
+      "objective": 1.2403416633605957,
+      "auxiliary_weight": 0.0,
+      "H_norm": 29.128582000732422,
+      "F_norm": 0.9090432524681091,
+      "M_norm": 0.8622492551803589,
+      "elapsed_s": 671.0223952736706
+    },
+    {
+      "step": 1000,
+      "CE": 1.1845214366912842,
+      "pair_CE": 0.0,
+      "objective": 1.1853692531585693,
+      "auxiliary_weight": 0.0,
+      "H_norm": 7.479517936706543,
+      "F_norm": 0.5854555368423462,
+      "M_norm": 1.0461654663085938,
+      "elapsed_s": 900.5055863019079
+    },
+    {
+      "step": 1500,
+      "CE": 1.2012836933135986,
+      "pair_CE": 0.0,
+      "objective": 1.207128882408142,
+      "auxiliary_weight": 0.0,
+      "H_norm": 12.898594856262207,
+      "F_norm": 0.5851385593414307,
+      "M_norm": 1.2676575183868408,
+      "elapsed_s": 1357.6726050656289
+    }
+  ],
+  "elapsed_s": 1357.673090653494
+}

@@ -1,0 +1,11 @@
+{
+  "run": "i9508_d12501",
+  "cohort": "historical_legacy",
+  "class": "shortcut",
+  "phenotype": "F2_stored_unused",
+  "D_H": 0.27845650911331177,
+  "D_S": 0.15741629898548126,
+  "G_proj": 0.5653173327445984,
+  "probe_H": 0.5,
+  "probe_M": 0.75
+}

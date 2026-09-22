@@ -1,0 +1,11 @@
+{
+  "run": "i9507_d12501",
+  "cohort": "historical_legacy",
+  "class": "shortcut",
+  "phenotype": "F1_state_formation",
+  "D_H": 0.25158417224884033,
+  "D_S": 0.11635082960128784,
+  "G_proj": 0.4624727666378021,
+  "probe_H": 0.5,
+  "probe_M": 0.5625
+}

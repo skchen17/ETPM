@@ -431,3 +431,27 @@ and matched-control-qualified healthy destruction and temporal ordering failed
 authorized; G118–G122 are `NOT_RUN_BY_PROTOCOL`. The conservative outcome is
 **D — no replicated nonlinear operating-regime explanation**. Fusion/F/M-law
 redesign and formal F→M handoff remain unauthorized.
+
+## Stage 2D.7 frozen-evaluator compatibility (2026-09-22)
+
+Stage 2D.7 audited the frozen `H -> W_H H -> fusion` interface in three
+independent 24-run C0 cohorts. Healthy H history separation was much larger
+than F1/F2, but projection gain and SVD high/low-gain direction signatures
+did not replicate. A healthy-scale state-main activation inserted *after*
+the frozen state projection rescued all 46 failed models; deleting that
+state-main damaged all 26 available healthy models. This is interface
+causality, **not** proof that failed H already carries a sufficiently strong
+compatible history representation. Frozen-upstream `W_H, b_H` refit restored
+0/8 historical and 0/8 new failed models. The development-selected C1
+state-projection adaptation reached only **1/8 healthy** formal seeds, equal
+to C0, parameter-matched C4 and action-only C5.
+
+G125 passed; G126 passed with a seven-healthy-per-independent-cohort sample
+limit. G123/G124/G128/G129/G130 failed. H rotations and expanded/dynamics/
+mediation/10k branches were stopped by their prerequisites. The current
+interpretation is state formation dominating over a simple frozen-coordinate
+mismatch; neither fusion redesign nor F/M-law redesign is justified, and
+formal F→M handoff stays closed. Detailed protocol, run-level controls,
+all 40 required answers and explicit null results are in
+`docs/STAGE2D7_PROTOCOL.md` and
+`reports/STAGE2D7_EVALUATOR_COMPATIBILITY_RESULTS.md`.

@@ -1,0 +1,24 @@
+{
+  "source_checkpoints": [
+    "results/stage2d3/confirmatory_baseline/checkpoints/i9501_d12501/checkpoint_1500.pt",
+    "results/stage2d3/confirmatory_baseline/checkpoints/i9501_d12503/checkpoint_1500.pt",
+    "results/stage2d3/confirmatory_baseline/checkpoints/i9502_d12501/checkpoint_1500.pt",
+    "results/stage2d3/confirmatory_baseline/checkpoints/i9503_d12501/checkpoint_1500.pt",
+    "results/stage2d3/confirmatory_baseline/checkpoints/i9503_d12502/checkpoint_1500.pt",
+    "results/stage2d3/confirmatory_baseline/checkpoints/i9503_d12503/checkpoint_1500.pt",
+    "results/stage2d3/confirmatory_baseline/checkpoints/i9504_d12501/checkpoint_1500.pt",
+    "results/stage2d3/confirmatory_baseline/checkpoints/i9504_d12502/checkpoint_1500.pt"
+  ],
+  "logit_interaction_template": [
+    2.3860466480255127,
+    -0.879549503326416,
+    -0.9058346152305603,
+    -0.8750702142715454
+  ],
+  "healthy_state_median": 2.137565016746521,
+  "healthy_post_interaction_median": 1.9874622821807861,
+  "alignment": "target local 4-by-32 logit-interaction Jacobian adjoint; no cross-model neuron swap",
+  "cap": 1.25,
+  "intervention_fraction": 1.0,
+  "random_seed_rule": "eval_seed + 27183"
+}

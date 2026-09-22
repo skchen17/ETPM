@@ -1,0 +1,11 @@
+{
+  "run": "i9502_d12501",
+  "cohort": "historical_legacy",
+  "class": "healthy",
+  "phenotype": "healthy",
+  "D_H": 2.8193886280059814,
+  "D_S": 1.9794926643371582,
+  "G_proj": 0.7020999789237976,
+  "probe_H": 1.0,
+  "probe_M": 1.0
+}

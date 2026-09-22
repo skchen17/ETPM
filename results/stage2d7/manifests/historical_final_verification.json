@@ -1,0 +1,8 @@
+{
+  "baseline": "results/stage2d7/manifests/historical_baseline_sha256.json",
+  "count": 2764,
+  "missing": [],
+  "changed": [],
+  "extra": [],
+  "unchanged": true
+}

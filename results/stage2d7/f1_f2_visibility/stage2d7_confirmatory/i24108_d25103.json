@@ -1,0 +1,11 @@
+{
+  "run": "i24108_d25103",
+  "cohort": "stage2d7_confirmatory",
+  "class": "healthy",
+  "phenotype": "healthy",
+  "D_H": 2.610058069229126,
+  "D_S": 2.0704469680786133,
+  "G_proj": 0.7932570576667786,
+  "probe_H": 1.0,
+  "probe_M": 1.0
+}

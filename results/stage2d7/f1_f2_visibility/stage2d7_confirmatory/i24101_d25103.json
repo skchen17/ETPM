@@ -1,0 +1,11 @@
+{
+  "run": "i24101_d25103",
+  "cohort": "stage2d7_confirmatory",
+  "class": "shortcut",
+  "phenotype": "F1_state_formation",
+  "D_H": 0.45904839038848877,
+  "D_S": 0.25171107053756714,
+  "G_proj": 0.5483323335647583,
+  "probe_H": 0.6875,
+  "probe_M": 0.625
+}

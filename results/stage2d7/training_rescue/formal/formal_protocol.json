@@ -1,0 +1,48 @@
+{
+  "selection_file": "results/stage2d7/processed/frozen_development_selection.json",
+  "selected": "C1_r4_lr0.01_freeze300",
+  "control_rank": 0,
+  "configs": [
+    "C0_r4_lr0.1_freeze300",
+    "C1_r4_lr0.01_freeze300",
+    "C4_r0_lr0.1_freeze300",
+    "C5_r4_lr0.1_freeze300"
+  ],
+  "seeds": [
+    [
+      29101,
+      30101
+    ],
+    [
+      29102,
+      30102
+    ],
+    [
+      29103,
+      30103
+    ],
+    [
+      29104,
+      30104
+    ],
+    [
+      29105,
+      30105
+    ],
+    [
+      29106,
+      30106
+    ],
+    [
+      29107,
+      30107
+    ],
+    [
+      29108,
+      30108
+    ]
+  ],
+  "eval_seed": 31601,
+  "jobs": 12,
+  "objective": "original observed-only consequence CE"
+}

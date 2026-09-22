@@ -1,0 +1,220 @@
+{
+  "init_seed": 24104,
+  "data_seed": 25101,
+  "eval_seed": 26601,
+  "arm": "C0",
+  "warmup_steps": 100,
+  "pre_initial_hash": "e8b96bf833f7e8fb0cbf4f08abb8e46076cebe556789536d911865d0d54cca61",
+  "final_hash": "5b8d69a09aae434d60b8898215bd69c5eece715eb13d17128ecbab059bd9d5ca",
+  "evaluator_pretraining": {
+    "steps": 1000,
+    "oracle_evaluator_metrics": {
+      "prob": [
+        [
+          [
+            0.9999314546585083,
+            1.9968114429502748e-05,
+            2.1519348592846654e-05,
+            2.6962625270243734e-05
+          ],
+          [
+            0.00047585778520442545,
+            0.3277008831501007,
+            0.3422352373600006,
+            0.32958802580833435
+          ]
+        ],
+        [
+          [
+            0.0005556033574976027,
+            0.29370707273483276,
+            0.37629178166389465,
+            0.3294455111026764
+          ],
+          [
+            0.9997648596763611,
+            7.291424117283896e-05,
+            8.921353582991287e-05,
+            7.294156966963783e-05
+          ]
+        ]
+      ],
+      "tv_action": [
+        0.9994556903839111,
+        0.9992092847824097
+      ],
+      "tv_history": [
+        0.9993758797645569,
+        0.9992890357971191
+      ],
+      "kl_action_01": [
+        7.649142742156982,
+        8.347306251525879
+      ],
+      "kl_action_10": [
+        9.589620590209961,
+        7.491494655609131
+      ],
+      "js_action": [
+        0.6907267570495605,
+        0.6896876692771912
+      ],
+      "entropy_difference_a0_minus_a1": [
+        -1.1012195348739624,
+        1.095131754875183
+      ],
+      "p0_difference_a0_minus_a1": [
+        0.9994555711746216,
+        -0.9992092847824097
+      ],
+      "delta_q_a": 0.9994555711746216,
+      "delta_q_b": 0.9992092847824097,
+      "interaction_y0": 1.9986648559570312,
+      "interaction_vector": [
+        1.9986648559570312,
+        -0.621315062046051,
+        -0.7184162735939026,
+        -0.6589336395263672
+      ],
+      "entropy_policy": [
+        [
+          0.958764374256134,
+          0.04123567417263985
+        ],
+        [
+          0.04192884638905525,
+          0.9580711126327515
+        ]
+      ],
+      "q_policy": [
+        [
+          0.9456067681312561,
+          0.0543932244181633
+        ],
+        [
+          0.054429423063993454,
+          0.9455706477165222
+        ]
+      ],
+      "entropy_correct_mean": 0.9584177732467651,
+      "q_correct_mean": 0.9455887079238892,
+      "behavioral_separation_entropy": 0.9168355464935303,
+      "behavioral_separation_q": 0.8911773562431335
+    },
+    "transferred_head_hash": "f1191ad5881e42cb30c3075b7be73063bd46bd2044e7062ac873e2bd2ade4a7f",
+    "oracle_z_scope": "evaluator pretraining only; absent from lifetime input"
+  },
+  "evaluator_hash_unchanged": true,
+  "architecture_change": "none",
+  "memory_law_change": "none",
+  "model_inputs_added": [],
+  "correct_action_labels": false,
+  "memory_labels": false,
+  "paired_observational_scaffold": false,
+  "scaffold_generation": "two legal simulator consequence samples; simulator latent never enters model",
+  "auxiliary_exactly_zero_after_warmup": true,
+  "evaluation_scaffold": false,
+  "original_objective_fraction": 1.0,
+  "training_log": [
+    {
+      "step": 25,
+      "CE": 1.3058961629867554,
+      "pair_CE": 0.0,
+      "objective": 1.3154836893081665,
+      "auxiliary_weight": 0.0,
+      "H_norm": 28.818763732910156,
+      "F_norm": 0.8088414072990417,
+      "M_norm": 0.9045706987380981,
+      "elapsed_s": 21.409393057227135
+    },
+    {
+      "step": 50,
+      "CE": 1.2597078084945679,
+      "pair_CE": 0.0,
+      "objective": 1.2888988256454468,
+      "auxiliary_weight": 0.0,
+      "H_norm": 51.831634521484375,
+      "F_norm": 0.7031039595603943,
+      "M_norm": 1.2702655792236328,
+      "elapsed_s": 43.3354522511363
+    },
+    {
+      "step": 100,
+      "CE": 1.27118718624115,
+      "pair_CE": 0.0,
+      "objective": 1.2759008407592773,
+      "auxiliary_weight": 0.0,
+      "H_norm": 19.3494930267334,
+      "F_norm": 0.8837268352508545,
+      "M_norm": 0.6814663410186768,
+      "elapsed_s": 87.33616677485406
+    },
+    {
+      "step": 200,
+      "CE": 1.256317138671875,
+      "pair_CE": 0.0,
+      "objective": 1.2607392072677612,
+      "auxiliary_weight": 0.0,
+      "H_norm": 17.116718292236328,
+      "F_norm": 0.8637365102767944,
+      "M_norm": 0.5906922221183777,
+      "elapsed_s": 174.407488996163
+    },
+    {
+      "step": 300,
+      "CE": 1.252332329750061,
+      "pair_CE": 0.0,
+      "objective": 1.256116271018982,
+      "auxiliary_weight": 0.0,
+      "H_norm": 18.64527702331543,
+      "F_norm": 0.724467396736145,
+      "M_norm": 1.0940080881118774,
+      "elapsed_s": 262.6605093162507
+    },
+    {
+      "step": 500,
+      "CE": 1.2481403350830078,
+      "pair_CE": 0.0,
+      "objective": 1.254953384399414,
+      "auxiliary_weight": 0.0,
+      "H_norm": 24.086225509643555,
+      "F_norm": 0.7366942167282104,
+      "M_norm": 0.7840480804443359,
+      "elapsed_s": 437.2196018435061
+    },
+    {
+      "step": 750,
+      "CE": 1.2415971755981445,
+      "pair_CE": 0.0,
+      "objective": 1.2431368827819824,
+      "auxiliary_weight": 0.0,
+      "H_norm": 11.197197914123535,
+      "F_norm": 0.572419285774231,
+      "M_norm": 1.3255326747894287,
+      "elapsed_s": 656.8830150999129
+    },
+    {
+      "step": 1000,
+      "CE": 1.2383785247802734,
+      "pair_CE": 0.0,
+      "objective": 1.2389410734176636,
+      "auxiliary_weight": 0.0,
+      "H_norm": 5.056124210357666,
+      "F_norm": 0.733406662940979,
+      "M_norm": 0.9171216487884521,
+      "elapsed_s": 875.4609001129866
+    },
+    {
+      "step": 1500,
+      "CE": 1.2760241031646729,
+      "pair_CE": 0.0,
+      "objective": 1.2761095762252808,
+      "auxiliary_weight": 0.0,
+      "H_norm": 1.5000137090682983,
+      "F_norm": 0.2567802965641022,
+      "M_norm": 1.4106143712997437,
+      "elapsed_s": 1323.9694629497826
+    }
+  ],
+  "elapsed_s": 1323.9699554536492
+}
