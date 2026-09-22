@@ -10,9 +10,12 @@ from pathlib import Path
 
 
 def selected(path):
+    parts = Path(path).parts
+    if any(part.startswith("stage2d7") for part in parts):
+        return False
     return any(part.startswith("stage2c") or
                (part.startswith("stage2d") and not part.startswith("stage2d7"))
-               for part in Path(path).parts)
+               for part in parts)
 
 
 def snapshot():
